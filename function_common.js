@@ -1112,14 +1112,18 @@ const check_hour_all_destiny = () => {
 	}
 }
 
-//Funcion seleccionar todos los checkbox
-function seleccionar_todo_checkbox(){
+/**
+ * Funcion para seleccionar todo los checkbox del form evaluacion fatiga
+ *
+ * @param none
+ * @return activa todo los checkbox
+ */
+const select_all_checkbox = ()=> {
 	for (i=0;i<document.f_evaluacion.elements.length;i++){
 		if(document.f_evaluacion.elements[i].type == "checkbox")
 			document.f_evaluacion.elements[i].checked=1;
 	}
 
-	//Mostrar los contenedores de otro sintoma y de las 2 alteraciones cuando se activa todas las casillas
 	document.getElementById('contenedor_o_sintoma').style.display='block';
 	document.getElementById('contenedor_alteracines_emocionales').style.display='block';
 	document.getElementById('contenedor_alteraciones_neurologicas').style.display='block';
@@ -1347,40 +1351,34 @@ const get_distance_time = () => {
 	}
 }
 
-//Horas permitidas para el campo tiempo de sueño en el menu interrogatorio
-function horas_permitidas_sueño() {
+/**
+ * Funcion para verificar que las horas de descanso no pase de 24 horas
+ *
+ * @param none
+ * @return un mensaje de error cuando se pasa de 24 horas
+ */
+const check_hour_break = () => {
 	traer_hora_sueño = parseInt(document.getElementById("sueño_efectivo_previo").value);
+
 	if(traer_hora_sueño == 0) {
-		alert("Tiene que ingresar una hora correcta , por favor vuelva a llenar el campo de Tiempo de sueño");
-		window.location="Evaluacion.php";
+		alert_dinamic_check_validator("Tiene que ingresar una hora correcta , por favor vuelva a llenar el campo de Tiempo de sueño", "evaluacion.php");
 	}else if(traer_hora_sueño >= 24) {
-		alert("La hora ingresada de Tiempo de Sueño no pueden ser igual o superior a 24 Horas");
-		window.location="Evaluacion.php";
+		alert_dinamic_check_validator("La hora ingresada de Tiempo de Sueño no pueden ser superior a 24 Horas", "Evaluacion.php");
 	}
-	return horas_permitidas_dos_campos();
+	return check_hour_all_break();
 }
 
-//Horas permitidas para el campo tiempo de descanso en el menu interrogatorio
-function horas_permitidas_descanso() {
-	traer_hora_descanso = parseInt(document.getElementById("tiempo_descanso").value);
-	if(traer_hora_descanso == 0) {
-		alert("Tiene que ingresar una hora correcta , por favor vuelva a llenar el campo de horas descanso");
-		window.location="Evaluacion.php";
-	}else if(traer_hora_descanso >= 24) {
-		alert("La hora ingresada de Tiempo de Descanso no pueden ser igual o superior a 24 Horas");
-		window.location = "Evaluacion.php";
-	}
-	return horas_permitidas_dos_campos();
-}
+/**
+ * Funcion para verificar el campo tiempo de descanso y tiempo de sueño
+ *
+ * @param none
+ * @return un mensaje de error cuando se pasa de 24 horas
+ */
+const check_hour_all_break = () => {
+	let traer_hora_descanso = parseInt(document.getElementById("tiempo_descanso").value);
+	let suma_horas_permitidas = traer_hora_sueño + traer_hora_descanso;
 
-//esta funcion es la suma del campo de sueño y tiempo de descanso en el menu interrogarotio para hacer la evaluacion de fatiga
-function horas_permitidas_dos_campos() {
-	var suma_horas_permitidas = traer_hora_sueño + traer_hora_descanso;
-
-	if(suma_horas_permitidas >= 24) {
-		alert("La hora ingresada en el campo Tiempo Sueño y tiempo descanso supera las 24 horas que tiene el dia por defecto , pro favor verificar la informacion antes de ingresarla");
-		window.location = "Evaluacion.php";
-	}
+	(suma_horas_permitidas >= 24) ? alert_dinamic_check_validator("La hora ingresada en el campo Tiempo Sueño y tiempo descanso supera las 24 horas que tiene el dia.", "Evaluacion.php") : "";
 }
 
 /**
@@ -2148,46 +2146,6 @@ const check_username = (username,menu) =>{
 const check_password = (password,menu) => {
 	$("#container_check_password").load("library/verificar_duplicidad/verificar_password.php",{pass:password,desde_form:menu});
 }
-
-//Esta funcion es para activar el boton de envio siempre y cuando las el formulario no se envie vacio a la bd
-/*function verificar_estado(boton) {
-	//Capturar los valores en el menu interrogarotio y haciendo asignaciones para hacer los condicionales
-	var id_ruta = document.getElementById('ruta').value;
-	var hora_descanso = document.getElementById('hora_descanso').value;
-	var conduciendo = document.getElementById('hora_conduciendo').value;
-	var sueño_efectivo = document.getElementById('sueño_efectivo_previo').value;
-	var tiempo_descanso = document.getElementById('tiempo_descanso').value;
-	var sueño_profundo_manilla = document.getElementById('sueño_profundo').value;
-
-	//Comparaciones de cada opcion de todos los menus
-	if(id_ruta != 0) {
-		if(hora_descanso != 0) {
-			if(conduciendo != 0) {
-				if(sueño_efectivo != ""){
-					if(tiempo_descanso != "") {
-						boton.disabled=false;
-						if(sueño_profundo_manilla != "") {
-							//Aqui no esta cogiendo este menu porque  la variable se encuentra indefinida
-							boton.disabled=false;
-						}else{
-							boton.disabled=true;
-						}
-					}else{
-						boton.disabled=true;
-					}
-				}else {
-					boton.disabled=true;
-				}
-			}else{
-				boton.disabled=true;
-			}
-		}else{
-			boton.disabled=true;
-		}
-	}else{
-		boton.disabled=true;
-	}
-}*/
 
 //Codigo Que falta por Procesar
 

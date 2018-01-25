@@ -20,17 +20,15 @@
 	?>
 
 	<?php
-		/*
-			<input type='checkbox' name='alteraciones_emocionales[]' id="21" value="prisa">
-			<label for="21">Prisa</label>
-		*/
+		/*include "library/checkbox dinamicos/checkbox_sintomas.php";
+
 		$vector = ["mensaje1", "mensaje2", "mensaje3", "mensaje4"];
 		foreach ($vector as $row => $value) {
 			echo "<input type='checkbox' name='alteraciones_emocionales[]' id='$row' value='$row'>";
 			echo "<label for='$row'>$value</label>";
-			/*echo "El valor del vector es = $value y su posicion es $row"."<br>";*/
-			/*echo "<input type='checkbox' value='$row'> $value";*/
-		}
+			echo "El valor del vector es = $value y su posicion es $row"."<br>";
+			echo "<input type='checkbox' value='$row'> $value";
+		}*/
 
 	?>
 
@@ -46,7 +44,7 @@
 		<!--Contenedor donde se encuentran todos los menus-->
 		<div class='panel-group container col-md-8' role='tablist' aria-multiselectable='true'>
 
-			<!--Contenedor de Informacion General-->
+			<!--CONTENEDOR DE INFORMACION GENERAL-->
 			<div class='panel panel-info text-center'>
 				<div class='panel-heading' role='tab' id='headingOne'>
 					<h4 class='panel-title'>
@@ -106,7 +104,7 @@
 				</div>
 			</div>
 
-			<!--Contenedor Menu Interrogatorio-->
+			<!--CONTENEDOR MENU INTERROGATORIO-->
 			<div class='panel panel-warning text-center'>
 				<div class='panel-heading' role='tab' id='headingTwo'>
 					<h4 class='panel-title'>
@@ -190,7 +188,7 @@
 									<div id="contenedor_o_actividad" class="hide_container">
 										<div class=' col-md-12'>
 											<label>Cuantas Horas </label><br>
-											<select name="otra_actividad" class="l_tiempo" id="otra_actividad" onclick="check_hour_all_destiny();">
+											<select name="otra_actividad" class="l_tiempo" id="otra_actividad" onclick="check_hour_all_destiny()">
 												<?php
 												for ($i=0; $i < 13; $i++) {
 													echo "<option value='$i'> $i </option>";
@@ -201,7 +199,7 @@
 
 										<div class=' col-md-12'>
 											<label>Cuales Actividades?</label><br>
-											<textarea name="cual_actividad" cols="90" rows="5" class="borde_textarea" placeholder="Ingresar cuales fueron las otras Actividades" onkeypress='return onlyWords(event)'></textarea>
+											<textarea name="cual_actividad" cols="90" rows="5" class="borde_textarea" id="other_activity" placeholder="Ingresar cuales fueron las otras Actividades" onkeypress='return onlyWords(event)' onchange="style_border_input('other_activity','verde')"></textarea>
 										</div>
 									</div>
 								</div>
@@ -213,13 +211,13 @@
 								<div class='col-md-6'>
 									<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_sueño" data-toggle="tooltip" data-placement="left" title="Tiempo de sueño consiste en las horas que a dormido en la casa"><span class="fa fa-info"></span></button>
 									<label class="input_obligatory">*</label> <label>Tiempo de Sueño Efectivo </label>
-									<input type='text' name='sueño_efectivo_previo' class="form-control" id="sueño_efectivo_previo" placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="horas_permitidas_sueño();" onKeyup="verificar_estado(this.form.enviar_evaluacion)" required><br>
+									<input type='text' name='sueño_efectivo_previo' class="form-control" id="sueño_efectivo_previo" placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('sueño_efectivo_previo','verde')" required><br>
 								</div><br>
 
 								<div class='col-md-6'>
 									<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_descanso" data-toggle="tooltip" data-placement="left" title="Tiempo descanso es durante su jornada laboral Ejemplo = Alistamiento del vehiculo , almorzando ,comprando la tasa de uso "><span class="fa fa-info"></span></button>
 									<label class="input_obligatory">*</label> <label>Tiempo de Descanso </label>
-									<input type='text' name='tiempo_descanso'  class="form-control" id='tiempo_descanso' placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="horas_permitidas_descanso();" onKeyup="verificar_estado(this.form.enviar_evaluacion)" required><br>
+									<input type='text' name='tiempo_descanso'  class="form-control" id='tiempo_descanso' placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('tiempo_descanso','verde')" required><br>
 								</div><br>
 
 								<div class='col-md-12'>
@@ -228,18 +226,18 @@
 
 								<div class='col-md-6'>
 									<label>Acompañante </label>
-									<input type='text' name='copiloto' class="form-control" placeholder="Nombre Copiloto" onkeypress="return onlyWords(event)">
+									<input type='text' name='copiloto' id="copiloto" class="form-control" placeholder="Nombre Copiloto" onkeypress="return onlyWords(event)" onchange="style_border_input('copiloto','verde')">
 								</div><br>
 
 								<div class='col-md-6'>
 									<label>Origen del Acompañante </label>
-									<input type='text' name='origen_copiloto' class="form-control" onkeypress="return onlyWords(event)">
+									<input type='text' name='origen_copiloto' id="origen_copiloto" class="form-control" onkeypress="return onlyWords(event)" onchange="style_border_input('origen_copiloto','verde')">
 								</div><br>
 					</div>
 				</div>
 			</div>
 
-			<!--Contenedor Menu Sintomas Fatiga-->
+			<!--CONTENEDOR MENU SINTOMAS FATIGA-->
 			<div class='panel panel-warning text-center'>
 				<div class='panel-heading' role='tab' id='headingThree'>
 					<h4 class='panel-title'>
@@ -253,10 +251,13 @@
 					<div class='panel-body text-center style_check_sintomas'>
 						<button type="button" class="btn btn-md btn-primary" id="ayuda_sintoma" data-toggle="tooltip" data-placement="right" title="Los sintomas de fatiga es lo que el conductor dice que siente en el momento de hacer la evaluacion de fatiga"><span class="fa fa-info"></span></button>
 						<h4>Seleccion Multiple</h4>
-						<a class="btn btn-success" onclick="seleccionar_todo_checkbox()"> <span class="fa fa-check-square"></span> Marcar Todos</a>
+						<a class="btn btn-success" onclick="select_all_checkbox()"> <span class="fa fa-check-square"></span> Marcar Todos</a>
 						<a class="btn btn-warning" onclick="desmarcar_todo_checkbox()"><span class="fa fa-minus-square"></span> Desmarcar Todos</a>
 						<hr>
-						<input type='checkbox' name="sintomas[]" id="1" value="sed">
+						<?php
+							include "library/checkbox dinamicos/checkbox_sintomas.php";
+						?>
+						<!-- <input type='checkbox' name="sintomas[]" id="1" value="sed">
 						<label for="1">Sed</label>
 						<input type='checkbox' name="sintomas[]" id="2" value="hambre">
 						<label for="2">Hambre</label>
@@ -291,7 +292,7 @@
 						<input type='checkbox' name="sintomas[]" id="17" value="sudoracion">
 						<label for="17">Sudoracion</label>
 						<input type='checkbox' name="sintomas[]" id="18" value="depresion">
-						<label for="18">Depresion</label>
+						<label for="18">Depresion</label> -->
 						<input type="checkbox" name="sintomas[]" id="otro_sintoma" value="otro_sintoma" onclick="mostrar_otros_sintomas();">
 						<label for="otro_sintoma">Otro Sintoma</label>
 
@@ -302,7 +303,7 @@
 				</div>
 			</div>
 
-			<!--Contenedor Menu signos Fatiga-->
+			<!--CONTENEDOR MENU SIGNOS FATIGA-->
 			<div class='panel panel-warning text-center'>
 				<div class='panel-heading' role='tab' id='headingThree'>
 					<h4 class='panel-title'>
@@ -364,7 +365,7 @@
 				</div>
 			</div>
 
-			<!--Contenedor Menu Alteraciones Emocionales-->
+			<!--CONTENEDOR MENU ALTERACIONES EMOCIONALES-->
 			<div class='panel panel-warning text-center'>
 				<div class='panel-heading' role='tab' id='headingThree'>
 					<h4 class='panel-title'>
@@ -405,7 +406,7 @@
 				</div>
 			</div>
 
-			<!--Contenedor Menu Alteraciones Neurologicas-->
+			<!--CONTENEDOR MENU ALTERACIONES NEUROLOGICAS-->
 			<div class='panel panel-warning text-center'>
 				<div class='panel-heading' role='tab' id='headingThree'>
 					<h4 class='panel-title'>
