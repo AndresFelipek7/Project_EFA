@@ -1,0 +1,34 @@
+/*Esilos Generales para las etiquetas de HTML5*/
+body {
+	font-family: "Times New Roman", serif;
+	margin: 45mm 8mm 2mm 8mm;
+}
+
+table {
+	text-align: center;
+	border:1px solid gray;
+}
+
+th , td {
+	border-bottom: 1px solid gray;
+	border-right: 1px solid gray;
+}
+
+/*Comeinzo de los estilos de las clases*/
+
+.titulo{
+	text-align: center;
+	font-size: 30px;
+	color: #F88C34;
+}
+
+.foto_conductor {
+	border:1px dotted black;
+}
+
+/*Comienzo de los estilos de los ID del proyecto*/
+
+#logo_empresa {
+	position: fixed;
+}
+

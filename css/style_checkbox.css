@@ -1,0 +1,91 @@
+.contenedor_otra_actividad  {
+	margin-top: 10px;
+}
+
+.style_check_sintomas input[type="checkbox"] ,
+.style_check_emocional input[type="checkbox"] ,
+.style_check_neurologico input[type="checkbox"] ,
+.contenedor_otra_actividad input[type="checkbox"] ,
+.content_enabled_disabled_check_hour input[type="checkbox"] ,
+.content_enabled_disabled_check_minute input[type="checkbox"] ,
+.contenedor_habeas input[type="checkbox"] {
+	display: none;
+}
+
+.style_check_sintomas label ,
+.style_check_emocional label ,
+.style_check_neurologico label ,
+.contenedor_otra_actividad label ,
+.content_enabled_disabled_check_hour label ,
+.content_enabled_disabled_check_minute label ,
+.contenedor_habeas label {
+	color: brown;
+	padding: 5px 15px 5px 51px;
+	display: inline-block;
+	position: relative;
+	font-size: 1em;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.style_check_sintomas label:hover ,
+.style_check_emocional label:hover ,
+.style_check_neurologico label:hover ,
+.contenedor_otra_actividad label:hover ,
+.content_enabled_disabled_check_hour label:hover,
+.content_enabled_disabled_check_minute label:hover,
+.contenedor_habeas label:hover {
+	background: rgba(0,116,217,0.1);
+}
+
+.style_check_sintomas label:before ,
+.style_check_emocional label:before ,
+.style_check_neurologico label:before ,
+.contenedor_otra_actividad label:before ,
+.content_enabled_disabled_check_hour label:before,
+.content_enabled_disabled_check_minute label:before,
+.contenedor_habeas label:before  {
+	content: "";
+	width: 17px;
+	height: 17px;
+	display: inline-block;
+	background: none;
+	border:3px solid #0074d9;
+	border-radius: 50%;
+	position: absolute;
+	left: 17px;
+}
+
+.style_check_sintomas label:before ,
+.style_check_emocional label:before ,
+.style_check_neurologico label:before ,
+.contenedor_otra_actividad label:before ,
+.content_enabled_disabled_check_hour label:before ,
+.content_enabled_disabled_check_minute label:before ,
+.contenedor_habeas label:before {
+	border-radius: 3px;
+}
+
+.style_check_sintomas input[type="checkbox"]:checked + label ,
+.style_check_emocional input[type="checkbox"]:checked + label ,
+.style_check_neurologico input[type="checkbox"]:checked + label ,
+.contenedor_otra_actividad input[type="checkbox"]:checked + label ,
+.content_enabled_disabled_check_hour input[type="checkbox"]:checked + label ,
+.content_enabled_disabled_check_minute input[type="checkbox"]:checked + label ,
+.contenedor_habeas input[type="checkbox"]:checked + label{
+	padding: 5px 15px;
+	background: #0074d9;
+	border-radius: 2px;
+	color: #fff;
+}
+
+.style_check_sintomas input[type="checkbox"]:checked + label:before ,
+.style_check_emocional input[type="checkbox"]:checked + label:before ,
+.style_check_neurologico input[type="checkbox"]:checked + label:before ,
+.contenedor_otra_actividad input[type="checkbox"]:checked + label:before ,
+.content_enabled_disabled_check_hour input[type="checkbox"]:checked + label:before ,
+.content_enabled_disabled_check_minute input[type="checkbox"]:checked + label:before ,
+.contenedor_habeas input[type="checkbox"]:checked + label:before{
+	display: none;
+}

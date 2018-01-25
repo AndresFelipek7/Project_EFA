@@ -1,0 +1,539 @@
+/**********************************************************************************/
+/*****************COMIENZO DE LOS ESTILOS POR CADA ETIQUETA DEL PROYECTO***********/
+/**********************************************************************************/
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+/*Estilos generales para todos los elementos que esten en el cuerpo de la pagina*/
+body {
+	font-family: Letra;
+	background-color: #5CD3B9;
+	margin: 80px 0 65px;
+}
+
+/*Estilo para los titulos para que aparezcan las lienas a los lados*/
+	h2 {
+		display:inline-block;
+		position: relative;
+		font-size: 35px;
+	}
+
+	h2::after,h2::before {
+		content:'';
+		position: absolute;
+		width: 120px;
+		height: 3px;
+		background-color: currentColor;
+		top:0.6em;
+	}
+
+	h2::before {
+		left:-140px;
+	}
+
+	h2::after {
+		right:-140px;
+	}
+/*************************/
+
+/*Estilos para la etiqueta p , esta etiqueta se utiliza principalmente en las funciones del evaluador y administrador*/
+p {
+	color: #777;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-weight: 300
+}
+
+/*Estilos para los menus donde se encuentre una lista li cdentro de ella estan los elementos ul*/
+input{
+	text-align: center;
+	font-size: 15px;
+}
+
+/*Estilos para los submenus dentro de li en los menus de las cabezeras en todos los menus del proyecto*/
+ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+/*Estilos para la etiqueta hr principalmente en el rol evaluador donde se realiza la evaluacion*/
+hr {
+	border: 2px dashed #A76A6A;
+}
+
+/*Espacios entre los menus , un margen abajo de 5 px para que no se vea los elementos del menu unidos*/
+ul li {
+	margin-bottom: 5px;
+}
+
+/*No poder modificar el tamaño de los textarea*/
+textarea {
+	resize: none;
+}
+
+/*Estilos generales para el pie de pagina*/
+footer {
+	/*padding: 10px 0;
+	background-color: #413B3B;
+	margin-top: 65px;*/
+	width: 100%;
+	background-color: #413B3B;
+	bottom: 0;
+	position: absolute;
+	height: 65px;
+}
+
+/*Estilos a la etiqueta h3 dentro del pie de pagina*/
+footer h3 {
+	margin-top: 30px;
+	color: white;
+	font-size: 16px;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+}
+
+/*Estilos para el fondo de todas las tablas en todo el proyecto*/
+table {
+	background-color: #F9E0C8;
+}
+
+/********************************************************************************/
+/**********************COMIENZO DE TODAS LAS CLASES DE LA PAGINA******************/
+/*********************************************************************************/
+
+/*Par la clase estilo_panel_login damos estilos al panel del login*/
+.estilo_panel_login {
+	width: 50%;
+	margin-top: 100px;
+}
+
+/*Estilos para los calendarios con el plugin datepicker*/
+.ui-widget {
+	font-size: 1.5em;
+	font-style: italic;
+}
+
+/*Clase para el contenedor de la informacion del conductor en el archivo registro_evaluacion.php*/
+.contenedor_info_conductor {
+	width: 80%;
+	margin-top: 100px;
+	margin-left: 200px;
+	text-align: center;
+}
+
+/*Damos estilos al panel donde se va ha ingresar la recomendacion de sintomas,signos,Alteraciones Emocionales y alteraciones Neurologicas*/
+.contenedor_ingresar_sugerencia {
+	width: 50%;
+	height: 50%;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 10%;
+	margin-top: 10%;
+}
+
+/*Estilos para la clase jombotron que se encuentra en el rol admin en el archivo main_admin.php*/
+.jumbotron {
+	background-color: rgba(255,255,255,.4);
+}
+
+/*Clase para dar estilos a los input que la tengan en el rol admin*/
+.form-control{
+	border-radius: 50px;
+	width: 50%;
+	padding-left: 10px;
+}
+
+.input-sugerencia {
+	border-radius: 50px;
+	width: 50%;
+	margin:auto;
+}
+
+/*Clase para aumentar el tañao de los botones que se encuentran en el rol admin debajo del cajon de busqueda en todos los menus*/
+.tamaño-botones-general {
+	font-size:20px;
+}
+
+.input_obligatory {
+	color:red;
+}
+
+
+.hide_container {
+	display:none;
+}
+
+/*Clase para colocar un icono dentro de un input*/
+.colocar-icono {
+	/*Colocar el icno dentro de la caja de texto*/
+	background: url("../images/Input/buscar2.png") no-repeat center;
+	/*Corres el icno 10 px a la derecha para posicionarlo*/
+	background-position: 510px;
+	color: gray;
+	background-color: white;
+}
+
+.center_menu_alteraciones{
+	margin-left:50px;
+}
+
+/*Clase para colocar el icono al input de la contraseña*/
+.colocar-icono-contrasena {
+	/*Colocar el icno dentro de la caja de texto*/
+	background: url("../images/Input/contraseña.png") no-repeat center;
+	/*Corres el icno 10 px a la derecha para posicionarlo*/
+	background-position: 10px;
+	color: gray;
+}
+
+/*Clase para ocultar el boton de limpiar el contenido de las cajas de texto del nombre ya apellido en el  rol admin*/
+.hide_button {
+	display: none;
+}
+
+.colocar-icono-usuario {
+	/*Colocar el icno dentro de la caja de texto*/
+	background: url("../images/Input/user.png") no-repeat center;
+	/*Corres el icno 10 px a la derecha para posicionarlo*/
+	background-position: 280px;
+	color: gray;
+}
+
+/*Estilos para las fotos de los conductores en el menu evaluacion fatiga del rol admin*/
+.foto_conductor {
+	margin-right: 10px;
+	margin-left: 350px;
+	border:5px solid white;
+	float:left;
+	box-shadow: 0px 10px 15px rgba(0,0,0,0.4);
+}
+
+/*Estilos para las fotos de los evaluadores en el menu evaluacion fatiga del rol admin*/
+.foto_evaluador {
+	margin-right: 10px;
+	border:5px solid white;
+	float:left;
+	box-shadow: 0px 10px 15px rgba(0,0,0,0.4);
+}
+
+/*Estilos para el menu de inicio del rol admin*/
+.foto_admin {
+	margin-right: 10px;
+	border:5px solid white;
+	float:left;
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 0px 10px 15px rgba(0,0,0,0.4);
+}
+
+.size_image_carrusel {
+	width: 1000px;
+	height: 900px;
+	display: block;
+	margin:auto;
+}
+
+.width_select_sugerencia {
+	width: 30%;
+}
+
+/*La clase foto_generica son los estilos del rol admin en los menus evaluadores,conductores y administradores en la opcion de ver el registro completo donde aparece la foto*/
+.foto_generica {
+	margin:auto;
+	border:5px solid white;
+	box-shadow: 0px 10px 15px rgba(0,0,0,0.4);
+
+}
+
+/*Estilos para el contenedor de la info del conductor en el menu evaluacion fatiga , opcion ver registro completo en el rol admin*/
+.info_conductor {
+	border:1px solid #A76A6A;
+	width:30%;
+	text-align: center;
+	margin-left: 470px;
+	margin-top: -130px;
+}
+
+.center {
+	margin-top: 100px;
+}
+
+/*Estilos para el contenedor de la info del evaluador en el rol admin , menu evaluacion fatiga opcion ver mas y ver registro completo*/
+.info_evaluador {
+	border:1px solid #A76A6A;
+	width:30%;
+	text-align: center;
+	margin-left: 150px;
+	margin-top: 30px;
+}
+
+.photo_fit {
+	width: 300px;
+	height: 500px;
+}
+
+.container_habeas_data {
+	color:black;
+	border:1px solid black;
+}
+
+.logo_app {
+	width: 70px;
+	height: 70px;
+}
+
+/*Estilos para la opcion de editar en el menu evaluadores del rol admin*/
+.editar_evaluador {
+	margin-left: 200px;
+	margin-top:-20px;
+	width: 150px;
+	height: 150px;
+}
+
+.borde {
+	border:1px solid black;
+	border-radius: 10px 10px 10px 10px;
+	padding: 5px 5px;
+}
+
+/*Estilos para los totales del menu de evaluacion fatiga en el rol admin*/
+.redondear_caja {
+	width: 30%;
+	border-radius: 50px 50px;
+}
+
+/*Estilos para los submenus del menu evaluacion admin*/
+.ancho_submenu {
+	width: 30%;
+}
+
+/*Estilos para el input de la fecha de la evaluacion*/
+.ancho_fecha_evaluacion {
+	width: 40%;
+}
+
+/*Estilo para poder alinear un total del menu rutas*/
+.alinear_total_derecha {
+	margin-left: 730px;
+}
+
+/*Estilos para el menu de tipo deocumento del rol admin*/
+.alinear_tipo_documento {
+	margin-left: 700px;
+}
+
+/*Estilos para oculatr el boton de hacer el reporte de evaluadores inactivos modulo evaluador*/
+.hide-container {
+	display: none;
+}
+
+/*Estilo para que se puede ver los textarea del rol admin*/
+.borde_textarea {
+	border:1px solid black;
+}
+
+/*estilos para alinear el total del menu alteracion emocional*/
+.alinear_a_emocional {
+	margin-left: 640px;
+}
+
+/*Estilos para el formulario del menu sugerencias en el rol admin*/
+.tamaño_form {
+	width: 50%;
+}
+
+/*Estilo para un conjunto de campos en la opcion de registro completo en el menu de evaluacion fatiga rol admin*/
+.orden_reposo {
+	color:red;
+	font-size: 16px;
+}
+
+/*Estilo para los laber de los campos opcionales cuando se registra en la bd*/
+.campos_opcionales {
+	color:red;
+}
+
+/*Estilo para poder centrar en boton de descargar todos los evaluadores , conductores o administradores inactivos*/
+.center-a {
+	margin:0 auto;
+}
+
+/*Estilospara ocultar el boton de ocultar el contenedor de activacion en los menus evaluadores , conductores y administradores*/
+.center-a-hidden {
+	margin:0 auto;
+}
+
+/*Estilos al contenedor de activacion de evaluadores , conductores y administradores*/
+.border_outside {
+	border:1px solid black;
+	width:60%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+/*Estilos para todos las listas desplejables para que se pueden leer de forma correcta*/
+
+.l_empresa,
+.l_destino,
+.l_marca_vehiculo,
+.l_Rutas {
+	width: 300px;
+}
+
+.l_vehiculo {
+	width: 100px;
+}
+
+.l_tiempo {
+	width: 50px;
+}
+
+.l_signo,
+.l_reposo,
+.estado,
+.l_documento {
+	width: 200px;
+}
+
+.l_rol,
+.l_sexo {
+	width: 150px;
+}
+
+.l_tiempo  {
+	width: 200px;
+}
+
+/*---------------------------------------------------------------------------------*/
+
+/*Clase para dar tamaño y ubicacion de los modales de editar donde nos dice que registro en cuestion estamos editando*/
+.cabecera_registro_modal {
+	font-size: 20px;
+	margin-top:50px;
+}
+
+/*Clase para color borde circular a la caja de texto del modal de activos e inactivos y del reporte de genero en el rol admin*/
+.redondear {
+	width: 20%;
+	border-radius: 10px 10px 10px 10px;
+}
+
+/*Clase para la foro de los modales de registro completo como evaluadores , conductores y administradores*/
+.foto_registro_completo {
+	width: 200px;
+	height: 200px;
+	border:5px solid white;
+	box-shadow: 0px 10px 15px rgba(0,0,0,0.4);
+}
+
+/*Clase para dar mas tamaño a la letra de el modal de registro completo*/
+.more_size {
+	font-size: 15px;
+}
+
+/*Estilo para un mensaje que le aparece solo al evaluador de que antes de hacer la evaluacion de fatiga debe de verificar la info del conductor que este actualizada y correcta*/
+.mensaje_actualiza_info_conductor {
+	color:brown;
+}
+
+/*Estilos para el textarea de las anotaciones importantes del admin*/
+.anotaciones_admin {
+	border:2px solid black;
+	background-color: #F4F595;
+	font-size: 20px;
+}
+
+/*Estilo para el input y el laber del rol evaluador donde se muestra el total de conductores activos*/
+.alinear_total_conductores {
+	margin-left: 710px;
+}
+
+/***********************************************************************************/
+/*********************+COMIENZO DE TODO LOS IDS DEL PROYECTO************************/
+/***********************************************************************************/
+
+/*Clases para el id main-header que le da estilos al encabezado principal del menu desplejable en el rol admin*/
+#main-header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: #fff;
+	z-index: 99;
+	background-color: rgb(255,255,255);
+	background-color: rgba(255,255,255,0.95);
+	-moz-box-shadow: 0 1px #999;
+	-webkit-box-shadow: 0 1px #999;
+	box-shadow: 0 1px #999;
+}
+
+/*Estilos para el logo o donde dice evaluacion de fatiga*/
+#main-logo {
+	width: 100%;
+	height: 80px;
+	padding: 2px 0 0 20px;
+	margin:0;
+}
+
+/*Estilos para el id main-logo y dentro de el las etiquetas a*/
+#main-logo > a {
+	font-size: 25px;
+	font-size: 2.5rem;
+	color: #413B3B;
+	text-decoration: none;
+}
+
+/*Estilos para los menus en la parte derecha*/
+#main-menu {
+	float: right;
+	margin-top: 30px;
+}
+
+/*Estilos para el menu de la parte derecha dandole color a las etiquetas a*/
+#main-menu a {
+	color: #413B3B;
+}
+
+/*Estilos para que cuando pase el cursor en las etiquetas a que son los menus , cambie de color*/
+#main-menu a:hover {
+	color: #777DF8;
+}
+
+/*Sobreescribimos los estilos CSS*/
+#main-menu.nav-pills>li.active>a,
+#main-menu.nav-pills>li.active>a:hover,
+#main-menu.nav-pills>li.active>a:focus,
+#main-menu.nav-pills>li.active>a:hover {
+	background: none;
+}
+
+/*Sobreescribimos los estilos CSS*/
+/*Le damos el color de la letra al menu que se encuentre activo en el momento*/
+#main-menu.nav-pills>li.active>a,
+#main-menu.nav-pills>li.active>a:hover,
+#main-menu.nav-pills>li.active>a:focus {
+	color: #777DF8;
+}
+
+/*Sobreescribimos los estilos CSS*/
+#main-menu.nav .open>a,
+#main-menu.nav .open>a:hover,
+#main-menu.nav .open>a:focus {
+	background: none;
+}
+
+/*Estilos para el id extensiones_permitidas cuando se carga la foto del evaluador en el menu evaluadores del rol admin*/
+#extensiones_permitidas {
+	width: 50%;
+	margin-right: -400px;
+}
+
+/*------------------------------------------------------------*/
+
+.sizeImage{
+	width: 20%;
+	height: 20%;
+}
