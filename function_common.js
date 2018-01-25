@@ -1055,17 +1055,18 @@ const check_name_neurologico = () => {
 	$("#container_name_neurologico").load("library/verificar_duplicidad/verificar_neurologico.php",{valor_neurologico:traer_Nombre_neurologico});
 }
 
-//Funcion mostrar otros sintomas
-function mostrar_otros_sintomas() {
-	//Si la opcion con id Conocido_1 (dentro del documento > formulario con name fcontacto >     y a la vez dentro del array de Conocido) esta activada
+/**
+ * Funcion para mostrar el contenedor de otro sintoma
+ *
+ * @param none
+ * @return muestra un contenedor
+ */
+const show_other_sintomas = () => {
 	if (document.f_evaluacion.otro_sintoma.checked == true) {
-	//muestra (cambiando la propiedad display del estilo) el div con id 'desdeotro'
-	document.getElementById('contenedor_o_sintoma').style.display='block';
-	//por el contrario, si no esta seleccionada
-} else {
-	//oculta el div con id 'desdeotro'
-	document.getElementById('contenedor_o_sintoma').style.display='none';
-}
+		document.getElementById('contenedor_o_sintoma').style.display='block';
+	} else {
+		document.getElementById('contenedor_o_sintoma').style.display='none';
+	}
 }
 
 //Funcion mostrar otras alteraciones emocionales

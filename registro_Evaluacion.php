@@ -81,20 +81,20 @@
 
 			echo "<div class='container text-center'>";
 			echo "<h2>Descripcion Detallada</h2>";
-			require_once "main/descripcion/descripcion_signo.php";
-			require_once "main/descripcion/descripcion_a_neurologicas.php";
-			require_once "main/descripcion/descripcion_a_emocional.php";
-			require_once "main/descripcion/descripcion_sintoma.php";
+				require_once "main/descripcion/descripcion_signo.php";
+				require_once "main/descripcion/descripcion_a_neurologicas.php";
+				require_once "main/descripcion/descripcion_a_emocional.php";
+				require_once "main/descripcion/descripcion_sintoma.php";
 			echo "</div>";
 			echo "<hr>";
 
 
 			echo "<h2>Recomendaciones</h2>";
-			require_once "main/horas_conducidas.php";
-			require_once "main/sugerencia/sugerencia_signo.php";
-			require_once "main/sugerencia/sugerencia_a_neurologico.php";
-			require_once "main/sugerencia/sugerencia_a_emocional.php";
-			require_once "main/sugerencia/sugerencia_sintoma.php";
+				require_once "main/horas_conducidas.php";
+				require_once "main/sugerencia/sugerencia_signo.php";
+				require_once "main/sugerencia/sugerencia_a_neurologico.php";
+				require_once "main/sugerencia/sugerencia_a_emocional.php";
+				require_once "main/sugerencia/sugerencia_sintoma.php";
 			echo "<hr>";
 
 			/*Contenedor donde mostramos el alerta del nivel de fatiga del conductor*/

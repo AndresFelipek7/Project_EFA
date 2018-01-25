@@ -244,46 +244,10 @@
 						<?php
 							include "library/checkbox dinamicos/checkbox_sintomas.php";
 						?>
-						<!-- <input type='checkbox' name="sintomas[]" id="1" value="sed">
-						<label for="1">Sed</label>
-						<input type='checkbox' name="sintomas[]" id="2" value="hambre">
-						<label for="2">Hambre</label>
-						<input type='checkbox' name="sintomas[]" id="3" value="sueño">
-						<label for="3">Sueño</label>
-						<input type='checkbox' name="sintomas[]" id="4" value="temblor">
-						<label for="4">Temblor</label><br><hr>
-						<input type='checkbox' name="sintomas[]" id="5" value="vision_borrosa">
-						<label for="5">Vision Borrosa</label>
-						<input type='checkbox' name="sintomas[]" id="6" value="malestar">
-						<label for="6">Malestar</label>
-						<input type='checkbox' name="sintomas[]" id="7" value="insomio">
-						<label for="7">Insomio</label>
-						<input type='checkbox' name="sintomas[]" id="8" value="concentracion">
-						<label for="8">Concentracion</label><br><hr>
-						<input type='checkbox' name="sintomas[]" id="9" value="dolor_muscular">
-						<label for="9">Dolor Muscular </label>
-						<input type='checkbox' name="sintomas[]" id="10" value="dolor_articulaciones">
-						<label for="10">Dolor Articulaciones</label>
-						<input type='checkbox' name="sintomas[]" id="11" value="dolor_cabeza">
-						<label for="11">Dolor Cabeza</label>
-						<input type='checkbox' name="sintomas[]" id="12" value="dolor_garganta">
-						<label for="12">Dolor Garganta</label><br><hr>
-						<input type='checkbox' name="sintomas[]" id="13" value="mareos">
-						<label for="13">Mareos</label>
-						<input type='checkbox' name="sintomas[]" id="14" value="alergias">
-						<label for="14">Alergias</label>
-						<input type='checkbox' name="sintomas[]" id="15" value="colon_irritable">
-						<label for="15">Colon Irritable</label>
-						<input type='checkbox' name="sintomas[]" id="16" value="escalofrios">
-						<label for="16">Escalofrios</label><br><hr>
-						<input type='checkbox' name="sintomas[]" id="17" value="sudoracion">
-						<label for="17">Sudoracion</label>
-						<input type='checkbox' name="sintomas[]" id="18" value="depresion">
-						<label for="18">Depresion</label> -->
-						<input type="checkbox" name="sintomas[]" id="otro_sintoma" value="otro_sintoma" onclick="mostrar_otros_sintomas();">
+						<input type="checkbox" name="sintomas[]" id="otro_sintoma" value="otro_sintoma" onclick="show_other_sintomas();">
 						<label for="otro_sintoma">Otro Sintoma</label>
 
-						<div id="contenedor_o_sintoma" style="display:none;">
+						<div id="contenedor_o_sintoma" class="hide_container">
 							<textarea name="valor_otro_sintoma" placeholder="Colocar cuales sintomas" cols="60" rows="5" onkeypress='return onlyWords(event)'></textarea>
 						</div>
 					</div>
