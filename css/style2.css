@@ -162,6 +162,10 @@ table {
 	color:red;
 }
 
+.center_element {
+	margin:auto;
+}
+
 
 .hide_container {
 	display:none;

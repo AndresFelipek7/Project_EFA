@@ -562,7 +562,6 @@ $(document).on('ready',function(){
 	$('#ayuda_orden_reposo').tooltip();
 	$('#ayuda_sueño_profundo').tooltip();
 	$('#ayuda_pulsaciones').tooltip();
-	$('#usuario_contraseña_conductor').tooltip();
 	$('#ayuda_interrogatorio_descanso').tooltip();
 	$('#ayuda_manual_evaluador').tooltip();
 	$('#ayuda_camarote').tooltip();
@@ -1404,7 +1403,7 @@ const hide_new_input_destiny = () => {
  * @param none
  * @return un mensaje de error
  */
-const limite_pulsaciones_permitido = () => {
+const limit_pulsation_hearth = () => {
 	let valor_pulsaciones = document.getElementById("pulsaciones").value;
 
 	if(valor_pulsaciones == 0) {
@@ -1431,10 +1430,10 @@ const save_notes_admin = () => {
 /**
  * Funcion para verificar la extension de la imagen cargada
  *
- * @param photo
+ * @param photo,nameMenu
  * @return un mensaje de error si la extension de la imagen no es permitida
  */
-const check_photo = (photo) => {
+const check_photo = (photo,nameMenu = "") => {
 	extensiones_permitidas = new Array(".png", ".jpg", ".jpeg");
 	//recupero la extensión de este nombre de photo
 	extension = (photo.substring(photo.lastIndexOf("."))).toLowerCase();
@@ -1451,63 +1450,40 @@ const check_photo = (photo) => {
 		}
 	}
 
-	if (!permitida) {
-		flag_validacion_info_register = 1;
+	if(nameMenu == "") {
+		if (!permitida) {
+			flag_validacion_info_register = 1;
 
-		document.getElementById('contenedor_habeas_data').style.display='none';
-		document.getElementById('habeas').disabled=true;
-		document.getElementById('boton_registrar').disabled=true;
-		document.f_registro.habeas.checked=0;
+			document.getElementById('contenedor_habeas_data').style.display='none';
+			document.getElementById('habeas').disabled=true;
+			document.getElementById('boton_registrar').disabled=true;
+			document.f_registro.habeas.checked=0;
 
-		$("#label_habeas").text('Acepto las condiciones de uso');
-		$('#container_extensiones_agree').show();
-		$('#container_extensiones_agree').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> El archivo cargado no es Valido. <br> las Extensiones Permitidas son : "+show_extensiones_enable+" </label> </div>");
+			$("#label_habeas").text('Acepto las condiciones de uso');
+			$('#container_extensiones_agree').show();
+			$('#container_extensiones_agree').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> El archivo cargado no es Valido. <br> las Extensiones Permitidas son : "+show_extensiones_enable+" </label> </div>");
+		}else {
+			flag_validacion_info_register = 0;
+
+			document.getElementById('contenedor_habeas_data').style.display='none';
+			document.getElementById('habeas').disabled=false;
+			document.getElementById('boton_registrar').disabled=true;
+			document.f_registro.habeas.checked=0;
+
+			$("#label_habeas").text('Acepto las condiciones de uso');
+			$('#container_extensiones_agree').hide();
+		}
 	}else {
-		flag_validacion_info_register = 0;
-
-		document.getElementById('contenedor_habeas_data').style.display='none';
-		document.getElementById('habeas').disabled=false;
-		document.getElementById('boton_registrar').disabled=true;
-		document.f_registro.habeas.checked=0;
-
-		$("#label_habeas").text('Acepto las condiciones de uso');
-		$('#container_extensiones_agree').hide();
-	}
-}
-
-//Funcion para verificar el contenido del archivo que se cargo
-//Ademas tenemos dos parametros que vienen del formuario cuando se activa el evento que corre esta funcion
-function comprueba_extension_pantallazo_fit(formulario , archivo) {
-	//Se crea un areglo con las extensiones permitidas
-	extensiones_permitidas = new Array(".png", ".jpg", ".jpeg");
-	//recupero la extensión de este nombre de archivo
-	extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
-	//compruebo si la extensión está entre las permitidas
-	permitida = false;
-
-	//Utilizamos un ciclo para recorrer el vector con la extension del archivo cargado si lo encontramos
-	//Si se encuentra a la varibal permitidas le damos a un valor de true
-	for (var i = 0; i < extensiones_permitidas.length; i++) {
-		if (extensiones_permitidas[i] == extension) {
-			//Cambiamos el valor de la variable permitido a tru porque encontramos la coincidencia entre extensiones
-			permitida = true;
-			//Rompemos el ciclo paraque continue con la funcion
-			break;
+		if (!permitida) {
+			document.getElementById('enviar_evaluacion').disabled=true;
+			$('#container_extensiones_agree').show();
+			$('#container_extensiones_agree').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> El archivo cargado no es Valido. <br> las Extensiones Permitidas son : "+show_extensiones_enable+" </label> </div>");
+		}else {
+			document.getElementById('enviar_evaluacion').disabled=false;
+			$('#container_extensiones_agree').hide();
 		}
 	}
 
-	//Condicional para saber si es diferente la extension del archivo cargado con el vector de extensiones permitidas
-	if (!permitida) {
-		alert("Comprueba la extensión del archivo a subir. \nSólo se pueden subir el archivo con extension: " + extensiones_permitidas.join());
-		//Enviamos un mensaje al contenedor extensiones_permitidas para que muestre un mensaje con html
-		$('#extensiones_permitidas').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> El archivo cargado no es Valido </label> </div>");
-		//Para desactivar el bton de enviar evaluacion cuando el archivo cargado es incorrecto o la extension no es valida
-		document.getElementById('enviar_evaluacion').disabled=true;
-	}else {
-		$('#extensiones_permitidas').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El archivo Cargado es Correcto </label> </div>");
-		//Para habiliatr el boton de enviar evaluacion si esta deshabilitado
-		document.getElementById('enviar_evaluacion').disabled=false;
-	}
 }
 
 /**

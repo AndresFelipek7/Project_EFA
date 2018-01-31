@@ -284,7 +284,7 @@
 								$traer_contraseña = $fila["pass_fit"];
 							}
 						?>
-						<button type="button" class="btn btn-md btn-warning" id="usuario_contraseña_conductor" data-toggle="tooltip" data-placement="right" title="<?php echo 'Usuario : '.$traer_usuario; echo '******Contraseña : '.$traer_contraseña;  ?>"><span class="glyphicon glyphicon-user"></span></button>
+						<a href="#usuario_contraseña_conductor" data-toggle='modal' class="btn btn-warning"><span class="glyphicon glyphicon-user"></span></a>
 						<div>
 							<div class="col-md-6">
 								<button type="button" class="btn btn-xs btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="left" title="Sueño profundo consiste en el tiempo en que el conductor a dormido profundamente para poder descansar lo mas posible"><span class="fa fa-info"></span></button>
@@ -299,16 +299,16 @@
 								<button type="button" class="btn btn-xs btn-primary" id="ayuda_pulsaciones" data-toggle="tooltip" data-placement="left" title="Las pulsaciones es el pulso que presente el conductor durante la evaluacion de fatiga , si por alguna razon las pulsaciones superan las 100 por minuto es necesario repetir la medicion de las pulsaciones para estar seguros"><span class="fa fa-info"></span></button>
 								<center>
 									<label>Valor Pulsaciones </label>
-									<input type="text" name="pulsaciones" class="form-control" id="pulsaciones" placeholder="Ingrese valor numerico" onkeypress="return justNumbers(event);" onchange="limite_pulsaciones_permitido();">
+									<input type="text" name="pulsaciones" class="form-control" id="pulsaciones" placeholder="Ingrese valor numerico" onkeypress="return justNumbers(event);" onchange="limit_pulsation_hearth();">
 									<a href="#ayuda_pulsaciones_completo" data-toggle='modal'>Como llenar este campo</a><br><br>
 								</center>
 							</div>
 
 							<div class="col-md-12">
-								<div id="extensiones_permitidas" style="margin-left:180px;"></div>
+								<div id="container_extensiones_agree" class="center_element"></div>
 								<center>
 									<label>Cargar Descargable Mi Fit</label>
-									<input type="file" name="photo" id="descargable_fit" onchange="comprueba_extension_pantallazo_fit(this.form,this.form.descargable_fit.value);"required>
+									<input type="file" name="photo" id="descargable_fit" onchange="check_photo(this.form.photo.value,'evaluacion');" required>
 								</center>
 							</div>
 						</div>
@@ -523,17 +523,63 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title"><span class="fa fa-info"> como sincronizar la manilla con Aplicacion Mi fit</span></h4>
+					<h4 class="modal-title"><span class="fa fa-info"> Sincronizar la Manilla</span></h4>
 				</div>
 
 				<div class="modal-body text-center">
-					<h2>Pasos para Sincronizar</h2>
-					<label><strong>Paso 1:</strong></label> Descargar la aplicacion mi Fit de google play si esta en Android , si esta en IOS descargarla en la App Store <br>
-					<label><strong>Paso 2:</strong></label> Abrir la aplicacion mi fit en su Celular<br>
-					<label><strong>Paso 3:</strong></label> Ingresar usuario y contraseña del conductor al que se le esta haciendo la evaluacion de fatiga<br>
-					<label><strong>Paso 4:</strong></label> El celular activara el bluetooth automaticamente para poder conectarse con la manilla<br>
-					<label><strong>Paso 5:</strong></label> Ir al menu principal de la aplicacion mi fit , en el apartado de sincronizar manilla en el menu principal <br>
-					<label><strong>Paso 6:</strong></label> Esperar unos segundos hasta que sincronice toda la informacion <br>
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">Pasos para Sincronizar</h3>
+						</div>
+						<div class="panel-body">
+							<label><strong>Paso 1:</strong></label> Abrir la aplicacion mi fit en su Celular<br>
+						<label><strong>Paso 2:</strong></label> Ingresar usuario y contraseña del conductor al que se le esta haciendo la evaluacion de fatiga<br>
+						<label><strong>Paso 3:</strong></label> Ir al menu principal de la aplicacion mi fit , en el apartado de sincronizar manilla en el menu principal <br>
+						<label><strong>Paso 4:</strong></label> Esperar unos segundos hasta que sincronice toda la informacion <br>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal" class="btn btn-danger glyphicon glyphicon-remove"> </button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Modal para mostrar usuario y contraseña del conductor-->
+	<div class="modal fade" id="usuario_contraseña_conductor">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title"><span class="fa fa-info"> Credenciales del Conductor</span></h4>
+				</div>
+
+				<div class="modal-body text-center">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Usuario</h3>
+								</div>
+								<div class="panel-body">
+									<label><?php echo $traer_usuario; ?></label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="panel panel-success">
+								<div class="panel-heading">
+									<h3 class="panel-title">Contraseña</h3>
+								</div>
+								<div class="panel-body">
+									<label><?php echo $traer_contraseña; ?></label>
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 
 				<div class="modal-footer">
