@@ -363,7 +363,10 @@
 						<h4>En este menu se completa con las alteraciones que no presenta</h4>
 						<h4><span class="label label-warning">Ejemplo : No esta atento , No esta cordinado , No tiene reflejos</span></h4>
 						<hr>
-						<input type='checkbox' name='alteraciones_neurologicas[]' id="29" value="atento">
+						<?php
+							include "library/checkbox dinamicos/checkbox_neurologico.php";
+						?>
+						<!-- <input type='checkbox' name='alteraciones_neurologicas[]' id="29" value="atento">
 						<label for="29">Atento</label>
 						<input type='checkbox' name='alteraciones_neurologicas[]' id="30" value="cordinado">
 						<label for="30">Cordinado</label>
@@ -374,7 +377,7 @@
 						<input type='checkbox' name='alteraciones_neurologicas[]' id="33" value="fuerza">
 						<label for="33">Fuerza</label>
 						<input type='checkbox' name='alteraciones_neurologicas[]' id="34" value="sensibilidad">
-						<label for="34">Sensibilidad</label>
+						<label for="34">Sensibilidad</label> -->
 						<input type='checkbox' name='alteraciones_neurologicas[]' id="otra_a_neurologica" value="otra_a_neurologica" onclick="mostrar_otra_alteraciones_neurologicas();">
 						<label for="otra_a_neurologica">Otra Alteracion Neurologica</label>
 
