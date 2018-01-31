@@ -1055,44 +1055,14 @@ const check_name_neurologico = () => {
 }
 
 /**
- * Funcion para mostrar contenedor otros sintomas
+ * Funcion para mostrar contenedor de otras opciones de sintomas y las dos alteraciones
  *
- * @param none
+ * @param nameInput , nameContainer
  * @return mostrar un contenedor
  */
-const show_others_sintomas = () => {
-	if (document.f_evaluacion.otro_sintoma.checked == true) {
-		document.getElementById('container_other_sintoma').style.display='block';
-	}else {
-		document.getElementById('container_other_sintoma').style.display='none';
-	}
-}
-
-/**
- * Funcion para poder colcoar otra alteracion emocional
- *
- * @param none
- * @return muestra un contenedor
- */
-const show_others_emocionales =() => {
-	if (document.f_evaluacion.otra_a_emocional.checked == true) {
-		document.getElementById('contenedor_alteracines_emocionales').style.display='block';
-	} else {
-		document.getElementById('contenedor_alteracines_emocionales').style.display='none';
-	}
-}
-
-//Funcion mostrar otras alteracione sneurologicas
-function mostrar_otra_alteraciones_neurologicas() {
-
-	if (document.f_evaluacion.otra_a_neurologica.checked == true) {
-	//muestra (cambiando la propiedad display del estilo) el div con id 'desdeotro'
-	document.getElementById('contenedor_alteraciones_neurologicas').style.display='block';
-	//por el contrario, si no esta seleccionada
-} else {
-	//oculta el div con id 'desdeotro'
-	document.getElementById('contenedor_alteraciones_neurologicas').style.display='none';
-}
+const show_others_options = (nameInput,nameContainer) => {
+	let input = document.getElementById(nameInput).checked;
+	return (input) ? document.getElementById(nameContainer).style.display='block' : document.getElementById(nameContainer).style.display='none';
 }
 
 /**

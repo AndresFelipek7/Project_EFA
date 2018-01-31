@@ -245,8 +245,8 @@
 							include "library/checkbox dinamicos/checkbox_sintomas.php";
 						?>
 						<hr>
-						<input type="checkbox" name="sintomas[]" id="otro_sintoma" value="otro_sintoma" onclick="show_others_sintomas();">
-						<label for="otro_sintoma">Otro Sintoma</label><br><br>
+						<input type="checkbox" name="sintomas[]" id="otro_sintoma" value="otro_sintoma" onclick="show_others_options('otro_sintoma','container_other_sintoma');">
+						<label for="otro_sintoma">Otro Sintoma</label><br>
 
 						<div id="container_other_sintoma" class="hide_container">
 							<textarea name="valor_otro_sintoma" id="valor_otro_sintoma" class="borde_textarea" placeholder="Colocar cuales sintomas" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('valor_otro_sintoma','verde')"></textarea>
@@ -336,7 +336,7 @@
 							include "library/checkbox dinamicos/checkbox_emocional.php";
 						?>
 						<hr>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="otra_a_emocional" value="otra_a_emocional" onclick="show_others_emocionales();">
+						<input type='checkbox' name='alteraciones_emocionales[]' id="otra_a_emocional" value="otra_a_emocional" onclick="show_others_options('otra_a_emocional','contenedor_alteracines_emocionales');">
 						<label for="otra_a_emocional">Otra Alteracion Emocional</label>
 
 						<div id="contenedor_alteracines_emocionales" class="hide_container">
