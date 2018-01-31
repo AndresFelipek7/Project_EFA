@@ -1130,14 +1130,18 @@ const select_all_checkbox = ()=> {
 	document.getElementById('contenedor_alteraciones_neurologicas').style.display='block';
 }
 
-//Funcion desmarcar todos los checkbox
-function desmarcar_todo_checkbox() {
+/**
+ * Funcion para desmarcar todo los checkbox del form evaluacion
+ *
+ * @param none
+ * @return una accion
+ */
+const desmarcar_todo_checkbox = () =>{
 	for (i=0;i<document.f_evaluacion.elements.length;i++){
 		if(document.f_evaluacion.elements[i].type == "checkbox")
 			document.f_evaluacion.elements[i].checked=0;
 	}
 
-	//Ocultar los contenedores si antes estaban activos
 	document.getElementById('contenedor_o_sintoma').style.display='none';
 	document.getElementById('contenedor_alteracines_emocionales').style.display='none';
 	document.getElementById('contenedor_alteraciones_neurologicas').style.display='none';
@@ -1394,27 +1398,34 @@ const hide_new_input_destiny = () => {
 	document.getElementById('camarote').style.display='none';
 }
 
-//funcion para impedri el ingreso de un valor de unas pulsaciones que son incorrectas asia la Base de datos
-function limite_pulsaciones_permitido() {
-	//Capturamos el valor de pulsaciones y lo asigamos a la varibale valor_pulsaciones
-	var valor_pulsaciones = document.getElementById("pulsaciones").value;
+/**
+ * Funcion para verificar el ritmo cardiaco que seha permitido
+ *
+ * @param none
+ * @return un mensaje de error
+ */
+const limite_pulsaciones_permitido = () => {
+	let valor_pulsaciones = document.getElementById("pulsaciones").value;
 
 	if(valor_pulsaciones == 0) {
-		alert("Las pulsaciones ingresadas no son validas , por favor ingresarlo nuevamente");
+		alert_dinamic_check_validator("Las pulsaciones ingresadas no son validas , por favor ingreselas nuevamente", "evaluacion.php");
 		document.getElementById('enviar_evaluacion').disabled=true;
 	}else if(valor_pulsaciones >= 150) {
-		alert("Las pulsaciones que presenta el conductor superaron el valor del limite con respecto a la edad que tiene , por favor vuelva a tomar el pulso , si es correcto llame al medico inmediatamente o vuelva hacer la medicion para verificar el valor");
-		window.location = "Evaluacion.php";
+		alert_dinamic_check_validator("Las pulsaciones que presenta el conductor superaron el valor del limite con respecto a la edad que tiene , por favor vuelva a tomar el pulso , si es correcto llame al medico inmediatamente o vuelva hacer la medicion para verificar el valor", "evaluacion.php")
 	}else{
 		document.getElementById('enviar_evaluacion').disabled=false;
 	}
 }
 
-//Funcion para poder guardar con Ajax las notas despues de que salga del textarea que lo contiene
-function guardar_notas_admin() {
-	var traer_Notas_admin = document.getElementById("nota_admin").value
-
-	$("#contenedor_respuesta_nota").load("registro_nota_admin.php",{valor_nota_admin:traer_Notas_admin});
+/**
+ * Funcion para guardar las anotaciones del admin
+ *
+ * @param none
+ * @return guarda en la bd
+ */
+const save_notes_admin = () => {
+	let traer_Notas_admin = document.getElementById("nota_admin").value;
+	$("#container_response_note").load("registro_nota_admin.php",{valor_nota_admin:traer_Notas_admin});
 }
 
 /**

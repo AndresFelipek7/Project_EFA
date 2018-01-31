@@ -7,7 +7,7 @@
 <body>
 	<?php include 'library/Head/Header_Admin.php'; ?>
 
-	<!--Mesaje de Beinvenido para el Administrador-->
+	<!--MESAJE DE BEINVENIDO PARA EL ADMINISTRADOR-->
 	<div class="jumbotron">
 		<div class="container text-center">
 			<?php
@@ -80,7 +80,7 @@
 		</div>
 	</div>
 
-	<!--Contenedor donde aparece las notas importantes que tiene el administrador-->
+	<!--CONTENEDOR DONDE APARECE LAS NOTAS IMPORTANTES QUE TIENE EL ADMINISTRADOR-->
 	<div class="container">
 		<center>
 			<div class="row">
@@ -92,7 +92,7 @@
 		</center>
 	</div>
 
-	<!--Modal cuando se muestra la info del administrador-->
+	<!--MODAL CUANDO SE MUESTRA LA INFO DEL ADMINISTRADOR-->
 	<div class="modal fade" id="info_admin">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -151,7 +151,7 @@
 		</div>
 	</div>
 
-	<!--Modal cuando se muestra las notas del admin-->
+	<!--MODAL CUANDO SE MUESTRA LAS NOTAS DEL ADMIN-->
 	<div class="modal fade" id="notas_admin">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -172,8 +172,8 @@
 						}
 					?>
 					<center>
-						<div id="contenedor_respuesta_nota"></div>
-						<textarea cols="60" rows="15" class="anotaciones_admin" name="nota_admin" id="nota_admin" placeholder="Ingresar cosas importantes" onchange="guardar_notas_admin();"><?php echo $notas_desde_Bd; ?></textarea>
+						<div id="container_response_note"></div>
+						<textarea cols="60" rows="15" class="anotaciones_admin" name="nota_admin" id="nota_admin" placeholder="Ingresar cosas importantes" onchange="save_notes_admin();"><?php echo $notas_desde_Bd; ?></textarea>
 					</center>
 				</div>
 

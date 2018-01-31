@@ -91,7 +91,7 @@
 	function message_mistake_validator($contentMessage){
 		echo "
 			<div class='alert alert-danger'>
-			<span class='fa fa-minus-circle fa-2x'></span><br>
+				<span class='fa fa-minus-circle fa-2x'></span><br>
 				<label> $contentMessage </label>
 			</div>";
 	}

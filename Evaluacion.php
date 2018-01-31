@@ -272,17 +272,17 @@
 						<hr>
 						<a href="#sincronizar_manilla" data-toggle='modal' class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
 						<?php
-						$traer_id_conductor = $_POST['valor_id'];
+							$traer_id_conductor = $_POST['valor_id'];
 
-						$consulta_Traer_pass_user_fit = "SELECT usuario_fit , pass_fit FROM conductor WHERE id_conductor = '$traer_id_conductor'";
-						$resultado_fit = $conexion ->query($consulta_Traer_pass_user_fit);
-						$count_fit = $resultado_fit->num_rows;
+							$consulta_Traer_pass_user_fit = "SELECT usuario_fit , pass_fit FROM conductor WHERE id_conductor = '$traer_id_conductor'";
+							$resultado_fit = $conexion ->query($consulta_Traer_pass_user_fit);
+							$count_fit = $resultado_fit->num_rows;
 
-						if($count_fit >= 1) {
-							$fila = mysqli_fetch_array($resultado_fit);
-							$traer_usuario = $fila["usuario_fit"];
-							$traer_contraseña = $fila["pass_fit"];
-						}
+							if($count_fit >= 1) {
+								$fila = mysqli_fetch_array($resultado_fit);
+								$traer_usuario = $fila["usuario_fit"];
+								$traer_contraseña = $fila["pass_fit"];
+							}
 						?>
 						<button type="button" class="btn btn-md btn-warning" id="usuario_contraseña_conductor" data-toggle="tooltip" data-placement="right" title="<?php echo 'Usuario : '.$traer_usuario; echo '******Contraseña : '.$traer_contraseña;  ?>"><span class="glyphicon glyphicon-user"></span></button>
 						<div>
@@ -290,7 +290,7 @@
 								<button type="button" class="btn btn-xs btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="left" title="Sueño profundo consiste en el tiempo en que el conductor a dormido profundamente para poder descansar lo mas posible"><span class="fa fa-info"></span></button>
 								<center>
 									<label>Sueño Profundo </label>
-									<input type="text" class="form-control" id="sueño_profundo" name="sueño_profundo" placeholder="hora.minuto / .minuto" onkeypress="prueba();">
+									<input type="text" class="form-control" id="sueño_profundo" name="sueño_profundo" placeholder="hora.minuto / .minuto">
 								</center>
 								<a href="#ayuda_completa_sueño_manilla" data-toggle='modal'>Como llenar este campo</a>
 							</div>
