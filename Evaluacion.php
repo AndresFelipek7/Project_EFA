@@ -385,7 +385,7 @@
 
 		<!--Aqui colocamos la informacion del conductor al lado derecho-->
 		<aside class='col-md-4'>
-			<a href='#seccion' data-toggle='collapse' class='btn btn-success' id="aside_conductor"><span class="glyphicon glyphicon-chevron-down"> Mostrar Informacion del Conductor</span></a>
+			<a href='#seccion' data-toggle='collapse' class='btn btn-success' id="aside_conductor" onclick="show_container_info_driver();"><span class="glyphicon glyphicon-chevron-down"> Mostrar Informacion del Conductor</span></a>
 			<div class='collapse' id='seccion'>
 				<br>
 				<div class='well text-center'>

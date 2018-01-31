@@ -2105,39 +2105,3 @@ const check_username = (username,menu) =>{
 const check_password = (password,menu) => {
 	$("#container_check_password").load("library/verificar_duplicidad/verificar_password.php",{pass:password,desde_form:menu});
 }
-
-//Codigo Que falta por Procesar
-
-//Cuando es un checkkbox para el progress bar
-	/*$('input').on('click', function(){
-		var valeur = 0;
-		$('input:checked').each(function(){
-			if ( $(this).attr('id') > valeur ){
-				valeur =  $(this).attr('id');
-			}else if( $(this).attr('value') > valeur ) {
-				valeur =  $(this).attr('value');
-			}
-		});
-		$('.progress-bar').css('width', valeur+'%').attr('aria-valuenow', valeur);
-	});
-
-	//Cuando se selecciona una lista desplejable para llenar el progress bar
-	$('select').on('click', function(){
-		var valeur = 0;
-		//Cuando es una lista desplejable
-		$('select').each(function(){
-			if ( $(this).attr('value') > valeur ){
-				valeur =  $(this).attr('value');
-			}
-		});
-		$('.progress-bar').css('width', valeur+'%').attr('aria-valuenow', valeur);
-	});*/
-
-
-/*function verificar_estado(campo , boton) {
-	if (campo.value != "" ){
-		boton.disabled=false;
-	} else {
-		boton.disabled=true;
-	}
-}*/
