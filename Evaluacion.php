@@ -114,7 +114,7 @@
 							<input type='checkbox' name='alteraciones_emocionales[]' id="otra_a_emocional" value="otra_a_emocional" onclick="mostrar_otra_alteraciones_emocionales();">
 							<label for="otra_a_emocional">Otra Alteracion Emocional</label>
 
-							<div id="contenedor_alteracines_emocionales" style="display:none;">
+							<div id="contenedor_alteracines_emocionales">
 								<textarea  name="otra_alteracion_emocional" placeholder="Colocar cuales Alteraciones Emocionales" cols="60" rows="5" onkeypress='return onlyWords(event)'></textarea>
 							</div>
 						</div>
