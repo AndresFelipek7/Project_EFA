@@ -244,11 +244,12 @@
 						<?php
 							include "library/checkbox dinamicos/checkbox_sintomas.php";
 						?>
+						<hr>
 						<input type="checkbox" name="sintomas[]" id="otro_sintoma" value="otro_sintoma" onclick="show_others_sintomas();">
 						<label for="otro_sintoma">Otro Sintoma</label><br><br>
 
 						<div id="container_other_sintoma" class="hide_container">
-							<textarea name="valor_otro_sintoma" id="valor_otro_sintoma" class="borde_textarea" placeholder="Colocar cuales sintomas" cols="60" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('valor_otro_sintoma','verde')"></textarea>
+							<textarea name="valor_otro_sintoma" id="valor_otro_sintoma" class="borde_textarea" placeholder="Colocar cuales sintomas" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('valor_otro_sintoma','verde')"></textarea>
 						</div>
 					</div>
 				</div>
@@ -335,11 +336,11 @@
 							include "library/checkbox dinamicos/checkbox_emocional.php";
 						?>
 						<hr>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="otra_a_emocional" value="otra_a_emocional" onclick="mostrar_otra_alteraciones_emocionales();">
+						<input type='checkbox' name='alteraciones_emocionales[]' id="otra_a_emocional" value="otra_a_emocional" onclick="show_others_emocionales();">
 						<label for="otra_a_emocional">Otra Alteracion Emocional</label>
 
-						<div id="contenedor_alteracines_emocionales" style="display:none;">
-							<textarea  name="otra_alteracion_emocional" placeholder="Colocar cuales Alteraciones Emocionales" cols="60" rows="5" onkeypress='return onlyWords(event)'></textarea>
+						<div id="contenedor_alteracines_emocionales" class="hide_container">
+							<textarea  name="otra_alteracion_emocional" id="otra_alteracion_emocional" class="borde_textarea" placeholder="Colocar cuales Alteraciones Emocionales" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('otra_alteracion_emocional','verde')"></textarea>
 						</div>
 					</div>
 				</div>

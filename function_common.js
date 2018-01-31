@@ -1068,17 +1068,18 @@ const show_others_sintomas = () => {
 	}
 }
 
-//Funcion mostrar otras alteraciones emocionales
-function mostrar_otra_alteraciones_emocionales() {
-	//Si la opcion con id Conocido_1 (dentro del documento > formulario con name fcontacto >     y a la vez dentro del array de Conocido) esta activada
+/**
+ * Funcion para poder colcoar otra alteracion emocional
+ *
+ * @param none
+ * @return muestra un contenedor
+ */
+const show_others_emocionales =() => {
 	if (document.f_evaluacion.otra_a_emocional.checked == true) {
-	//muestra (cambiando la propiedad display del estilo) el div con id 'desdeotro'
-	document.getElementById('contenedor_alteracines_emocionales').style.display='block';
-	//por el contrario, si no esta seleccionada
-} else {
-	//oculta el div con id 'desdeotro'
-	document.getElementById('contenedor_alteracines_emocionales').style.display='none';
-}
+		document.getElementById('contenedor_alteracines_emocionales').style.display='block';
+	} else {
+		document.getElementById('contenedor_alteracines_emocionales').style.display='none';
+	}
 }
 
 //Funcion mostrar otras alteracione sneurologicas
