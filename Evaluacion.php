@@ -112,10 +112,10 @@
 							<?php
 								include "library/checkbox dinamicos/checkbox_neurologico.php";
 							?>
-							<input type='checkbox' name='alteraciones_neurologicas[]' id="otra_a_neurologica" value="otra_a_neurologica" onclick="mostrar_otra_alteraciones_neurologicas();">
+							<input type='checkbox' name='alteraciones_neurologicas[]' id="otra_a_neurologica" value="otra_a_neurologica" onclick="show_others_options('otra_a_neurologica','contenedor_alteraciones_neurologicas');">
 							<label for="otra_a_neurologica">Otra Alteracion Neurologica</label>
 
-							<div id="contenedor_alteraciones_neurologicas" style="display:none;">
+							<div id="contenedor_alteraciones_neurologicas" class="hide_container">
 								<textarea  name="otra_alteracion_neurologica" placeholder="Colocar cuales Alteraciones Neurologicas" cols="60" rows="5" onkeypress='return onlyWords(event)'></textarea>
 							</div>
 						</div>
