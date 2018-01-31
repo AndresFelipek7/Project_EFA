@@ -91,38 +91,41 @@
 				</div>
 			</div>
 
-			<!--CONTENEDOR MENU ALTERACIONES EMOCIONALES-->
-			<div class='panel panel-warning text-center'>
-				<div class='panel-heading' role='tab' id='headingThree'>
-					<h4 class='panel-title'>
-						<a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse5' aria-expanded='false' aria-controls='collapseThree'>
-							<span class="fa fa-thumbs-up"> Alteraciones Emocionales</span>
-						</a>
-					</h4>
-				</div>
+			<form action="registro_Evaluacion.php" method="POST">
 
-				<div id='collapse5' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'>
-					<div class='panel-body text-center style_check_emocional'>
-						<button type="button" class="btn btn-md btn-primary" id="ayuda_a_emocional" data-toggle="tooltip" data-placement="right" title="Son los estado emocionales como se encuentra el conductor en el momento de la evaluacion"><span class="fa fa-info"></span></button>
-						<h4>Seleccion Multiple</h4>
-						<hr>
-						<?php
-							include "library/checkbox dinamicos/checkbox_a_emocional.php";
-						?>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="otra_a_emocional" value="otra_a_emocional" onclick="mostrar_otra_alteraciones_emocionales();">
-						<label for="otra_a_emocional">Otra Alteracion Emocional</label>
+				<!--CONTENEDOR MENU ALTERACIONES EMOCIONALES-->
+				<div class='panel panel-warning text-center'>
+					<div class='panel-heading' role='tab' id='headingThree'>
+						<h4 class='panel-title'>
+							<a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse5' aria-expanded='false' aria-controls='collapseThree'>
+								<span class="fa fa-thumbs-up"> Alteraciones Emocionales</span>
+							</a>
+						</h4>
+					</div>
 
-						<div id="contenedor_alteracines_emocionales" style="display:none;">
-							<textarea  name="otra_alteracion_emocional" placeholder="Colocar cuales Alteraciones Emocionales" cols="60" rows="5" onkeypress='return onlyWords(event)'></textarea>
+					<div id='collapse5' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'>
+						<div class='panel-body text-center style_check_emocional'>
+							<button type="button" class="btn btn-md btn-primary" id="ayuda_a_emocional" data-toggle="tooltip" data-placement="right" title="Son los estado emocionales como se encuentra el conductor en el momento de la evaluacion"><span class="fa fa-info"></span></button>
+							<h4>Seleccion Multiple</h4>
+							<hr>
+							<?php
+								include "library/checkbox dinamicos/checkbox_a_emocional.php";
+							?>
+							<input type='checkbox' name='alteraciones_emocionales[]' id="otra_a_emocional" value="otra_a_emocional" onclick="mostrar_otra_alteraciones_emocionales();">
+							<label for="otra_a_emocional">Otra Alteracion Emocional</label>
+
+							<div id="contenedor_alteracines_emocionales" style="display:none;">
+								<textarea  name="otra_alteracion_emocional" placeholder="Colocar cuales Alteraciones Emocionales" cols="60" rows="5" onkeypress='return onlyWords(event)'></textarea>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class='text-center'>
-				<button class='btn btn-success' type='submit' id="enviar_evaluacion" name="enviar_evaluacion"><span class="glyphicon glyphicon-ok"></span> </button>
-				</center>
-			</div>
+				<div class='text-center'>
+					<button class='btn btn-success' type='submit' id="enviar_evaluacion" name="enviar_evaluacion"><span class="glyphicon glyphicon-ok"></span> </button>
+					</center>
+				</div>
+			</form>
 		</div>
 
 		<!--Aqui colocamos la informacion del conductor al lado derecho-->
