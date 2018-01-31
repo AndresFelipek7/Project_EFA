@@ -366,23 +366,12 @@
 						<?php
 							include "library/checkbox dinamicos/checkbox_neurologico.php";
 						?>
-						<!-- <input type='checkbox' name='alteraciones_neurologicas[]' id="29" value="atento">
-						<label for="29">Atento</label>
-						<input type='checkbox' name='alteraciones_neurologicas[]' id="30" value="cordinado">
-						<label for="30">Cordinado</label>
-						<input type='checkbox' name='alteraciones_neurologicas[]' id="31" value="reflejo">
-						<label for="31">Reflejos</label>
-						<input type='checkbox' name='alteraciones_neurologicas[]' id="32" value="memoria">
-						<label for="32">Memoria</label>
-						<input type='checkbox' name='alteraciones_neurologicas[]' id="33" value="fuerza">
-						<label for="33">Fuerza</label>
-						<input type='checkbox' name='alteraciones_neurologicas[]' id="34" value="sensibilidad">
-						<label for="34">Sensibilidad</label> -->
-						<input type='checkbox' name='alteraciones_neurologicas[]' id="otra_a_neurologica" value="otra_a_neurologica" onclick="mostrar_otra_alteraciones_neurologicas();">
+						<hr>
+						<input type='checkbox' name='alteraciones_neurologicas[]' id="otra_a_neurologica" value="otra_a_neurologica" onclick="show_others_options('otra_a_neurologica','contenedor_alteraciones_neurologicas');">
 						<label for="otra_a_neurologica">Otra Alteracion Neurologica</label>
 
-						<div id="contenedor_alteraciones_neurologicas" style="display:none;">
-							<textarea  name="otra_alteracion_neurologica" placeholder="Colocar cuales Alteraciones Neurologicas" cols="60" rows="5" onkeypress='return onlyWords(event)'></textarea>
+						<div id="contenedor_alteraciones_neurologicas" class="hide_container">
+							<textarea  name="otra_alteracion_neurologica" class="borde_textarea" id="otra_alteracion_neurologica" placeholder="Colocar cuales Alteraciones Neurologicas" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('otra_alteracion_neurologica','verde')"></textarea>
 						</div>
 					</div>
 				</div>
