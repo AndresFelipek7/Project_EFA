@@ -91,40 +91,42 @@
 				</div>
 			</div>
 
-			<!--CONTENEDOR MENU ALTERACIONES NEUROLOGICAS-->
-			<div class='panel panel-warning text-center'>
-				<div class='panel-heading' role='tab' id='headingThree'>
-					<h4 class='panel-title'>
-						<a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse6' aria-expanded='false' aria-controls='collapseThree'>
-							<span class="fa fa-diamond"> Alteraciones Neurologicas</span>
-						</a>
-					</h4>
-				</div>
+			<form action="registro_Evaluacion.php" method="POST">
+				<!--CONTENEDOR MENU ALTERACIONES NEUROLOGICAS-->
+				<div class='panel panel-warning text-center'>
+					<div class='panel-heading' role='tab' id='headingThree'>
+						<h4 class='panel-title'>
+							<a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse6' aria-expanded='false' aria-controls='collapseThree'>
+								<span class="fa fa-diamond"> Alteraciones Neurologicas</span>
+							</a>
+						</h4>
+					</div>
 
-				<div id='collapse6' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'>
-					<div class='panel-body text-center style_check_neurologico'>
-						<button type="button" class="btn btn-md btn-primary" id="ayuda_a_neurologico" data-toggle="tooltip" data-placement="right" title="Es el estado neurologico en el que se encuentra el conductor"><span class="fa fa-info"></span></button>
-						<h4>Seleccion Multiple</h4>
-						<h4>En este menu se completa con las alteraciones que no presenta</h4>
-						<h4><span class="label label-warning">Ejemplo : No esta atento , No esta cordinado , No tiene reflejos</span></h4>
-						<hr>
-						<?php
-							include "library/checkbox dinamicos/checkbox_neurologico.php";
-						?>
-						<input type='checkbox' name='alteraciones_neurologicas[]' id="otra_a_neurologica" value="otra_a_neurologica" onclick="mostrar_otra_alteraciones_neurologicas();">
-						<label for="otra_a_neurologica">Otra Alteracion Neurologica</label>
+					<div id='collapse6' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'>
+						<div class='panel-body text-center style_check_neurologico'>
+							<button type="button" class="btn btn-md btn-primary" id="ayuda_a_neurologico" data-toggle="tooltip" data-placement="right" title="Es el estado neurologico en el que se encuentra el conductor"><span class="fa fa-info"></span></button>
+							<h4>Seleccion Multiple</h4>
+							<h4>En este menu se completa con las alteraciones que no presenta</h4>
+							<h4><span class="label label-warning">Ejemplo : No esta atento , No esta cordinado , No tiene reflejos</span></h4>
+							<hr>
+							<?php
+								include "library/checkbox dinamicos/checkbox_neurologico.php";
+							?>
+							<input type='checkbox' name='alteraciones_neurologicas[]' id="otra_a_neurologica" value="otra_a_neurologica" onclick="mostrar_otra_alteraciones_neurologicas();">
+							<label for="otra_a_neurologica">Otra Alteracion Neurologica</label>
 
-						<div id="contenedor_alteraciones_neurologicas" style="display:none;">
-							<textarea  name="otra_alteracion_neurologica" placeholder="Colocar cuales Alteraciones Neurologicas" cols="60" rows="5" onkeypress='return onlyWords(event)'></textarea>
+							<div id="contenedor_alteraciones_neurologicas" style="display:none;">
+								<textarea  name="otra_alteracion_neurologica" placeholder="Colocar cuales Alteraciones Neurologicas" cols="60" rows="5" onkeypress='return onlyWords(event)'></textarea>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div><br>
+				</div><br>
 
-			<div class='text-center'>
-				<button class='btn btn-success' type='submit' id="enviar_evaluacion" name="enviar_evaluacion"><span class="glyphicon glyphicon-ok"></span> </button>
-				</center>
-			</div>
+				<div class='text-center'>
+					<button class='btn btn-success' type='submit' id="enviar_evaluacion" name="enviar_evaluacion"><span class="glyphicon glyphicon-ok"></span> </button>
+					</center>
+				</div>
+			</form>
 		</div>
 
 		<!--Aqui colocamos la informacion del conductor al lado derecho-->
