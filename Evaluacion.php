@@ -331,22 +331,10 @@
 						<button type="button" class="btn btn-md btn-primary" id="ayuda_a_emocional" data-toggle="tooltip" data-placement="right" title="Son los estado emocionales como se encuentra el conductor en el momento de la evaluacion"><span class="fa fa-info"></span></button>
 						<h4>Seleccion Multiple</h4>
 						<hr>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="21" value="prisa">
-						<label for="21">Prisa</label>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="22" value="ansiedad">
-						<label for="22">Ansiedad</label>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="23" value="angustiado">
-						<label for="23">Angustiado</label>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="24" value="distraido">
-						<label for="24">Distraido</label><br><hr>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="25" value="mal_humor">
-						<label for="25">Mal Humorado</label>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="26" value="miedo">
-						<label for="26">Miedo</label>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="27" value="tenso">
-						<label for="27">Tenso</label>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="28" value="triste">
-						<label for="28">Triste</label><br><hr>
+						<?php
+							include "library/checkbox dinamicos/checkbox_emocional.php";
+						?>
+						<hr>
 						<input type='checkbox' name='alteraciones_emocionales[]' id="otra_a_emocional" value="otra_a_emocional" onclick="mostrar_otra_alteraciones_emocionales();">
 						<label for="otra_a_emocional">Otra Alteracion Emocional</label>
 
