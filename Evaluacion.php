@@ -218,7 +218,7 @@
 
 								<div class='col-md-6'>
 									<label>Origen del Acompañante </label>
-									<input type='text' name='origen_copiloto' id="origen_copiloto" class="form-control" onkeypress="return onlyWords(event)" onchange="style_border_input('origen_copiloto','verde')">
+									<input type='text' name='origen_copiloto' id="origen_copiloto" class="form-control" onkeypress="return onlyWords(event)" onchange="style_border_input('origen_copiloto','verde')" placeholder="Ciudad de Origen">
 								</div><br>
 					</div>
 				</div>
@@ -268,7 +268,7 @@
 				<div id='collapse4' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'>
 					<div class='panel-body text-center'>
 						<button type="button" class="btn btn-md btn-primary" id="ayuda_signo" data-toggle="tooltip" data-placement="right" title="Los signos de fatiga es lo que se puede medir mediante algun instrumento con ese objetivo"><span class="fa fa-info"></span></button>
-						<hr>
+						<br>
 						<?php include 'library/listas dinamicas/lista_Dinamica_signos.php';?>
 						<hr>
 						<a href="#sincronizar_manilla" data-toggle='modal' class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
@@ -390,7 +390,6 @@
 				<br>
 				<div class='well text-center'>
 					<?php
-					//La variable traer_id_conductor se encuentra en el modulo se signo de fatiga
 					$consulta_conductor = "SELECT * FROM reporte_conductor_activo WHERE id_conductor = '$traer_id_conductor'";
 					$resultado = $conexion -> query($consulta_conductor);
 					$count = $resultado->num_rows;
@@ -404,26 +403,17 @@
 						$_SESSION["documento"] = $row['documento'];
 						$_SESSION["edad"] = $row['edad'];
 						$_SESSION["telefono"] = $row['telefono'];
-						$_SESSION["fecha_nacimiento"] = $row['nacimiento'];
-						$_SESSION["empresa"] = $row['Empresa'];
 						$_SESSION["placa"] = $row['Placa'];
-						$_SESSION["eps"] = $row['eps'];
-						$_SESSION["arp"] = $row['arp'];
 					}
 					?>
 
-					<label>Registro # </label> <?php echo $_SESSION["registro"]; ?><br><hr>
 					<img width="100"  height="100" src="<?php echo $_SESSION['foto']; ?>" class="foto_generica"><br><br>
 					<label>Nombre = </label> <?php echo $_SESSION["nombre"] ?><br>
 					<label>Apellido = </label> <?php echo $_SESSION["apellido"] ?><br>
 					<label>Numero Documento = </label> <?php echo $_SESSION["documento"] ?><br>
 					<label>Edad = </label> <?php echo $_SESSION["edad"] ?><br>
 					<label>Telefono = </label> <?php echo $_SESSION["telefono"] ?><br>
-					<label>Fecha de Nacimiento = </label> <?php echo $_SESSION["fecha_nacimiento"] ?><br>
-					<label>Empresa = </label> <?php echo $_SESSION["empresa"] ?><br>
 					<label>Placa = </label> <?php echo $_SESSION["placa"] ?><br>
-					<label>EPS = </label> <?php echo $_SESSION["eps"] ?><br>
-					<label>ARP = </label> <?php echo $_SESSION["arp"] ?><br>
 				</div>
 			</div>
 		</aside>
