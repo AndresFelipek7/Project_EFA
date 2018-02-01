@@ -334,6 +334,21 @@ const alert_dinamic_check_validator = (message,path) => {
 }
 
 /**
+ * Funcion para mostrar la informacion de algunas validaciones internas
+ *
+ * @param message,typeMessage
+ * @return
+ */
+const alert_dinamic_info = (message,typeMessage) => {
+	/*swal({
+		title: "Informacion!",
+		text: message,
+		type: typeMessage
+	})*/
+	alert('Hola soy una alerta');
+}
+
+/**
  * Funcion para mostrar la contraseña
  *
  * @param none

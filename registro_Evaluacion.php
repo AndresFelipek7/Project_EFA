@@ -8,17 +8,10 @@
 	<?php include 'library/Head/Header-main.php'; ?>
 
 	<?php
-		/*Hay que recordar que este archivo esta compuesto por modulos , es decir , que la mayoria de las partes
-		de es archivo esta en otros por cuestion de orden y porque si se coloca todo  el codigo en este archivo el
-		mantenimiento y la depuracion del mismo seria muy complicado.
-		Todas las partes que complementan este archivo se encuentran en la carpeta main del servidor y algunas en la carpeta
-		library del servidor*/
-
-		//Esto nos sirve para evitar el doble envio de una evaluacion a albd por medio de refrescar la pagina de respuesta que es al final de cuentas la que envia la evaluaion a la bd
 		$verificar_envio = $_SESSION["verificar"];
 
 		//Cuando es igual a 1 significa que se ha envia una soloa vez , pero si se intenta actualizar va tener otro valor
-		if($verificar_envio == 1) {
+		/*if($verificar_envio == 1) {*/
 			//Enlazamos un archivo para saber cuanto tiempo se demoro en realizar la evaluacion
 			include "tiempo_realizar_evaluacion.php";
 
@@ -174,7 +167,7 @@
 			require_once("main/eliminar_ultimo_elemento_arreglo.php");
 
 			//Insercion de la evaluacion a la BD
-			$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
+			/*$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
 				id_usuario ,
 				id_conductor ,
 				id_ruta ,
@@ -250,14 +243,14 @@
 				echo '<script> alert(" Bien! Se han Insertado la evaluacion correctamente"); </script>';
 			}else{
 				echo '<script> alert(" Problemas al Insertar la evaluacion"); </script>';
-			}
+			}*/
 
 			//Cerramos la conexion de la Bd
 			$conexion->close();
-		}else {
+		/*}else {
 			echo "<script>alert('Acceso Denegado , No esta permitido refrescar este modulo por seguridad , Gracias :)')</script>";
 			echo "<script> window.location = 'test.php'</script>";
-		}
+		}*/
 	?>
 
 	<?php include "library/Footer.php"; ?>

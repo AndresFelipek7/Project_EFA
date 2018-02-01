@@ -385,26 +385,27 @@
 
 		<!--Aqui colocamos la informacion del conductor al lado derecho-->
 		<aside class='col-md-4'>
-			<a href='#seccion' data-toggle='collapse' class='btn btn-success' id="aside_conductor" onclick="show_container_info_driver();"><span class="glyphicon glyphicon-chevron-down"> Mostrar Informacion del Conductor</span></a>
+			<a href='#seccion' data-toggle='collapse' class='btn btn-success' id="aside_conductor"><span class="glyphicon glyphicon-chevron-down" id="text_aside_info_driver"> Mostrar Informacion del Conductor</span></a>
+
 			<div class='collapse' id='seccion'>
 				<br>
 				<div class='well text-center'>
 					<?php
-					$consulta_conductor = "SELECT * FROM reporte_conductor_activo WHERE id_conductor = '$traer_id_conductor'";
-					$resultado = $conexion -> query($consulta_conductor);
-					$count = $resultado->num_rows;
+						$consulta_conductor = "SELECT * FROM reporte_conductor_activo WHERE id_conductor = '$traer_id_conductor'";
+						$resultado = $conexion -> query($consulta_conductor);
+						$count = $resultado->num_rows;
 
-					if($count >=1) {
-						$row = mysqli_fetch_array($resultado);
-						$_SESSION["foto"] = $row['foto'];
-						$_SESSION["registro"]= $row['id_conductor'];
-						$_SESSION["nombre"] = $row['nombre'];
-						$_SESSION["apellido"] = $row['apellido'];
-						$_SESSION["documento"] = $row['documento'];
-						$_SESSION["edad"] = $row['edad'];
-						$_SESSION["telefono"] = $row['telefono'];
-						$_SESSION["placa"] = $row['Placa'];
-					}
+						if($count >=1) {
+							$row = mysqli_fetch_array($resultado);
+							$_SESSION["foto"] = $row['foto'];
+							$_SESSION["registro"]= $row['id_conductor'];
+							$_SESSION["nombre"] = $row['nombre'];
+							$_SESSION["apellido"] = $row['apellido'];
+							$_SESSION["documento"] = $row['documento'];
+							$_SESSION["edad"] = $row['edad'];
+							$_SESSION["telefono"] = $row['telefono'];
+							$_SESSION["placa"] = $row['Placa'];
+						}
 					?>
 
 					<img width="100"  height="100" src="<?php echo $_SESSION['foto']; ?>" class="foto_generica"><br><br>
@@ -446,7 +447,7 @@
 						<label><strong>En el caso que solo encuentre minutos hay que colocarlo de la siguiente forma</strong></label><br>
 						<label><strong>.35</strong></label>  = Que significa que son 35 minutos
 					<hr>
-					<h3 style="color:red;">No hay que agregar ninguna letra u otro caracter en el campo tiempo de sueño</h3>
+					<h3 class="input_obligatory">No hay que agregar ninguna letra u otro caracter en el campo tiempo de sueño</h3>
 				</div>
 
 				<div class="modal-footer">
@@ -478,7 +479,7 @@
 					<label></label>Para colocar ese valor en el campo asignado hay que agregar los numeros de la siguiente forma:
 					<label><strong>Colocar 80 en el campo pulsaciones</strong></label>
 					<hr>
-					<h3 style="color:red;">No hay que agregar ninguna letra u otro caracter en el campo pulsaciones</h3>
+					<h3 class="input_obligatory">No hay que agregar ninguna letra u otro caracter en el campo pulsaciones</h3>
 				</div>
 
 				<div class="modal-footer">
