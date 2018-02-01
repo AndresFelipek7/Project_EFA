@@ -372,8 +372,8 @@
 								include "library/listas dinamicas/lista_Dinamica_placa.php";
 							?>
 
-							<input type="text" name="eps" class="form-control" placeholder="Colocar Eps" onkeypress="return onlyWords(event)" required><br><br>
-							<input type="text" name="arp" class="form-control" placeholder="Colocar Arp" onkeypress="return onlyWords(event)" required><br><br>
+							<input type="text" name="eps" id="eps" class="form-control" placeholder="Colocar Eps" onkeypress="return onlyWords(event)" onchange="style_border_input('eps','verde')" required><br><br>
+							<input type="text" name="arp" id="arp" class="form-control" placeholder="Colocar Arp" onkeypress="return onlyWords(event)" onchange="style_border_input('arp','verde')" required><br><br>
 
 							<div class="container-fluid">
 								<div class="row">
