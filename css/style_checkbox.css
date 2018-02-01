@@ -75,6 +75,7 @@
 .content_enabled_disabled_check_minute input[type="checkbox"]:checked + label ,
 .contenedor_habeas input[type="checkbox"]:checked + label{
 	padding: 5px 15px;
+	margin-right: 5px;
 	background: #0074d9;
 	border-radius: 2px;
 	color: #fff;
