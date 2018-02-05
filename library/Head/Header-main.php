@@ -25,11 +25,5 @@
 </header>
 
 <?php
-	//Cantidad de conductores
-	$total_registro = mysqli_query($conexion,"SELECT COUNT(id_conductor) AS total_conductores FROM conductor");
-	while ($registro = mysqli_fetch_array($total_registro)) {
-		$total_conductores = $registro['total_conductores'];
-	}
-
 	require_once "methods_backend.php";
 ?>

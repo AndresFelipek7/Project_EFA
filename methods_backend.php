@@ -109,4 +109,9 @@
 				<label> $contentMessage </label>
 			</div>";
 	}
+
+	function prueba()
+	{
+		echo "<script> alert('Hola soy el mensaje de prueba del metodo'); </script>";
+	}
 ?>
