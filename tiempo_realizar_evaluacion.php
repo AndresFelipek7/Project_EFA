@@ -15,19 +15,11 @@
 	//Sacamos el tiempo que se demoro haciendo la evaluacion
 	$diferencia_tiempos = $sacar_minutos_tiempo_final[0] - $sacar_minutos_tiempo_inicio[0];
 
-	prueba("La evaluacion fue realizada en Segundos", "error");
-	/*//Si son iguales significa que la evaluacion fue hecha en su totalidad en segundos
-	//El vector en la posicion cero es el primer valor del vector , es decir solo los minutos
-	if ($sacar_minutos_tiempo_inicio[0] == $sacar_minutos_tiempo_final[0]) {
-		alert_time_do_test("La evaluacion fue realizada en Segundos.", "error" );
-	}
-
-	//El valor de 10 y 15 significa minutos en que se demoro en hacer la evaluacion por parte del evaluador
-	if ($diferencia_tiempos >= 10 && $diferencia_tiempos <= 15) {
-		alert_time_do_test("La evaluacion se realizo en el tiempo estimado , la probabilidad de fraude es poca", "success" );
-	}else if($diferencia_tiempos > 16){
-		alert_time_do_test("La evaluacion supero el tiempo estimado , es posible que la informacion ingresada sea falsa", "error");
+	if ($diferencia_tiempos >= 5 && $diferencia_tiempos <= 8) {
+		alert_dinamic_time_doing_test("La evaluacion se realizo en el tiempo estimado , la probabilidad de fraude es poca", "success");
+	}else if($diferencia_tiempos > 9){
+		alert_dinamic_time_doing_test("La evaluacion supero el tiempo estimado , es posible que la informacion ingresada sea falsa", "warning");
 	}else {
-		alert_time_do_test("El evaluador Hizo la Evaluacion Muy rapido , es posible que este llenando los campos de forma incorrecta , por favor verificar ese procedimiento","warning");
-	}*/
+		alert_dinamic_time_doing_test("El evaluador Hizo la Evaluacion Muy rapido , es posible que este llenando los campos de forma incorrecta , por favor verificar ese procedimiento", "error");
+	}
 ?>

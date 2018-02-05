@@ -116,10 +116,10 @@
 	 * @param $contentMessage,$typeError
 	 * @return una alerta de informacion
 	 */
-	function prueba($contentMessage = "",$typeError = "") {
+	function alert_dinamic_time_doing_test($contentMessage = "",$typeError = "") {
 		echo "<script>
 			swal({
-				title: 'Informacion!',
+				title: 'Aviso!',
 				text: '$contentMessage',
 				type: '$typeError'
 			});
