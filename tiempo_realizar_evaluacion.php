@@ -1,4 +1,6 @@
 <?php
+	include "lib_required_sweetalert.php";
+
 	//Sacamos el tiempo final cuando envia la evaluacion en minutos y segundos por parte de la funcion date en php
 	$_SESSION['tiempo_final'] = date("i:s");
 	//Sacamos el tiempo de inicio y el tiempo final de la realizacion de la evaluacion
@@ -12,8 +14,13 @@
 	//Sacamos el tiempo que se demoro haciendo la evaluacion
 	$diferencia_tiempos = $sacar_minutos_tiempo_final[0] - $sacar_minutos_tiempo_inicio[0];
 
-	echo "<script> alert_dinamic_info('La evaluacion fue realizada en Segundos.','error') </script>";
-
+	echo "<script>
+			swal({
+				title: 'Informacion!',
+				text: 'La evaluacion fue realizada en Segundos',
+				type: 'error'
+		})
+	</script>";
 	/*//Si son iguales significa que la evaluacion fue hecha en su totalidad en segundos
 	//El vector en la posicion cero es el primer valor del vector , es decir solo los minutos
 	if ($sacar_minutos_tiempo_inicio[0] == $sacar_minutos_tiempo_final[0]) {
