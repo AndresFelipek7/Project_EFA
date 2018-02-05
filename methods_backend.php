@@ -109,4 +109,20 @@
 				<label> $contentMessage </label>
 			</div>";
 	}
+
+	/**
+	 * Funcion para mostrar una alerta de informacion
+	 *
+	 * @param $contentMessage,$typeError
+	 * @return una alerta de informacion
+	 */
+	function prueba($contentMessage = "",$typeError = "") {
+		echo "<script>
+			swal({
+				title: 'Informacion!',
+				text: '$contentMessage',
+				type: '$typeError'
+			});
+		</script>";
+	}
 ?>
