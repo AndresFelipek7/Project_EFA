@@ -43,7 +43,7 @@ $(document).ready(function (){
 	});
 });
 
-let traer_hora_sueño , traer_hora_descanso;
+let trae_hora_sueno , traer_hora_descanso;
 //Bandera para verificar que todos los campos del form de registro se envien correctamente , si es >= 1 hay algun error
 let flag_validacion_info_register = 0;
 
@@ -340,12 +340,11 @@ const alert_dinamic_check_validator = (message,path) => {
  * @return
  */
 const alert_dinamic_info = (message,typeMessage) => {
-	/*swal({
+	swal({
 		title: "Informacion!",
 		text: message,
 		type: typeMessage
-	})*/
-	alert('Hola soy una alerta');
+	})
 }
 
 /**
@@ -1348,11 +1347,11 @@ const get_distance_time = () => {
  * @return un mensaje de error cuando se pasa de 24 horas
  */
 const check_hour_break = () => {
-	traer_hora_sueño = parseInt(document.getElementById("sueño_efectivo_previo").value);
+	trae_hora_sueno = parseInt(document.getElementById("sueño_efectivo_previo").value);
 
-	if(traer_hora_sueño == 0) {
+	if(trae_hora_sueno == 0) {
 		alert_dinamic_check_validator("Tiene que ingresar una hora correcta , por favor vuelva a llenar el campo de Tiempo de sueño", "evaluacion.php");
-	}else if(traer_hora_sueño >= 24) {
+	}else if(trae_hora_sueno >= 24) {
 		alert_dinamic_check_validator("La hora ingresada de Tiempo de Sueño no pueden ser superior a 24 Horas", "Evaluacion.php");
 	}
 	return check_hour_all_break();
@@ -1366,7 +1365,7 @@ const check_hour_break = () => {
  */
 const check_hour_all_break = () => {
 	let traer_hora_descanso = parseInt(document.getElementById("tiempo_descanso").value);
-	let suma_horas_permitidas = traer_hora_sueño + traer_hora_descanso;
+	let suma_horas_permitidas = trae_hora_sueno + traer_hora_descanso;
 
 	(suma_horas_permitidas >= 24) ? alert_dinamic_check_validator("La hora ingresada en el campo Tiempo Sueño y tiempo descanso supera las 24 horas que tiene el dia.", "Evaluacion.php") : "";
 }

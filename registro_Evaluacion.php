@@ -5,7 +5,7 @@
 	<?php include 'library/Head/Head_common.php'; ?>
 </head>
 <body>
-	<?php include 'library/Head/Header-main.php'; ?>
+	<?php include 'library/Head/Header-main-evaluador.php'; ?>
 
 	<?php
 		$verificar_envio = $_SESSION["verificar"];

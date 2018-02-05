@@ -504,6 +504,6 @@
 		</div>
 	</div>
 
-	<?php include 'library/Footer.php'; ?>
+	<?php include "library/Footer.php"; ?>
 </body>
 </html>
