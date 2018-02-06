@@ -1674,19 +1674,25 @@ const check_password = (password,menu) => {
 	$("#container_check_password").load("library/verificar_duplicidad/verificar_password.php",{pass:password,desde_form:menu});
 }
 
+/**
+ * Funcion para mostrar dinamico el select sueño_profundo
+ *
+ * @param none
+ * @return un input dependiendo el caso
+ */
 const show_container_checked = () => {
 	let option_checked = document.getElementById("sueño_profundo").value;
 	let div = document.getElementById("container_deep_sleep");
 
 	switch(option_checked){
 		case "hora":
-			div.innerHTML = "<input type='text' class='form-control' name='sueño_profundo' placeholder='Ingreso Hora'>";
+			div.innerHTML = "<input type='text' class='form-control' name='hora_sueno' placeholder='Ingreso Hora'>";
 		break;
 		case "minutos":
-			div.innerHTML = "<input type='text' class='form-control' name='sueño_profundo' placeholder='Ingreso Minutos'>";
+			div.innerHTML = "<input type='text' class='form-control' name='minutos_sueno' placeholder='Ingreso Minutos'>";
 		break;
 		case "ambos":
-			div.innerHTML = "<div class='row'><div class='col-md-6'><input type='text' class='form-control' name='sueño_profundo' placeholder='Ingreso Hora'></div><div class='col-md-6'><input type='text' class='form-control' name='sueño_profundo' placeholder='Ingreso Ambos'></div></div>";
+			div.innerHTML = "<div class='row'><div class='col-md-6'><input type='text' class='form-control' name='hora_sueno' placeholder='Ingreso Hora'></div><div class='col-md-6'><input type='text' class='form-control' name='minutos_sueno' placeholder='Ingreso Ambos'></div></div>";
 		break;
 
 		default:
