@@ -196,8 +196,8 @@ const alert_dinamic_hi_evaluador = () => {
 	switch(number_random){
 		case number_random:
 			swal({
-				title: "Bienvenido Evaluador al Sistema !",
-				text: " Gracias por ayudarnos a salvar vidas",
+				title: "Bienvenido al Sistema!",
+				text: " Gracias por ayudarnos a salvar vidas.",
 				imageUrl: "images/icon_alert/Saludo/"+full_name_image,
 				imageSize:"150x150"
 			},
