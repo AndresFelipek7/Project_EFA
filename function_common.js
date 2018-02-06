@@ -14,6 +14,40 @@ $(document).ready(function (){
 	$(".contenedor_rol_disponible").hide();
 	$(".contenedor_nombre_usuario").hide();
 	$(".contenedor_password").hide();
+	//Mensajes de ayuda para llenar algun campo
+	$('#ayuda_interrogatorio').tooltip();
+	$('#ayuda_general_busqueda_evaluador').tooltip();
+	$('#ayuda_general_busqueda_conductor').tooltip();
+	$('#ayuda_general_busqueda_administrador').tooltip();
+	$('#ayuda_general_busqueda_rutas').tooltip();
+	$('#ayuda_general_busqueda_empresas').tooltip();
+	$('#ayuda_general_busqueda_vehiculo').tooltip();
+	$('#ayuda_general_busqueda_t_documento').tooltip();
+	$('#ayuda_general_busqueda_conductor_evaluador').tooltip();
+	$('#ayuda_general_busqueda_rol').tooltip();
+	$('#ayuda_general_busqueda_sintomas').tooltip();
+	$('#ayuda_general_busqueda_signo').tooltip();
+	$('#ayuda_general_busqueda_emocional').tooltip();
+	$('#ayuda_general_busqueda_neurologico').tooltip();
+	$('#ayuda_general_busqueda_sugerencia').tooltip();
+	$('#ayuda_general_busqueda_evaluacion').tooltip();
+	$('#ayuda_formulario_activacion').tooltip();
+	$('#ayuda_tiempo_sueño').tooltip();
+	$('#ayuda_orden_reposo').tooltip();
+	$('#ayuda_sueño_profundo').tooltip();
+	$('#ayuda_pulsaciones').tooltip();
+	$('#ayuda_interrogatorio_descanso').tooltip();
+	$('#ayuda_manual_evaluador').tooltip();
+	$('#ayuda_camarote').tooltip();
+	$('#ayuda_interrogatorio_conduciendo').tooltip();
+	$('#ayuda_sintoma').tooltip();
+	$('#ayuda_signo').tooltip();
+	$('#ayuda_a_emocional').tooltip();
+	$('#ayuda_a_neurologico').tooltip();
+	$('#ayuda_tiempo_descanso').tooltip();
+	$('#ayuda_nivel_fatiga_dia').tooltip();
+	$('#ayuda_nivel_fatiga_general').tooltip();
+	$('#ayuda_mostrar_pass').tooltip();
 	$("#table_prueba").dataTable({
 		"searching": false
 	});
@@ -541,63 +575,18 @@ const alert_dinamic_actived_error = (menu,path) => {
 	});
 }
 
-/*********************************************************************************/
-/*********************************************************************************/
-/*********************************************************************************/
-
-//Inicializar el plugin datepicker de jquery en todos los ids datepicker del input tipo date
-/*$(function () {
-	$.datepicker.setDefaults($.datepicker.regional["es"]);
-	$("#datepicker").datepicker({
-		firstDay: 1
-	});
-});*/
-
-//Ayudas de todos los menus
-$(document).on('ready',function(){
-	$('#ayuda_interrogatorio').tooltip();
-	$('#ayuda_general_busqueda_evaluador').tooltip();
-	$('#ayuda_general_busqueda_conductor').tooltip();
-	$('#ayuda_general_busqueda_administrador').tooltip();
-	$('#ayuda_general_busqueda_rutas').tooltip();
-	$('#ayuda_general_busqueda_empresas').tooltip();
-	$('#ayuda_general_busqueda_vehiculo').tooltip();
-	$('#ayuda_general_busqueda_t_documento').tooltip();
-	$('#ayuda_general_busqueda_conductor_evaluador').tooltip();
-	$('#ayuda_general_busqueda_rol').tooltip();
-	$('#ayuda_general_busqueda_sintomas').tooltip();
-	$('#ayuda_general_busqueda_signo').tooltip();
-	$('#ayuda_general_busqueda_emocional').tooltip();
-	$('#ayuda_general_busqueda_neurologico').tooltip();
-	$('#ayuda_general_busqueda_sugerencia').tooltip();
-	$('#ayuda_general_busqueda_evaluacion').tooltip();
-	$('#ayuda_formulario_activacion').tooltip();
-	$('#ayuda_tiempo_sueño').tooltip();
-	$('#ayuda_orden_reposo').tooltip();
-	$('#ayuda_sueño_profundo').tooltip();
-	$('#ayuda_pulsaciones').tooltip();
-	$('#ayuda_interrogatorio_descanso').tooltip();
-	$('#ayuda_manual_evaluador').tooltip();
-	$('#ayuda_camarote').tooltip();
-	$('#ayuda_interrogatorio_conduciendo').tooltip();
-	$('#ayuda_sintoma').tooltip();
-	$('#ayuda_signo').tooltip();
-	$('#ayuda_a_emocional').tooltip();
-	$('#ayuda_a_neurologico').tooltip();
-	$('#ayuda_tiempo_descanso').tooltip();
-	$('#ayuda_nivel_fatiga_dia').tooltip();
-	$('#ayuda_nivel_fatiga_general').tooltip();
-	$('#ayuda_mostrar_pass').tooltip();
-});
-
-//Funcion Dosearch general cuando solo hay una tabla en la pagina o una sola busqueda en ella
-function doSearch(){
-
-	var tableReg = document.getElementById('table');
-	var searchText = document.getElementById('input').value.toLowerCase();
-	var cellsOfRow="";
-	var found=false;
-	var compareWith="";
+/**
+ * Funcion para hacer una busqueda indexada en una tabla
+ *
+ * @param none
+ * @return el registro coincidente
+ */
+const doSearch = () => {
+	let tableReg = document.getElementById('table');
+	let searchText = document.getElementById('input').value.toLowerCase();
+	let cellsOfRow="";
+	let found=false;
+	let compareWith="";
 
 	// Recorremos todas las filas con contenido de la tabla
 	for (var i = 1; i < tableReg.rows.length; i++)
@@ -614,11 +603,10 @@ function doSearch(){
 				found = true;
 			}
 		}
-		if(found)
-		{
+		if(found) {
 			tableReg.rows[i].style.display = '';
 
-		} else {
+		}else {
 			// si no ha encontrado ninguna coincidencia, esconde la
 			// fila de la tabla
 			tableReg.rows[i].style.display = 'none';
@@ -626,13 +614,18 @@ function doSearch(){
 	}
 }
 
-//Funcion Dosearch para el menu sugerencia signo
-function doSearch_Signo(){
-	var tableReg = document.getElementById('table2');
-	var searchText = document.getElementById('input2').value.toLowerCase();
-	var cellsOfRow="";
-	var found=false;
-	var compareWith="";
+/**
+ * Funcion para hcaer una busqueda indexada en el modulo sugerencias menu signos
+ *
+ * @param none
+ * @return un registro coincidente
+ */
+const doSearch_Signo = () => {
+	let tableReg = document.getElementById('table2');
+	let searchText = document.getElementById('input2').value.toLowerCase();
+	let cellsOfRow="";
+	let found=false;
+	let compareWith="";
 
 	// Recorremos todas las filas con contenido de la tabla
 	for (var i = 1; i < tableReg.rows.length; i++)
@@ -649,8 +642,7 @@ function doSearch_Signo(){
 				found = true;
 			}
 		}
-		if(found)
-		{
+		if(found) {
 			tableReg.rows[i].style.display = '';
 		} else {
 			// si no ha encontrado ninguna coincidencia, esconde la
@@ -660,13 +652,18 @@ function doSearch_Signo(){
 	}
 }
 
-//Funcion Dosearch para el menu sugerencia Alteraciones Emocionales
-function doSearch_Emocional(){
-	var tableReg = document.getElementById('table3');
-	var searchText = document.getElementById('input3').value.toLowerCase();
-	var cellsOfRow="";
-	var found=false;
-	var compareWith="";
+/**
+ * Funcion para hacer una busqueda indexada en el modulo sugerencias menu emocional
+ *
+ * @param none
+ * @return un registro coincidente
+ */
+const doSearch_Emocional = () => {
+	let tableReg = document.getElementById('table3');
+	let searchText = document.getElementById('input3').value.toLowerCase();
+	let cellsOfRow="";
+	let found=false;
+	let compareWith="";
 
 	// Recorremos todas las filas con contenido de la tabla
 	for (var i = 1; i < tableReg.rows.length; i++)
@@ -694,13 +691,18 @@ function doSearch_Emocional(){
 	}
 }
 
-//Funcion Dosearch para el menu sugerencia Alteraciones Neurologica
-function doSearch_Neurologica(){
-	var tableReg = document.getElementById('table4');
-	var searchText = document.getElementById('input4').value.toLowerCase();
-	var cellsOfRow="";
-	var found=false;
-	var compareWith="";
+/**
+ * Funcion para hacer una busqueda indexada en el modulo sugerencias menu neurologica
+ *
+ * @param none
+ * @return un registro coincidente
+ */
+const doSearch_Neurologica = () => {
+	let tableReg = document.getElementById('table4');
+	let searchText = document.getElementById('input4').value.toLowerCase();
+	let cellsOfRow="";
+	let found=false;
+	let compareWith="";
 
 	// Recorremos todas las filas con contenido de la tabla
 	for (var i = 1; i < tableReg.rows.length; i++)
@@ -805,97 +807,6 @@ const show_habeas_data = () => {
 			$("#label_habeas").text('Rechazo las condiciones de uso');
 		} else {
 			document.getElementById('contenedor_habeas_data').style.display='none';
-			document.getElementById('boton_registrar').disabled=true;
-			$("#label_habeas").text('Acepto las condiciones de uso');
-		}
-	}
-}
-
-//Esta funcion es para mostrar el parrafo del habeas data y habilitar el boton de registrar Adminisrador
-function mostrar_habeas_administrador() {
-	/*Este condicional es para cuando el documento que se ingreso se encuentre en la bd se mantenga el boton de registrar
-	deshabilitado haci el check del habeas data se seleccione no se habilite este boton porque el docuemnto ingresado
-	no es valido*/
-	/*La variable bandera tiene su valor en el arhivo verificar_documento_administrador.php
-	ademas  de ser una variable global de JS en este archivo en la linea 17*/
-	//Esta variable es para que el documento que se quiere registrar sea nuevo
-	if(bandera == 1) {
-		if (document.f_registro_administrador.habeas_data.checked == true) {
-			document.getElementById('contenedor_habeas_data').style.display='block';
-			/*Habilitar el boton de registrar cuando el check este seleccioando o checked*/
-			document.getElementById('boton_registrar').disabled=true;
-			$("#label_habeas").text('Rechazo las condiciones de uso');
-			//por el contrario, si no esta seleccionada
-		} else {
-			document.getElementById('contenedor_habeas_data').style.display='none';
-			/*Deshabilitar el boton cuando el check no esta seleccioando*/
-			document.getElementById('boton_registrar').disabled=true;
-			$("#label_habeas").text('Acepto las condiciones de uso');
-		}
-		/*La variable bandera_foto es para verificar que la extension del archivo cargado sea el correcto y no otro*/
-	}else if(bandera_foto == 1){
-		if (document.f_registro_administrador.habeas_data.checked == true) {
-			document.getElementById('contenedor_habeas_data').style.display='block';
-			//Si el formato de la foto no es y el check de habeas data esta seleccionado deshabiliteme el boton de registrar hasta que sea una archivo correcto
-			document.getElementById('boton_registrar').disabled=true;
-			$("#label_habeas").text('Rechazo las condiciones de uso');
-			//por el contrario, si no esta seleccionada el habeas data
-		}else {
-			document.getElementById('contenedor_habeas_data').style.display='none';
-			//Habilitar el boton de registrar cuando este seleccionado el check de habeas data
-			document.getElementById('boton_registrar').disabled=false;
-			$("#label_habeas").text('Acepto las condiciones de uso');
-		}
-	//Condicional para saber si el numero de telefono tiene los digitos que debe 7 para fijo o 10 para celular
-}else if(bandera_telefono == 1) {
-	if (document.f_registro_administrador.habeas_data.checked == true) {
-		document.getElementById('contenedor_habeas_data').style.display='block';
-		/*Habilitar el boton de registrar cuando el check este seleccioando o checked*/
-		document.getElementById('boton_registrar').disabled=true;
-		$("#label_habeas").text('Rechazo las condiciones de uso');
-			//por el contrario, si no esta seleccionada
-		}else {
-			document.getElementById('contenedor_habeas_data').style.display='none';
-			/*Deshabilitar el boton cuando el check no esta seleccioando*/
-			document.getElementById('boton_registrar').disabled=true;
-			$("#label_habeas").text('Acepto las condiciones de uso');
-		}
-	//Condicional para verificar el formato del correo ingresado si hay alguno ingresado que se encuentre bien antes de enviar
-}else if(bandera_correo == 1) {
-	if (document.f_registro_administrador.habeas_data.checked == true) {
-		document.getElementById('contenedor_habeas_data').style.display='block';
-		/*Habilitar el boton de registrar cuando el check este seleccioando o checked*/
-		document.getElementById('boton_registrar').disabled=true;
-		$("#label_habeas").text('Rechazo las condiciones de uso');
-			//por el contrario, si no esta seleccionada
-		}else {
-			/*Deshabilitar el boton cuando el check no esta seleccioando*/
-			document.getElementById('boton_registrar').disabled=true;
-		}
-	//Condicional para verificar que la edad ingresada sea correcta
-}else if(bandera_edad == 1) {
-	if (document.f_registro_administrador.habeas_data.checked == true) {
-		document.getElementById('contenedor_habeas_data').style.display='block';
-		/*Habilitar el boton de registrar cuando el check este seleccioando o checked*/
-		document.getElementById('boton_registrar').disabled=true;
-		$("#label_habeas").text('Rechazo las condiciones de uso');
-			//por el contrario, si no esta seleccionada
-		}else {
-			/*Deshabilitar el boton cuando el check no esta seleccioando*/
-			document.getElementById('boton_registrar').disabled=true;
-			$("#label_habeas").text('Acepto las condiciones de uso');
-		}
-	}
-	else {
-		if(document.f_registro_administrador.habeas_data.checked == true) {
-			document.getElementById('contenedor_habeas_data').style.display='block';
-			/*Habilitar el boton de registrar cuando el check este seleccioando o checked*/
-			document.getElementById('boton_registrar').disabled=false;
-			$("#label_habeas").text('Rechazo las condiciones de uso');
-			//por el contrario, si no esta seleccionada
-		}else {
-			document.getElementById('contenedor_habeas_data').style.display='none';
-			/*Deshabilitar el boton cuando el check no esta seleccioando*/
 			document.getElementById('boton_registrar').disabled=true;
 			$("#label_habeas").text('Acepto las condiciones de uso');
 		}
@@ -1157,9 +1068,14 @@ const justNumbers = (e,desde) => {
 	}
 }
 
-/*Esta es la funcion para impedir el ingreso de caracteris diferentes a numeros en el archivo de ajax llamado mostrar_tiempo_recorrido*/
-function justNumbersTime(e) {
-	var keynum = window.event ? window.event.keyCode : e.which;
+/**
+ * Funcion para validar que solo ingresen numeros y el caracter borrar
+ *
+ * @param e
+ * @return nos impide el ingreso de cadenas
+ */
+const justNumbersTime = (e) => {
+	let keynum = window.event ? window.event.keyCode : e.which;
 	//Solo se permite el caracter de borrar , el 8 es el valor en la tabla Asscii
 	if ((keynum == 8))
 		return true;
@@ -1485,18 +1401,6 @@ const check_age = (age, path) => {
 	$("#container_check_age").load("library/verificar_duplicidad/verificar_edad.php",{valor_edad:age,menu:path});
 }
 
-//Validar la edad del conductor cuando se esta registrando para que este activo en el sistema
-//Recibe el parametro de edad que viene del formulario en conductores.php cuando se envia el evento se envia el valor del parametro
-function comprobar_edad_valida_conductor_por_evaluador(edad) {
-	if(edad >= 90) {
-		alert("La edad que ingreso no es valida , por favor verificarlo para que se puede hacer el proceso correctamente!");
-		//Redireccion de la pagina
-		window.location = "test.php";
-	}
-
-	$("#verificar_edad").load("library/verificar_duplicidad/edad/verificar_edad_conductor.php",{valor_edad:edad});
-}
-
 /**
  * Funcion para verificar que los digitos del telefono sean correctos
  *
@@ -1534,54 +1438,6 @@ const check_number_phone = (number_phone,menu) => {
 	}
 }
 
-//funcion para verificar la cantidad de digitos del campo telefono
-//Ademas se recibe un parametro llamado numero_telefono_conductor que es enviado desde el formulario cuando se activo el evento que ejecuto esta funcion
-function validar_telefono_conductor_admin(numero_telefono_conductor) {
-	//Sacamos los digitos del numero de telefono con el metodo lenght
-	var valor_digitos = numero_telefono_conductor.length;
-	//Condicional para verificar que tenga 7 digitos para fijo o 10 para numero celular
-	if(valor_digitos == 7 || valor_digitos == 10) {
-		$('#verificar_telefono').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El telefono es Valido </label> </div>");
-		//Utilizamos esta variable para decir que el formato del numero ingresado es correcto
-		bandera_telefono = 0;
-		//Es para ocultar el check de habeas para que lo vuelva a seleccionar y no puede registrarse porque el valor del telefono no es correcto
-		document.getElementById('contenedor_habeas_data_conductor').style.display='none';
-		//Deshabilitar el check
-		document.f_registro.habeas.checked=0 ;
-		//Deshabilitar el boton de registrar
-		document.getElementById('boton_registrar').disabled=true;
-		style_border_input("telefono" , "verde");
-		$("#label_habeas").text('Acepto las condiciones de uso');
-	}else{
-		$('#verificar_telefono').html("<div class='alert alert-danger'><span class='fa fa-minus-circle fa-2x'></span><br> <label> El telefono ingresado es incorrecto </label> </div>");
-		//Utilizamos esta variable para decir que el formato del numero de telefono ingresado es incorrecto y debe cambiarse para poder registrase correctamente
-		bandera_telefono = 1;
-		//Es para ocultar el check de habeas para que lo vuelva a seleccionar y no puede registrarse porque el valor del telefono no es correcto
-		document.getElementById('contenedor_habeas_data_conductor').style.display='none';
-		//Deshabilitar el check
-		document.f_registro.habeas.checked=0 ;
-		//Deshabilitar el boton de registrar
-		document.getElementById('boton_registrar').disabled=true;
-		style_border_input("telefono" , "rojo");
-		$("#label_habeas").text('Acepto las condiciones de uso');
-	}
-}
-
-//funcion para verificar la cantidad de digitos del campo telefono
-//Ademas se recibe un parametro llamado numero_telefono_conductor que es enviado desde el formulario cuando se activo el evento que ejecuto esta funcion
-function validar_telefono_conductor_actualizacion(numero_telefono_conductor) {
-	//Sacamos los digitos del numero de telefono con el metodo lenght
-	var valor_digitos = numero_telefono_conductor.length;
-	//Condicional para verificar que tenga 7 digitos para fijo o 10 para numero celular
-	if(valor_digitos == 7 || valor_digitos == 10) {
-		$('#verificar_telefono_conductor').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El telefono es Valido </label> </div>");
-		document.getElementById("a_conductor").disabled = false;
-	}else{
-		$('#verificar_telefono_conductor').html("<div class='alert alert-danger'><span class='fa fa-minus-circle fa-2x'></span><br> <label> El telefono ingresado es incorrecto </label> </div>");
-		document.getElementById("a_conductor").disabled = true;
-	}
-}
-
 /**
  * Funcion que nos permite verificar la cantidad de digitos de una cedula en la opcion registro
  *
@@ -1594,34 +1450,6 @@ const check_digit_document = (number_document,path) => {
 	//Condicional para saber si cumple con el formato comun , 8 son los digitos para las cedulas antiguas, 10para las nuevas cedulas y 11 para las tarjetas de identidad
 	if(digit_document != 8 && digit_document != 10  && digit_document != 11 && digit_document != 7) {
 		return alert_dinamic_check_validator('El documento Ingresado es incorrecto porque no cumple con la cantidad de digitos necesaria.', path);
-	}
-}
-
-//Funcion para validar que el numero documento del conductor cuando se va a registrar cumpla con la cantidad de digitos correta
-//Ademas recibe un parametro llamado numero_documento_conductor que es enviado desde el formulario donde se activo el evento que lanzo la funcion
-function validar_digitos_documento_conductor(numero_documento_conductor) {
-	//Sacmaos los digitos del parametro numero_documento_evaluador con el metodo length
-	var digitos_documento_conductor = numero_documento_conductor.length;
-
-	//Condicional para saber si cumple con el formato comun , 8 son los digitos para las cedulas antiguas, 10 para las nuevas cedulas y 11 para las tarjetas de identidad y 7 para cedulas antiguas
-	//las dos comparaciones tiene que ser verdaderas para que se cumpla el condicional y se valla por el lado verdadero
-	if(digitos_documento_conductor != 8 && digitos_documento_conductor != 10  && digitos_documento_conductor != 11 && digitos_documento_conductor != 7) {
-		alert("El documento Ingresado es incorrecto porque no cumple con el formato adecuado , por favor verificarlo antes de registrar el Conductor al sistema");
-		window.location = "Conductores.php";
-	}
-}
-
-//Funcion para validar que el numero documento del conductor cuando se va a registrar cumpla con la cantidad de digitos correta
-//Ademas recibe un parametro llamado numero_documento_conductor que es enviado desde el formulario donde se activo el evento que lanzo la funcion
-function validar_digitos_documento_conductor_por_evaluador(numero_documento_conductor) {
-	//Sacmaos los digitos del parametro numero_documento_evaluador con el metodo length
-	var digitos_documento_conductor = numero_documento_conductor.length;
-
-	//Condicional para saber si cumple con el formato comun , 8 son los digitos para las cedulas antiguas, 10 para las nuevas cedulas y 11 para las tarjetas de identidad y 7 para cedulas antiguas
-	//las dos comparaciones tiene que ser verdaderas para que se cumpla el condicional y se valla por el lado verdadero
-	if(digitos_documento_conductor != 8 && digitos_documento_conductor != 10  && digitos_documento_conductor != 11 && digitos_documento_conductor != 7) {
-		alert("El documento Ingresado es incorrecto porque no cumple con el formato adecuado , por favor verificarlo antes de registrar el Conductor al sistema");
-		window.location = "test.php";
 	}
 }
 
@@ -1648,240 +1476,6 @@ const hidden_form_actived = () => {
 	document.getElementById('content_form_activated').style.display='none';
 	document.getElementById('ocultar_form_activacion').style.display='none';
 	document.getElementById('all_download_actived_log').style.display='inline-block';
-}
-
-//funcion para solo recibir fotos con respecto a su extension en el campo file del menu evaluadores cuando se registra
-/*Ademas tiene dos parametros que se envian con el evento en el formulario del archivo evaluadores.php en el boton de Actualizar
-con el evento onclick de Javascript*/
-function check_photo_actualizacion(formulario , archivo) {
-	//Se crea un areglo con las extensiones permitidas
-	extensiones_permitidas = new Array(".png", ".jpg", ".jpeg");
-	//recupero la extensión de este nombre de archivo
-	extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
-	//compruebo si la extensión está entre las permitidas
-	permitida = false;
-
-	//Utilizamos un ciclo para recorrer el vector con la extension del archivo cargado si lo encontramos
-	//Si se encuentra a la varibal permitidas le damos a un valor de true
-	for (var i = 0; i < extensiones_permitidas.length; i++) {
-		if (extensiones_permitidas[i] == extension) {
-			//Cambiamos el valor de la variable permitido a tru porque encontramos la coincidencia entre extensiones
-			permitida = true;
-			//Rompemos el ciclo paraque continue con la funcion
-			break;
-		}
-	}
-
-	//Condicional para saber si es diferente la extension del archivo cargado con el vector de extensiones permitidas
-	if (!permitida) {
-		alert("Comprueba la extensión del archivo a subir. \nSólo se pueden subir el archivo con extension: " + extensiones_permitidas.join());
-		//Enviamos un mensaje al contenedor extensiones_permitidas para que muestre un mensaje con html
-		$('#extensiones_permitidas').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> El archivo cargado no es Valido </label> </div>");
-		//Bandera foto es para deshabilitar el boton de registrar hasta que coloque una foto con extension valida
-		//Como sabemos que el archivo cargado no es valido lo que hacemos es deshabilitar el boton de actualizar hasta que lo corroga y coloque un archivo correcto
-		document.getElementById('a_evaluador').disabled = true;
-	}else {
-		$('#extensiones_permitidas').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El archivo Cargado es Correcto </label> </div>");
-		//Si el boton de actualizar s encuentra deshabilitado porque colocaron un archivo incorrecto y luego colocaron uno valido lo que hacemos es habilitarlo para que pueda actualizar
-		document.getElementById('a_evaluador').disabled = false;
-	}
-}
-
-//funcion para solo recibir fotos con respecto a su extension en el campo file del menu evaluadores cuando se registra
-/*Ademas tiene dos parametros que se envian con el evento en el formulario del archivo evaluadores.php en el boton de Actualizar
-con el evento onclick de Javascript*/
-function comprueba_extension_foto_conductor_actualizacion(formulario , archivo) {
-	//Se crea un areglo con las extensiones permitidas
-	extensiones_permitidas = new Array(".png", ".jpg", ".jpeg");
-	//recupero la extensión de este nombre de archivo
-	extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
-	//compruebo si la extensión está entre las permitidas
-	permitida = false;
-
-	//Utilizamos un ciclo para recorrer el vector con la extension del archivo cargado si lo encontramos
-	//Si se encuentra a la varibal permitidas le damos a un valor de true
-	for (var i = 0; i < extensiones_permitidas.length; i++) {
-		if (extensiones_permitidas[i] == extension) {
-			//Cambiamos el valor de la variable permitido a tru porque encontramos la coincidencia entre extensiones
-			permitida = true;
-			//Rompemos el ciclo paraque continue con la funcion
-			break;
-		}
-	}
-
-	//Condicional para saber si es diferente la extension del archivo cargado con el vector de extensiones permitidas
-	if (!permitida) {
-		alert("Comprueba la extensión del archivo a subir. \nSólo se pueden subir el archivo con extension: " + extensiones_permitidas.join());
-		//Enviamos un mensaje al contenedor extensiones_permitidas para que muestre un mensaje con html
-		$('#extensiones_permitidas').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> El archivo cargado no es Valido </label> </div>");
-		//Bandera foto es para deshabilitar el boton de registrar hasta que coloque una foto con extension valida
-		//Como sabemos que el archivo cargado no es valido lo que hacemos es deshabilitar el boton de actualizar hasta que lo corroga y coloque un archivo correcto
-		document.getElementById('a_conductor').disabled = true;
-	}else {
-		$('#extensiones_permitidas').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El archivo Cargado es Correcto </label> </div>");
-		//Si el boton de actualizar s encuentra deshabilitado porque colocaron un archivo incorrecto y luego colocaron uno valido lo que hacemos es habilitarlo para que pueda actualizar
-		document.getElementById('a_conductor').disabled = false;
-	}
-}
-
-//Funcion para verificar en la opcion de actualizar en el menu del evaluador el telefono que tenga los digitos correctos
-function check_number_phone_actualizacion(numero_telefono) {
-	//Sacamos los digitos del numero de telefono con el metodo lenght
-	var valor_digitos = numero_telefono.length;
-	console.log("los digitos del numero cargado es = "+valor_digitos);
-	//Condicional para verificar que tenga 7 digitos para fijo o 10 para numero celular
-	if(valor_digitos == 7 || valor_digitos == 10) {
-		$('#contenedor_validador_telefono').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El telefono es Valido </label> </div>");
-		document.getElementById("a_evaluador").disabled = false;
-	}else{
-		$('#contenedor_validador_telefono').html("<div class='alert alert-danger'><span class='fa fa-minus-circle fa-2x'></span><br> <label> El telefono ingresado es incorrecto </label> </div>");
-		document.getElementById("a_evaluador").disabled = true;
-	}
-}
-
-//Funcion para poder mostrar el formulario de activacion del administrador cuando hay un administrador inactivo
-function mostrar_observaciones_activacion_administrador(nombre_completo,id_dato) {
-	//Buscamos el contenedor_activacion donde va aparecer el formulario creado desde js que se envia a Html
-	var div = document.getElementById("contenedor_activacion_administrador");
-	//Como esta compuesto el formulario de activacion
-	div.innerHTML = "<form action='activar_administrador.php' class='border_outside' method='post' id='content_form_actived_admin'> <center> <h3>Activacion de <strong>"+nombre_completo+"</strong></h3> <br> <input type='text' name='id_dato' value="+id_dato+" hidden> <textarea name='observaciones_activacion' placeholder='Ingresar las Observaciones de Activacion' cols='50' rows='5' onkeypress='return onlyWords(event)' required></textarea><br> <button type='submit' class='btn btn-success glyphicon glyphicon-saved'> Activar</button> </center> </form>";
-	document.getElementById('ocultar_form_activacion_administrador').style.display='block';
-	document.getElementById('all_download_actived_log').style.display='none';
-}
-
-//Funcion para verificar en la opcion de actualizar foto solo ingreso archivos validos y no otra cosa diferente
-//Se recibe dos parametros que son formulario , archivo que son enviados cuando la funcion se activa desde el formulario de html
-function comprueba_extension_foto_administrador_actualizacion(formulario , archivo) {
-	//Se crea un areglo con las extensiones permitidas
-	extensiones_permitidas = new Array(".png", ".jpg", ".jpeg");
-	//recupero la extensión de este nombre de archivo
-	extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
-	//compruebo si la extensión está entre las permitidas
-	permitida = false;
-
-	//Utilizamos un ciclo para recorrer el vector con la extension del archivo cargado si lo encontramos
-	//Si se encuentra a la varibal permitidas le damos a un valor de true
-	for (var i = 0; i < extensiones_permitidas.length; i++) {
-		if (extensiones_permitidas[i] == extension) {
-			//Cambiamos el valor de la variable permitido a tru porque encontramos la coincidencia entre extensiones
-			permitida = true;
-			//Rompemos el ciclo paraque continue con la funcion
-			break;
-		}
-	}
-
-	//Condicional para saber si es diferente la extension del archivo cargado con el vector de extensiones permitidas
-	if (!permitida) {
-		alert("Comprueba la extensión del archivo a subir. \nSólo se pueden subir el archivo con extension: " + extensiones_permitidas.join());
-		//Enviamos un mensaje al contenedor extensiones_permitidas para que muestre un mensaje con html
-		$('#extensiones_permitidas_administrador').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> El archivo cargado no es Valido </label> </div>");
-		//Bandera foto es para deshabilitar el boton de registrar hasta que coloque una foto con extension valida
-		//Como sabemos que el archivo cargado no es valido lo que hacemos es deshabilitar el boton de actualizar hasta que lo corroga y coloque un archivo correcto
-		document.getElementById('a_administrador').disabled = true;
-	}else {
-		$('#extensiones_permitidas_administrador').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El archivo Cargado es Correcto </label> </div>");
-		//Si el boton de actualizar s encuentra deshabilitado porque colocaron un archivo incorrecto y luego colocaron uno valido lo que hacemos es habilitarlo para que pueda actualizar
-		document.getElementById('a_administrador').disabled = false;
-	}
-}
-
-//funcion para verificar los digitos del documento si se actualiza
-function validar_digitos_documento_administrador(numero_documento_administrador) {
-	//Sacmaos los digitos del parametro numero_documento_evaluador con el metodo length
-	var digitos_documento_administrador = numero_documento_administrador.length;
-
-	//Condicional para saber si cumple con el formato comun , 8 son los digitos para las cedulas antiguas, 10 para las nuevas cedulas y 11 para las tarjetas de identidad y 7 para cedulas antiguas
-	//las dos comparaciones tiene que ser verdaderas para que se cumpla el condicional y se valla por el lado verdadero
-	if(digitos_documento_administrador != 8 && digitos_documento_administrador != 10  && digitos_documento_administrador != 11 && digitos_documento_administrador != 7) {
-		alert("El documento Ingresado es incorrecto porque no cumple con el formato adecuado , por favor verificarlo antes de Actualizar el Administrador al sistema");
-		window.location = "administrador.php";
-	}
-}
-
-function validar_telefono_administrador_actualizacion(numero_telefono_administrador) {
-	//Sacamos los digitos del numero de telefono con el metodo lenght
-	var valor_digitos = numero_telefono_administrador.length;
-	//Condicional para verificar que tenga 7 digitos para fijo o 10 para numero celular
-	if(valor_digitos == 7 || valor_digitos == 10) {
-		$('#verificar_telefono_administrador').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El telefono es Valido </label> </div>");
-		document.getElementById("a_administrador").disabled = false;
-	}else{
-		$('#verificar_telefono_administrador').html("<div class='alert alert-danger'><span class='fa fa-minus-circle fa-2x'></span><br> <label> El telefono ingresado es incorrecto </label> </div>");
-		document.getElementById("a_administrador").disabled = true;
-	}
-}
-
-/*Funcion para saber la cantidad de digitos que tiene el campo documento en el rol evaluador cuando se va ha editar la informacion del conductor
-ademas recibe un parametro llamado numero_documento_evaluador que viene del formulario de actualizar la informacion del conductor*/
-function validar_digitos_documento_rol_evaluador(numero_documento_evaluador) {
-	//Sacmaos los digitos del parametro numero_documento_evaluador con el metodo length
-	var digit_document = numero_documento_evaluador.length;
-
-	//Condicional para saber si cumple con el formato comun , 8 son los digitos para las cedulas antiguas, 10para las nuevas cedulas y 11 para las tarjetas de identidad
-	//las dos comparaciones tiene que ser verdaderas para que se cumpla el condicional y se valla por el lado verdadero
-	if(digit_document != 8 && digit_document != 10  && digit_document != 11 && digit_document != 7) {
-		alert("El documento Ingresado es incorrecto porque no cumple con el formato adecuado , por favor verificarlo antes de hacer su proceso");
-		window.location = "test.php";
-	}
-}
-
-//Funcion para saber si la edad ingresada cuando se actualiza la info del conductr por parte del evaluador sea coherente
-//Ademas que recibe un parametro llamado edad que viene el formulario cuando se actaliza el conductor
-function comprobar_edad_valida_rol_evaluador(edad) {
-	if(edad >= 90) {
-		alert("La edad que ingreso no es valida , por favor verificarlo antes de hacer su proceso!");
-		window.location = "test.php";
-	}
-}
-
-//Funcion para verificar los digitos del telefono cuando se actualiza la info del conductor por parte del evaluador
-//Ademas tenemos un parametro llamdo numero_telefono que viene del formulario de actualizacion
-function validar_telefono_rol_evaluador(numero_telefono) {
-	//Sacamos los digitos del numero de telefono con el metodo lenght
-	var valor_digitos = numero_telefono.length;
-	//Condicional para verificar que tenga 7 digitos para fijo o 10 para numero celular
-	if(valor_digitos == 7 || valor_digitos == 10) {
-		$('#verificar_telefono').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El telefono es Valido </label> </div>");
-		document.getElementById('actualizar_conductor').disabled=false;
-	}else{
-		$('#verificar_telefono').html("<div class='alert alert-danger'><span class='fa fa-minus-circle fa-2x'></span><br> <label> El telefono ingresado es incorrecto </label> </div>");
-		document.getElementById('actualizar_conductor').disabled=true;
-	}
-}
-
-//Funcion que me permite verificar la extension del archivo cuando se carga si es valido o no
-//Ademas de recibir 2 parametros que se envian cuando la funcion se activa
-function comprueba_extension_foto_rol_evaluador(formulario , archivo) {
-	//Se crea un areglo con las extensiones permitidas
-	extensiones_permitidas = new Array(".png", ".jpg", ".jpeg");
-	//recupero la extensión de este nombre de archivo
-	extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
-	//compruebo si la extensión está entre las permitidas
-	permitida = false;
-
-	//Utilizamos un ciclo para recorrer el vector con la extension del archivo cargado si lo encontramos
-	//Si se encuentra a la varibal permitidas le damos a un valor de true
-	for (var i = 0; i < extensiones_permitidas.length; i++) {
-		if (extensiones_permitidas[i] == extension) {
-			//Cambiamos el valor de la variable permitido a tru porque encontramos la coincidencia entre extensiones
-			permitida = true;
-			//Rompemos el ciclo paraque continue con la funcion
-			break;
-		}
-	}
-
-	//Condicional para saber si es diferente la extension del archivo cargado con el vector de extensiones permitidas
-	if (!permitida) {
-		alert("Comprueba la extensión del archivo a subir. \nSólo se pueden subir el archivo con extension: " + extensiones_permitidas.join());
-		//Enviamos un mensaje al contenedor extensiones_permitidas para que muestre un mensaje con html
-		$('#extensiones_permitidas_evaluador').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> El archivo cargado no es Valido </label> </div>");
-		//Deshabilitamos en boton cuando la extension no es correcta
-		document.getElementById('actualizar_conductor').disabled=true;
-	}else {
-		$('#extensiones_permitidas_evaluador').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El archivo Cargado es Correcto </label> </div>");
-		//Habilitamos el boton cuando la extension es correcta
-		document.getElementById('actualizar_conductor').disabled=false;
-	}
 }
 
 /**
@@ -1934,8 +1528,7 @@ const check_email = address_email => {
  * @return un color en el borde del input
  */
 const style_border_input = (id_input , valor) => {
-	switch(id_input)
-	{
+	switch(id_input) {
 		case 'nombre_apellido':
 			if (valor == "verde") {
 				$('#nombre').css('border' , '1px solid green');
@@ -1955,47 +1548,13 @@ const style_border_input = (id_input , valor) => {
 	}
 }
 
-
-function validar_correo_evaluador_editar(valor_correo) {
-	if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(valor_correo)){
-		$('#contenedor_validar_correo_evaluador_editar').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El formato del correo ingresado es Valido </label> </div>");
-		document.getElementById('actualizar_conductor').disabled=false;
-	}else {
-		$('#contenedor_validar_correo_evaluador_editar').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> La dirección de email es incorrecta!. </label> </div>");
-		document.getElementById('actualizar_conductor').disabled=true;
-	}
-}
-
-//Funcion para colocar el validador del correo en la opcion de ediatr del evaluador , para que solo permita correos validos
-//Ademas recibe un parametro que es valor_correo que viene cuando se activa el evento que lanza la funcion
-function validar_correo_actualizar(valor_correo) {
-	//Condicional que mira si el correo ingresado cumple con la expresion regular de la parte de abajo
-	if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(valor_correo)){
-		console.log("Hemos entrado en la opcion Verdadera");
-		//Mostramos en el contenedor contenedor_validar_correo la informacion cuando el correo ingresado es incorrecto
-		$('#contenedor_validar_correo').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El formato del correo ingresado es Valido </label> </div>");
-		document.getElementById('a_evaluador').disabled=false;
-	}else {
-		//Mostramos en el contenedor contenedor_validar_correo la informacion cuando es correcto el correo ingresado
-		$('#contenedor_validar_correo').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> La dirección de email es incorrecta!. </label> </div>");
-		document.getElementById('a_evaluador').disabled=true;
-	}
-}
-
-//Funcion para validar el correo que ingresan cuando se actualiza un registro en el menu conductores , ademas que recibe un parametro que se envia desde el furmulario
-function validar_correo_conductor_actualizar(valor_correo_conductor_actualizar) {
-	//Condicional que mira si el correo ingresado cumple con la expresion regular de la parte de abajo
-	if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(valor_correo_conductor_actualizar)){
-		$('#contenedor_correo_actualizar').html("<div class='alert alert-success'> <span class='fa fa-check-circle fa-2x'></span><br> <label> El formato del correo ingresado es Valido </label> </div>");
-		document.getElementById('a_conductor').disabled=false;
-	}else {
-		$('#contenedor_correo_actualizar').html("<div class='alert alert-danger'> <span class='fa fa-minus-circle fa-2x'></span> <br><label> La dirección de email es incorrecta!. </label> </div>");
-		document.getElementById('a_conductor').disabled=true;
-	}
-}
-
-//Funcion para evitar que la pagina quede abierta
-function redireccionarPagina() {
+/**
+ * Funcion para redireccionar despues de cierto tiempo de inactividad
+ *
+ * @param none
+ * @return redireccion
+ */
+const redirectPage = () => {
 	window.location = "Log.php";
 }
 
@@ -2003,7 +1562,7 @@ function redireccionarPagina() {
 Para nuestro caso 10 minutos son 600.000 milisegundoslo redireccionara al inicio de la plataforma
 La funcion se coloco como maximo en una sola pagina de 20 minutos que en milisgundos seria 1'200.000 milisegundos
 */
-setTimeout("redireccionarPagina()", 1200000);
+setTimeout("redirectPage()", 1200000);
 
 /**
  * Funcion para verificar el nombre completo de alguien en la bd en la opcion registro
@@ -2015,23 +1574,13 @@ const check_full_name = (nombre = null, apellido = null,menu_origen , opcion) =>
 	$("#container_check_full_name").load("library/verificar_duplicidad/verificar_nombre_completo.php",{valor_nombre:nombre,valor_apellido:apellido,valor_menu:menu_origen,valor_opcion:opcion});
 }
 
-/*funcion para validar el valor ingresado en horas y minutos del rol admin modulo rutas opcion editar*/
-function validar_digitos_tiempo_recorrido(desde,valor_hora,valor_minuto) {
-	if (desde == 'campo_hora') {
-		if (valor_hora > 24) {
-			alert('El valor de la hora ingresado es incorrecto porque supera las 24 horas del dia.');
-			window.location = "rutas.php";
-		}
-	}else {
-		if (valor_minuto > 60) {
-			alert('El valor de los Minutos ingresado es incorrecto porque supera los 60 Minutos.');
-			window.location = "rutas.php";
-		}
-	}
-}
-
-/*funcion en el rol admin , modulo rutas , opcion editar campo tiempo recorrido para seleccionar si horas o minutos*/
-function enabled_disabled_check(desde) {
+/**
+ * funcion en el rol admin , modulo rutas , opcion editar campo tiempo recorrido para seleccionar si horas o minutos
+ *
+ * @param desde
+ * @return muestra contenido
+ */
+const enabled_disabled_check = (desde) => {
 	if (desde == 'campo_hora') {
 		var clase_tiempo_hora = $("#tiempo_hora").attr('class');
 		if (clase_tiempo_hora == "form-control checked_hora") {
@@ -2039,13 +1588,13 @@ function enabled_disabled_check(desde) {
 			$("#tiempo_hora").removeClass('checked_hora');
 			$("#tiempo_hora").attr('value','');
 			$("#texto_adicional_tiempo_hora").text('Activar');
-			return impedir_sin_valores_tiempo_recorrido();
+			return stop_empty_time_destiny();
 		}else {
 			document.getElementById('tiempo_hora').disabled=true;
 			$("#tiempo_hora").addClass('checked_hora');
 			$("#tiempo_hora").attr('value','0');
 			$("#texto_adicional_tiempo_hora").text('Desactivar');
-			return impedir_sin_valores_tiempo_recorrido();
+			return stop_empty_time_destiny();
 		}
 	}else {
 		var clases_tiempo_minuto = $("#tiempo_minuto").attr('class');
@@ -2054,18 +1603,24 @@ function enabled_disabled_check(desde) {
 			$("#tiempo_minuto").removeClass('checked_hora');
 			$("#tiempo_minuto").attr('value','');
 			$("#texto_adicional_tiempo_minuto").text('Activar');
-			return impedir_sin_valores_tiempo_recorrido();
+			return stop_empty_time_destiny();
 		}else {
 			document.getElementById('tiempo_minuto').disabled=true;
 			$("#tiempo_minuto").addClass('checked_hora');
 			$("#tiempo_minuto").attr('value','0');
 			$("#texto_adicional_tiempo_minuto").text('Desactivar');
-			return impedir_sin_valores_tiempo_recorrido();
+			return stop_empty_time_destiny();
 		}
 	}
 }
 
-function impedir_sin_valores_tiempo_recorrido() {
+/**
+ * Funcion para verificar que el campo tiempo recorrido modulo rutas rol admin no este vacio
+ *
+ * @param none
+ * @return una alerta
+ */
+const stop_empty_time_destiny =() => {
 	valor_hora = document.getElementById("tiempo_hora").value;
 	valor_minuto = document.getElementById("tiempo_minuto").value;
 
@@ -2086,7 +1641,6 @@ function impedir_sin_valores_tiempo_recorrido() {
  * @return muestra el boton en pantalla
  */
 const show_button_clear_inputs = () => {
-	console.log("Hemos entrado a la funcion!!!!");
 	$("#button_clean_full_name").show();
 }
 
