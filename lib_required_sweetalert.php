@@ -1,2 +1,4 @@
-<link rel="stylesheet" href="css/sweetalert.css">
-<script src="js/sweetalert.min.js"></script>
+<?php
+	include "library/Head/Head_common.php";
+	include "library/Footer.php";
+?>
