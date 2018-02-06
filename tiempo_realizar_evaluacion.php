@@ -1,5 +1,5 @@
 <?php
-	include "lib_required_sweetalert.php";
+	include "lib_required_sweetalert_only_profile_evaluador.php";
 	include "methods_backend.php";
 
 	//Sacamos el tiempo final cuando envia la evaluacion en minutos y segundos por parte de la funcion date en php
