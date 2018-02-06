@@ -37,8 +37,6 @@
 					<th><span class='glyphicon glyphicon-tag'></span> Nombre</th>
 					<th><i class='fa fa-book'></i> Apellido</th>
 					<th><span class='glyphicon glyphicon-pencil'></span> Numero Documento</th>
-					<th><span class='glyphicon glyphicon-phone-alt'></span> Telefono</th>
-					<th><span class='glyphicon glyphicon-pushpin'></span> Correo</th>
 				</tr>";
 			while($registro = mysqli_fetch_array($show)){
 				//Contenido con la etiqueta
@@ -76,9 +74,6 @@
 						<td>$registro[nombre]</td>
 						<td>$registro[apellido]</td>
 						<td>$registro[documento]</td>
-						<td>$registro[telefono]</td>
-						<td>$valor_correo</td>
-
 					</tr>
 
 					<div class='modal fade' id='all$registro[documento]' tabindex='-1' role='dialog' aria-labelladby='myLargeModalLabel' aria-hidden='true'>
