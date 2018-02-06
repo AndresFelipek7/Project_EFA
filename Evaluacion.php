@@ -267,11 +267,12 @@
 
 				<div id='collapse4' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'>
 					<div class='panel-body text-center'>
-						<button type="button" class="btn btn-md btn-primary" id="ayuda_signo" data-toggle="tooltip" data-placement="right" title="Los signos de fatiga es lo que se puede medir mediante algun instrumento con ese objetivo"><span class="fa fa-info"></span></button>
+						<button type="button" class="btn btn-md btn-primary" id="ayuda_signo" data-toggle="tooltip" data-placement="right" title="Los signos de fatiga es lo que se puede medir mediante algun instrumento con ese objetivo"><span class="fa fa-info"></span></button><br>
+						<a href="#sincronizar_manilla" data-toggle='modal' class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
+						<a href="#usuario_contraseña_conductor" data-toggle='modal' class="btn btn-warning"><span class="glyphicon glyphicon-user"></span></a>
 						<br>
 						<?php include 'library/listas dinamicas/lista_Dinamica_signos.php';?>
 						<hr>
-						<a href="#sincronizar_manilla" data-toggle='modal' class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
 						<?php
 							$traer_id_conductor = $_POST['valor_id'];
 
@@ -285,18 +286,25 @@
 								$traer_contraseña = $fila["pass_fit"];
 							}
 						?>
-						<a href="#usuario_contraseña_conductor" data-toggle='modal' class="btn btn-warning"><span class="glyphicon glyphicon-user"></span></a>
 						<div>
-							<div class="col-md-6">
-								<button type="button" class="btn btn-xs btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="left" title="Sueño profundo consiste en el tiempo en que el conductor a dormido profundamente para poder descansar lo mas posible"><span class="fa fa-info"></span></button>
+							<div class="col-md-12">
+								<button type="button" class="btn btn-md btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="left" title="Sueño profundo consiste en el tiempo en que el conductor a dormido profundamente para poder descansar lo mas posible"><span class="fa fa-info"></span></button>
 								<center>
-									<label>Sueño Profundo </label>
-									<input type="text" class="form-control" id="sueño_profundo" name="sueño_profundo" placeholder="hora.minuto / .minuto">
+									<label>Sueño Profundo </label><br>
+									<select id="sueño_profundo" onchange="show_container_checked();">
+										<option value="hora">Solo hora</option>
+										<option value="minutos">Minutos</option>
+										<option value="ambos">Hora y minutos</option>
+									</select><br><br>
+
+									<div id="container_deep_sleep">
+										<input type="text" class="form-control" name="sueño_profundo" placeholder="Ingreso Hora">
+									</div>
 								</center>
-								<a href="#ayuda_completa_sueño_manilla" data-toggle='modal'>Como llenar este campo</a>
+								<hr>
 							</div>
 
-							<div class="col-md-6">
+							<div class="col-md-12">
 								<button type="button" class="btn btn-xs btn-primary" id="ayuda_pulsaciones" data-toggle="tooltip" data-placement="left" title="Las pulsaciones es el pulso que presente el conductor durante la evaluacion de fatiga , si por alguna razon las pulsaciones superan las 100 por minuto es necesario repetir la medicion de las pulsaciones para estar seguros"><span class="fa fa-info"></span></button>
 								<center>
 									<label>Valor Pulsaciones </label>
