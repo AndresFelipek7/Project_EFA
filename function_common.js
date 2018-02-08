@@ -581,7 +581,7 @@ const alert_dinamic_actived_error = (menu,path) => {
  * @param idTable,input
  * @return el registro coincidente
  */
-const doSearch = (idTable,input) => {
+const doSearch = (idTable = "table",input = "input") => {
 	let tableReg = document.getElementById(idTable);
 	let searchText = document.getElementById(input).value.toLowerCase();
 	let cellsOfRow="";

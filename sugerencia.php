@@ -18,7 +18,7 @@
 	<!--Contenedor donde se muestra todos las recomendaciones de todos los menus-->
 	<div class="container text-center" id="contenido_Bd">
 
-		<!--Contenedor de Recomendaciones Sintomas-->
+		<!--CONTENEDOR DE RECOMENDACIONES SINTOMAS-->
 		<div>
 			<a href='#seccion' data-toggle='collapse' class='btn btn-primary btn-lg'> <span class="glyphicon glyphicon-heart"></span> Sintomas</a>
 			<div class='collapse' id='seccion'>
@@ -138,7 +138,7 @@
 			</div>
 		</div>
 
-		<!--Contenedor de Recomendacion Signos-->
+		<!--CONTENEDOR DE RECOMENDACION SIGNOS-->
 		<div>
 			<a href='#seccion2' data-toggle='collapse' class='btn btn-success btn-lg'> <span class="glyphicon glyphicon-eye-open"></span> Signos</a>
 			<div class='collapse' id='seccion2'>
@@ -261,7 +261,7 @@
 			</div>
 		</div>
 
-		<!--Contenedor de Recomendacion Alteraciones Emocionales-->
+		<!--CONTENEDOR DE RECOMENDACION ALTERACIONES EMOCIONALES-->
 		<div>
 			<a href='#seccion3' data-toggle='collapse' class='btn btn-warning btn-lg'> <span class="fa fa-thumbs-up"></span> Alteraciones Emocionales</a>
 			<div class='collapse' id='seccion3'>
@@ -384,7 +384,7 @@
 			</div>
 		</div>
 
-		<!--Contenedor de Recomendacion Alteraciones Neurologica-->
+		<!--CONTENEDOR DE RECOMENDACION ALTERACIONES NEUROLOGICA-->
 		<div>
 			<a href='#seccion4' data-toggle='collapse' class='btn btn-danger btn-lg'> <span class="fa fa-diamond"></span> Alteraciones Neurologica</a>
 			<div class='collapse' id='seccion4'>

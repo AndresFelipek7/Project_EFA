@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Menu | Conductor</title>
+	<title>Menú | Conductor</title>
 	<?php include 'library/Head/Head_common.php'; ?>
 </head>
 <body>
