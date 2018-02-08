@@ -290,15 +290,16 @@
 							<div class="col-md-12">
 								<button type="button" class="btn btn-md btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="left" title="Sueño profundo consiste en el tiempo en que el conductor a dormido profundamente para poder descansar lo mas posible"><span class="fa fa-info"></span></button>
 								<center>
+									<input type="hidden" name="desde" value="form_evaluacion">
 									<label>Sueño Profundo </label><br>
 									<select id="sueño_profundo" name="sueño_profundo" onchange="show_container_checked();">
 										<option value="hora">Solo hora</option>
-										<option value="minutos">Minutos</option>
+										<option value="minutos">Solo Minutos</option>
 										<option value="ambos">Hora y minutos</option>
 									</select><br><br>
 
 									<div id="container_deep_sleep">
-										<input type="text" class="form-control" name="horas" placeholder="Ingreso Hora">
+										<input type="text" class="form-control" name="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress='return justNumbers(event,this.form.desde.value)'>
 									</div>
 								</center>
 								<hr>

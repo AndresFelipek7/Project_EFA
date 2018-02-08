@@ -125,4 +125,24 @@
 			});
 		</script>";
 	}
+
+	/**
+	 * Funcion para obtener los minutos de las horas
+	 *
+	 * @param $minutes
+	 * @return los minutos de la hora que le pasamos
+	 */
+	function getMinutes($minutes) {
+		return (($minutes*60)/1);
+	}
+
+	/**
+	 * Funcion para cambiar el signo de un numero
+	 *
+	 * @param $numeric
+	 * @return el numero positivo
+	 */
+	function change_negative_numeric($numeric) {
+		return ( $numeric + ( -$numeric ) ) + ( -$numeric );
+	}
 ?>

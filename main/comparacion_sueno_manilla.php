@@ -1,24 +1,59 @@
 <?php
-	/*Orden del vector vector_Tiempo_sueño_Profundo
-		Ejemplo del tiempo Ingresado
-		4.10
-		4 = Significa la hora = Posicion 1 pero en el vector es 0
-		10 = Los minutos = posicion 2 pero en el vector es 1
-		---------------------------------------------
-		.10
-		 = La primera posicion esta vacia = pero en el vector es la posicion 0
-		10 = Significca los minutos = es la posicion 2 y en el vecto es 1 (Lo puede ver en la linea 74 de este archivo)
-	*/
-	/*Vector para traer la informacion del menu interrogarotio opcion cargar informacion manilla*/
-	$traer_Info_manilla = [$_POST["sueño_profundo"] , $_POST["pulsaciones"]];
-	$vector_Tiempo_sueño_Profundo = explode(".",$traer_Info_manilla[0]);
-	
-	//Sacamos los minutos de la informacion que dijo el conductor que durmio en tiempo sueño
-	$sacar_Minutos_hora = (($traer_Valores_interrogatorio[5]*60)/1);
-	//Sacamos el valor que nos trajo la manilla del tiempo de sueño profundo
-	$sacar_Minutos_hora_Manilla = (($vector_Tiempo_sueño_Profundo[0]*60)/1);
+	include "../methods_backend.php";
 
-	//Verificamos que antes del punto este un numero que en nuestro caso serian las horas de sueño que no se encuentren vacios
+	//$select_sueño_profundo = $_POST["sueño_profundo"];
+	$select_sueño_profundo = "hora";
+	//Sacamos los minutos de la informacion que dijo el conductor que durmio en tiempo sueño
+	//$sacar_Minutos_hora = get_minutes($traer_Valores_interrogatorio[5]);
+	$sacar_Minutos_hora = getMinutes('2');
+
+	switch ($select_sueño_profundo) {
+		case 'hora':
+			/*$sueño_profundo = $_POST["solo_hora_sueno"];*/
+			$sueño_profundo = 3;
+			$sacar_Minutos_hora_Manilla = getMinutes($sueño_profundo);
+			$diferencia_Entre_tiempo_Sueño = $sacar_Minutos_hora - $sacar_Minutos_hora_Manilla;
+			echo "Los minutos que dijo el conductor son : ".$sacar_Minutos_hora."<br>";
+			echo "Los minutos de la manilla es = ".$sacar_Minutos_hora_Manilla."<br>";
+			echo "La diferencia de los dos tiempo en minutos es ".$diferencia_Entre_tiempo_Sueño."<br>";
+
+			($diferencia_Entre_tiempo_Sueño < 0) ? change_negative_numeric($diferencia_Entre_tiempo_Sueño) : '';
+			break;
+		case 'minutos':
+			$sueño_profundo_solo_minutos = $_POST["minutos_sueno"];
+			$añadir_minutos_faltantes = 60 - $sueño_profundo_solo_minutos;
+			($sueño_profundo_solo_minutos >= 50) ? $valor_Total_minutos_Manilla = $sueño_profundo_solo_minutos + $añadir_minutos_faltantes : $valor_Total_minutos_Manilla = $sueño_profundo_solo_minutos;
+			$diferencia_Entre_tiempo_Sueño = $sacar_Minutos_hora - $valor_Total_minutos_Manilla;
+
+			if($diferencia_Entre_tiempo_Sueño < 0) {
+				//Tenemos el valor convertido a posicito de la diferencia entre los dos tiempos
+				$cambiar_signo_si_es_negativo = ( $diferencia_Entre_tiempo_Sueño + ( -$diferencia_Entre_tiempo_Sueño ) )+ ( -$diferencia_Entre_tiempo_Sueño );
+			}
+			($diferencia_Entre_tiempo_Sueño < 0) ? $cambiar_signo_si_es_negativo = ( $diferencia_Entre_tiempo_Sueño + ( -$diferencia_Entre_tiempo_Sueño ) )+ ( -$diferencia_Entre_tiempo_Sueño ) : $diferencia_Entre_tiempo_Sueño;
+			break;
+		case 'ambos':
+			$campo_hora = $_POST["solo_hora_sueno"];
+			$campo_minuto = $_POST["minutos_sueno"];
+
+			if ($campo_minuto >= 50) {
+				$añadir_minutos_faltantes = 60 - $campo_minuto;
+				$hora_Total_con_Aproximado_minutos = $campo_hora + 1;
+				$valor_Total_minutos_Manilla = (($hora_Total_con_Aproximado_minutos*60)/1);
+				$diferencia_Entre_tiempo_Sueño = $sacar_Minutos_hora - $valor_Total_minutos_Manilla;
+				($diferencia_Entre_tiempo_Sueño < 0) ? $cambiar_signo_si_es_negativo = ( $diferencia_Entre_tiempo_Sueño + ( -$diferencia_Entre_tiempo_Sueño ) )+ ( -$diferencia_Entre_tiempo_Sueño ) : $diferencia_Entre_tiempo_Sueño;
+			}else {
+
+			}
+			break;
+		default:
+			echo "No se ha podido capturar la informacion del campo sueño profundo";
+			break;
+	}
+	//$vector_Tiempo_sueño_Profundo = explode(".",$sueño_profundo);
+
+
+
+	/*//Verificamos que antes del punto este un numero que en nuestro caso serian las horas de sueño que no se encuentren vacios
 	if(!empty($vector_Tiempo_sueño_Profundo[0])) {
 		//Verificamos que en la posicion 2 del vector no se encuentre vacio , si es diferente el vector tiene minutos
 		if(!empty($vector_Tiempo_sueño_Profundo[1])) {
@@ -28,6 +63,7 @@
 				$minutos_Tiempo_sueño_profundo_Aproximado = $vector_Tiempo_sueño_Profundo[1] + 10;
 				//si aproxima los minutos la hora le sumamos una mas para que se mueva la hora
 				$hora_Total_con_Aproximado_minutos = $vector_Tiempo_sueño_Profundo[0] + 1;
+
 				//Sacamos el valor en minutos total de la hora ingresada en la info manilla ya aproximado
 				$valor_Total_minutos_Manilla = (($hora_Total_con_Aproximado_minutos*60)/1);
 				//Sacamos la diferencia en minutos de los dos tiempos = el que dijo el conductor y el de la manilla en minutos
@@ -74,7 +110,7 @@
 
 	//Condicional Para saber si las horas de sueño del conductor son correctas con las horas o minutos registradas por la manilla
 	//El valor de la variable $diferencia_Entre_tiempo_Sueño es en minutos
-	
+
 	if($diferencia_Entre_tiempo_Sueño >=30) {
 		$valor_verdad_tiempo_descanso_conductor = "Mentira";
 		echo "
@@ -108,8 +144,8 @@
 						</label>
 					</div>"."<br>";
 				}
-		/*Cuando la variable cambiar_signo_si_es_negativo esta vacio porque el tiempo del conductor y el de la manilla es 
-		el mismo la diferencia da cero y porque esa variable esta vacia vamos a mostrar este mensaje*/
+		//Cuando la variable cambiar_signo_si_es_negativo esta vacio porque el tiempo del conductor y el de la manilla es
+		//el mismo la diferencia da cero y porque esa variable esta vacia vamos a mostrar este mensaje
 		}else {
 			$valor_verdad_tiempo_descanso_conductor = "Verdad";
 				echo "
@@ -119,5 +155,5 @@
 						<strong>El conductor dijo la verdad con respecto a las horas de sueño ingresadas , la probabilidad de error es poca</strong>
 					</label>
 				</div>"."<br>";
-		}
+		}*/
 ?>
