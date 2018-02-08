@@ -8,8 +8,10 @@
 	<?php include 'library/Head/Header-main-evaluador.php'; ?>
 
 	<?php
-		$hora_sueno = $_POST["pulsaciones"];
-		echo "La hora de sueño profundo es = ".$hora_sueno;
+
+		/*$hora = $_POST['prueba'];*/
+		$hora = "Este es el valor que debe de llegar";
+		echo "La hora de sueño profundo es = ".$hora;
 	?>
 
 	<?php include "library/Footer.php"; ?>
