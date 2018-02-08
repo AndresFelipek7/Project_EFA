@@ -9,9 +9,21 @@
 
 	<?php
 
-		/*$hora = $_POST['prueba'];*/
-		$hora = "Este es el valor que debe de llegar";
-		echo "La hora de sueño profundo es = ".$hora;
+		$sueño = $_POST['sueño_profundo'];
+		switch ($sueño) {
+			case 'hora':
+				echo "Solo hay hora en el select de sueño profundo";
+				break;
+			case 'minutos':
+				echo "Solo hay minutos en el select de sueño profundo";
+				break;
+			case 'ambos':
+				echo "Tenemos horas y minutos";
+				break;
+			default:
+				echo "Ninguna de las anteriores";
+				break;
+		}
 	?>
 
 	<?php include "library/Footer.php"; ?>

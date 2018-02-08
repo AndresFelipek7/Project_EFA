@@ -32,11 +32,8 @@
 		<div class='panel-group container col-md-8' role='tablist' aria-multiselectable='true'>
 
 			<!--CONTENEDOR MENU SIGNOS FATIGA-->
-			<form action="registro_Evaluacion.php" action="POST">
-				<input type="text" name="prueba" placeholder="Ingresar Valor">
-				<input type="submit" value="Enviar">
-			</form>
-				<!-- <div class='panel panel-warning text-center'>
+			<form action="registro_Evaluacion.php" method="POST">
+				<div class='panel panel-warning text-center'>
 					<div class='panel-heading' role='tab' id='headingThree'>
 						<h4 class='panel-title'>
 							<a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse4' aria-expanded='false' aria-controls='collapseThree'>
@@ -104,14 +101,13 @@
 							</div>
 						</div>
 					</div>
-				</div> -->
+				</div>
 
-
-				<!-- <div class='text-center'>
+				<div class='text-center'>
 					<button class='btn btn-success' type='submit' id="enviar_evaluacion" name="enviar_evaluacion"><span class="glyphicon glyphicon-ok"></span> </button>
 					</center>
-				</div> -->
-
+				</div>
+			</form>
 		</div>
 
 		<!--Aqui colocamos la informacion del conductor al lado derecho-->
