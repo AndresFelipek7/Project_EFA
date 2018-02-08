@@ -27,7 +27,7 @@
 					<form action="" method="post" class="container panel tamaño_form" >
 						<h3> Recomendaciones Sintomas</h3>
 						<center>
-							<input class="form-control colocar-icono" type="text" name="buscar" id="input" placeholder="Buscar..." autofocus="autofocus" onkeyup="doSearch()"><br><br>
+							<input class="form-control colocar-icono" type="text" name="buscar" id="input" placeholder="Buscar..." autofocus="autofocus" onkeyup="doSearch('table','input')"><br><br>
 						</center>
 						<label><span class="glyphicon glyphicon-star"></span> Total Sintomas =  <input type="text" class="btn btn-danger btn-md" value="<?php echo $total_sugerencia_sintomas; ?>" disabled></label>
 						<a href='library/reportes/Sugerencia/Sintomas/exportar_all_sugerencia_sintomas.php' class="btn btn-info" onclick="alert_dinamic(event , 'Sintomas' , 'library/reportes/Sugerencia/Sintomas/exportar_all_sugerencia_sintomas.php')"><span class="glyphicon glyphicon-download-alt tamaño-botones-general"></span></a>
@@ -147,7 +147,7 @@
 					<form action="" method="post" class="container panel tamaño_form" >
 						<h3> Recomendaciones Signos</h3>
 						<center>
-							<input class="form-control colocar-icono" type="text" name="buscar" id="input2" placeholder="Buscar..." autofocus="autofocus" onkeyup="doSearch_Signo()"><br><br>
+							<input class="form-control colocar-icono" type="text" name="buscar" id="input2" placeholder="Buscar..." autofocus="autofocus" onkeyup="doSearch('table2','input2')"><br><br>
 						</center>
 						<label><span class="glyphicon glyphicon-star"></span> Total Signos =  <input type="text" class="btn btn-danger btn-md" value="<?php echo $total_sugerencia_signo; ?>" disabled></label>
 						<a href='library/reportes/Sugerencia/Signos/exportar_all_sugerencia_signo.php' onclick="alert_dinamic(event , 'Signos' , 'library/reportes/Sugerencia/Signos/exportar_all_sugerencia_signo.php')" class="btn btn-info"><span class="glyphicon glyphicon-download-alt tamaño-botones-general"></span></a>
@@ -270,7 +270,7 @@
 					<form action="" method="post" class="container panel tamaño_form" >
 						<h3>Recomendaciones Alteraciones Emocionales</h3>
 						<center>
-							<input class="form-control colocar-icono" type="text" name="buscar" id="input3" placeholder="Buscar..." autofocus="autofocus" onkeyup="doSearch_Emocional()"><br><br>
+							<input class="form-control colocar-icono" type="text" name="buscar" id="input3" placeholder="Buscar..." autofocus="autofocus" onkeyup="doSearch('table3','input3')"><br><br>
 						</center>
 						<label><span class="glyphicon glyphicon-star"></span> Total Alteraciones Emocionales = <input type="text" class="btn btn-danger btn-md" value="<?php echo $total_a_emocional_sugerencia; ?>" disabled></label>
 						<a href='library/reportes/Sugerencia/Alteraciones Emocionales/exportar_all_sugerencia_emocional.php' onclick="alert_dinamic(event , 'Alteraciones Emocionales' , 'library/reportes/Sugerencia/Alteraciones Emocionales/exportar_all_sugerencia_emocional.php')" class="btn btn-info"><span class="glyphicon glyphicon-download-alt tamaño-botones-general"></span></a>
@@ -393,7 +393,7 @@
 					<form action="" method="post" class="container panel tamaño_form" >
 						<h3>Recomendaciones Alteraciones Neurologica</h3>
 						<center>
-							<input class="form-control colocar-icono" type="text" name="buscar" id="input4" placeholder="Buscar..." autofocus="autofocus" onkeyup="doSearch_Neurologica()"><br><br>
+							<input class="form-control colocar-icono" type="text" name="buscar" id="input4" placeholder="Buscar..." autofocus="autofocus" onkeyup="doSearch('table4','input4')"><br><br>
 						</center>
 						<label><span class="glyphicon glyphicon-star"></span> Total Alteraciones Neurologica =  <input type="text" class="btn btn-danger btn-md" value="<?php echo $total_a_neurologico_sugerencia; ?>" disabled></label>
 						<a href='library/reportes/Sugerencia/Alteraciones Neurologicas/exportar_all_sugerencia_neurologica.php' onclick="alert_dinamic(event , 'Alteraciones Neurologicas' , 'library/reportes/Sugerencia/Alteraciones Neurologicas/exportar_all_sugerencia_neurologica.php')" class="btn btn-info"><span class="glyphicon glyphicon-download-alt tamaño-botones-general" onclick="alert_dinamic(event , 'Evaluadores Activos' , 'library/reportes/Evaluador')"></span></a>

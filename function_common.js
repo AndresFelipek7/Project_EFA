@@ -578,12 +578,12 @@ const alert_dinamic_actived_error = (menu,path) => {
 /**
  * Funcion para hacer una busqueda indexada en una tabla
  *
- * @param none
+ * @param idTable,input
  * @return el registro coincidente
  */
-const doSearch = () => {
-	let tableReg = document.getElementById('table');
-	let searchText = document.getElementById('input').value.toLowerCase();
+const doSearch = (idTable,input) => {
+	let tableReg = document.getElementById(idTable);
+	let searchText = document.getElementById(input).value.toLowerCase();
 	let cellsOfRow="";
 	let found=false;
 	let compareWith="";
@@ -607,122 +607,6 @@ const doSearch = () => {
 			tableReg.rows[i].style.display = '';
 
 		}else {
-			// si no ha encontrado ninguna coincidencia, esconde la
-			// fila de la tabla
-			tableReg.rows[i].style.display = 'none';
-		}
-	}
-}
-
-/**
- * Funcion para hcaer una busqueda indexada en el modulo sugerencias menu signos
- *
- * @param none
- * @return un registro coincidente
- */
-const doSearch_Signo = () => {
-	let tableReg = document.getElementById('table2');
-	let searchText = document.getElementById('input2').value.toLowerCase();
-	let cellsOfRow="";
-	let found=false;
-	let compareWith="";
-
-	// Recorremos todas las filas con contenido de la tabla
-	for (var i = 1; i < tableReg.rows.length; i++)
-	{
-		cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-		found = false;
-		// Recorremos todas las celdas
-		for (var j = 0; j < cellsOfRow.length && !found; j++)
-		{
-			compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-			// Buscamos el texto en el contenido de la celda
-			if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
-			{
-				found = true;
-			}
-		}
-		if(found) {
-			tableReg.rows[i].style.display = '';
-		} else {
-			// si no ha encontrado ninguna coincidencia, esconde la
-			// fila de la tabla
-			tableReg.rows[i].style.display = 'none';
-		}
-	}
-}
-
-/**
- * Funcion para hacer una busqueda indexada en el modulo sugerencias menu emocional
- *
- * @param none
- * @return un registro coincidente
- */
-const doSearch_Emocional = () => {
-	let tableReg = document.getElementById('table3');
-	let searchText = document.getElementById('input3').value.toLowerCase();
-	let cellsOfRow="";
-	let found=false;
-	let compareWith="";
-
-	// Recorremos todas las filas con contenido de la tabla
-	for (var i = 1; i < tableReg.rows.length; i++)
-	{
-		cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-		found = false;
-		// Recorremos todas las celdas
-		for (var j = 0; j < cellsOfRow.length && !found; j++)
-		{
-			compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-			// Buscamos el texto en el contenido de la celda
-			if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
-			{
-				found = true;
-			}
-		}
-		if(found)
-		{
-			tableReg.rows[i].style.display = '';
-		} else {
-			// si no ha encontrado ninguna coincidencia, esconde la
-			// fila de la tabla
-			tableReg.rows[i].style.display = 'none';
-		}
-	}
-}
-
-/**
- * Funcion para hacer una busqueda indexada en el modulo sugerencias menu neurologica
- *
- * @param none
- * @return un registro coincidente
- */
-const doSearch_Neurologica = () => {
-	let tableReg = document.getElementById('table4');
-	let searchText = document.getElementById('input4').value.toLowerCase();
-	let cellsOfRow="";
-	let found=false;
-	let compareWith="";
-
-	// Recorremos todas las filas con contenido de la tabla
-	for (var i = 1; i < tableReg.rows.length; i++)
-	{
-		cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-		found = false;
-		// Recorremos todas las celdas
-		for (var j = 0; j < cellsOfRow.length && !found; j++)
-		{
-			compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-			// Buscamos el texto en el contenido de la celda
-			if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
-			{
-				found = true;
-			}
-		}
-		if(found)
-		{
-			tableReg.rows[i].style.display = '';
-		} else {
 			// si no ha encontrado ninguna coincidencia, esconde la
 			// fila de la tabla
 			tableReg.rows[i].style.display = 'none';
