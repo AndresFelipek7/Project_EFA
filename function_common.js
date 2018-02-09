@@ -1096,34 +1096,30 @@ const check_height_drive = (height_first = "" , height_second = "") => {
 /**
  * Funcion para impedir que en el campo hora supere las 24 horas
  *
- * @param time
+ * @param time,path,idInput
  * @return una alerta para avisar
  */
-const stop_value_hour_more_24 = (time,path) =>{
+const stop_value_hour_more_24 = (time,path,idInput) =>{
 	if (time > 24) {
 		alert_dinamic_check_validator("La hora ingresada no puede superar las 24 horas", path);
-		style_border_input("tiempo_recorrido_hora","rojo");
+		style_border_input(idInput,"rojo");
 	}else {
-		document.getElementById('registrar_ruta').disabled=false;
-		style_border_input("tiempo_recorrido_hora","verde");
+		style_border_input(idInput,"verde");
 	}
 }
 
 /**
  * Funcion para validar que en el campo minutos no pase de 60
  *
- * @param none
+ * @param path,idInput
  * @return Aviso de que el campo minuto no puede ser mayor a 60
  */
-const stop_value_minutes_more_60 = (path) => {
-	var valor_minutos = document.getElementById("tiempo_recorrido_minutos").value;
-
-	if (valor_minutos > 60) {
+const stop_value_minutes_more_60 = (time,path,id_input) => {
+	if (time > 60) {
 		alert_dinamic_check_validator("Los minutos ingresados no puede superar los 60 minutos.", path);
-		style_border_input("tiempo_recorrido_minutos","rojo");
+		style_border_input(id_input,"rojo");
 	}else {
-		document.getElementById('registrar_ruta').disabled=false;
-		style_border_input("tiempo_recorrido_minutos","verde");
+		style_border_input(id_input,"verde");
 	}
 }
 
@@ -1572,21 +1568,6 @@ const check_password = (password,menu) => {
  */
 const show_container_checked = () => {
 	let option_checked = document.getElementById("sueño_profundo").value;
-	let div = document.getElementById("container_deep_sleep");
 
-	switch(option_checked){
-		case "hora":
-			div.innerHTML = "<input type='text' class='form-control' name='solo_hora_sueno' placeholder='Ingreso Hora' onkeypress='return justNumbers(event);'>";
-		break;
-		case "minutos":
-			div.innerHTML = "<input type='text' class='form-control' name='solo_minutos_sueno' placeholder='Ingreso Minutos' onkeypress='return justNumbers(event);'>";
-		break;
-		case "ambos":
-			div.innerHTML = "<div class='row'><div class='col-md-6'><input type='text' class='form-control' name='solo_hora_sueno' placeholder='Ingreso Hora' onkeypress='return justNumbers(event);'></div><div class='col-md-6'><input type='text' class='form-control' name='solo_minutos_sueno' placeholder='Ingreso Minutos' onkeypress='return justNumbers(event);'></div></div>";
-		break;
-
-		default:
-			return alert_dinamic_outside_place("log.php");
-		break;
-	}
+	$("#container_deep_sleep").load("mostrar_contenedor_sueno_profundo.php",{option_checked:option_checked});
 }

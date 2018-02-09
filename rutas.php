@@ -181,6 +181,8 @@
 						<center>
 							<input type="hidden" name="desde" value="Rutas">
 							<input type="hidden" name="registro" value="Registro Ruta">
+							<input type="hidden" name="id_input" value="tiempo_recorrido_hora">
+							<input type="hidden" name="id_input_minutes" value="tiempo_recorrido_minutos">
 
 							<div id="container_code_route"></div>
 							<input type="text" class="form-control" id="codigo_ruta" name="codigo_ruta" placeholder="Colocar codigo de ruta" onkeypress="return justNumbers(event,this.form.desde.value)" onchange="check_duplicate_route(this.form.registro.value);" required><br><br>
@@ -198,7 +200,7 @@
 							</select><br><br>
 
 							<div id="container_time_route">
-								<input type='text' class='form-control' name='tiempo_recorrido_hora' id="tiempo_recorrido_hora" placeholder='Colocar Tiempo en horas' onkeypress='return justNumbers(event,this.form.desde.value)' onchange='stop_value_hour_more_24(this.form.tiempo_recorrido_hora.value,this.form.desde.value)' required><br><br>
+								<input type='text' class='form-control' name='tiempo_recorrido_hora' id="tiempo_recorrido_hora" placeholder='Colocar Tiempo en horas' onkeypress='return justNumbers(event,this.form.desde.value)' onchange='stop_value_hour_more_24(this.form.tiempo_recorrido_hora.value,this.form.desde.value,this.form.id_input.value)' required><br><br>
 							</div>
 
 							<button type="submit" class="btn btn-primary glyphicon glyphicon-ok" id="registrar_ruta"></button>
