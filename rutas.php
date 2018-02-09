@@ -7,7 +7,7 @@
 <body>
 	<?php include 'library/Head/Header_Admin.php'; ?>
 
-	<!--Contenedor donde se encuentra el buscador y los botones de acceso directo al menu-->
+	<!--CONTENEDOR DONDE SE ENCUENTRA EL BUSCADOR Y LOS BOTONES DE ACCESO DIRECTO AL MENU-->
 	<div class="container">
 		<center class="container-fluid">
 			<h2> Menú Rutas
@@ -20,7 +20,7 @@
 		<label class='alinear_total_derecha'><span class="glyphicon glyphicon-star"></span> Total Rutas : <input type="text" class="btn btn-danger btn-md" value="<?php echo $total_ruta; ?>" disabled></label>
 	</div>
 
-	<!--Contenedor donde se crea la tabla cargada con la info de la BD-->
+	<!--CONTENEDOR DONDE SE CREA LA TABLA CARGADA CON LA INFO DE LA BD-->
 	<div class="container" id="contenid_Bd">
 		<?php
 			$show = mysqli_query($conexion,"SELECT * FROM rutas");
@@ -167,7 +167,7 @@
 		?>
 	</div>
 
-	<!--Modal de registro rutas-->
+	<!--MODAL DE REGISTRO RUTAS-->
 	<div class="modal fade" id="registrar_Rutas">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -198,7 +198,7 @@
 							</select><br><br>
 
 							<div id="container_time_route">
-								<input type='text' class='form-control' name='tiempo_recorrido_hora' id="tiempo_recorrido_hora" placeholder='Colocar Tiempo en horas' onkeypress='return justNumbers(event,this.form.desde.value)' onchange='stop_value_hour_more_24(this.form.tiempo_recorrido_hora.value)' required><br><br>
+								<input type='text' class='form-control' name='tiempo_recorrido_hora' id="tiempo_recorrido_hora" placeholder='Colocar Tiempo en horas' onkeypress='return justNumbers(event,this.form.desde.value)' onchange='stop_value_hour_more_24(this.form.tiempo_recorrido_hora.value,this.form.desde.value)' required><br><br>
 							</div>
 
 							<button type="submit" class="btn btn-primary glyphicon glyphicon-ok" id="registrar_ruta"></button>

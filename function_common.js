@@ -697,7 +697,12 @@ const show_habeas_data = () => {
 	}
 }
 
-/*Funcon que nos permite mostrar el contenedor del tiempo recorrido del menu rutas en la opcion de editar depenciendo de las opciones*/
+/**
+ * Fucnion para mostrar el contenedor de tiempo recorrido dependiendo el caso
+ *
+ * @param none
+ * @return nos muestra un contenedor
+ */
 const show_container_time_route = () => {
 	opcion_tiempo = document.getElementById("seleccion_opcion_tiempo").value;
 	$("#container_time_route").load("library/mostrar_tiempo_recorrido_ruta.php",{valor_opcion:opcion_tiempo});
@@ -1094,9 +1099,9 @@ const check_height_drive = (height_first = "" , height_second = "") => {
  * @param time
  * @return una alerta para avisar
  */
-const stop_value_hour_more_24 = (time) =>{
+const stop_value_hour_more_24 = (time,path) =>{
 	if (time > 24) {
-		alert_dinamic_check_validator("La hora ingresada no puede superar las 24 horas", "rutas.php");
+		alert_dinamic_check_validator("La hora ingresada no puede superar las 24 horas", path);
 		style_border_input("tiempo_recorrido_hora","rojo");
 	}else {
 		document.getElementById('registrar_ruta').disabled=false;
@@ -1110,11 +1115,11 @@ const stop_value_hour_more_24 = (time) =>{
  * @param none
  * @return Aviso de que el campo minuto no puede ser mayor a 60
  */
-const stop_value_minutes_more_60 = () => {
+const stop_value_minutes_more_60 = (path) => {
 	var valor_minutos = document.getElementById("tiempo_recorrido_minutos").value;
 
 	if (valor_minutos > 60) {
-		alert_dinamic_check_validator("Los minutos ingresados no puede superar los 60 minutos.", "rutas.php");
+		alert_dinamic_check_validator("Los minutos ingresados no puede superar los 60 minutos.", path);
 		style_border_input("tiempo_recorrido_minutos","rojo");
 	}else {
 		document.getElementById('registrar_ruta').disabled=false;
