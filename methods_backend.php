@@ -143,6 +143,6 @@
 	 * @return el numero positivo
 	 */
 	function change_negative_numeric($numeric) {
-		return ( $numeric + ( -$numeric ) ) + ( -$numeric );
+		return $numeric * (-1);
 	}
 ?>

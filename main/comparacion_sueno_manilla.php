@@ -5,19 +5,20 @@
 	$select_sueño_profundo = "hora";
 	//Sacamos los minutos de la informacion que dijo el conductor que durmio en tiempo sueño
 	//$sacar_Minutos_hora = get_minutes($traer_Valores_interrogatorio[5]);
-	$sacar_Minutos_hora = getMinutes('2');
+	$sacar_Minutos_hora = getMinutes('3');
 
 	switch ($select_sueño_profundo) {
 		case 'hora':
 			/*$sueño_profundo = $_POST["solo_hora_sueno"];*/
-			$sueño_profundo = 3;
+			$sueño_profundo = 6;
 			$sacar_Minutos_hora_Manilla = getMinutes($sueño_profundo);
 			$diferencia_Entre_tiempo_Sueño = $sacar_Minutos_hora - $sacar_Minutos_hora_Manilla;
 			echo "Los minutos que dijo el conductor son : ".$sacar_Minutos_hora."<br>";
 			echo "Los minutos de la manilla es = ".$sacar_Minutos_hora_Manilla."<br>";
 			echo "La diferencia de los dos tiempo en minutos es ".$diferencia_Entre_tiempo_Sueño."<br>";
 
-			($diferencia_Entre_tiempo_Sueño < 0) ? change_negative_numeric($diferencia_Entre_tiempo_Sueño) : '';
+			($diferencia_Entre_tiempo_Sueño < 0) ? $diferencia_Entre_tiempo_Sueño = change_negative_numeric($diferencia_Entre_tiempo_Sueño) : '';
+			echo "La diferencia si es negativa se convierte en positivo y es = $diferencia_Entre_tiempo_Sueño";
 			break;
 		case 'minutos':
 			$sueño_profundo_solo_minutos = $_POST["minutos_sueno"];
