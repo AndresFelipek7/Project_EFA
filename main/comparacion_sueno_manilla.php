@@ -48,7 +48,7 @@
 			break;
 	}
 
-	//La comparacion aqui es en minutos
+	//La comparacion aqui es en minutos (30 significa el rango que tiene de error)
 	if($diferencia_Entre_tiempo_Sueño >= 30) {
 		$valor_verdad_tiempo_descanso_conductor = "Mentira";
 		message_mistake_validator("El conductor esta mintiendo con las horas de sueño ingresadas , No es necesario que le mencione esto al conductor , Se manejara de forma interna. Gracias","container text-center");

@@ -323,7 +323,7 @@
 								<button type="button" class="btn btn-xs btn-primary" id="ayuda_pulsaciones" data-toggle="tooltip" data-placement="left" title="Las pulsaciones es el pulso que presente el conductor durante la evaluacion de fatiga , si por alguna razon las pulsaciones superan las 100 por minuto es necesario repetir la medicion de las pulsaciones para estar seguros"><span class="fa fa-info"></span></button>
 								<center>
 									<label>Valor Pulsaciones </label>
-									<input type="text" name="pulsaciones" class="form-control" id="pulsaciones" placeholder="Ingrese valor numerico" onkeypress="return justNumbers(event);" onchange="limit_pulsation_hearth();">
+									<input type="text" name="pulsaciones" class="form-control" id="pulsaciones" placeholder="Ingrese valor numerico" onkeypress="return justNumbers(event);" onchange="limit_pulsation_hearth(); style_border_input('pulsaciones','verde')">
 									<a href="#ayuda_pulsaciones_completo" data-toggle='modal'>Como llenar este campo</a><br><br>
 								</center>
 							</div>
@@ -441,43 +441,6 @@
 				</div>
 			</div>
 		</aside>
-	</div>
-
-	<!--Modal para la ayuda de como llenar el campo de tiempo de sueño , que el formato sea el correcto y el permitido-->
-	<div class="modal fade" id="ayuda_completa_sueño_manilla">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title"><span class="fa fa-info"> Ayuda Sueño Profundo</span></h4>
-				</div>
-
-				<div class="modal-body text-center">
-					<h2>Pasos para llenar el campo sueño Profundo correctamente</h2>
-					<p>Antes que nada debe de iniciar sesion en la Aplicacion mi Fit en su celular para obtener los datos</p>
-					<label><strong>Paso 1:</strong></label> El celular sincronizara automaticamente con la manilla <br>
-					<label><strong>Paso 2:</strong></label> Buscar el historial de sueño profundo en el menu principal del dia anterior al de la evaluacion <br>
-					<label><strong>Paso 3:</strong></label> Colocar el valor del sueño profundo en el campo asignado
-					<hr>
-					<h3>formato Valido Para ingresar en el campo Tiempo de Sueño</h3>
-					<label>Vamos a colocar un ejemplo:</label><br>
-					<label></label> En la aplicacion Mi fit encontro el tiempo de sueño profundo que es : 4 h 20 min
-					<p>El 4 Significa la cantidad de horas</p>
-					<p>El 20 Significa los minutos</p>
-					<label></label>Para colocar ese valor en el campo asignado hay que agregar los numeros de la siguiente forma:
-					<label><strong>4.20</strong></label> = Esto significa 4 horas y 20 minutos
-					<hr>
-						<label><strong>En el caso que solo encuentre minutos hay que colocarlo de la siguiente forma</strong></label><br>
-						<label><strong>.35</strong></label>  = Que significa que son 35 minutos
-					<hr>
-					<h3 class="input_obligatory">No hay que agregar ninguna letra u otro caracter en el campo tiempo de sueño</h3>
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" data-dismiss="modal" class="btn btn-danger glyphicon glyphicon-remove"> </button>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<!--Modal para la ayuda de como llenar el campo de las pulsaciones-->
