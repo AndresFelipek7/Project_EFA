@@ -1100,12 +1100,16 @@ const check_height_drive = (height_first = "" , height_second = "") => {
  * @return una alerta para avisar
  */
 const stop_value_hour_more_24 = (time,path,idInput) =>{
+	let length_time = time.length;
+
 	if (time > 24) {
 		alert_dinamic_check_validator("La hora ingresada no puede superar las 24 horas", path);
 		style_border_input(idInput,"rojo");
 	}else {
 		style_border_input(idInput,"verde");
 	}
+
+	(length_time != 2) ? alert_dinamic_check_validator("El formato de la hora ingresada es incorrecta.", path) : '';
 }
 
 /**
@@ -1115,12 +1119,16 @@ const stop_value_hour_more_24 = (time,path,idInput) =>{
  * @return Aviso de que el campo minuto no puede ser mayor a 60
  */
 const stop_value_minutes_more_60 = (time,path,id_input) => {
+	let length_time = time.length;
+
 	if (time > 60) {
 		alert_dinamic_check_validator("Los minutos ingresados no puede superar los 60 minutos.", path);
 		style_border_input(id_input,"rojo");
 	}else {
 		style_border_input(id_input,"verde");
 	}
+
+	(length_time != 2) ? alert_dinamic_check_validator("El formato de los Minutos ingresados es incorrecta.", path) : '';
 }
 
 /**
