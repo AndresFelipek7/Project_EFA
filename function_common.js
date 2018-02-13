@@ -938,8 +938,8 @@ const desmarcar_todo_checkbox = () =>{
  * @return impide el ingreso de letras u otros caracteres diferentes a numeros
  */
 const justNumbers = (e,desde) => {
-	console.log(desde);
 	let keynum = window.event ? window.event.keyCode : e.which;
+
 	if (desde == "Rutas" || desde == "Administrador" || desde == "Conductores" || desde == "Evaluadores" || desde == "Vehiculo" || desde == "form_evaluacion") {
 		//Solo se permite el caracter de borrar , el 8 es el valor en la tabla Asscii
 		if ((keynum == 8))

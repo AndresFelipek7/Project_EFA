@@ -293,6 +293,9 @@
 									<input type="hidden" name="desde" value="form_evaluacion">
 									<input type="hidden" name="path_from" value="evaluacion.php">
 									<input type="hidden" name="id_input_hour" value="solo_hora_sueno">
+									<input type="hidden" name="id_input_minutes" value="solo_minutos">
+									<input type="hidden" name="id_input_hour_both" value="solo_hora_sueno_both">
+									<input type="hidden" name="id_input_minutes_both" value="solo_minutos_both">
 
 									<label>Sueño Profundo </label><br>
 									<select id="sueño_profundo" name="sueño_profundo" onchange="show_container_checked();">
@@ -302,17 +305,17 @@
 									</select><br><br>
 
 									<div id="container_deep_sleep_only_hour">
-										<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora">
+										<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_24(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value);" required>
 									</div>
 									<div id="container_deep_sleep_only_minutes" class="hide_container">
-										<input type='number' class='form-control' id="solo_minutos" name='solo_minutos_sueno' placeholder='Colocar Minutos'>
+										<input type='number' class='form-control' id="solo_minutos" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value);" required>
 									</div>
 									<div id="container_deep_sleep_both_time" class="row hide_container">
 										<div class="col-md-6">
-											<input type="number" class="form-control" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress='return justNumbers(event,this.form.desde.value)'>
+											<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_24(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value);" required>
 										</div>
 										<div class="col-md-6">
-											<input type='number' class='form-control' name='solo_minutos_sueno_both' placeholder='Colocar Minutos'>
+											<input type='number' class='form-control' id="solo_minutos_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value);" required>
 										</div>
 									</div>
 								</center>
