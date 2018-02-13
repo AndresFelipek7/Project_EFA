@@ -8,7 +8,7 @@
 	<?php include 'library/Head/Header-main-evaluador.php'; ?>
 
 	<?php
-		$verificar_envio = $_SESSION["verificar"];
+		/*$verificar_envio = $_SESSION["verificar"];*/
 
 		//Cuando es igual a 1 significa que se ha envia una soloa vez , pero si se intenta actualizar va tener otro valor
 		/*if($verificar_envio == 1) {*/
@@ -16,7 +16,7 @@
 			include "tiempo_realizar_evaluacion.php";
 
 			//Para destruir la variable
-			unset($_SESSION["verificar"]);
+			/*unset($_SESSION["verificar"]);*/
 
 			require_once "main/informacion_conductor.php";
 

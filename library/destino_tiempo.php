@@ -11,20 +11,17 @@
 		$distancia = $row['distancia_km'];
 		$tiempo = $row['Tiempo_Recorrido'];
 		$vector_tiempo = explode(" ",$tiempo);
+		require_once "../mostrar_destino_tiempo_completo.php";
 
 		if($vector_tiempo[0] == "") {
 			if($vector_tiempo[1] >= 8) {
-				require_once "../mostrar_destino_tiempo_completo.php";
 				echo "<script> document.getElementById('camarote').style.display='block' </script>";
 			}else{
-				require_once "../mostrar_destino_tiempo_completo.php";
 				echo "<script> document.getElementById('camarote').style.display='none' </script>";
 			}
 		}else if($vector_tiempo[0] >= 8){
-			require_once "../mostrar_destino_tiempo_completo.php";
 			echo "<script> document.getElementById('camarote').style.display='block' </script>";
 		}else{
-			require_once "../mostrar_destino_tiempo_completo.php";
 			echo "<script> document.getElementById('camarote').style.display='none' </script>";
 		}
 

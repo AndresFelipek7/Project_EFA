@@ -1569,5 +1569,25 @@ const check_password = (password,menu) => {
 const show_container_checked = () => {
 	let option_checked = document.getElementById("sueño_profundo").value;
 
-	$("#container_deep_sleep").load("mostrar_contenedor_sueno_profundo.php",{option_checked:option_checked});
+	switch(option_checked){
+		case "hora":
+			document.getElementById("container_deep_sleep_only_hour").style.display = "block";
+			document.getElementById("container_deep_sleep_only_minutes").style.display = "none";
+			document.getElementById("container_deep_sleep_both_time").style.display = "none";
+		break;
+		case "minutos":
+			document.getElementById("container_deep_sleep_only_minutes").style.display = "block";
+			document.getElementById("container_deep_sleep_only_hour").style.display = "none";
+			document.getElementById("container_deep_sleep_both_time").style.display = "none";
+		break;
+		case "ambos":
+			document.getElementById("container_deep_sleep_both_time").style.display = "block";
+			document.getElementById("container_deep_sleep_only_hour").style.display = "none";
+			document.getElementById("container_deep_sleep_only_minutes").style.display = "none";
+		break;
+
+		default:
+			alert_dinamic_outside_place('evaluacion.php');
+		break;
+	}
 }
