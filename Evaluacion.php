@@ -323,11 +323,10 @@
 							</div>
 
 							<div class="col-md-12">
-								<button type="button" class="btn btn-xs btn-primary" id="ayuda_pulsaciones" data-toggle="tooltip" data-placement="left" title="Las pulsaciones es el pulso que presente el conductor durante la evaluacion de fatiga , si por alguna razon las pulsaciones superan las 100 por minuto es necesario repetir la medicion de las pulsaciones para estar seguros"><span class="fa fa-info"></span></button>
+								<button type="button" class="btn btn-xs btn-primary" id="ayuda_pulsaciones" data-toggle="tooltip" data-placement="left" title="Las pulsaciones es el pulso que presente el conductor durante la evaluacion de fatiga , si por alguna razon las pulsaciones superan las 100 por minuto es necesario repetir la medicion de las pulsaciones para estar seguros. solo se coloca el numero entero en este campo."><span class="fa fa-info"></span></button>
 								<center>
 									<label>Valor Pulsaciones </label>
 									<input type="text" name="pulsaciones" class="form-control" id="pulsaciones" placeholder="Ingrese valor numerico" onkeypress="return justNumbers(event);" onchange="limit_pulsation_hearth(); style_border_input('pulsaciones','verde')">
-									<a href="#ayuda_pulsaciones_completo" data-toggle='modal'>Como llenar este campo</a><br><br>
 								</center>
 							</div>
 
@@ -444,38 +443,6 @@
 				</div>
 			</div>
 		</aside>
-	</div>
-
-	<!--Modal para la ayuda de como llenar el campo de las pulsaciones-->
-	<div class="modal fade" id="ayuda_pulsaciones_completo">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title"><span class="fa fa-info"> Ayuda Pulsaciones</span></h4>
-				</div>
-
-				<div class="modal-body text-center">
-					<h2>Pasos para llenar el campo Pulsaciones correctamente</h2>
-					<p>Antes que nada debe de iniciar sesion en la Aplicacion mi Fit en su celular para obtener los datos</p>
-					<label><strong>Paso 1:</strong></label> El celular automaticamente va ha sincronizar con la manilla <br>
-					<label><strong>Paso 2:</strong></label> Buscar en el menu principal tomar pulso inmediatamente<br>
-					<label><strong>Paso 3:</strong></label> Esperar el valor que le dice unos segundos
-					<hr>
-					<h3>formato Valido Para ingresar las pulsaciones</h3>
-					<label>Vamos a colocar un ejemplo:</label><br>
-					<label></label> En la aplicacion Mi fit encontro que las pulsaciones dieron : 80 por minuto <br>
-					<label></label>Para colocar ese valor en el campo asignado hay que agregar los numeros de la siguiente forma:
-					<label><strong>Colocar 80 en el campo pulsaciones</strong></label>
-					<hr>
-					<h3 class="input_obligatory">No hay que agregar ninguna letra u otro caracter en el campo pulsaciones</h3>
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" data-dismiss="modal" class="btn btn-danger glyphicon glyphicon-remove"> </button>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<!--Modal para como sincronizar la manilla con la app mi fit-->
