@@ -1195,11 +1195,8 @@ const limit_pulsation_hearth = () => {
 
 	if(valor_pulsaciones == 0) {
 		alert_dinamic_check_validator("Las pulsaciones ingresadas no son validas , por favor ingreselas nuevamente", "evaluacion.php");
-		document.getElementById('enviar_evaluacion').disabled=true;
 	}else if(valor_pulsaciones >= 150) {
 		alert_dinamic_check_validator("Las pulsaciones que presenta el conductor superaron el valor del limite con respecto a la edad que tiene , por favor vuelva a tomar el pulso , si es correcto llame al medico inmediatamente o vuelva hacer la medicion para verificar el valor", "evaluacion.php")
-	}else{
-		document.getElementById('enviar_evaluacion').disabled=false;
 	}
 }
 

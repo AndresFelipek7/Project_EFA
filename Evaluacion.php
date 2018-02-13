@@ -323,15 +323,15 @@
 							</div>
 
 							<div class="col-md-12">
-								<button type="button" class="btn btn-xs btn-primary" id="ayuda_pulsaciones" data-toggle="tooltip" data-placement="left" title="Las pulsaciones es el pulso que presente el conductor durante la evaluacion de fatiga , si por alguna razon las pulsaciones superan las 100 por minuto es necesario repetir la medicion de las pulsaciones para estar seguros. solo se coloca el numero entero en este campo."><span class="fa fa-info"></span></button>
+								<button type="button" class="btn btn-md btn-primary" id="ayuda_pulsaciones" data-toggle="tooltip" data-placement="left" title="Las pulsaciones es el pulso que presente el conductor durante la evaluacion de fatiga , si por alguna razon las pulsaciones superan las 100 por minuto es necesario repetir la medicion de las pulsaciones para estar seguros. solo se coloca el numero entero en este campo."><span class="fa fa-info"></span></button>
 								<center>
 									<label>Valor Pulsaciones </label>
-									<input type="text" name="pulsaciones" class="form-control" id="pulsaciones" placeholder="Ingrese valor numerico" onkeypress="return justNumbers(event);" onchange="limit_pulsation_hearth(); style_border_input('pulsaciones','verde')">
+									<input type="number" name="pulsaciones" class="form-control" id="pulsaciones" placeholder="Ingrese valor numerico" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="limit_pulsation_hearth(); style_border_input('pulsaciones','verde')">
 								</center>
 							</div>
 
 							<div class="col-md-12">
-								<div id="container_extensiones_agree" class="center_element"></div>
+								<div id="container_extensiones_agree" class="center_element"></div><br><br>
 								<center>
 									<label>Cargar Descargable Mi Fit</label>
 									<input type="file" name="photo" id="descargable_fit" onchange="check_photo(this.form.photo.value,'evaluacion');">
