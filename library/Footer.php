@@ -10,7 +10,7 @@
 				</h3>
 			</div>
 			<div class="col-md-6">
-				<h3>Version 71.9</h3>
+				<h3>Version 72</h3>
 			</div>
 
 		</div>

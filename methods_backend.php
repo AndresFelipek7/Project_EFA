@@ -145,4 +145,18 @@
 	function change_negative_numeric($numeric) {
 		return $numeric * (-1);
 	}
+
+	/**
+	 * Funcion para mostrar el panel de la informacion con respecto a las pulsaciones
+	 *
+	 * @param $addClass,$addIcon,$contentMessage
+	 * @return un panel
+	 */
+	function panel_info_pulsaciones($addClass,$addIcon,$contentMessage) {
+		echo "
+			<div class='alert alert-$addClass container text-center'>
+				<span class='fa fa-$addIcon fa-2x'></span><br>
+				<label> $contentMessage </label>
+			</div>";
+	}
 ?>
