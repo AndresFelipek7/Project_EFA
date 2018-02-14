@@ -1109,7 +1109,7 @@ const stop_value_hour_more_24 = (time,path,idInput) =>{
 		style_border_input(idInput,"verde");
 	}
 
-	(length_time != 2) ? alert_dinamic_check_validator("El formato de la hora ingresada es incorrecta.", path) : '';
+	(length_time > 2) ? alert_dinamic_check_validator("El formato de la hora ingresada es incorrecta.", path) : '';
 }
 
 /**

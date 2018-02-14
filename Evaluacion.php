@@ -328,10 +328,11 @@
 									<label>Valor Pulsaciones </label>
 									<input type="number" name="pulsaciones" class="form-control" id="pulsaciones" placeholder="Ingrese valor numerico" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="limit_pulsation_hearth(); style_border_input('pulsaciones','verde')">
 								</center>
+								<hr>
 							</div>
 
 							<div class="col-md-12">
-								<div id="container_extensiones_agree" class="center_element"></div><br><br>
+								<div id="container_extensiones_agree" class="center_element"></div>
 								<center>
 									<label>Cargar Descargable Mi Fit</label>
 									<input type="file" name="photo" id="descargable_fit" onchange="check_photo(this.form.photo.value,'evaluacion');">

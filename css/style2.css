@@ -119,9 +119,8 @@ table {
 
 /*Clase para el contenedor de la informacion del conductor en el archivo registro_evaluacion.php*/
 .contenedor_info_conductor {
-	width: 80%;
-	margin-top: 100px;
-	margin-left: 200px;
+	width: 50%;
+	margin: 0 auto;
 	text-align: center;
 }
 
