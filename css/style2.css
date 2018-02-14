@@ -117,10 +117,15 @@ table {
 	font-style: italic;
 }
 
+.more-size {
+	font-size: 18px;
+}
+
 /*Clase para el contenedor de la informacion del conductor en el archivo registro_evaluacion.php*/
 .contenedor_info_conductor {
 	width: 50%;
 	margin: 0 auto;
+	margin-top:100px;
 	text-align: center;
 }
 
