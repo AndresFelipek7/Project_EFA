@@ -131,7 +131,7 @@
 								<div class=' col-md-4'>
 									<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_descanso" data-toggle="tooltip" data-placement="top" title="Descanso inactivo consiste en las horas despues de conducir o de su jornada laboral"><span class="fa fa-info"></span></button>
 									<label class="input_obligatory">*</label> <label>Descanso | Inactivo </label>
-									<select name='descanso' id="hora_descanso" class="l_tiempo">
+									<select name='descanso' id="hora_descanso" class="l_tiempo" required>
 										<?php
 											for ($i=1; $i < 13; $i++) {
 												echo "<option value='$i'> $i </option>";
@@ -157,7 +157,7 @@
 								<div class=' col-md-4'>
 									<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_conduciendo" data-toggle="tooltip" data-placement="top" title="Horas conduciendo significa las horas que lleva detras del volante"><span class="fa fa-info"></span></button>
 									<label class="input_obligatory">*</label> <label>Conduciendo </label>
-									<select name='conduciendo' class="l_tiempo" id="hora_conduciendo" onchange="check_hour_all_destiny();">
+									<select name='conduciendo' class="l_tiempo" id="hora_conduciendo" onchange="check_hour_all_destiny();" required>
 										<?php
 											for ($i=1; $i < 22; $i++) {
 												echo "<option value='$i'> $i </option>";
@@ -198,13 +198,13 @@
 								<div class='col-md-6'>
 									<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_sueño" data-toggle="tooltip" data-placement="left" title="Tiempo de sueño consiste en las horas que a dormido en la casa"><span class="fa fa-info"></span></button>
 									<label class="input_obligatory">*</label> <label>Tiempo de Sueño Efectivo </label>
-									<input type='text' name='sueño_efectivo_previo' class="form-control" id="sueño_efectivo_previo" placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('sueño_efectivo_previo','verde')"><br>
+									<input type='text' name='sueño_efectivo_previo' class="form-control" id="sueño_efectivo_previo" placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('sueño_efectivo_previo','verde')" required><br>
 								</div><br>
 
 								<div class='col-md-6'>
 									<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_descanso" data-toggle="tooltip" data-placement="left" title="Tiempo descanso es durante su jornada laboral Ejemplo = Alistamiento del vehiculo , almorzando ,comprando la tasa de uso "><span class="fa fa-info"></span></button>
 									<label class="input_obligatory">*</label> <label>Tiempo de Descanso </label>
-									<input type='text' name='tiempo_descanso'  class="form-control" id='tiempo_descanso' placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('tiempo_descanso','verde')"><br>
+									<input type='text' name='tiempo_descanso'  class="form-control" id='tiempo_descanso' placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('tiempo_descanso','verde')" required><br>
 								</div><br>
 
 								<div class='col-md-12'>

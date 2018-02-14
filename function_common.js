@@ -1577,16 +1577,20 @@ const show_container_checked = () => {
 	switch(option_checked){
 		case "hora":
 			document.getElementById("container_deep_sleep_only_hour").style.display = "block";
+			$("#solo_hora_sueno").attr('required','required');
 			document.getElementById("container_deep_sleep_only_minutes").style.display = "none";
 			document.getElementById("container_deep_sleep_both_time").style.display = "none";
 		break;
 		case "minutos":
 			document.getElementById("container_deep_sleep_only_minutes").style.display = "block";
+			$("#solo_minutos").attr('required','required');
 			document.getElementById("container_deep_sleep_only_hour").style.display = "none";
 			document.getElementById("container_deep_sleep_both_time").style.display = "none";
 		break;
 		case "ambos":
 			document.getElementById("container_deep_sleep_both_time").style.display = "block";
+			$("#solo_hora_sueno_both").attr('required','required');
+			$("#solo_minutos_both").attr('required','required');
 			document.getElementById("container_deep_sleep_only_hour").style.display = "none";
 			document.getElementById("container_deep_sleep_only_minutes").style.display = "none";
 		break;
