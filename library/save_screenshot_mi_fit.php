@@ -28,7 +28,8 @@
 			$ruta_fit = $path . $_FILES['photo'] ['name'];
 			move_uploaded_file($archivo,$ruta_fit);
 
-			rename($ruta_fit , $path_rename_fit_image);
+			echo "La ruta del nombre actiguo es $ruta_fit";
+			/*rename($ruta_fit , $path_rename_fit_image);*/
 		}else {
 			mkdir($path_date,0777);
 			$archivo = $_FILES['photo']['tmp_name'];
@@ -51,7 +52,8 @@
 			$ruta_fit = $path . $_FILES['photo'] ['name'];
 			move_uploaded_file($archivo,$ruta_fit);
 
-			rename($ruta_fit , $path_rename_fit_image);
+			echo "La ruta del nombre actiguo es $ruta_fit";
+			/*rename($ruta_fit , $path_rename_fit_image);*/
 		}
 	}
 ?>
