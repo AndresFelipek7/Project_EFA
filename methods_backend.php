@@ -159,4 +159,40 @@
 				<label> $contentMessage </label>
 			</div>";
 	}
+
+	function panel_info_for_modal($addClass,$nameItem,$contentMessage) {
+		echo "<div class='panel $addClass text-center'>
+				<div class='panel-heading'><span class='fa fa-file-text fa-2x'></span> $nameItem</div>
+				<div class='panel-body'>
+					<div>
+						$contentMessage.'<br>'
+					</div>
+				</div>
+			</div>";
+	}
+
+	/**
+	 * Funcion para mostrar un modal de Boostrap en pantalla
+	 *
+	 * @param $idModal,$titleModal,$content
+	 * @return un modal
+	 */
+	function show_modal($idModal,$titleModal,$arrayContent) {
+		echo "<div class='modal fade' id='$idModal'>
+				<div class='modal-dialog modal-lg'>
+					<div class='modal-content'>
+						<div class='modal-header'>
+							<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+							<h4 class='modal-title'> <span class='glyphicon glyphicon-eye-open'></span> $titleModal</h4>
+						</div>
+						<div class='modal-body text-center'>
+							$arrayContent
+						</div>
+						<div class='modal-footer form-inline'>
+							<button type='button' class='btn btn-danger' data-dismiss='modal'><span class='glyphicon glyphicon-remove'></span> </button>
+						</div>
+					</div>
+				</div>
+			</div>";
+	}
 ?>

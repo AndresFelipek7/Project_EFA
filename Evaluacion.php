@@ -335,7 +335,7 @@
 								<div id="container_extensiones_agree" class="center_element"></div>
 								<center>
 									<label>Cargar Descargable Mi Fit</label>
-									<input type="file" name="photo" id="descargable_fit" onchange="check_photo(this.form.photo.value,'evaluacion');">
+									<input type="file" name="photo" id="descargable_fit" onchange="check_photo(this.form.photo.value,'evaluacion');" required>
 								</center>
 							</div>
 						</div>
@@ -409,7 +409,7 @@
 			</div>
 		</div>
 
-		<!--Aqui colocamos la informacion del conductor al lado derecho-->
+		<!--AQUI COLOCAMOS LA INFORMACION DEL CONDUCTOR AL LADO DERECHO-->
 		<aside class='col-md-4'>
 			<a href='#seccion' data-toggle='collapse' class='btn btn-success' id="aside_conductor"><span class="glyphicon glyphicon-chevron-down" id="text_aside_info_driver"> Mostrar Informacion del Conductor</span></a>
 
@@ -446,7 +446,7 @@
 		</aside>
 	</div>
 
-	<!--Modal para como sincronizar la manilla con la app mi fit-->
+	<!--MODAL PARA COMO SINCRONIZAR LA MANILLA CON LA APP MI FIT-->
 	<div class="modal fade" id="sincronizar_manilla">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -476,7 +476,7 @@
 		</div>
 	</div>
 
-	<!--Modal para mostrar usuario y contraseña del conductor-->
+	<!--MODAL PARA MOSTRAR USUARIO Y CONTRASEÑA DEL CONDUCTOR-->
 	<div class="modal fade" id="usuario_contraseña_conductor">
 		<div class="modal-dialog">
 			<div class="modal-content">
