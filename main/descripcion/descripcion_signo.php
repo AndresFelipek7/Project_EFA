@@ -1,6 +1,6 @@
 <a href='#signo' data-toggle='modal' class='btn btn-primary btn-lg'><span class="glyphicon glyphicon-eye-open"></span> Signos</a>
 
-<!-- <div class='modal fade' id='signo'>
+<div class='modal fade' id='signo'>
 	<div class='modal-dialog modal-lg'>
 		<div class='modal-content'>
 			<div class='modal-header'>
@@ -70,9 +70,9 @@
 			</div>
 		</div>
 	</div>
-</div> -->
+</div>
 <?php
-	$consulta_Buscar_signo = "SELECT * FROM signos_fatiga WHERE id_signo = '$valor_Signo'";
+	/*$consulta_Buscar_signo = "SELECT * FROM signos_fatiga WHERE id_signo = '$valor_Signo'";
 	$resultado = $conexion -> query($consulta_Buscar_signo);
 	$count = $resultado ->num_rows;
 
@@ -83,7 +83,7 @@
 		$descripcion_Signo = $row['descripcion_signo'];
 	}
 
-	/*panel_info_for_modal("panel-default", $nombre_Signo, $descripcion_Signo);*/
+	//panel_info_for_modal("panel-default", $nombre_Signo, $descripcion_Signo);
 
 	//Valor por opcion del signo elegido
 	switch ($nombre_Signo) {
@@ -119,5 +119,5 @@
 			echo "Hemos encontrado un erro al cargar los datos del menu Signos";
 		break;
 	}
-	show_modal("signo", "titulo de prueba", $row['nombre_signo']);
+	show_modal("signo", "titulo de prueba", $row['nombre_signo']);*/
 ?>
