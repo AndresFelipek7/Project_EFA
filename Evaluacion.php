@@ -269,7 +269,15 @@
 					<div class='panel-body text-center'>
 						<button type="button" class="btn btn-md btn-primary" id="ayuda_signo" data-toggle="tooltip" data-placement="right" title="Los signos de fatiga es lo que se puede medir mediante algun instrumento con ese objetivo"><span class="fa fa-info"></span></button>
 						<br>
-						<?php include 'library/listas dinamicas/lista_Dinamica_signos.php';?>
+						<?php include 'library/listas dinamicas/lista_Dinamica_signos.php';?><br><br>
+							<div class="style_check_estado_signo">
+								<input type="checkbox" name="otro_estado" id="otro_estado" value="otro_sintoma" onclick="show_others_options('otro_estado','container_other_state');">
+								<label for="otro_estado">Otro Estado</label><br>
+							</div>
+
+							<div id="container_other_state" class="hide_container">
+								<textarea name="valor_otro_estado_signo" id="valor_otro_estado" class="borde_textarea" placeholder="Colocar Estado del Conductor" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('valor_otro_estado','verde')"></textarea>
+							</div>
 						<hr>
 						<a href="#sincronizar_manilla" data-toggle='modal' class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
 						<?php

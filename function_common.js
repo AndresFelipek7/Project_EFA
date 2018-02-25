@@ -869,7 +869,7 @@ const check_name_neurologico = () => {
 }
 
 /**
- * Funcion para mostrar contenedor de otras opciones de sintomas y las dos alteraciones
+ * Funcion para mostrar contenedor de otras opciones de sintomas , signos y las dos alteraciones
  *
  * @param nameInput , nameContainer
  * @return mostrar un contenedor

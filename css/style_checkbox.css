@@ -6,6 +6,7 @@
 .style_check_emocional input[type="checkbox"] ,
 .style_check_neurologico input[type="checkbox"] ,
 .contenedor_otra_actividad input[type="checkbox"] ,
+.style_check_estado_signo input[type="checkbox"] ,
 .content_enabled_disabled_check_hour input[type="checkbox"] ,
 .content_enabled_disabled_check_minute input[type="checkbox"] ,
 .contenedor_habeas input[type="checkbox"] {
@@ -16,6 +17,7 @@
 .style_check_emocional label ,
 .style_check_neurologico label ,
 .contenedor_otra_actividad label ,
+.style_check_estado_signo label ,
 .content_enabled_disabled_check_hour label ,
 .content_enabled_disabled_check_minute label ,
 .contenedor_habeas label {
@@ -33,6 +35,7 @@
 .style_check_emocional label:hover ,
 .style_check_neurologico label:hover ,
 .contenedor_otra_actividad label:hover ,
+.style_check_estado_signo label:hover ,
 .content_enabled_disabled_check_hour label:hover,
 .content_enabled_disabled_check_minute label:hover,
 .contenedor_habeas label:hover {
@@ -43,6 +46,7 @@
 .style_check_emocional label:before ,
 .style_check_neurologico label:before ,
 .contenedor_otra_actividad label:before ,
+.style_check_estado_signo label:before ,
 .content_enabled_disabled_check_hour label:before,
 .content_enabled_disabled_check_minute label:before,
 .contenedor_habeas label:before  {
@@ -61,6 +65,7 @@
 .style_check_emocional label:before ,
 .style_check_neurologico label:before ,
 .contenedor_otra_actividad label:before ,
+.style_check_estado_signo label:before ,
 .content_enabled_disabled_check_hour label:before ,
 .content_enabled_disabled_check_minute label:before ,
 .contenedor_habeas label:before {
@@ -73,6 +78,7 @@
 .contenedor_otra_actividad input[type="checkbox"]:checked + label ,
 .content_enabled_disabled_check_hour input[type="checkbox"]:checked + label ,
 .content_enabled_disabled_check_minute input[type="checkbox"]:checked + label ,
+.style_check_estado_signo input[type="checkbox"]:checked + label ,
 .contenedor_habeas input[type="checkbox"]:checked + label{
 	padding: 5px 15px;
 	margin-right: 5px;
@@ -87,6 +93,7 @@
 .contenedor_otra_actividad input[type="checkbox"]:checked + label:before ,
 .content_enabled_disabled_check_hour input[type="checkbox"]:checked + label:before ,
 .content_enabled_disabled_check_minute input[type="checkbox"]:checked + label:before ,
+.style_check_estado_signo input[type="checkbox"]:checked + label:before ,
 .contenedor_habeas input[type="checkbox"]:checked + label:before{
 	display: none;
 }
