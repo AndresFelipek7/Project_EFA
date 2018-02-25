@@ -1,4 +1,4 @@
-<label>Signos que presenta </label>
+<label>Estado que Presenta: </label>
 <center>
 	<select name="signos" class="form-control l_signo" required>
 		<?php

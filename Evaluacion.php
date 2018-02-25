@@ -255,12 +255,12 @@
 				</div>
 			</div>
 
-			<!--CONTENEDOR MENU SIGNOS FATIGA-->
+			<!--CONTENEDOR MENU ESTADO DE INGRESO DEL CONDUCTOR-->
 			<div class='panel panel-warning text-center'>
 				<div class='panel-heading' role='tab' id='headingThree'>
 					<h4 class='panel-title'>
 						<a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse4' aria-expanded='false' aria-controls='collapseThree'>
-							<span class="glyphicon glyphicon-eye-open"> Signos</span>
+							<span class="glyphicon glyphicon-eye-open"> Estado del Conductor</span>
 						</a>
 					</h4>
 				</div>
