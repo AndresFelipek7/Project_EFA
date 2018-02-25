@@ -235,18 +235,32 @@
 				</div>
 
 				<div id='collapseThree' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'>
-					<div class='panel-body text-center style_check_sintomas'>
+					<div class='panel-body text-center'>
 						<button type="button" class="btn btn-md btn-primary" id="ayuda_sintoma" data-toggle="tooltip" data-placement="right" title="Los sintomas de fatiga es lo que el conductor dice que siente en el momento de hacer la evaluacion de fatiga"><span class="fa fa-info"></span></button>
 						<h4>Seleccion Multiple</h4>
 						<a class="btn btn-success" onclick="select_all_checkbox()"> <span class="fa fa-check-square"></span> Marcar Todos</a>
 						<a class="btn btn-warning" onclick="desmarcar_todo_checkbox()"><span class="fa fa-minus-square"></span> Desmarcar Todos</a>
 						<hr>
-						<?php
-							include "library/checkbox dinamicos/checkbox_sintomas.php";
-						?>
+						<div class="style_check_sintomas">
+							<?php
+								include "library/checkbox dinamicos/checkbox_sintomas.php";
+							?>
+						</div>
+
 						<hr>
-						<input type="checkbox" name="sintomas[]" id="otro_sintoma" value="otro_sintoma" onclick="show_others_options('otro_sintoma','container_other_sintoma');">
-						<label for="otro_sintoma">Otro Sintoma</label><br>
+						<label>El conductor Presenta Sensacion de Hormigueo en? </label><br>
+						<select class="l_sintomas">
+							<option value="cara">Cara</option>
+							<option value="manos">Manos</option>
+							<option value="Piernas">Piernas</option>
+							<option value="all_options">Todas las anteriores</option>
+							<option value="none_options">Ninguna</option>
+						</select>
+						<hr>
+						<div class="style_check_sintomas">
+							<input type="checkbox" name="sintomas[]" id="otro_sintoma" value="otro_sintoma" onclick="show_others_options('otro_sintoma','container_other_sintoma');">
+							<label for="otro_sintoma">Otro Sintoma</label><br>
+						</div>
 
 						<div id="container_other_sintoma" class="hide_container">
 							<textarea name="valor_otro_sintoma" id="valor_otro_sintoma" class="borde_textarea" placeholder="Colocar cuales sintomas" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('valor_otro_sintoma','verde')"></textarea>

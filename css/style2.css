@@ -403,7 +403,8 @@ table {
 .l_signo,
 .l_reposo,
 .estado,
-.l_documento {
+.l_documento,
+.l_sintomas {
 	width: 200px;
 }
 
