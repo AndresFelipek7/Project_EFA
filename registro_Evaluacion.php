@@ -61,6 +61,7 @@
 			$valor_otro_sintoma = "";
 			$valor_otra_a_Emocional = "";
 			$otra_a_neurologica = "";
+			$valor_otro_estado_signo = "";
 			$saber_nivel_fatiga = "";
 
 			//Vector del menu interrogatorio
@@ -167,7 +168,7 @@
 			require_once("main/eliminar_ultimo_elemento_arreglo.php");
 
 			//Insercion de la evaluacion a la BD
-			/*$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
+			$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
 				id_usuario ,
 				id_conductor ,
 				id_ruta ,
@@ -199,7 +200,8 @@
 				sugerencia_horas_conducidas ,
 				cual_otro_sintoma ,
 				cual_otro_emocional ,
-				cual_otro_neurologico
+				cual_otro_neurologico ,
+				cual_otro_estado_signo
 				)
 
 				VALUES (
@@ -234,7 +236,8 @@
 				'$recomendacion_Descansar_conducir' ,
 				'$valor_otro_sintoma' ,
 				'$valor_otra_a_Emocional' ,
-				'$otra_a_neurologica'
+				'$otra_a_neurologica' ,
+				'$valor_otro_estado_signo'
 			)";
 
 			$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);
@@ -243,7 +246,7 @@
 				echo '<script> alert(" Bien! Se han Insertado la evaluacion correctamente"); </script>';
 			}else{
 				echo '<script> alert(" Problemas al Insertar la evaluacion"); </script>';
-			}*/
+			}
 
 			//Cerramos la conexion de la Bd
 			$conexion->close();

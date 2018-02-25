@@ -9,6 +9,9 @@
 			</div>
 			<div class='modal-body text-center'>
 				<?php
+					$valor_otro_estado_signo = $_POST["valor_otro_estado_signo"];
+					echo ($valor_otro_estado_signo == "") ? "No se ha ingreado otro estado del conductor." : $valor_otro_estado_signo;
+
 					$consulta_Buscar_signo = "SELECT * FROM signos_fatiga WHERE id_signo = '$valor_Signo'";
 					$resultado = $conexion -> query($consulta_Buscar_signo);
 					$count = $resultado ->num_rows;
@@ -28,6 +31,8 @@
 								</div>
 							</div>
 						</div>";
+
+					echo $valor_otro_estado_signo;
 
 					//Valor por opcion del signo elegido
 					switch ($nombre_Signo) {
