@@ -237,7 +237,9 @@
 
 													<div class='row'>
 														<div class='col-md-12'>
-															<h3>Signo Selecionado </h3><br> $registro[nombre_signo] <br><hr>
+															<h3>Signo Selecionado </h3><br> $registro[nombre_signo] <br>
+															<h3>Otro Estado</h3> $registro[otro_estado_signo]
+															<hr>
 														</div>
 													</div>
 
@@ -570,7 +572,9 @@
 
 													<div class='row'>
 														<div class='col-md-12'>
-															<h3>Signo Selecionado </h3><br> $registro[nombre_signo] <br><hr>
+															<h3>Estado del conductor Selecionado </h3><br> $registro[nombre_signo] <br>
+															<h3>Otro Estado</h3> $registro[otro_estado_signo]
+															<hr>
 														</div>
 													</div>
 
