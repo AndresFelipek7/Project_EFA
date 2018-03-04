@@ -1099,11 +1099,11 @@ const check_height_drive = (height_first = "" , height_second = "") => {
  * @param time,path,idInput
  * @return una alerta para avisar
  */
-const stop_value_hour_more_24 = (time,path,idInput) =>{
+const stop_value_hour_more_12 = (time,path,idInput) =>{
 	let length_time = time.length;
 
-	if (time > 24 || time == 0) {
-		alert_dinamic_check_validator("La hora ingresada es incorrecta porque supera las 24 horas o es igual a 0.", path);
+	if (time > 12 || time == 0) {
+		alert_dinamic_check_validator("La hora ingresada es incorrecta porque supera las 12 horas o es igual a 0.", path);
 		style_border_input(idInput,"rojo");
 	}else {
 		style_border_input(idInput,"verde");
