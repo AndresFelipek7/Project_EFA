@@ -68,6 +68,8 @@
 			$traer_Valores_interrogatorio = [ $_POST['descanso'] , $_POST['camarote'] , $_POST['conduciendo'] , $_POST['otra_actividad'] , $_POST['cual_actividad'] , $_POST['sueño_efectivo_previo'] , $_POST['tiempo_descanso'] , $_POST['ruta'] , $_POST['copiloto'] , $_POST['origen_copiloto'] , $_POST["pulsaciones"]];
 			//Valor signo seleccionado por el evaluador
 			$valor_Signo = $_POST['signos'];
+			//Capturar valor de sintoma Hormigueo
+			$s_hromigueo = $_POST["hormigueo_opcion"];
 
 			//Enlazamos el algoritmo de la informacion de la manilla para integrarla con la plataforma
 			require_once "main/comparacion_sueno_manilla.php";
@@ -201,7 +203,8 @@
 				cual_otro_sintoma ,
 				cual_otro_emocional ,
 				cual_otro_neurologico ,
-				cual_otro_estado_signo
+				cual_otro_estado_signo ,
+				sintoma_hormigueo
 				)
 
 				VALUES (
@@ -237,7 +240,8 @@
 				'$valor_otro_sintoma' ,
 				'$valor_otra_a_Emocional' ,
 				'$otra_a_neurologica' ,
-				'$valor_otro_estado_signo'
+				'$valor_otro_estado_signo' ,
+				'$s_hromigueo'
 			)";
 
 			$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);
