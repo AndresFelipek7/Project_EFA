@@ -561,6 +561,12 @@
 																	include "library/convertir/convertir_ids_sintomas.php";
 																?>
 															<?php echo "
+															<div class='alert alert-danger col-md-6'>
+																<label>
+																	Presenta Sensacion de Hormigueo en:
+																</label>
+																$registro[s_hormigueo]
+															</div>
 														</div>
 													</div>
 
