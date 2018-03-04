@@ -1571,28 +1571,28 @@ const check_password = (password,menu) => {
  * @param desde
  * @return un input dependiendo el caso
  */
-const show_container_checked = () => {
-	let option_checked = document.getElementById("sueño_profundo").value;
+const show_container_checked = (idInput,idHour,idMinutes,idBothTime) => {
+	let option_checked = document.getElementById(idInput).value;
 
 	switch(option_checked){
 		case "hora":
-			document.getElementById("container_deep_sleep_only_hour").style.display = "block";
+			document.getElementById(idHour).style.display = "block";
 			$("#solo_hora_sueno").attr('required','required');
-			document.getElementById("container_deep_sleep_only_minutes").style.display = "none";
-			document.getElementById("container_deep_sleep_both_time").style.display = "none";
+			document.getElementById(idMinutes).style.display = "none";
+			document.getElementById(idBothTime).style.display = "none";
 		break;
 		case "minutos":
-			document.getElementById("container_deep_sleep_only_minutes").style.display = "block";
+			document.getElementById(idMinutes).style.display = "block";
 			$("#solo_minutos").attr('required','required');
-			document.getElementById("container_deep_sleep_only_hour").style.display = "none";
-			document.getElementById("container_deep_sleep_both_time").style.display = "none";
+			document.getElementById(idHour).style.display = "none";
+			document.getElementById(idBothTime).style.display = "none";
 		break;
 		case "ambos":
-			document.getElementById("container_deep_sleep_both_time").style.display = "block";
+			document.getElementById(idBothTime).style.display = "block";
 			$("#solo_hora_sueno_both").attr('required','required');
 			$("#solo_minutos_both").attr('required','required');
-			document.getElementById("container_deep_sleep_only_hour").style.display = "none";
-			document.getElementById("container_deep_sleep_only_minutes").style.display = "none";
+			document.getElementById(idHour).style.display = "none";
+			document.getElementById(idMinutes).style.display = "none";
 		break;
 
 		default:

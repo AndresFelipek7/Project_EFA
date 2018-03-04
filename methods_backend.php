@@ -111,7 +111,7 @@
 	}
 
 	/**
-	 * Funcion para mostrar una alerta de informacion
+	 * Funcion para mostrar una alerta de informacion despues de hacer la evaluacion de fatiga
 	 *
 	 * @param $contentMessage,$typeError
 	 * @return una alerta de informacion
@@ -127,7 +127,7 @@
 	}
 
 	/**
-	 * Funcion para obtener los minutos de las horas
+	 * Funcion para obtener los minutos de las horas de tiempo sueño
 	 *
 	 * @param $minutes
 	 * @return los minutos de la hora que le pasamos
@@ -161,7 +161,7 @@
 	}
 
 	/**
-	 * Funcion para mostrar una alerta de Boostrap
+	 * Funcion para mostrar una alerta de Boostrap en el reporte completo de evaluacion de fatiga rol admin
 	 *
 	 * @param $addClass, $contentMessage
 	 * @return un contenedor de alerta
