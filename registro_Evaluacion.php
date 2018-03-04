@@ -73,6 +73,7 @@
 
 			//Enlazamos el algoritmo de la informacion de la manilla para integrarla con la plataforma
 			require_once "main/comparacion_sueno_manilla.php";
+			require_once "main/comparacion_sueno_ligero_manilla.php";
 			require_once "main/asignacion_estado_pulsaciones.php";
 
 			echo "<div class='container text-center'>";
@@ -204,7 +205,8 @@
 				cual_otro_emocional ,
 				cual_otro_neurologico ,
 				cual_otro_estado_signo ,
-				sintoma_hormigueo
+				sintoma_hormigueo ,
+				tiempo_sueno_ligero
 				)
 
 				VALUES (
@@ -241,7 +243,8 @@
 				'$valor_otra_a_Emocional' ,
 				'$otra_a_neurologica' ,
 				'$valor_otro_estado_signo' ,
-				'$s_hromigueo'
+				'$s_hromigueo' ,
+				'$sueno_ligero'
 			)";
 
 			$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);

@@ -37,9 +37,9 @@
 				($diferencia_Entre_tiempo_Sueño < 0) ? $cambiar_signo_si_es_negativo = change_negative_numeric($diferencia_Entre_tiempo_Sueño) : $diferencia_Entre_tiempo_Sueño;
 			}else {
 				$valor_minutos_Manilla = getMinutes($sueño_profundo);
-				$valor_total_minutos_manilla = $valor_minutos_Manilla + $sueño_profundo_solo_minutos;
+				$valor_Total_minutos_Manilla = $valor_minutos_Manilla + $sueño_profundo_solo_minutos;
 
-				$diferencia_Entre_tiempo_Sueño = $sacar_Minutos_hora - $valor_total_minutos_manilla;
+				$diferencia_Entre_tiempo_Sueño = $sacar_Minutos_hora - $valor_Total_minutos_Manilla;
 				($diferencia_Entre_tiempo_Sueño < 0) ? $cambiar_signo_si_es_negativo = change_negative_numeric($diferencia_Entre_tiempo_Sueño) : $diferencia_Entre_tiempo_Sueño;
 			}
 			break;
