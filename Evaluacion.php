@@ -250,8 +250,8 @@
 						<hr>
 						<label>El conductor Presenta Sensacion de Hormigueo en? </label><br>
 						<select class="l_sintomas" name="hormigueo_opcion" required>
-							<option value="cara">Cara</option>
-							<option value="manos">Manos</option>
+							<option value="Cara">Cara</option>
+							<option value="Manos">Manos</option>
 							<option value="Piernas">Piernas</option>
 							<option value="all_options">Todas las anteriores</option>
 							<option value="none_options">Ninguna</option>
