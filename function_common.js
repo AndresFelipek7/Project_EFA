@@ -1568,7 +1568,7 @@ const check_password = (password,menu) => {
 /**
  * Funcion para mostrar dinamico el select sueño_profundo
  *
- * @param desde
+ * @param idInput,idHour,idMinutes,idBothTime
  * @return un input dependiendo el caso
  */
 const show_container_checked = (idInput,idHour,idMinutes,idBothTime) => {
