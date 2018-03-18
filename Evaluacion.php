@@ -320,24 +320,24 @@
 									<input type="hidden" name="id_input_minutes_both" value="solo_minutos_both">
 
 									<label>Sueño Profundo </label><br>
-									<select id="sueño_profundo" name="sueño_profundo" onchange="show_container_checked('sueño_profundo','container_deep_sleep_only_hour','container_deep_sleep_only_minutes','container_deep_sleep_both_time');">
+									<select id="sueño_profundo" name="sueño_profundo" onchange="show_container_checked('sueño_profundo','container_deep_sleep_only_hour','container_deep_sleep_only_minutes','container_deep_sleep_both_time')">
 										<option value="hora">Solo hora</option>
 										<option value="minutos">Solo Minutos</option>
 										<option value="ambos">Hora y minutos</option>
 									</select><br><br>
 
 									<div id="container_deep_sleep_only_hour">
-										<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value);">
+										<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value),show_complete_time_sleep(this.form.solo_hora_sueno.value)">
 									</div>
 									<div id="container_deep_sleep_only_minutes" class="hide_container">
-										<input type='number' class='form-control' id="solo_minutos" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value);">
+										<input type='number' class='form-control' id="solo_minutos" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value),show_complete_time_sleep('',this.form.solo_minutos.value)">
 									</div>
 									<div id="container_deep_sleep_both_time" class="row hide_container">
 										<div class="col-md-6">
-											<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value);">
+											<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value),show_complete_time_sleep(this.form.solo_hora_sueno_both.value,this.form.solo_minutos_both.value);">
 										</div>
 										<div class="col-md-6">
-											<input type='number' class='form-control' id="solo_minutos_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value);">
+											<input type='number' class='form-control' id="solo_minutos_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value),show_complete_time_sleep(this.form.solo_hora_sueno_both.value,this.form.solo_minutos_both.value);">
 										</div>
 									</div>
 								</center>

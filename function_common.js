@@ -1600,3 +1600,7 @@ const show_container_checked = (idInput,idHour,idMinutes,idBothTime) => {
 		break;
 	}
 }
+
+const show_complete_time_sleep = (time_hour_first = "",time_minutes_first = "") => {
+	console.log("La hora es ="+time_hour_first+" Y los minutos es = "+time_minutes_first);
+}
