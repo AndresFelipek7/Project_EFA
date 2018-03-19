@@ -327,17 +327,17 @@
 									</select><br><br>
 
 									<div id="container_deep_sleep_only_hour">
-										<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value),show_complete_time_sleep(this.form.solo_hora_sueno.value)">
+										<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 									</div>
 									<div id="container_deep_sleep_only_minutes" class="hide_container">
-										<input type='number' class='form-control' id="solo_minutos" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value),show_complete_time_sleep('',this.form.solo_minutos.value)">
+										<input type='number' class='form-control' id="solo_minutos" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 									</div>
 									<div id="container_deep_sleep_both_time" class="row hide_container">
 										<div class="col-md-6">
-											<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value),show_complete_time_sleep(this.form.solo_hora_sueno_both.value,this.form.solo_minutos_both.value);">
+											<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 										</div>
 										<div class="col-md-6">
-											<input type='number' class='form-control' id="solo_minutos_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value),show_complete_time_sleep(this.form.solo_hora_sueno_both.value,this.form.solo_minutos_both.value);">
+											<input type='number' class='form-control' id="solo_minutos_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 										</div>
 									</div>
 								</center>
@@ -355,27 +355,28 @@
 									<input type="hidden" name="id_input_minutes_both_ligero" value="solo_minutos_both_ligero">
 
 									<label>Sueño Ligero </label><br>
-									<select id="sueño_ligero" name="sueño_ligero" onchange="show_container_checked('sueño_ligero','container_deep_sleep_only_hour_light','container_deep_sleep_only_minutes_light','container_deep_sleep_both_time_light');">
+									<select id="sueño_ligero" name="sueño_ligero" onchange="show_container_checked('sueño_ligero','container_deep_sleep_only_hour_light','container_deep_sleep_only_minutes_light','container_deep_sleep_both_time_light')">
 										<option value="hora">Solo hora</option>
 										<option value="minutos">Solo Minutos</option>
 										<option value="ambos">Hora y minutos</option>
 									</select><br><br>
 
 									<div id="container_deep_sleep_only_hour_light">
-										<input type="number" class="form-control" name="solo_hora_sueno_ligero" id="solo_hora_sueno_ligero" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_ligero.value,this.form.path_from.value,this.form.id_input_hour_ligero.value),show_complete_time_sleep('','',this.form.solo_hora_sueno_ligero.value)">
+										<input type="number" class="form-control" name="solo_hora_sueno_ligero" id="solo_hora_sueno_ligero" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_ligero.value,this.form.path_from.value,this.form.id_input_hour_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 									</div>
 									<div id="container_deep_sleep_only_minutes_light" class="hide_container">
-										<input type='number' class='form-control' id="solo_minutos_ligero" name='solo_minutos_sueno_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_ligero.value,this.form.path_from.value,this.form.id_input_minutes_ligero.value),show_complete_time_sleep('','','',this.form.solo_minutos_ligero.value)">
+										<input type='number' class='form-control' id="solo_minutos_ligero" name='solo_minutos_sueno_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_ligero.value,this.form.path_from.value,this.form.id_input_minutes_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 									</div>
 									<div id="container_deep_sleep_both_time_light" class="row hide_container">
 										<div class="col-md-6">
-											<input type="number" class="form-control" id="solo_hora_sueno_both_ligero" name="solo_hora_sueno_both_ligero" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_hour_both_ligero.value),show_complete_time_sleep('','',this.form.solo_hora_sueno_both_ligero.value,this.form.solo_minutos_both_ligero.value)">
+											<input type="number" class="form-control" id="solo_hora_sueno_both_ligero" name="solo_hora_sueno_both_ligero" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_hour_both_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 										</div>
 										<div class="col-md-6">
-											<input type='number' class='form-control' id="solo_minutos_both_ligero" name='solo_minutos_sueno_both_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_minutes_both_ligero.value),show_complete_time_sleep('','',this.form.solo_hora_sueno_both_ligero.value,this.form.solo_minutos_both_ligero.value)">
+											<input type='number' class='form-control' id="solo_minutos_both_ligero" name='solo_minutos_sueno_both_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_minutes_both_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 										</div>
 									</div>
 								</center>
+								<div id="content_all_time_both_sleep" class="hide_container"></div>
 								<hr>
 							</div>
 

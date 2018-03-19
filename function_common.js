@@ -1473,7 +1473,7 @@ const check_full_name = (nombre = null, apellido = null,menu_origen , opcion) =>
  */
 const enabled_disabled_check = (desde) => {
 	if (desde == 'campo_hora') {
-		var clase_tiempo_hora = $("#tiempo_hora").attr('class');
+		let clase_tiempo_hora = $("#tiempo_hora").attr('class');
 		if (clase_tiempo_hora == "form-control checked_hora") {
 			document.getElementById('tiempo_hora').disabled=false;
 			$("#tiempo_hora").removeClass('checked_hora');
@@ -1601,7 +1601,61 @@ const show_container_checked = (idInput,idHour,idMinutes,idBothTime) => {
 	}
 }
 
-const show_complete_time_sleep = (time_hour_first = "",time_minutes_first = "",time_hour_second = "",time_minutes_second = "") => {
-	/*console.log("La hora es ="+time_hour_first+" Y los minutos es = "+time_minutes_first);*/
-	console.log("La hora es ="+time_hour_second+" Y los minutos es = "+time_minutes_second);
+const show_all_time_sleep = (option_profundo,option_ligero) => {
+	let combinaciones = option_profundo+"-"+option_ligero;
+	let hour_profundo,minutes_profundo,hour_ligero,minutes_ligero,all_time_hour,all_time_minutes,all_time_both;
+
+	switch(combinaciones) {
+		case 'hora-hora':
+			/*console.log("h-h");*/
+			hour_profundo = document.getElementById("solo_hora_sueno").value;
+			hour_ligero = document.getElementById("solo_hora_sueno_ligero").value;
+			all_time_both = parseInt(hour_profundo) + parseInt(hour_ligero);
+			console.log("El tiempo total de hora y hora es = "+all_time_both);
+		break;
+		case 'minutos-minutos':
+			minutes_profundo = document.getElementById("solo_minutos").value;
+			minutes_ligero = document.getElementById("solo_minutos_ligero").value;
+			all_time_both = parseInt(minutes_profundo) + parseInt(minutes_ligero);
+			console.log("El tiempo total de minutos y minutos es = "+all_time_both);
+			/*console.log("m-m");*/
+		break;
+		case 'ambos-ambos':
+			hour_profundo = document.getElementById("solo_hora_sueno_both").value;
+			minutes_profundo = document.getElementById("solo_minutos_both").value;
+			hour_ligero = document.getElementById("solo_hora_sueno_both_ligero").value;
+			minutes_ligero = document.getElementById("solo_minutos_both_ligero").value;
+			all_time_hour = parseInt(hour_profundo) + parseInt(hour_ligero);
+			all_time_minutes = parseInt(minutes_profundo) + parseInt(minutes_ligero);
+			if (all_time_minutes >= 60) {
+				add_time_hour = Math.floor((all_time_minutes*1)/60);
+				sub_time_minutes = (add_time_hour*60)/1;
+				all_time_hour = all_time_hour + add_time_hour;
+				all_time_minutes = all_time_minutes - sub_time_minutes;
+			}
+			console.log("total en horas es = "+all_time_hour+" Y en minutos es = "+all_time_minutes);
+			/*console.log("a-a");*/
+		break;
+		case 'hora-minutos':
+			/*console.log("h-m");*/
+		break;
+		case 'minutos-hora':
+			/*console.log("m-h");*/
+		break;
+		case 'ambos-minutos':
+			/*console.log("a-m");*/
+		break;
+		case 'minutos-ambos':
+			/*console.log("m-a");*/
+		break;
+		case 'ambos-hora':
+			/*console.log("a-h");*/
+		break;
+		case 'hora-ambos':
+			/*console.log("h-a");*/
+		break;
+		default:
+			//alert_dinamic_outside_place('log.php');
+			console.log("Ha ocurrido un error");
+	}
 }
