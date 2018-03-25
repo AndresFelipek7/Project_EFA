@@ -1613,27 +1613,25 @@ const show_all_time_sleep = (option_profundo,option_ligero) => {
 
 	switch(combinaciones) {
 		case 'hora-hora':
-			all_time_both = parseInt(get_value_sleep("hora","solo_hora_sueno")) + parseInt(get_value_sleep("hora","solo_hora_sueno_ligero"));
+			all_time_hour = parseInt(get_value_sleep("hora","solo_hora_sueno")) + parseInt(get_value_sleep("hora","solo_hora_sueno_ligero"));
 			if (get_value_sleep("hora","solo_hora_sueno") != "" && get_value_sleep("hora","solo_hora_sueno_ligero") != "") {
-				$("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_both+" Horas.</div></div>");
+				show_panel_all_time_sleep("one_part",all_time_hour);
 			}
 		break;
 		case 'minutos-minutos':
-			all_time_both = parseInt(get_value_sleep("minutos","solo_minutos")) + parseInt(get_value_sleep("minutos","solo_minutos_ligero"));
+			all_time_minutes = parseInt(get_value_sleep("minutos","solo_minutos")) + parseInt(get_value_sleep("minutos","solo_minutos_ligero"));
 
-			if (all_time_both > 60 && all_time_both < 120) {
-				add_time_hour = Math.floor((all_time_both*1)/60);
+			if (all_time_minutes > 60 && all_time_minutes < 120) {
+				add_time_hour = Math.floor((all_time_minutes*1)/60);
 				all_time_hour = add_time_hour;
-				sub_time_minutes = (add_time_hour*60)/1;
-				all_time_both = all_time_both - sub_time_minutes;
-				return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Hora "+ all_time_both+" Minutos.</div></div>");
-			}else if(all_time_both == 60) {
-				return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'> 1 Hora.</div></div>");
-			}else if(all_time_both == 120) {
-				return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'> 2 Horas.</div></div>");
+				sub_time_minutes = (all_time_hour*60)/1;
+				all_time_minutes = all_time_minutes - sub_time_minutes;
+				show_panel_all_time_sleep("two_part",all_time_hour,all_time_minutes);
+			}else if(all_time_minutes == 60) {
+				show_panel_all_time_sleep("one_part","1");
+			}else if(all_time_minutes == 120) {
+				show_panel_all_time_sleep("one_part","2");
 			}
-
-			$("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_both+" Minutos.</div></div>");
 		break;
 		case 'ambos-ambos':
 			all_time_hour = parseInt(get_value_sleep("hora","solo_hora_sueno_both")) + parseInt(get_value_sleep("hora","solo_hora_sueno_both_ligero"));
@@ -1647,12 +1645,12 @@ const show_all_time_sleep = (option_profundo,option_ligero) => {
 					all_time_minutes = all_time_minutes - sub_time_minutes;
 
 					if (all_time_minutes == 0) {
-						return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas.</div></div>");
+						show_panel_all_time_sleep("one_part",all_time_hour);
 					} else {
-						return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas "+ all_time_minutes+" Minutos.</div></div>");
+						show_panel_all_time_sleep("two_part",all_time_hour,all_time_minutes);
 					}
 				}else {
-					return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Hora "+ all_time_minutes+" Minutos.</div></div>");
+					show_panel_all_time_sleep("two_part",all_time_hour,all_time_minutes);
 				}
 			}
 		break;
@@ -1662,9 +1660,9 @@ const show_all_time_sleep = (option_profundo,option_ligero) => {
 
 			if (minutes_ligero >= 60) {
 				all_time_hour = parseInt(hour_profundo) + 1;
-				return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas.</div></div>");
+				show_panel_all_time_sleep("one_part",all_time_hour);
 			}else {
-				return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+hour_profundo+" Horas "+ minutes_ligero+" Minutos.</div></div>");
+				show_panel_all_time_sleep("two_part",hour_profundo,minutes_ligero);
 			}
 		break;
 		case 'minutos-hora':
@@ -1674,9 +1672,9 @@ const show_all_time_sleep = (option_profundo,option_ligero) => {
 			if (minutes_profundo != "" && hour_ligero != "") {
 				if (minutes_profundo >= 60) {
 					all_time_hour = parseInt(hour_ligero) + 1;
-					return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas.</div></div>");
+					show_panel_all_time_sleep("one_part",all_time_hour);
 				}else {
-					return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+hour_ligero+" Hora "+ minutes_profundo+" Minutos.</div></div>");
+					show_panel_all_time_sleep("two_part",hour_ligero,minutes_profundo);
 				}
 			}
 		break;
@@ -1690,12 +1688,12 @@ const show_all_time_sleep = (option_profundo,option_ligero) => {
 				all_time_minutes = all_time_minutes - sub_time_minutes;
 
 				if (all_time_minutes == 0) {
-					return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas.</div></div>");
+					show_panel_all_time_sleep("one_part",all_time_hour);
+				}else {
+					show_panel_all_time_sleep("two_part",all_time_hour,all_time_minutes);
 				}
-
-				return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Hora "+ all_time_minutes +" Minutos.</div></div>");
 			}else {
-				return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+get_value_sleep("hora","solo_hora_sueno_both")+" Hora "+ all_time_minutes +" Minutos.</div></div>");
+				show_panel_all_time_sleep("two_part",get_value_sleep("hora","solo_hora_sueno_both"),all_time_minutes);
 			}
 		break;
 		case 'minutos-ambos':
@@ -1707,13 +1705,14 @@ const show_all_time_sleep = (option_profundo,option_ligero) => {
 					sub_time_minutes = (add_time_hour*60)/1;
 					all_time_hour = parseInt(get_value_sleep("hora","solo_hora_sueno_both_ligero")) + add_time_hour;
 					all_time_minutes = all_time_minutes - sub_time_minutes;
-					if (all_time_minutes == 0) {
-						return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas.</div></div>");
-					}
 
-					return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Hora "+ all_time_minutes +" Minutos.</div></div>");
+					if (all_time_minutes == 0) {
+						show_panel_all_time_sleep("one_part",all_time_hour);
+					}else {
+						show_panel_all_time_sleep("two_part",all_time_hour,all_time_minutes);
+					}
 				}else {
-					return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+get_value_sleep("hora","solo_hora_sueno_both_ligero")+" Hora "+ all_time_minutes +" Minutos.</div></div>");
+					show_panel_all_time_sleep("two_part",get_value_sleep("hora","solo_hora_sueno_both_ligero"),all_time_minutes);
 				}
 			}
 		break;
@@ -1723,9 +1722,9 @@ const show_all_time_sleep = (option_profundo,option_ligero) => {
 			if (get_value_sleep("hora","solo_hora_sueno_ligero") != "" && get_value_sleep("hora","solo_hora_sueno_both") != "" && get_value_sleep("minutos","solo_minutos_both") != "") {
 				if (get_value_sleep("minutos","solo_minutos_both") >= 60) {
 					all_time_hour = parseInt(all_time_hour) + 1;
-					return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas.</div></div>");
+					show_panel_all_time_sleep("one_part",all_time_hour);
 				}else {
-					return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas "+ get_value_sleep("minutos","solo_minutos_both") +" Minutos.</div></div>");
+					show_panel_all_time_sleep("two_part",all_time_hour,get_value_sleep("minutos","solo_minutos_both"));
 				}
 			}
 		break;
@@ -1735,9 +1734,9 @@ const show_all_time_sleep = (option_profundo,option_ligero) => {
 			if (get_value_sleep("minutos","solo_minutos_both_ligero") != "" && get_value_sleep("hora","solo_hora_sueno_both_ligero") != "" && get_value_sleep("hora","solo_hora_sueno") != "") {
 				if (get_value_sleep("minutos","solo_minutos_both_ligero") >= 60) {
 					all_time_hour = parseInt(all_time_hour) + 1;
-					return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas.</div></div>");
+					show_panel_all_time_sleep("one_part",all_time_hour);
 				}else {
-					return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-success'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas "+ get_value_sleep("minutos","solo_minutos_both_ligero") +" Minutos.</div></div>");
+					show_panel_all_time_sleep("two_part",all_time_hour,get_value_sleep("minutos","solo_minutos_both_ligero"));
 				}
 			}
 		break;
@@ -1761,4 +1760,24 @@ const get_value_sleep = (option,idInput) => {
 		default:
 			alert_dinamic_outside_place('evaluacion.php');
 	}
+}
+
+/**
+ * Funcion para Mostrar el total del sueño profundo y ligero
+ *
+ * @param only_option, all_time_hour, all_time_minutes
+ * @return un panel
+ */
+const show_panel_all_time_sleep = (only_option,all_time_hour = "",all_time_minutes = "") => {
+	switch(only_option) {
+		case "two_part":
+			return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-primary size_panel'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas "+ all_time_minutes+" Minutos.</div></div>");
+		break;
+		case "one_part":
+			return $("#content_all_time_both_sleep").show().html("<br><hr><br><div class='panel panel-primary size_panel'><div class='panel-heading'><h3 class='panel-title'>Tiempo Total de Sueño</h3></div><div class='panel-body'>"+all_time_hour+" Horas.</div></div>");
+		break;
+		default:
+			alert_dinamic_outside_place('evaluacion.php');
+	}
+
 }

@@ -425,6 +425,11 @@ table {
 	margin-top:50px;
 }
 
+.size_panel {
+	width: 30%;
+	margin:0 auto;
+}
+
 /*Clase para color borde circular a la caja de texto del modal de activos e inactivos y del reporte de genero en el rol admin*/
 .redondear {
 	width: 20%;
