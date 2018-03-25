@@ -36,7 +36,7 @@
 				<div class='panel-heading' role='tab' id='headingOne'>
 					<h4 class='panel-title'>
 						<a  role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>
-							<span class="glyphicon glyphicon-bookmark"> Informacion General</span>
+							<span class="glyphicon glyphicon-bookmark"> Información General</span>
 						</a>
 					</h4>
 				</div>
