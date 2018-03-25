@@ -211,14 +211,18 @@
 									<hr>
 								</div><br>
 
+								<div class="col-md-12">
+									<div id="check_born_copilot"></div>
+								</div>
+
 								<div class='col-md-6'>
 									<label>Acompañante </label>
-									<input type='text' name='copiloto' id="copiloto" class="form-control" placeholder="Nombre Copiloto" onkeypress="return onlyWords(event)" onchange="style_border_input('copiloto','verde')">
+									<input type='text' name='copiloto' id="copiloto" class="form-control" placeholder="Nombre Copiloto" onkeypress="return onlyWords(event)" onchange="style_border_input('copiloto','verde'),check_born_copilot_required();">
 								</div><br>
 
 								<div class='col-md-6'>
 									<label>Origen del Acompañante </label>
-									<input type='text' name='origen_copiloto' id="origen_copiloto" class="form-control" onkeypress="return onlyWords(event)" onchange="style_border_input('origen_copiloto','verde')" placeholder="Ciudad de Origen">
+									<input type='text' name='origen_copiloto' id="origen_copiloto" class="form-control" onkeypress="return onlyWords(event)" onchange="style_border_input('origen_copiloto','verde'),check_born_copilot_required()" placeholder="Ciudad de Origen">
 								</div><br>
 					</div>
 				</div>

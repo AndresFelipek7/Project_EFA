@@ -1779,5 +1779,20 @@ const show_panel_all_time_sleep = (only_option,all_time_hour = "",all_time_minut
 		default:
 			alert_dinamic_outside_place('evaluacion.php');
 	}
+}
 
+/**
+ * Funcion para verificar el ingreso del origen del copiloto cuando ingrese un nombre
+ *
+ * @param none
+ * @return una alerta si no hay origen
+ */
+const check_born_copilot_required = () => {
+	let born_copilot = document.getElementById("origen_copiloto").value;
+
+	if(born_copilot == "") {
+		$("#check_born_copilot").show().html("<div class='alert alert-warning'><span class='fa fa-minus-circle fa-2x'></span><br><label> Si hay un Copiloto , es obligatorio colocar el lugar de Origen. </label></div>");
+	}else {
+		$("#check_born_copilot").hide();
+	}
 }
