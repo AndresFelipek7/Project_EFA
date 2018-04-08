@@ -1,4 +1,6 @@
 <?php
+	include "library/conec.php";
+
 	/**
 	 * Funcion para habilitar las funciones de js
 	 *
@@ -206,5 +208,24 @@
 					</div>
 				</div>
 			</div>";
+	}
+
+	/**
+	 * Funcion para hacer la consulta a la bd del modulo de Alteracion Neurologico
+	 *
+	 * @param $itemSearch
+	 * @return Informacion
+	 */
+	function query_neurologico ($itemSearch) {
+		$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = '$itemSearch'";
+		$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
+		$count = $resultado ->num_rows;
+
+		if($count >=1) {
+			$row = mysqli_fetch_array($resultado);
+			$id_a_neurologico = $row['id_a_neurologico'];
+			$nombre_a_neurologico = $row['nombre_a_neurologico'];
+			$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
+		}
 	}
 ?>

@@ -5,7 +5,7 @@
 		<div class='modal-content'>
 			<div class='modal-header'>
 				<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-				<h4 class='modal-title'><span class="fa fa-diamond"></span> Informacion Detallada</h4>
+				<h4 class='modal-title'><span class="fa fa-diamond"></span><br> Informacion Detallada</h4>
 			</div>
 			<div class='modal-body text-center'>
 				<?php
@@ -18,7 +18,9 @@
 										$puntos_Reflejos = 7;
 										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Reflejos;
 
-										$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Reflejos'";
+										query_neurologico("Reflejos");
+
+										/*$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Reflejos'";
 										$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
 										$count = $resultado ->num_rows;
 
@@ -27,7 +29,7 @@
 											$id_a_neurologico = $row['id_a_neurologico'];
 											$nombre_a_neurologico = $row['nombre_a_neurologico'];
 											$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
-										}
+										}*/
 
 										//Mostramos el resultado de la consulta en un panel
 										echo "<div class='panel panel-warning text-center'>
@@ -98,7 +100,7 @@
 									case "atento":
 										$puntos_atento = 4;
 										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_atento;
-										
+
 										$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Atento'";
 										$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
 										$count = $resultado ->num_rows;
@@ -125,7 +127,7 @@
 									case "memoria":
 										$puntos_Memoria = 3;
 										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Memoria;
-										
+
 										$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Memoria'";
 										$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
 										$count = $resultado ->num_rows;
@@ -183,7 +185,7 @@
 										echo "La otra alteracion neurologica ingresada es = ".$otra_a_neurologica;
 										break;
 									default:
-										echo "Lo sentimos ha ocurrido un erro en el menu Sintomas Fatiga , por Favor recargue la pagina nuevamente";
+										echo "Lo sentimos ha ocurrido un erro en el menu Alteracion Neurlogica, por Favor recargue la pagina nuevamente";
 										break;
 								}
 							echo "</li>";
@@ -195,7 +197,7 @@
 				?>
 			</div>
 			<div class='modal-footer form-inline'>
-				<button type='button' class='btn btn-danger' data-dismiss='modal'><span class="glyphicon glyphicon-remove"></span>Salir</button>
+				<button type='button' class='btn btn-danger' data-dismiss='modal'><span class="glyphicon glyphicon-remove"></span></button>
 			</div>
 		</div>
 	</div>
