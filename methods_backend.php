@@ -174,7 +174,7 @@
 
 	function panel_info_for_modal($addClass,$nameItem,$contentMessage) {
 		echo "<div class='panel $addClass text-center'>
-				<div class='panel-heading'><span class='fa fa-file-text fa-2x'></span> $nameItem</div>
+				<div class='panel-heading'><strong>$nameItem</strong></div>
 				<div class='panel-body'>
 					<div>
 						$contentMessage.'<br>'

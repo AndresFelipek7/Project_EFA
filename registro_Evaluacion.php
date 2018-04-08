@@ -77,7 +77,7 @@
 			require_once "main/asignacion_estado_pulsaciones.php";
 
 			echo "<div class='container text-center'>";
-			echo "<h2>Descripcion Detallada</h2>";
+			echo "<h3>Descripcion Detallada</h3>";
 			require_once "main/descripcion/descripcion_signo.php";
 			require_once "main/descripcion/descripcion_a_neurologicas.php";
 			require_once "main/descripcion/descripcion_a_emocional.php";
@@ -98,7 +98,7 @@
 			echo "<div class='container text-center'>";
 			require_once "main/hallar_pilar.php";
 
-			//Aqui es donde mostramos el semaforo , el mensaje del nidel del conductor y si puede conducir o no
+			//Aqui es donde mostramos el semaforo , el mensaje del nivel del conductor y si puede conducir o no
 			switch ($acumulador_Pilares) {
 				case 1:
 				echo "<h3 class='animated rubberBand' style='color:green;'>Nivel de Fatiga que Presenta es = Bajo</h3>";
@@ -171,7 +171,7 @@
 			require_once("main/eliminar_ultimo_elemento_arreglo.php");
 
 			//Insercion de la evaluacion a la BD
-			$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
+			/*$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
 				id_usuario ,
 				id_conductor ,
 				id_ruta ,
@@ -253,7 +253,7 @@
 				echo '<script> alert(" Bien! Se han Insertado la evaluacion correctamente"); </script>';
 			}else{
 				echo '<script> alert(" Problemas al Insertar la evaluacion"); </script>';
-			}
+			}*/
 
 			//Cerramos la conexion de la Bd
 			$conexion->close();

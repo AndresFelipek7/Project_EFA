@@ -5,12 +5,12 @@
 		<div class='modal-content'>
 			<div class='modal-header'>
 				<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-				<h4 class='modal-title'> <span class="glyphicon glyphicon-eye-open"></span> Informacion Detallada</h4>
+				<h4 class='modal-title'><span class="fa fa-bookmark fa-2x"></span><br>Informacion Detallada</h4>
 			</div>
 			<div class='modal-body text-center'>
 				<?php
 					$valor_otro_estado_signo = $_POST["valor_otro_estado_signo"];
-					echo ($valor_otro_estado_signo == "") ? "No se ha ingreado otro estado del conductor." : $valor_otro_estado_signo;
+					($valor_otro_estado_signo == "") ? "No se ha ingreado otro estado del conductor." : $valor_otro_estado_signo;
 
 					$consulta_Buscar_signo = "SELECT * FROM signos_fatiga WHERE id_signo = '$valor_Signo'";
 					$resultado = $conexion -> query($consulta_Buscar_signo);
@@ -23,16 +23,22 @@
 						$descripcion_Signo = $row['descripcion_signo'];
 					}
 
-					echo "<div class='panel panel-default text-center'>
-							<div class='panel-heading'><span class='fa fa-file-text fa-2x'></span> $nombre_Signo</div>
-							<div class='panel-body'>
-								<div>
-									$descripcion_Signo.'<br>'
-								</div>
-							</div>
-						</div>";
-
-					echo $valor_otro_estado_signo;
+					if ($valor_otro_estado_signo != "") {
+						echo "<div class='row'>";
+							echo "<div class='col-md-6'>";
+								panel_info_for_modal("panel-default", $nombre_Signo, $descripcion_Signo);
+							echo "</div>";
+							echo "<div class='col-md-6'>";
+								panel_info_for_modal("panel-info", "Otro Estado del Conductor" , $valor_otro_estado_signo);
+							echo "</div>";
+						echo "</div>";
+					}else {
+						echo "<div class='row'>";
+							echo "<div class='col-md-12'>";
+								panel_info_for_modal("panel-default", $nombre_Signo, $descripcion_Signo);
+							echo "</div>";
+						echo "</div>";
+					}
 
 					//Valor por opcion del signo elegido
 					switch ($nombre_Signo) {
@@ -71,7 +77,7 @@
 				?>
 			</div>
 			<div class='modal-footer form-inline'>
-				<button type='button' class='btn btn-danger' data-dismiss='modal'><span class="glyphicon glyphicon-remove"></span>  Salir</button>
+				<button type='button' class='btn btn-danger' data-dismiss='modal'><span class="glyphicon glyphicon-remove"></span></button>
 			</div>
 		</div>
 	</div>
