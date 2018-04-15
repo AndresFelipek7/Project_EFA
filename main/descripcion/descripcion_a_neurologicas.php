@@ -21,140 +21,46 @@
 										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
 										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
 										break;
-									case "cordinado":
+									case "Cordinado":
 										$puntos_Cordinado = 6;
 										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Cordinado;
 
-										$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Cordinado'";
-										$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
-										$count = $resultado ->num_rows;
-
-										if($count >=1) {
-											$row = mysqli_fetch_array($resultado);
-											$id_a_neurologico = $row['id_a_neurologico'];
-											$nombre_a_neurologico = $row['nombre_a_neurologico'];
-											$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
-										}
-
-										//Mostramos el resultado de la consulta en un panel
-										echo "<div class='panel panel-warning text-center'>
-												<div class='panel-heading'><span class='fa fa-file fa-2x'></span> $nombre_a_neurologico</div>
-												<div class='panel-body'>
-													<div>
-														$descripcion_a_neurologico.'<br>'
-													</div>
-												</div>
-											</div>";
-
-										$a_neurologicos_seleccionados = $id_a_neurologico.",".$a_neurologicos_seleccionados;
+										$object_neurologico = query_neurologico("Cordinado",$conexion);
+										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
+										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
+										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
 										break;
-									case "fuerza":
+									case "Fuerza":
 										$puntos_Fuerza = 5;
 										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Fuerza;
 
-										$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Fuerza'";
-										$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
-										$count = $resultado ->num_rows;
-
-										if($count >=1) {
-											$row = mysqli_fetch_array($resultado);
-											$id_a_neurologico = $row['id_a_neurologico'];
-											$nombre_a_neurologico = $row['nombre_a_neurologico'];
-											$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
-										}
-
-										//Mostramos el resultado de la consulta en un panel
-										echo "<div class='panel panel-warning text-center'>
-												<div class='panel-heading'><span class='fa fa-file fa-2x'></span> $nombre_a_neurologico</div>
-												<div class='panel-body'>
-													<div>
-														$descripcion_a_neurologico.'<br>'
-													</div>
-												</div>
-											</div>";
-
-										$a_neurologicos_seleccionados = $id_a_neurologico.",".$a_neurologicos_seleccionados;
+										$object_neurologico = query_neurologico("Fuerza",$conexion);
+										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
+										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
 										break;
-									case "atento":
+									case "Atento":
 										$puntos_atento = 4;
 										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_atento;
 
-										$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Atento'";
-										$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
-										$count = $resultado ->num_rows;
-
-										if($count >=1) {
-											$row = mysqli_fetch_array($resultado);
-											$id_a_neurologico = $row['id_a_neurologico'];
-											$nombre_a_neurologico = $row['nombre_a_neurologico'];
-											$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
-										}
-
-										//Mostramos el resultado de la consulta en un panel
-										echo "<div class='panel panel-warning text-center'>
-												<div class='panel-heading'><span class='fa fa-file fa-2x'></span> $nombre_a_neurologico</div>
-												<div class='panel-body'>
-													<div>
-														$descripcion_a_neurologico.'<br>'
-													</div>
-												</div>
-											</div>";
-
-										$a_neurologicos_seleccionados = $id_a_neurologico.",".$a_neurologicos_seleccionados;
+										$object_neurologico = query_neurologico("Atento",$conexion);
+										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
+										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
 										break;
-									case "memoria":
+									case "Memoria":
 										$puntos_Memoria = 3;
 										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Memoria;
 
-										$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Memoria'";
-										$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
-										$count = $resultado ->num_rows;
-
-										if($count >=1) {
-											$row = mysqli_fetch_array($resultado);
-											$id_a_neurologico = $row['id_a_neurologico'];
-											$nombre_a_neurologico = $row['nombre_a_neurologico'];
-											$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
-										}
-
-										//Mostramos el resultado de la consulta en un panel
-										echo "<div class='panel panel-warning text-center'>
-												<div class='panel-heading'><span class='fa fa-file fa-2x'></span> $nombre_a_neurologico</div>
-												<div class='panel-body'>
-													<div>
-														$descripcion_a_neurologico.'<br>'
-													</div>
-												</div>
-											</div>";
-
-										$a_neurologicos_seleccionados = $id_a_neurologico.",".$a_neurologicos_seleccionados;
+										$object_neurologico = query_neurologico("Memoria",$conexion);
+										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
+										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
 										break;
-									case "sensibilidad":
+									case "Sensibilidad":
 										$puntos_Sensibilidad = 2;
 										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Sensibilidad;
 
-										$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Sensibilidad'";
-										$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
-										$count = $resultado ->num_rows;
-
-										if($count >=1) {
-											$row = mysqli_fetch_array($resultado);
-											$id_a_neurologico = $row['id_a_neurologico'];
-											$nombre_a_neurologico = $row['nombre_a_neurologico'];
-											$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
-										}
-
-										//Mostramos el resultado de la consulta en un panel
-										echo "<div class='panel panel-warning text-center'>
-												<div class='panel-heading'><span class='fa fa-file fa-2x'></span> $nombre_a_neurologico</div>
-												<div class='panel-body'>
-													<div>
-														$descripcion_a_neurologico.'<br>'
-													</div>
-												</div>
-											</div>";
-
-										$a_neurologicos_seleccionados = $id_a_neurologico.",".$a_neurologicos_seleccionados;
+										$object_neurologico = query_neurologico("Sensibilidad",$conexion);
+										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
+										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
 										break;
 									case "otra_a_neurologica":
 										$puntos_Otra_alteracion_neurologica = 1;
