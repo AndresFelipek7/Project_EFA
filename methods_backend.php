@@ -211,13 +211,13 @@
 	}
 
 	/**
-	 * Funcion para hacer la consulta a la bd del modulo de Alteracion Neurologico
+	 * Funcion para la consulta de el menu de Alteracion neurologico
 	 *
-	 * @param $itemSearch
-	 * @return Informacion
+	 * @param
+	 * @return
 	 */
-	function query_neurologico ($itemSearch) {
-		$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = '$itemSearch'";
+	function query_neurologico($nameSearch,$conexion) {
+		$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = '$nameSearch'";
 		$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
 		$count = $resultado ->num_rows;
 
@@ -226,6 +226,10 @@
 			$id_a_neurologico = $row['id_a_neurologico'];
 			$nombre_a_neurologico = $row['nombre_a_neurologico'];
 			$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
+			$info_neurologico = ["id_a_neurologico" => $id_a_neurologico, "nombre_a_neurologico" => $nombre_a_neurologico, "descripcion_a_neurologico" => $descripcion_a_neurologico];
+			return $info_neurologico;
+		}else {
+			return "No se ha podido hacer la consulta";
 		}
 	}
 ?>

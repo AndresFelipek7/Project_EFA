@@ -14,34 +14,12 @@
 						foreach ( $_POST["alteraciones_neurologicas"] as $traer_Alteraciones_neurologicas) {
 							echo "<li>";
 								switch ($traer_Alteraciones_neurologicas) {
-									case "reflejo":
+									case "Reflejos":
 										$puntos_Reflejos = 7;
 										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Reflejos;
-
-										query_neurologico("Reflejos");
-
-										/*$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Reflejos'";
-										$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
-										$count = $resultado ->num_rows;
-
-										if($count >=1) {
-											$row = mysqli_fetch_array($resultado);
-											$id_a_neurologico = $row['id_a_neurologico'];
-											$nombre_a_neurologico = $row['nombre_a_neurologico'];
-											$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
-										}*/
-
-										//Mostramos el resultado de la consulta en un panel
-										echo "<div class='panel panel-warning text-center'>
-												<div class='panel-heading'><span class='fa fa-file fa-2x'></span> $nombre_a_neurologico</div>
-												<div class='panel-body'>
-													<div>
-														$descripcion_a_neurologico.'<br>'
-													</div>
-												</div>
-											</div>";
-
-										$a_neurologicos_seleccionados = $id_a_neurologico.",".$a_neurologicos_seleccionados;
+										$object_neurologico = query_neurologico("Reflejos",$conexion);
+										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
+										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
 										break;
 									case "cordinado":
 										$puntos_Cordinado = 6;
