@@ -9,73 +9,28 @@
 			</div>
 			<div class='modal-body text-center'>
 				<?php
+					$valor = count($_POST["alteraciones_neurologicas"]);
+
+					if ($valor > 3) {
+						$columnsGrid = "col-md-4";
+					}else if($valor == 2){
+						$columnsGrid = "col-md-6";
+					}else {
+						$columnsGrid = "col-md-12";
+					}
+
 					if(!empty($_POST["alteraciones_neurologicas"]) && is_array($_POST["alteraciones_neurologicas"])) {
 						echo "<ul>";
-						foreach ( $_POST["alteraciones_neurologicas"] as $traer_Alteraciones_neurologicas) {
-							echo "<li>";
-								switch ($traer_Alteraciones_neurologicas) {
-									case "Reflejos":
-										$puntos_Reflejos = 7;
-										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Reflejos;
-										$object_neurologico = query_neurologico("Reflejos",$conexion);
+							foreach ( $_POST["alteraciones_neurologicas"] as $subindice => $valor_neurologico) {
+								echo "<div class='container-fluid row'>";
+									echo "<div class='$columnsGrid'>";
+										$object_neurologico = query_neurologico($valor_neurologico,$conexion);
 										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
-										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
-										break;
-									case "Cordinado":
-										$puntos_Cordinado = 6;
-										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Cordinado;
-
-										$object_neurologico = query_neurologico("Cordinado",$conexion);
-										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
-										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
-										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
-										break;
-									case "Fuerza":
-										$puntos_Fuerza = 5;
-										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Fuerza;
-
-										$object_neurologico = query_neurologico("Fuerza",$conexion);
-										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
-										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
-										break;
-									case "Atento":
-										$puntos_atento = 4;
-										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_atento;
-
-										$object_neurologico = query_neurologico("Atento",$conexion);
-										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
-										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
-										break;
-									case "Memoria":
-										$puntos_Memoria = 3;
-										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Memoria;
-
-										$object_neurologico = query_neurologico("Memoria",$conexion);
-										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
-										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
-										break;
-									case "Sensibilidad":
-										$puntos_Sensibilidad = 2;
-										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Sensibilidad;
-
-										$object_neurologico = query_neurologico("Sensibilidad",$conexion);
-										panel_info_for_modal("panel-warning", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
-										$a_neurologicos_seleccionados = $object_neurologico['id_a_neurologico'].",".$a_neurologicos_seleccionados;
-										break;
-									case "otra_a_neurologica":
-										$puntos_Otra_alteracion_neurologica = 1;
-										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $puntos_Otra_alteracion_neurologica;
-										$otra_a_neurologica = $_POST['otra_alteracion_neurologica'];
-										echo "La otra alteracion neurologica ingresada es = ".$otra_a_neurologica;
-										break;
-									default:
-										echo "Lo sentimos ha ocurrido un erro en el menu Alteracion Neurlogica, por Favor recargue la pagina nuevamente";
-										break;
-								}
-							echo "</li>";
-						}
+									echo "</div>";
+								echo "<div>";
+							}
 						echo "</ul>";
-					}else{
+					}else {
 						echo "<script> document.getElementById('descripcion_neurologico').style.display='none';</script>";
 					}
 				?>
