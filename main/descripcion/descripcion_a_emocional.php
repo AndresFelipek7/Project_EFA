@@ -44,9 +44,9 @@
 								echo "<div>";
 							}
 						echo "</ul>";
-						}/*else{
+						}else{
 							echo "<script> document.getElementById('descripcion_emocional').style.display='none';</script>";
-						}*/
+						}
 					}
 				?>
 			</div>

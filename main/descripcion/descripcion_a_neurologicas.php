@@ -9,17 +9,17 @@
 			</div>
 			<div class='modal-body text-center'>
 				<?php
-					$valor = count($_POST["alteraciones_neurologicas"]);
-
-					if ($valor > 3) {
-						$columnsGrid = "col-md-4";
-					}else if($valor == 2){
-						$columnsGrid = "col-md-6";
-					}else {
-						$columnsGrid = "col-md-12";
-					}
-
 					if(!empty($_POST["alteraciones_neurologicas"]) && is_array($_POST["alteraciones_neurologicas"])) {
+						$valor = count($_POST["alteraciones_neurologicas"]);
+
+						if ($valor > 3) {
+							$columnsGrid = "col-md-4";
+						}else if($valor == 2){
+							$columnsGrid = "col-md-6";
+						}else {
+							$columnsGrid = "col-md-12";
+						}
+
 						echo "<ul>";
 							foreach ( $_POST["alteraciones_neurologicas"] as $subindice => $valor_neurologico) {
 								echo "<div class='container-fluid row'>";
