@@ -101,44 +101,44 @@
 			//Aqui es donde mostramos el semaforo , el mensaje del nivel del conductor y si puede conducir o no
 			switch ($acumulador_Pilares) {
 				case 1:
-				echo "<h3 class='animated rubberBand' style='color:green;'>Nivel de Fatiga que Presenta es = Bajo</h3>";
-				echo "<h3 class='animated rubberBand' style='color:green;'>El conductor puede conducir sin problemas , pero se recomienda hacer las sugerencias asignadas</h3>";
-				echo "<h3 class='animated rubberBand' style='color:green;'>Para que este en optimas condiciones para conducir</h3>";
-				echo "<img src='images/Semaforos/semaforo_verde.jpg' width='200' height='200'>";
-				$saber_nivel_fatiga = "1";
+					echo "<h3 class='animated rubberBand' style='color:green;'>Nivel de Fatiga que Presenta es = Bajo</h3>";
+					echo "<h3 class='animated rubberBand' style='color:green;'>El conductor puede conducir sin problemas , pero se recomienda hacer las sugerencias asignadas</h3>";
+					echo "<h3 class='animated rubberBand' style='color:green;'>Para que este en optimas condiciones para conducir</h3>";
+					echo "<img src='images/Semaforos/semaforo_verde.jpg' width='200' height='200'>";
+					$saber_nivel_fatiga = "1";
 				break;
 				case 2:
-				echo "<h3 class='animated rubberBand' style='color:green;'>Nivel de Fatiga que Presenta es = Bajo</h3>";
-				echo "<h3 class='animated rubberBand' style='color:green;'>El conductor puede conducir sin problemas , pero se recomienda hacer las sugerencias asignadas</h3>";
-				echo "<h3 class='animated rubberBand' style='color:green;'>Para que este en optimas condiciones para conducir</h3>";
-				echo "<img src='images/Semaforos/semaforo_verde.jpg' width='200' height='200'>";
-				$saber_nivel_fatiga = "1";
+					echo "<h3 class='animated rubberBand' style='color:green;'>Nivel de Fatiga que Presenta es = Bajo</h3>";
+					echo "<h3 class='animated rubberBand' style='color:green;'>El conductor puede conducir sin problemas , pero se recomienda hacer las sugerencias asignadas</h3>";
+					echo "<h3 class='animated rubberBand' style='color:green;'>Para que este en optimas condiciones para conducir</h3>";
+					echo "<img src='images/Semaforos/semaforo_verde.jpg' width='200' height='200'>";
+					$saber_nivel_fatiga = "1";
 				break;
 				case 3:
-				echo "<h3 class='animated rubberBand' style='color:black;'>Nivel de Fatiga que Presenta es = Medio</h3>";
-				echo "<h3 class='animated rubberBand' style='color:black;'>El conductor debe de realizar todas las recomendaciones que se asignaron</h3>";
-				echo "<h3 class='animated rubberBand' style='color:black;'>El conductor puede conducir realizando todas las recomendaciones</h3>";
-				echo "<img src='images/Semaforos/semaforo naranja.jpg' width='200' height='200'>";
-				$saber_nivel_fatiga = "2";
+					echo "<h3 class='animated rubberBand' style='color:black;'>Nivel de Fatiga que Presenta es = Medio</h3>";
+					echo "<h3 class='animated rubberBand' style='color:black;'>El conductor debe de realizar todas las recomendaciones que se asignaron</h3>";
+					echo "<h3 class='animated rubberBand' style='color:black;'>El conductor puede conducir realizando todas las recomendaciones</h3>";
+					echo "<img src='images/Semaforos/semaforo naranja.jpg' width='200' height='200'>";
+					$saber_nivel_fatiga = "2";
 				break;
 				case 4:
-				echo "<h3 class='animated rubberBand' style='color:red;'>Nivel de Fatiga que Presenta es = Alto</h3>";
-				echo "<h3 class='animated rubberBand' style='color:red;'>El conductor no puede conducir el dia de hoy</h3>";
-				echo "<h3 class='animated rubberBand' style='color:red;'>Tiene que hacer todas las recomendaciones para poder hacer su siguiente evaluacion de fatiga</h3>";
-				echo "<img src='images/Semaforos/semaforo naranja.jpg' width='200' height='200'>";
-				$saber_nivel_fatiga = "3";
+					echo "<h3 class='animated rubberBand' style='color:red;'>Nivel de Fatiga que Presenta es = Alto</h3>";
+					echo "<h3 class='animated rubberBand' style='color:red;'>El conductor no puede conducir el dia de hoy</h3>";
+					echo "<h3 class='animated rubberBand' style='color:red;'>Tiene que hacer todas las recomendaciones para poder hacer su siguiente evaluacion de fatiga</h3>";
+					echo "<img src='images/Semaforos/semaforo naranja.jpg' width='200' height='200'>";
+					$saber_nivel_fatiga = "3";
 				break;
 				case 5:
-				echo "<h3 class='animated rubberBand' style='color:red;'>Nivel de Fatiga que Presenta es = Alto</h3>";
-				echo "<h3 class='animated rubberBand' style='color:red;'>El conductor no puede conducir el dia de hoy</h3>";
-				echo "<h3 class='animated rubberBand' style='color:red;'>Tiene que hacer todas las recomendaciones para poder hacer su siguiente evaluacion de fatiga</h3>";
-				echo "<img src='images/Semaforos/semaforo_rojo.png' width='200' height='200'>";
-				$saber_nivel_fatiga = "3";
+					echo "<h3 class='animated rubberBand' style='color:red;'>Nivel de Fatiga que Presenta es = Alto</h3>";
+					echo "<h3 class='animated rubberBand' style='color:red;'>El conductor no puede conducir el dia de hoy</h3>";
+					echo "<h3 class='animated rubberBand' style='color:red;'>Tiene que hacer todas las recomendaciones para poder hacer su siguiente evaluacion de fatiga</h3>";
+					echo "<img src='images/Semaforos/semaforo_rojo.png' width='200' height='200'>";
+					$saber_nivel_fatiga = "3";
 				break;
 				default:
-				echo "<h3 class='animated rubberBand' style='color:green;'>Esta en optimas condiciones para conducir</h3>";
-				echo "<img src='images/Semaforos/semaforo_verde.jpg' width='200' height='200'>";
-				$saber_nivel_fatiga = "1";
+					echo "<h3 class='animated rubberBand' style='color:green;'>Esta en optimas condiciones para conducir</h3>";
+					echo "<img src='images/Semaforos/semaforo_verde.jpg' width='200' height='200'>";
+					$saber_nivel_fatiga = "1";
 				break;
 			}
 			echo "</div>";

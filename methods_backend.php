@@ -229,7 +229,29 @@
 			$info_neurologico = ["id_a_neurologico" => $id_a_neurologico, "nombre_a_neurologico" => $nombre_a_neurologico, "descripcion_a_neurologico" => $descripcion_a_neurologico];
 			return $info_neurologico;
 		}else {
-			return "No se ha podido hacer la consulta";
+			return "Ha ocurrido un erro inesperado.";
+		}
+	}
+
+	/**
+	 * Funcion para hacer la consulta en el modulo de Signos
+	 *
+	 * @param $nameSearch, $conexion
+	 * @return Un arreglo con la informacion pedida
+	 */
+	function query_signo($nameSearch,$conexion) {
+		$consulta_Buscar_signo = "SELECT * FROM signos_fatiga WHERE id_signo = '$nameSearch'";
+		$resultado = $conexion -> query($consulta_Buscar_signo);
+		$count = $resultado ->num_rows;
+
+		if($count >=1) {
+			$row = mysqli_fetch_array($resultado);
+			$id_signo = $row['id_signo'];
+			$nombre_Signo = $row['nombre_signo'];
+			$descripcion_Signo = $row['descripcion_signo'];
+			return $info_signo = ["id_signo" => $id_signo, "nombre_signo" => $nombre_Signo, "descripcion_signo" => $descripcion_Signo];
+		}else {
+			return "Ha ocurrido un erro inesperado.";
 		}
 	}
 ?>
