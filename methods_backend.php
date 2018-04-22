@@ -254,4 +254,25 @@
 			return "Ha ocurrido un erro inesperado.";
 		}
 	}
+
+	/**
+	 * Funcion para hacer la consulta del modulo Emocional
+	 *
+	 * @param $nameSearch, $conexion
+	 * @return Un arreglo con la info de la Bd
+	 */
+	function query_emocional($nameSearch,$conexion) {
+		$consulta_Buscar_a_Emocional = "SELECT * FROM alteraciones_emocionales WHERE nombre_a_emocional = '$nameSearch'";
+		$resultado = $conexion -> query($consulta_Buscar_a_Emocional);
+		$count = $resultado ->num_rows;
+
+		if($count >=1) {
+			$row = mysqli_fetch_array($resultado);
+			$id_a_emocional = $row['id_a_emocional'];
+			$nombre_a_emocional= $row['nombre_a_emocional'];
+			$descripcion_a_emocional = $row['descripcion_a_emocional'];
+			$info_emocional = ["id_emocional" => $id_a_emocional, "nombre_emocional" => $nombre_a_emocional, "descripcion_emocional" => $descripcion_a_emocional];
+			return $info_emocional;
+		}
+	}
 ?>
