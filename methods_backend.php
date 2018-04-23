@@ -174,6 +174,12 @@
 			</div>";
 	}
 
+	/**
+	 * Funcion para crear un modal Dinamico
+	 *
+	 * @param $addClass,$nameItem,$contentMessage
+	 * @return Crea un modal en pantalla
+	 */
 	function panel_info_for_modal($addClass,$nameItem,$contentMessage) {
 		echo "<div class='panel $addClass text-center'>
 				<div class='panel-heading'><strong>$nameItem</strong></div>
@@ -273,6 +279,21 @@
 			$descripcion_a_emocional = $row['descripcion_a_emocional'];
 			$info_emocional = ["id_emocional" => $id_a_emocional, "nombre_emocional" => $nombre_a_emocional, "descripcion_emocional" => $descripcion_a_emocional];
 			return $info_emocional;
+		}
+	}
+
+	function query_sintomas($nameSearch,$conexion) {
+		$consulta_Buscar_sintoma = "SELECT * FROM sintomas WHERE nombre_sintoma = '$nameSearch'";
+		$resultado = $conexion -> query($consulta_Buscar_sintoma);
+		$count = $resultado ->num_rows;
+
+		if($count >=1) {
+			$row = mysqli_fetch_array($resultado);
+			$id_sintoma = $row['id_sintoma'];
+			$nombre_Sintoma = $row['nombre_sintoma'];
+			$descripcion_Sintoma = $row['descripcion_sintoma'];
+			$info_sintomas = ["id_sintoma" => $id_sintoma, "nombre_sintoma" => $nombre_Sintoma, "descripcion_sintoma" => $descripcion_Sintoma];
+			return $info_sintomas;
 		}
 	}
 ?>
