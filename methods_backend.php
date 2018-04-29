@@ -87,11 +87,11 @@
 	/**
 	 * Funcion para mensajes de error
 	 *
-	 * @param $contenMessage, $add_class_optional
+	 * @param $contenMessage
 	 * @return Un panel con el mensaje de error
 	 */
-	function message_mistake_validator($contentMessage , $add_class_optional = ""){
-		echo "<div class='alert alert-danger $add_class_optional'>
+	function message_mistake_validator($contentMessage){
+		echo "<div class='alert alert-danger'>
 				<span class='fa fa-minus-circle fa-2x'></span><br>
 				<label> $contentMessage </label>
 			</div>";
@@ -103,9 +103,9 @@
 	 * @param $contentMessage
 	 * @return un Mensaje
 	 */
-	function message_mistake_disabled_validator($contentMessage = "",$add_class_optional = "") {
-		echo "<div class='alert alert-warning $add_class_optional'>
-				<span class='fa fa-info'></span><br>
+	function message_mistake_disabled_validator($contentMessage = "") {
+		echo "<div class='alert alert-warning'>
+				<span class='fa fa-info fa-2x'></span><br>
 				<label> $contentMessage </label>
 			</div>";
 	}

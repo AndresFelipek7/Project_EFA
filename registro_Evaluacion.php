@@ -25,14 +25,14 @@
 
 			require_once "variables.php";
 
-			//Enlazamos el algoritmo de la informacion de la manilla para integrarla con la plataforma
-
-			echo "<div class='row'>";
-				echo "<div class='col-md-6'>";
-					require_once "main/comparacion_sueno_manilla.php";
-				echo "</div>";
-				echo "<div class='col-md-6'>";
-					require_once "main/asignacion_estado_pulsaciones.php";
+			echo "<div class='container text-center space-up-container'>";
+				echo "<div class='row'>";
+					echo "<div class='col-md-6'>";
+						require_once "main/comparacion_sueno_manilla.php";
+					echo "</div>";
+					echo "<div class='col-md-6'>";
+						require_once "main/asignacion_estado_pulsaciones.php";
+					echo "</div>";
 				echo "</div>";
 			echo "</div>";
 
@@ -40,10 +40,10 @@
 
 			echo "<div class='container text-center'>";
 			echo "<h3>Descripcion Detallada</h3>";
-			require_once "main/descripcion/descripcion_signo.php";
-			require_once "main/descripcion/descripcion_a_neurologicas.php";
-			require_once "main/descripcion/descripcion_a_emocional.php";
-			require_once "main/descripcion/descripcion_sintoma.php";
+				require_once "main/descripcion/descripcion_signo.php";
+				require_once "main/descripcion/descripcion_a_neurologicas.php";
+				require_once "main/descripcion/descripcion_a_emocional.php";
+				require_once "main/descripcion/descripcion_sintoma.php";
 			echo "</div>";
 			echo "<hr>";
 
