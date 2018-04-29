@@ -91,8 +91,7 @@
 	 * @return Un panel con el mensaje de error
 	 */
 	function message_mistake_validator($contentMessage , $add_class_optional = ""){
-		echo "
-			<div class='alert alert-danger $add_class_optional'>
+		echo "<div class='alert alert-danger $add_class_optional'>
 				<span class='fa fa-minus-circle fa-2x'></span><br>
 				<label> $contentMessage </label>
 			</div>";
@@ -105,8 +104,7 @@
 	 * @return un Mensaje
 	 */
 	function message_mistake_disabled_validator($contentMessage = "",$add_class_optional = "") {
-		echo "
-			<div class='alert alert-warning $add_class_optional'>
+		echo "<div class='alert alert-warning $add_class_optional'>
 				<span class='fa fa-info'></span><br>
 				<label> $contentMessage </label>
 			</div>";
@@ -155,8 +153,7 @@
 	 * @return un panel
 	 */
 	function panel_info_pulsaciones($addClass,$addIcon,$contentMessage) {
-		echo "
-			<div class='alert alert-$addClass container text-center'>
+		echo "<div class='alert alert-$addClass'>
 				<span class='fa fa-$addIcon fa-2x'></span><br>
 				<label> $contentMessage </label>
 			</div>";
