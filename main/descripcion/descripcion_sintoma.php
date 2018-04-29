@@ -14,14 +14,14 @@
 
 						if ($valor > 3) {
 							$columnsGrid = "col-md-4";
-						}else if($valor == 2){
+						}else if($valor >= 2){
 							$columnsGrid = "col-md-6";
 						}else {
 							$columnsGrid = "col-md-12";
 						}
 
 						echo "<ul>";
-							foreach ( $_POST["sintomas"] as $subindice => $valor_sintomas) {
+							foreach ( $_POST["sintomas"] as $valor_sintomas) {
 								echo "<div class='container-fluid row'>";
 									echo "<div class='$columnsGrid'>";
 										$object_sintomas = query_sintomas($valor_sintomas,$conexion);

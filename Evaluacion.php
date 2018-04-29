@@ -397,7 +397,7 @@
 								<div id="container_extensiones_agree" class="center_element"></div>
 								<center>
 									<label>Cargar Descargable Mi Fit</label>
-									<input type="file" name="photo" id="descargable_fit" onchange="check_photo(this.form.photo.value,'evaluacion');" required>
+									<input type="file" name="photo" id="descargable_fit" onchange="check_photo(this.form.photo.value,'evaluacion');">
 								</center>
 							</div>
 						</div>
