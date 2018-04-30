@@ -109,11 +109,8 @@
 			//Este es el tiempo en minutos y segundos cuando se envia la evaluacion a la bd y ya se tiene el resultado y las sugerencias para el evaluador
 			$_SESSION["tiempo_iniciar_sugerencia"] = date("i:s");
 
-			//Botones para volver hacer la evaluacion y descargar un pdf
 			echo "<div class='container-fluid text-center'>";
-			/*En el primer link le enviamos por get el valor del tiempo cuando llego a la pagina de recomendaciones para luego saber cuanto se demora en esta pagina*/
-			echo "<a href='tiempo_decir_sugerencias.php?t=$_SESSION[tiempo_iniciar_sugerencia]&nf=$saber_nivel_fatiga' class='btn btn-md btn-default active btn3d btn-lg' style='margin-right:10px;'><span class='glyphicon glyphicon-ok'></span></a>";
-			echo "<a href='reporte_evaluacion_fatiga.php?id_con=$_SESSION[registro]&pilar1=$pilar_activo_Labor_estenuante&pilar2=$pilar_descanso_insuficiente_activo&pilar3=$pilar_destino_distante_activo&pilar4=$pilar_condicion_fisica_activo&pilar5=$pilar_estado_emocional_activo&nivel=$acumulador_Pilares' class='btn btn-md btn-default active btn3d btn-lg'><span class='glyphicon glyphicon-download-alt'></span></a>";
+				echo "<a href='tiempo_decir_sugerencias.php?t=$_SESSION[tiempo_iniciar_sugerencia]&nf=$saber_nivel_fatiga' class='btn btn-md btn-default active btn3d btn-lg' style='margin-right:10px;'><span class='glyphicon glyphicon-ok'></span></a>";
 			echo "</div>";
 
 			//Este condicional es para dar una orden de reposo general dependiendo de la informacion ingresada
@@ -124,17 +121,10 @@
 				$valor_id_orden = 2;
 			}
 
-			//Variables para hacer la insercion de la evaluacion a la Base de Datos
-			$identificacion_conductor = $_SESSION["registro"];
-			$id_Usuario = $_SESSION['id_usuario'];
-			$traer_Valores_signos = $_POST['signos'];
-
 			//colocamos un nuevo archivo que nos va a permitir quitar el ultimo elemento de la cadena que es un cero y que luego en el rol admin nos v a generar error
 			require_once("main/eliminar_ultimo_elemento_arreglo.php");
-
 			require_once "register_test.php";
 
-			//Cerramos la conexion de la Bd
 			$conexion->close();
 		/*}else {
 			echo "<script>alert('Acceso Denegado , No esta permitido refrescar este modulo por seguridad , Gracias :)')</script>";
