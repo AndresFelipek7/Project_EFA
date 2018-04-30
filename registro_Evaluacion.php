@@ -38,7 +38,7 @@
 
 			require_once "main/comparacion_sueno_ligero_manilla.php";
 
-			echo "<div class='container text-center'>";
+			echo "<div class='container text-center'><hr>";
 			echo "<h3>Descripcion Detallada</h3>";
 				require_once "main/descripcion/descripcion_signo.php";
 				require_once "main/descripcion/descripcion_a_neurologicas.php";

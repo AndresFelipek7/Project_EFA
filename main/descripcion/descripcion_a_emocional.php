@@ -5,12 +5,13 @@
 		<div class='modal-content'>
 			<div class='modal-header'>
 				<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-				<h4 class='modal-title'><span class="fa fa-thumbs-up"></span> Informacion Detallada</h4>
+				<h4 class='modal-title'><span class="fa fa-thumbs-up"></span> <br>Descripcion Detallada</h4>
 			</div>
 			<div class='modal-body text-center'>
 				<?php
 					if(!empty($_POST["alteraciones_emocionales"]) && is_array($_POST["alteraciones_emocionales"])) {
 						$valor = count($_POST["alteraciones_emocionales"]);
+						$otra_a_emocional = $_POST["otra_alteracion_emocional"];
 
 						if ($valor > 3) {
 							$columnsGrid = "col-md-4";
@@ -25,11 +26,14 @@
 								echo "<div class='container-fluid row'>";
 									echo "<div class='$columnsGrid'>";
 										$object_emocional = query_emocional($valor_emocional,$conexion);
-										panel_info_for_modal("panel-warning", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
+										panel_info_for_modal("panel-default", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
 									echo "</div>";
 								echo "<div>";
 							}
 						echo "</ul>";
+						if ($otra_a_emocional != "") {
+							panel_info_for_modal("panel-primary", "Otra Alteracion Emocional", $otra_a_emocional);
+						}
 					} else{
 						//Condicional para mostrar la descripcion detallada cuando las pulsaciones son altas
 						if($Mostrar_Alteraciones_emocionales == 1) {

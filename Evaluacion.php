@@ -262,7 +262,7 @@
 						</select>
 						<hr>
 						<div class="style_check_sintomas">
-							<input type="checkbox" name="sintomas[]" id="otro_sintoma" value="otro_sintoma" onclick="show_others_options('otro_sintoma','container_other_sintoma');">
+							<input type="checkbox" id="otro_sintoma" value="otro_sintoma" onclick="show_others_options('otro_sintoma','container_other_sintoma');">
 							<label for="otro_sintoma">Otro Sintoma</label><br>
 						</div>
 
@@ -424,7 +424,7 @@
 							include "library/checkbox dinamicos/checkbox_emocional.php";
 						?>
 						<hr>
-						<input type='checkbox' name='alteraciones_emocionales[]' id="otra_a_emocional" value="otra_a_emocional" onclick="show_others_options('otra_a_emocional','contenedor_alteracines_emocionales');">
+						<input type='checkbox' id="otra_a_emocional" value="otra_a_emocional" onclick="show_others_options('otra_a_emocional','contenedor_alteracines_emocionales');">
 						<label for="otra_a_emocional">Otra Alteracion Emocional</label>
 
 						<div id="contenedor_alteracines_emocionales" class="hide_container">
@@ -455,7 +455,7 @@
 							include "library/checkbox dinamicos/checkbox_neurologico.php";
 						?>
 						<hr>
-						<input type='checkbox' name='alteraciones_neurologicas[]' id="otra_a_neurologica" value="otra_a_neurologica" onclick="show_others_options('otra_a_neurologica','contenedor_alteraciones_neurologicas');">
+						<input type='checkbox' id="otra_a_neurologica" value="otra_a_neurologica" onclick="show_others_options('otra_a_neurologica','contenedor_alteraciones_neurologicas');">
 						<label for="otra_a_neurologica">Otra Alteracion Neurologica</label>
 
 						<div id="contenedor_alteraciones_neurologicas" class="hide_container">
