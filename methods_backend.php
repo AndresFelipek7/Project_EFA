@@ -90,22 +90,9 @@
 	 * @param $contenMessage
 	 * @return Un panel con el mensaje de error
 	 */
-	function message_mistake_validator($contentMessage){
-		echo "<div class='alert alert-danger'>
-				<span class='fa fa-minus-circle fa-2x'></span><br>
-				<label> $contentMessage </label>
-			</div>";
-	}
-
-	/**
-	 * Funcion para avisar que la nueva persona que quiere registrar ya esta en el sistema inactivo
-	 *
-	 * @param $contentMessage
-	 * @return un Mensaje
-	 */
-	function message_mistake_disabled_validator($contentMessage = "") {
-		echo "<div class='alert alert-warning'>
-				<span class='fa fa-info fa-2x'></span><br>
+	function message_compare_sleep_fit($addClass,$contentMessage){
+		echo "<div class='alert alert-$addClass'>
+				<span class='fa fa-bell fa-2x'></span><br>
 				<label> $contentMessage </label>
 			</div>";
 	}

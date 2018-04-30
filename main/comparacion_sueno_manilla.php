@@ -51,12 +51,12 @@
 	//La comparacion aqui es en minutos (30 significa el rango que tiene de error)
 	if($diferencia_Entre_tiempo_Sueño >= 30) {
 		$valor_verdad_tiempo_descanso_conductor = "Mentira";
-		message_mistake_validator("El conductor esta mintiendo con las horas de sueño ingresadas , No es necesario que le mencione esto al conductor , Se manejara de forma interna. Gracias");
+		message_compare_sleep_fit("danger","El conductor esta mintiendo con las horas de sueño ingresadas , No es necesario que le mencione esto al conductor , Se manejara de forma interna. Gracias");
 	}else if(!empty($cambiar_signo_si_es_negativo) && $cambiar_signo_si_es_negativo >= 30){
 		$valor_verdad_tiempo_descanso_conductor = "Mentira";
-		message_mistake_disabled_validator("El conductor esta mencionando menos horas con respecto a las horas de descanso capturadas por la manilla , Se recomienda que el conductor en su proxima evaluacion sea lo mas cercano con el tiempo de Sueño que tuvo , para dar una solucion la mas precisa posible");
+		message_compare_sleep_fit("warning","El conductor esta mencionando menos horas con respecto a las horas de descanso capturadas por la manilla , Se recomienda que el conductor en su proxima evaluacion sea lo mas cercano con el tiempo de Sueño que tuvo , para dar una solucion la mas precisa posible");
 	}else {
-		message_mistake_disabled_validator("el conductor dijo las horas de sueño correctamente.");
+		message_compare_sleep_fit("success","El conductor dijo las horas de sueño correctamente.");
 		$valor_verdad_tiempo_descanso_conductor = "Verdad";
 	}
 ?>
