@@ -12,7 +12,6 @@
 			<div class="col-md-6">
 				<h3>Version 72.8</h3>
 			</div>
-
 		</div>
 	</div>
 </footer>

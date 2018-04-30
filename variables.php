@@ -46,4 +46,7 @@
 	$valor_Signo = $_POST['signos'];
 	//Capturar valor de sintoma Hormigueo
 	$s_hromigueo = $_POST["hormigueo_opcion"];
+
+	//Este es el tiempo en minutos y segundos cuando se envia la evaluacion a la bd y ya se tiene el resultado y las sugerencias para el evaluador
+	$_SESSION["tiempo_iniciar_sugerencia"] = date("i:s");
 ?>

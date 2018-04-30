@@ -103,7 +103,7 @@
 
 				<div id='collapseTwo' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingTwo'>
 					<div class='panel-body'>
-						<form action='registro_Evaluacion.php' method='post' enctype="multipart/form-data" class='formulario' name="f_evaluacion">
+						<form action='reporte_Evaluacion.php' method='post' enctype="multipart/form-data" class='formulario' name="f_evaluacion">
 							<center>
 								<button type="button" class="btn btn-md btn-primary" id="ayuda_interrogatorio" data-toggle="tooltip" data-placement="right" title="En este Menu es necesario saber las horas que el conductor indique en cada caso"><span class="fa fa-info"></span></button>
 								<h4>Informacion en Horas</h4>

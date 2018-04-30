@@ -56,6 +56,7 @@
 		$valor_verdad_tiempo_descanso_conductor = "Mentira";
 		message_mistake_disabled_validator("El conductor esta mencionando menos horas con respecto a las horas de descanso capturadas por la manilla , Se recomienda que el conductor en su proxima evaluacion sea lo mas cercano con el tiempo de Sueño que tuvo , para dar una solucion la mas precisa posible");
 	}else {
+		message_mistake_disabled_validator("el conductor dijo las horas de sueño correctamente.");
 		$valor_verdad_tiempo_descanso_conductor = "Verdad";
 	}
 ?>
