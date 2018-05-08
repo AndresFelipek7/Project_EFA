@@ -266,6 +266,12 @@
 		}
 	}
 
+	/**
+	 * Funcion para hacer la consulta del modulo de Sintomas
+	 *
+	 * @param $nameSearch, $conexion
+	 * @return Un objeto con la informacion
+	 */
 	function query_sintomas($nameSearch,$conexion) {
 		$consulta_Buscar_sintoma = "SELECT * FROM sintomas WHERE nombre_sintoma = '$nameSearch'";
 		$resultado = $conexion -> query($consulta_Buscar_sintoma);
@@ -279,5 +285,46 @@
 			$info_sintomas = ["id_sintoma" => $id_sintoma, "nombre_sintoma" => $nombre_Sintoma, "descripcion_sintoma" => $descripcion_Sintoma];
 			return $info_sintomas;
 		}
+	}
+
+	/**
+	 * funcion para mostrar el tiempo del descanso del conductor
+	 *
+	 * @param $addClass,$titleAlert,$content
+	 * @return Un contenedor tipo alert de Boosptrap 3
+	 */
+	function alert_sleep_driver($addClass,$titleAlert,$content) {
+		echo "<div class='alert alert-$addClass'>
+				<strong>$titleAlert</strong><br>$content
+			</div>";
+	}
+
+	/**
+	 * Funcin para mostrar el contenedor de descanso del conductor dependiendo de las horas conducidas
+	 *
+	 * @param $timeSleep
+	 * @return Container
+	 */
+	function container_sleep_driver_all($timeSleep) {
+		echo "<div class='container' style='margin-left:40px;'>
+				<div class='row col-md-4'>
+					<div class='alert alert-info'>
+						<strong>Descansar Antes del viaje</strong><br>
+						$timeSleep
+					</div>
+				</div>
+				<div class='row col-md-4'>
+					<div class='alert alert-warning'>
+						<strong>Durante el Viaje</strong><br>
+						$timeSleep
+					</div>
+				</div>
+				<div class='row col-md-4'>
+					<div class='alert alert-danger'>
+						<strong>Despues del viaje</strong><br>
+						$timeSleep
+					</div>
+				</div>
+		</div>";
 	}
 ?>

@@ -7,9 +7,10 @@
 			$recomendacion_Descansar_conducir = "15";
 			$tiempo_Descansar_por_partes = $recomendacion_Descansar_conducir/3;
 
-			echo "<div class='alert alert-success'>
+			alert_sleep_driver("success", "tiempo Total de Descanso", "El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora");
+			/*echo "<div class='alert alert-success'>
 					<strong>Tiempo Total de Descanso</strong><br> El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora
-				</div>";
+				</div>";*/
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
@@ -17,7 +18,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -38,7 +39,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -60,7 +61,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -78,7 +79,7 @@
 						</div>
 					</div>";
 			}
-			
+
 			break;
 		case 2:
 			$recomendacion_Descansar_conducir = "30";
@@ -94,7 +95,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -115,7 +116,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -137,7 +138,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -170,7 +171,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -191,7 +192,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -213,7 +214,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -246,7 +247,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -267,7 +268,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -289,7 +290,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -324,7 +325,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -345,7 +346,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -367,7 +368,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -402,7 +403,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -423,7 +424,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -445,7 +446,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -480,7 +481,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -501,7 +502,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -523,7 +524,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -558,7 +559,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -579,7 +580,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -601,7 +602,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -636,7 +637,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -657,7 +658,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -679,7 +680,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -716,7 +717,7 @@
 			}else{
 
 			}
-			
+
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
@@ -724,7 +725,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -745,7 +746,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -767,7 +768,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -802,7 +803,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -823,7 +824,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -845,7 +846,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -880,7 +881,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Horas $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -901,7 +902,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -923,7 +924,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -958,7 +959,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -979,7 +980,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -1001,7 +1002,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -1036,7 +1037,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -1057,7 +1058,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -1079,7 +1080,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -1114,7 +1115,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -1135,7 +1136,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -1157,7 +1158,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -1192,7 +1193,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -1213,7 +1214,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -1235,7 +1236,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -1270,7 +1271,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -1291,7 +1292,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -1313,7 +1314,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -1348,7 +1349,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -1369,7 +1370,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -1391,7 +1392,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -1426,7 +1427,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -1447,7 +1448,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -1469,7 +1470,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
@@ -1504,7 +1505,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora $sacar_Minutos Minutos
 								</div>
 							</div>
@@ -1525,7 +1526,7 @@
 					echo "<div class='container' style='margin-left:40px;'>
 							<div class='row col-md-4'>
 								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br> 
+									<strong>Descansar Antes del viaje</strong><br>
 									1 Hora
 								</div>
 							</div>
@@ -1547,7 +1548,7 @@
 				echo "<div class='container' style='margin-left:40px;'>
 						<div class='row col-md-4'>
 							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br> 
+								<strong>Descansar Antes del viaje</strong><br>
 								$tiempo_Descansar_por_partes Minutos
 							</div>
 						</div>
