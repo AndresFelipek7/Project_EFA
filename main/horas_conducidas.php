@@ -1,546 +1,124 @@
 <?php
-	//Por cada 4 Horas conduciendo constante se debe decansar 1 Horas
-	//Por cada Horas conduciendo se debe Descansar 15 minutos
+	/*
+		Por cada 4 Horas conduciendo constante se debe decansar 1 Horas
+		Por cada Horas conduciendo se debe Descansar 15 minutos
+		la variable recomendacion_Descansar_conducir el valor es en minutos del descanso del conductor
+	*/
 	switch ($traer_Valores_interrogatorio[2]) {
 		case 1:
-			//El valor en la variable recomendacion_Descansar_conducir es en minutos
 			$recomendacion_Descansar_conducir = "15";
 			$tiempo_Descansar_por_partes = $recomendacion_Descansar_conducir/3;
-
-			alert_sleep_driver("success", "tiempo Total de Descanso", "El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora");
-			/*echo "<div class='alert alert-success'>
-					<strong>Tiempo Total de Descanso</strong><br> El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora
-				</div>";*/
+			alert_sleep_driver("success", "Tiempo Total de Descanso", "El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora");
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
 				if($sacar_Minutos !=0) {
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora $sacar_Minutos Minutos");
 				}else{
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora");
 				}
 			}else{
-				echo "<div class='container' style='margin-left:40px;'>
-						<div class='row col-md-4'>
-							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-warning'>
-								<strong>Durante el Viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-danger'>
-								<strong>Despues del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-					</div>";
+				container_sleep_driver_all("$tiempo_Descansar_por_partes Minutos.");
 			}
 
 			break;
 		case 2:
 			$recomendacion_Descansar_conducir = "30";
 			$tiempo_Descansar_por_partes = $recomendacion_Descansar_conducir/3;
-
-			echo "<div class='alert alert-success'>
-					<strong>Tiempo Total de Descanso</strong><br> El conductor debe Descansar 30 Minutos por conducir $traer_Valores_interrogatorio[2]  Horas
-				</div>";
+			alert_sleep_driver("success", "Tiempo Total de Descanso", "El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora");
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
 				if($sacar_Minutos !=0) {
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora $sacar_Minutos Minutos");
 				}else{
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora");
 				}
 			}else{
-				echo "<div class='container' style='margin-left:40px;'>
-						<div class='row col-md-4'>
-							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-warning'>
-								<strong>Durante el Viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-danger'>
-								<strong>Despues del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-					</div>";
+				container_sleep_driver_all("$tiempo_Descansar_por_partes Minutos");
 			}
 			break;
 		case 3:
 			$recomendacion_Descansar_conducir = "45";
 			$tiempo_Descansar_por_partes = $recomendacion_Descansar_conducir/3;
-
-			echo "<div class='alert alert-success'>
-					<strong>Tiempo Total de Descanso</strong><br> El conductor debe Descansar 45 Minutos por conducir $traer_Valores_interrogatorio[2]  Horas
-				</div>";
+			alert_sleep_driver("success", "Tiempo Total de Descanso", "El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora");
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
 				if($sacar_Minutos !=0) {
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora $sacar_Minutos Minutos");
 				}else{
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora");
 				}
 			}else{
-				echo "<div class='container' style='margin-left:40px;'>
-						<div class='row col-md-4'>
-							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-warning'>
-								<strong>Durante el Viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-danger'>
-								<strong>Despues del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-					</div>";
+				container_sleep_driver_all("$tiempo_Descansar_por_partes Minutos");
 			}
 			break;
 		case 4:
 			$recomendacion_Descansar_conducir = "60";
 			$tiempo_Descansar_por_partes = $recomendacion_Descansar_conducir/3;
-
-			echo "<div class='alert alert-success'>
-					<strong>Tiempo Total de Descanso</strong><br> El conductor debe Descansar 1 Hora por conducir $traer_Valores_interrogatorio[2]  Horas
-				</div>";
+			alert_sleep_driver("success", "Tiempo Total de Descanso", "El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora");
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
 				if($sacar_Minutos !=0) {
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora $sacar_Minutos Minutos");
 				}else{
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora");
 				}
 			}else{
-				echo "<div class='container' style='margin-left:40px;'>
-						<div class='row col-md-4'>
-							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-warning'>
-								<strong>Durante el Viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-danger'>
-								<strong>Despues del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-					</div>";
+				container_sleep_driver_all("$tiempo_Descansar_por_partes Minutos");
 			}
 
 			break;
 		case 5:
-			//Este valor es la suma de una los minutos de 1 hora que son 60 mas los 15 minutos por fuera que dan 75 Minutos
 			$recomendacion_Descansar_conducir = "75";
 			$tiempo_Descansar_por_partes = $recomendacion_Descansar_conducir/3;
-
-			echo "<div class='alert alert-success'>
-					<strong>Tiempo Total de Descanso</strong><br> El conductor debe Descansar 1 Hora 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Horas
-				</div>";
+			alert_sleep_driver("success", "Tiempo Total de Descanso", "El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora");
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
 				if($sacar_Minutos !=0) {
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora $sacar_Minutos Minutos");
 				}else{
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora");
 				}
 			}else{
-				echo "<div class='container' style='margin-left:40px;'>
-						<div class='row col-md-4'>
-							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-warning'>
-								<strong>Durante el Viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-danger'>
-								<strong>Despues del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-					</div>";
+				container_sleep_driver_all("$tiempo_Descansar_por_partes Minutos");
 			}
 
 			break;
 		case 6:
-			//Este valor es la suma de una los minutos de 1 hora que son 60 mas los 30 minutos por fuera que dan 90 Minutos
 			$recomendacion_Descansar_conducir = "90";
 			$tiempo_Descansar_por_partes = $recomendacion_Descansar_conducir/3;
-
-			echo "<div class='alert alert-success'>
-					<strong>Tiempo Total de Descanso</strong><br> El conductor debe Descansar 1 Hora 30 Minutos por conducir $traer_Valores_interrogatorio[2]  Horas
-				</div>";
+			alert_sleep_driver("success", "Tiempo Total de Descanso", "El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora");
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
 				if($sacar_Minutos !=0) {
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora $sacar_Minutos Minutos");
 				}else{
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora");
 				}
 			}else{
-				echo "<div class='container' style='margin-left:40px;'>
-						<div class='row col-md-4'>
-							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-warning'>
-								<strong>Durante el Viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-danger'>
-								<strong>Despues del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-					</div>";
+				container_sleep_driver_all("$tiempo_Descansar_por_partes Minutos");
 			}
 
 			break;
 		case 7:
-			//Este valor es la suma de una los minutos de 1 hora que son 60 mas los 45 minutos por fuera que dan 105 Minutos
 			$recomendacion_Descansar_conducir = "105";
 			$tiempo_Descansar_por_partes = $recomendacion_Descansar_conducir/3;
-
-			echo "<div class='alert alert-success'>
-					<strong>Tiempo Total de Descanso</strong><br> El conductor debe Descansar 1 Hora 45 Minutos por conducir $traer_Valores_interrogatorio[2]  Horas
-				</div>";
+			alert_sleep_driver("success", "Tiempo Total de Descanso", "El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora");
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
 				if($sacar_Minutos !=0) {
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora $sacar_Minutos Minutos
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora $sacar_Minutos Minutos");
 				}else{
-					echo "<div class='container' style='margin-left:40px;'>
-							<div class='row col-md-4'>
-								<div class='alert alert-info'>
-									<strong>Descansar Antes del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-warning'>
-									<strong>Durante el Viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-							<div class='row col-md-4'>
-								<div class='alert alert-danger'>
-									<strong>Despues del viaje</strong><br>
-									1 Hora
-								</div>
-							</div>
-					</div>";
+					container_sleep_driver_all("1 Hora");
 				}
 			}else{
-				echo "<div class='container' style='margin-left:40px;'>
-						<div class='row col-md-4'>
-							<div class='alert alert-info'>
-								<strong>Descansar Antes del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-warning'>
-								<strong>Durante el Viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-						<div class='row col-md-4'>
-							<div class='alert alert-danger'>
-								<strong>Despues del viaje</strong><br>
-								$tiempo_Descansar_por_partes Minutos
-							</div>
-						</div>
-					</div>";
+				container_sleep_driver_all("$tiempo_Descansar_por_partes Minutos");
 			}
 
 			break;
