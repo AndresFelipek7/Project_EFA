@@ -4,16 +4,12 @@
 		Por cada Horas conduciendo se debe Descansar 15 minutos
 		La variable time_sleep_driver el valor es en minutos del descanso del conductor
 	*/
-	$time_sleep_driver = 15;
 	switch ($traer_Valores_interrogatorio[2]) {
 		case $traer_Valores_interrogatorio[2]:
-			for ($i=0; $i < $traer_Valores_interrogatorio[2] -1; $i++) {
-				$recomendacion_Descansar_conducir = $time_sleep_driver + $time_sleep_driver;
-				$i++;
-			}
-
+			$recomendacion_Descansar_conducir = ($traer_Valores_interrogatorio[2] * 15) / 1;
 			$tiempo_Descansar_por_partes = $recomendacion_Descansar_conducir/3;
-			alert_sleep_driver("success", "Tiempo Total de Descanso", "El conductor debe Descansar 15 Minutos por conducir $traer_Valores_interrogatorio[2]  Hora");
+			echo $tiempo_Descansar_por_partes;
+			alert_sleep_driver("success", "Tiempo Total de Descanso", "El conductor ha conducido por $traer_Valores_interrogatorio[2] Horas, por lo tanto debe descansar:");
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
