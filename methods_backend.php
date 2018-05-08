@@ -306,10 +306,10 @@
 	 * @return Container
 	 */
 	function container_sleep_driver_all($timeSleep) {
-		echo "<div class='container' style='margin-left:40px;'>
+		echo "<div class='container style-container-sleep-driver'>
 				<div class='row col-md-4'>
 					<div class='alert alert-info'>
-						<strong>Descansar Antes del viaje</strong><br>
+						<strong>Antes del viaje</strong><br>
 						$timeSleep
 					</div>
 				</div>

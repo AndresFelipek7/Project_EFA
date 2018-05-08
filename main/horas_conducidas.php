@@ -8,8 +8,7 @@
 		case $traer_Valores_interrogatorio[2]:
 			$recomendacion_Descansar_conducir = ($traer_Valores_interrogatorio[2] * 15) / 1;
 			$tiempo_Descansar_por_partes = $recomendacion_Descansar_conducir/3;
-			echo $tiempo_Descansar_por_partes;
-			alert_sleep_driver("success", "Tiempo Total de Descanso", "El conductor ha conducido por $traer_Valores_interrogatorio[2] Horas, por lo tanto debe descansar:");
+			alert_sleep_driver("success", "Tiempo Total de Conduccion", "El conductor ha conducido por $traer_Valores_interrogatorio[2] Horas, por lo tanto debe descansar:");
 
 			if($tiempo_Descansar_por_partes >= 60 ) {
 				$sacar_Minutos = $tiempo_Descansar_por_partes-60;
