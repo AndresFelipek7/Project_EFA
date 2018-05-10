@@ -1,5 +1,5 @@
 <?php
-	$consulta_Sugerencia_signo = "SELECT * FROM sugerencia WHERE id_signo = '$id_signo'";
+	$consulta_Sugerencia_signo = "SELECT * FROM sugerencia WHERE id_signo = '$valor_Signo'";
 	$resultado = $conexion -> query($consulta_Sugerencia_signo);
 	$count_Sugerencia = $resultado ->num_rows;
 
@@ -12,12 +12,12 @@
 
 	if($id_orden == 1) {
 		echo "<div class='alert alert-success'>
-				<strong>Signo</strong><br>El signo seleccionado es: $nombre_Signo<br>
+				<strong>Signo</strong><br>El signo seleccionado es: $object_signo[nombre_signo]<br>
 				La orden de la sugerencia es = <strong>Immediantamente</strong> <br> $sugerencia
 			</div>";
 	}else{
 		echo "<div class='alert alert-success'>
-				<strong>Signo</strong><br>El signo seleccionado es: $nombre_Signo<br>
+				<strong>Signo</strong><br>El signo seleccionado es: $object_signo[nombre_signo]<br>
 				La orden de la sugerencia es = <strong>Despues del Viaje</strong> <br> $sugerencia
 			</div>";
 	}
