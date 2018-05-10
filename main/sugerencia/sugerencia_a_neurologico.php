@@ -23,7 +23,7 @@
 										$object_neurologico = query_neurologico($valor_neurologico,$conexion);
 										$object_neurologico_sugerencia = query_sugerencia('id_a_neurologico',$object_neurologico["id_a_neurologico"],$conexion);
 										($object_neurologico_sugerencia['id_orden'] != 1) ? $orden_reposo = "Despues del Viaje" : $orden_reposo = "Inmediatamente";
-										alert_improve_driver("warning", "<strong>$valor_neurologico</strong><br>", "La orden de reposo es  = <strong>$orden_reposo</strong> <br> <hr>$object_neurologico_sugerencia[descripcion_sugerencia]");
+										alert_improve_driver("info", "<strong>$valor_neurologico</strong><br>", "La orden de reposo es  = <strong>$orden_reposo</strong> <br> <hr>$object_neurologico_sugerencia[descripcion_sugerencia]");
 										$sugerencia_a_neurologico_seleccionados = $object_neurologico_sugerencia["id_sugerencia"].",".$sugerencia_a_neurologico_seleccionados;
 									echo "</div>";
 								echo "<div>";
