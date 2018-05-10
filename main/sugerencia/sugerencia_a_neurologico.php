@@ -5,275 +5,37 @@
 		<div class='modal-content'>
 			<div class='modal-header'>
 				<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-				<h4 class='modal-title'><span class="fa fa-diamond"></span> Recomendaciones</h4>
+				<h4 class='modal-title'><span class="fa fa-diamond fa-2x"></span> <br>Recomendacion Alteracion Neurologica</h4>
 			</div>
 			<div class='modal-body text-center'>
 				<?php
 					if(!empty($_POST["alteraciones_neurologicas"]) && is_array($_POST["alteraciones_neurologicas"])) {
-						echo "<ul>";
-						foreach ( $_POST["alteraciones_neurologicas"] as $traer_Alteraciones_neurologicas) {
-							echo "<li>";
-								switch ($traer_Alteraciones_neurologicas) {
-									case "reflejo":
-										$consulta_id_a_neurologico = "SELECT id_a_neurologico FROM alteraciones_neurologicas WHERE nombre_a_neurologico = 'Reflejos'";
-										$result = $conexion -> query($consulta_id_a_neurologico);
-										$count = $result ->num_rows;
-
-										if($count >= 1) {
-											$row = mysqli_fetch_array($result);
-											$id_neurologico = $row['id_a_neurologico'];
-
-											$consulta_Sugerencia_a_Neurologico = "SELECT * FROM sugerencia WHERE id_a_neurologico = '$id_neurologico'";
-											$result = $conexion -> query($consulta_Sugerencia_a_Neurologico);
-											$count_Sugerencia = $result ->num_rows;
-
-											if($count_Sugerencia >=1) {
-												$row = mysqli_fetch_array($result);
-												$id_sugerencia = $row['id_sugerencia'];
-												$id_orden = $row['id_orden'];
-												$sugerencia = $row['descripcion_sugerencia'];
-
-												if($id_orden == 1) {
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteraciones Neurologicas</strong><br>La Alteracion neurologicas seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Immediantamente</strong> <br> $sugerencia
-														</div>";
-												}else{
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteracion Neurologica</strong><br>La Alteracion Neurologica seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Despues del Viaje</strong> <br> $sugerencia
-														</div>";
-												}
-
-												$sugerencia_a_neurologico_seleccionados = $id_sugerencia.",".$sugerencia_a_neurologico_seleccionados;
-												//echo "EL id sugerencia alteraciones neurologicas = ".$sugerencia_a_neurologico_seleccionados."<br>";
-
-												//echo "La alteracion Neurologica es =  ".$traer_Alteraciones_neurologicas." Tiene un valor de = "."<mark>".$puntos_Reflejos."</mark>"."<hr>";
-											}
-										}
-										break;
-									case "cordinado":
-										$consulta_id_a_neurologico = "SELECT id_a_neurologico FROM alteraciones_neurologicas WHERE nombre_a_neurologico = '$traer_Alteraciones_neurologicas'";
-										$result = $conexion -> query($consulta_id_a_neurologico);
-										$count = $result ->num_rows;
-
-										if($count >= 1) {
-											$row = mysqli_fetch_array($result);
-											$id_neurologico = $row['id_a_neurologico'];
-
-											$consulta_Sugerencia_a_Neurologico = "SELECT id_sugerencia , id_orden , id_a_neurologico , descripcion_sugerencia FROM sugerencia WHERE id_a_neurologico = '$id_neurologico'";
-											$result = $conexion -> query($consulta_Sugerencia_a_Neurologico);
-											$count_Sugerencia = $result ->num_rows;
-
-											if($count_Sugerencia >= 1) {
-												$row = mysqli_fetch_array($result);
-												$id_sugerencia = $row['id_sugerencia'];
-												$id_orden = $row['id_orden'];
-												$sugerencia = $row['descripcion_sugerencia'];
-
-												if($id_orden == 1) {
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteraciones Neurologicas</strong><br>La Alteracion neurologicas seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Immediantamente</strong> <br> $sugerencia
-														</div>";
-												}else{
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteracion Neurologica</strong><br>La Alteracion Neurologica seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Despues del Viaje</strong> <br> $sugerencia
-														</div>";
-												}
-
-												$sugerencia_a_neurologico_seleccionados = $id_sugerencia.",".$sugerencia_a_neurologico_seleccionados;
-												//echo "EL id sugerencia alteraciones neurologicas = ".$sugerencia_a_neurologico_seleccionados."<br>";
-
-												//echo "La alteracion Neurologica es =  ".$traer_Alteraciones_neurologicas." Tiene un valor de = "."<mark>".$puntos_Cordinado."</mark>"."<hr>";
-											}
-										}
-										break;
-									case "fuerza":
-										$consulta_id_a_neurologico = "SELECT id_a_neurologico FROM alteraciones_neurologicas WHERE nombre_a_neurologico = '$traer_Alteraciones_neurologicas'";
-										$result = $conexion -> query($consulta_id_a_neurologico);
-										$count = $result ->num_rows;
-
-										if($count >= 1) {
-											$row = mysqli_fetch_array($result);
-											$id_neurologico = $row['id_a_neurologico'];
-
-											$consulta_Sugerencia_a_Neurologico = "SELECT id_sugerencia , id_orden , id_a_neurologico , descripcion_sugerencia FROM sugerencia WHERE id_a_neurologico = '$id_neurologico'";
-											$result = $conexion -> query($consulta_Sugerencia_a_Neurologico);
-											$count_Sugerencia = $result ->num_rows;
-
-											if($count_Sugerencia >= 1) {
-												$row = mysqli_fetch_array($result);
-												$id_sugerencia = $row['id_sugerencia'];
-												$id_orden = $row['id_orden'];
-												$sugerencia = $row['descripcion_sugerencia'];
-
-												if($id_orden == 1) {
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteraciones Neurologicas</strong><br>La Alteracion neurologicas seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Immediantamente</strong> <br> $sugerencia
-														</div>";
-												}else{
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteracion Neurologica</strong><br>La Alteracion Neurologica seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Despues del Viaje</strong> <br> $sugerencia
-														</div>";
-												}
-
-												$sugerencia_a_neurologico_seleccionados = $id_sugerencia.",".$sugerencia_a_neurologico_seleccionados;
-												//echo "EL id sugerencia alteraciones neurologicas = ".$sugerencia_a_neurologico_seleccionados."<br>";
-
-												//echo "La alteracion Neurologica es =  ".$traer_Alteraciones_neurologicas." Tiene un valor de = "."<mark>".$puntos_Fuerza."</mark>"."<hr>";
-											}
-										}
-										break;
-									case "atento":
-										$consulta_id_a_neurologico = "SELECT id_a_neurologico FROM alteraciones_neurologicas WHERE nombre_a_neurologico = '$traer_Alteraciones_neurologicas'";
-										$result = $conexion -> query($consulta_id_a_neurologico);
-										$count = $result ->num_rows;
-
-										if($count >= 1) {
-											$row = mysqli_fetch_array($result);
-											$id_neurologico = $row['id_a_neurologico'];
-
-											$consulta_Sugerencia_a_Neurologico = "SELECT id_sugerencia , id_orden , id_a_neurologico , descripcion_sugerencia FROM sugerencia WHERE id_a_neurologico = '$id_neurologico'";
-											$result = $conexion -> query($consulta_Sugerencia_a_Neurologico);
-											$count_Sugerencia = $result ->num_rows;
-
-											if($count_Sugerencia >= 1) {
-												$row = mysqli_fetch_array($result);
-												$id_sugerencia = $row['id_sugerencia'];
-												$id_orden = $row['id_orden'];
-												$sugerencia = $row['descripcion_sugerencia'];
-
-												if($id_orden == 1) {
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteraciones Neurologicas</strong><br>La Alteracion neurologicas seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Immediantamente</strong> <br> $sugerencia
-														</div>";
-												}else{
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteracion Neurologica</strong><br>La Alteracion Neurologica seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Despues del Viaje</strong> <br> $sugerencia
-														</div>";
-												}
-
-												$sugerencia_a_neurologico_seleccionados = $id_sugerencia.",".$sugerencia_a_neurologico_seleccionados;
-												//echo "EL id sugerencia alteraciones neurologicas = ".$sugerencia_a_neurologico_seleccionados."<br>";
-
-												//echo "La alteracion Neurologica es =  ".$traer_Alteraciones_neurologicas." Tiene un valor de = "."<mark>".$puntos_atento."</mark>"."<hr>";
-											}
-										}
-										break;
-									case "memoria":
-										$consulta_id_a_neurologico = "SELECT id_a_neurologico FROM alteraciones_neurologicas WHERE nombre_a_neurologico = '$traer_Alteraciones_neurologicas'";
-										$result = $conexion -> query($consulta_id_a_neurologico);
-										$count = $result ->num_rows;
-
-										if($count >= 1) {
-											$row = mysqli_fetch_array($result);
-											$id_neurologico = $row['id_a_neurologico'];
-
-											$consulta_Sugerencia_a_Neurologico = "SELECT id_sugerencia , id_orden , id_a_neurologico , descripcion_sugerencia FROM sugerencia WHERE id_a_neurologico = '$id_neurologico'";
-											$result = $conexion -> query($consulta_Sugerencia_a_Neurologico);
-											$count_Sugerencia = $result ->num_rows;
-
-											if($count_Sugerencia >= 1) {
-												$row = mysqli_fetch_array($result);
-												$id_sugerencia = $row['id_sugerencia'];
-												$id_orden = $row['id_orden'];
-												$sugerencia = $row['descripcion_sugerencia'];
-
-												if($id_orden == 1) {
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteraciones Neurologicas</strong><br>La Alteracion neurologicas seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Immediantamente</strong> <br> $sugerencia
-														</div>";
-												}else{
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteracion Neurologica</strong><br>La Alteracion Neurologica seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Despues del Viaje</strong> <br> $sugerencia
-														</div>";
-												}
-
-												$sugerencia_a_neurologico_seleccionados = $id_sugerencia.",".$sugerencia_a_neurologico_seleccionados;
-												//echo "EL id sugerencia alteraciones neurologicas = ".$sugerencia_a_neurologico_seleccionados."<br>";
-
-												//echo "La alteracion Neurologica es =  ".$traer_Alteraciones_neurologicas." Tiene un valor de = "."<mark>".$puntos_Memoria."</mark>"."<hr>";
-											}
-										}
-										break;
-									case "sensibilidad":
-										$consulta_id_a_neurologico = "SELECT id_a_neurologico FROM alteraciones_neurologicas WHERE nombre_a_neurologico = '$traer_Alteraciones_neurologicas'";
-										$result = $conexion -> query($consulta_id_a_neurologico);
-										$count = $result ->num_rows;
-
-										if($count >= 1) {
-											$row = mysqli_fetch_array($result);
-											$id_neurologico = $row['id_a_neurologico'];
-
-											$consulta_Sugerencia_a_Neurologico = "SELECT id_sugerencia , id_orden , id_a_neurologico , descripcion_sugerencia FROM sugerencia WHERE id_a_neurologico = '$id_neurologico'";
-											$result = $conexion -> query($consulta_Sugerencia_a_Neurologico);
-											$count_Sugerencia = $result ->num_rows;
-
-											if($count_Sugerencia >= 1) {
-												$row = mysqli_fetch_array($result);
-												$id_sugerencia = $row['id_sugerencia'];
-												$id_orden = $row['id_orden'];
-												$sugerencia = $row['descripcion_sugerencia'];
-
-												if($id_orden == 1) {
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteraciones Neurologicas</strong><br>La Alteracion neurologicas seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Immediantamente</strong> <br> $sugerencia
-														</div>";
-												}else{
-													echo "<div class='alert alert-success'>
-															<button class='close' data-dismiss='alert'><span>&times;</span></button>
-															<strong>Alteracion Neurologica</strong><br>La Alteracion Neurologica seleccionado es: $traer_Alteraciones_neurologicas<br>
-															La orden de reposo es  = <strong>Despues del Viaje</strong> <br> $sugerencia
-														</div>";
-												}
-
-												$sugerencia_a_neurologico_seleccionados = $id_sugerencia.",".$sugerencia_a_neurologico_seleccionados;
-												//echo "EL id sugerencia alteraciones neurologicas = ".$sugerencia_a_neurologico_seleccionados."<br>";
-
-												//echo "La alteracion Neurologica es =  ".$traer_Alteraciones_neurologicas." Tiene un valor de = "."<mark>".$puntos_Sensibilidad."</mark>"."<hr>";
-											}
-										}
-										break;
-									case "otra_a_neurologica":
-										echo "La otra alteracion neurologica ingresada es = ".$otra_a_neurologica = $_POST['otra_alteracion_neurologica']."<br>";
-										break;
-									default:
-										echo "Lo sentimos ha ocurrido un erro en el menu Sintomas Fatiga , por Favor recargue la pagina nuevamente";
-										break;
-								}
-							echo "</li>";
+						if($valor == 1){
+							$columnsGrid = "col-md-12";
+						}else {
+							$columnsGrid = "col-md-6";
 						}
+
+						echo "<ul>";
+							foreach ( $_POST["alteraciones_neurologicas"] as $subindice => $valor_neurologico) {
+								echo "<div class='container-fluid row'>";
+									echo "<div class='$columnsGrid'>";
+										$object_neurologico = query_neurologico($valor_neurologico,$conexion);
+										$object_neurologico_sugerencia = query_sugerencia('id_a_neurologico',$object_neurologico["id_a_neurologico"],$conexion);
+										($object_neurologico_sugerencia['id_orden'] != 1) ? $orden_reposo = "Despues del Viaje" : $orden_reposo = "Inmediatamente";
+										alert_improve_driver("warning", "<strong>$valor_neurologico</strong><br>", "La orden de reposo es  = <strong>$orden_reposo</strong> <br> <hr>$object_neurologico_sugerencia[descripcion_sugerencia]");
+										$sugerencia_a_neurologico_seleccionados = $object_neurologico_sugerencia["id_sugerencia"].",".$sugerencia_a_neurologico_seleccionados;
+									echo "</div>";
+								echo "<div>";
+							}
 						echo "</ul>";
 					}else{
 						echo "<script> document.getElementById('sugerencia_neurologico').style.display='none';</script>";
-						//echo "Valor total del Menú Alteraciones Neurologicas es = ".$acumulador_Alteraciones_neurologicas;
 					}
-					//echo "Valor total del Menú Alteraciones Neurologicas es = ".$acumulador_Alteraciones_neurologicas;
-					
 				?>
 			</div>
 			<div class='modal-footer form-inline'>
-				<button type='button' class='btn btn-danger' data-dismiss='modal'><span class="glyphicon glyphicon-remove"></span> Salir</button>
+				<button type='button' class='btn btn-danger' data-dismiss='modal'><span class="glyphicon glyphicon-remove"></span></button>
 			</div>
 		</div>
 	</div>

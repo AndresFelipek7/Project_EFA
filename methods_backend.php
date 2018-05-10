@@ -288,23 +288,23 @@
 	}
 
 	/**
-	 * Funcion de consulta en el modulo signo
+	 * Funcion de las sugerencia de todo los modulos
 	 *
-	 * @param $nameSearch,$conexion
+	 * @param $nameColum,$nameSearch,$conexion
 	 * @return Una consulta
 	 */
-	function query_sugerencia_signo($nameSearch,$conexion) {
-		$consulta_Sugerencia_signo = "SELECT * FROM sugerencia WHERE id_signo = '$nameSearch'";
-		$resultado = $conexion -> query($consulta_Sugerencia_signo);
+	function query_sugerencia($nameColum,$nameSearch,$conexion) {
+		$consulta_Sugerencia = "SELECT * FROM sugerencia WHERE $nameColum = '$nameSearch'";
+		$resultado = $conexion -> query($consulta_Sugerencia);
 		$count_Sugerencia = $resultado ->num_rows;
 
-		if($count_Sugerencia >=1) {
+		if($count_Sugerencia >= 1) {
 			$row = mysqli_fetch_array($resultado);
 			$id_sugerencia = $row['id_sugerencia'];
 			$id_orden = $row['id_orden'];
 			$sugerencia = $row['descripcion_sugerencia'];
-			$info_sugerencia_signos = ["id_sugerencia" => $id_sugerencia, "id_orden" => $id_orden, "descripcion_sugerencia" => $sugerencia];
-			return $info_sugerencia_signos;
+			$info_sugerencia = ["id_sugerencia" => $id_sugerencia, "id_orden" => $id_orden, "descripcion_sugerencia" => $sugerencia];
+			return $info_sugerencia;
 		}
 	}
 
@@ -347,5 +347,19 @@
 					</div>
 				</div>
 		</div>";
+	}
+
+	/**
+	 * Funcion para las alertas de las sugerencias de los modulos de las dos alteraciones y sintomas
+	 *
+	 * @param $addClass, $subtitleAlert, $contentImprove
+	 * @return un container alert
+	 */
+	function alert_improve_driver($addClass, $subtitleAlert, $contentImprove) {
+		echo "<div class='alert alert-$addClass'>
+				<button class='close' data-dismiss='alert'><span>&times;</span></button>
+				<br>$subtitleAlert
+				$contentImprove
+			</div>";
 	}
 ?>
