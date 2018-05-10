@@ -288,6 +288,27 @@
 	}
 
 	/**
+	 * Funcion de consulta en el modulo signo
+	 *
+	 * @param $nameSearch,$conexion
+	 * @return Una consulta
+	 */
+	function query_sugerencia_signo($nameSearch,$conexion) {
+		$consulta_Sugerencia_signo = "SELECT * FROM sugerencia WHERE id_signo = '$nameSearch'";
+		$resultado = $conexion -> query($consulta_Sugerencia_signo);
+		$count_Sugerencia = $resultado ->num_rows;
+
+		if($count_Sugerencia >=1) {
+			$row = mysqli_fetch_array($resultado);
+			$id_sugerencia = $row['id_sugerencia'];
+			$id_orden = $row['id_orden'];
+			$sugerencia = $row['descripcion_sugerencia'];
+			$info_sugerencia_signos = ["id_sugerencia" => $id_sugerencia, "id_orden" => $id_orden, "descripcion_sugerencia" => $sugerencia];
+			return $info_sugerencia_signos;
+		}
+	}
+
+	/**
 	 * funcion para mostrar el tiempo del descanso del conductor
 	 *
 	 * @param $addClass,$titleAlert,$content

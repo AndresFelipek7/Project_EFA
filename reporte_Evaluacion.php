@@ -46,7 +46,7 @@
 				require_once "main/descripcion/descripcion_sintoma.php";
 			echo "</div><hr>";
 
-			echo "<h2>Recomendaciones</h2>";
+			echo "<h3>Recomendaciones</h3>";
 				require_once "main/horas_conducidas.php";
 				require_once "main/sugerencia/sugerencia_signo.php";
 				require_once "main/sugerencia/sugerencia_a_neurologico.php";

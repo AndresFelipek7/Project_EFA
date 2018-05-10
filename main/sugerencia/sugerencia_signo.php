@@ -1,26 +1,5 @@
 <?php
-	$consulta_Sugerencia_signo = "SELECT * FROM sugerencia WHERE id_signo = '$valor_Signo'";
-	$resultado = $conexion -> query($consulta_Sugerencia_signo);
-	$count_Sugerencia = $resultado ->num_rows;
-
-	if($count_Sugerencia >=1) {
-		$row = mysqli_fetch_array($resultado);
-		$id_sugerencia = $row['id_sugerencia'];
-		$id_orden = $row['id_orden'];
-		$sugerencia = $row['descripcion_sugerencia'];
-	}
-
-	if($id_orden == 1) {
-		echo "<div class='alert alert-success'>
-				<strong>Signo</strong><br>El signo seleccionado es: $object_signo[nombre_signo]<br>
-				La orden de la sugerencia es = <strong>Immediantamente</strong> <br> $sugerencia
-			</div>";
-	}else{
-		echo "<div class='alert alert-success'>
-				<strong>Signo</strong><br>El signo seleccionado es: $object_signo[nombre_signo]<br>
-				La orden de la sugerencia es = <strong>Despues del Viaje</strong> <br> $sugerencia
-			</div>";
-	}
-
-	$sugerencia_signo_seleccionado = $id_sugerencia;
+	$object_sugerencia_signo = query_sugerencia_signo($valor_Signo,$conexion);
+	echo ($object_sugerencia_signo["id_orden"] == 1) ? panel_info_pulsaciones("success","icon","<strong>Signo</strong><br>El signo seleccionado es: $object_signo[nombre_signo]<br>La orden de la sugerencia es = <strong>Immediantamente</strong> <br> $object_sugerencia_signo[descripcion_sugerencia]") : panel_info_pulsaciones("success","icon","<strong>Signo</strong><br>El signo seleccionado es: $object_signo[nombre_signo]<br>La orden de la sugerencia es = <strong>Despues del Viaje</strong> <br> $object_sugerencia_signo[descripcion_sugerencia]");
+	$sugerencia_signo_seleccionado = $object_sugerencia_signo["id_sugerencia"];
 ?>
