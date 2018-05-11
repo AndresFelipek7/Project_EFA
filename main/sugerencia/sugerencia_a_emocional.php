@@ -30,7 +30,8 @@
 							}
 						echo "</ul>";
 					}else{
-						if($Mostrar_Alteraciones_emocionales == 1) {
+						//Cuando las pulsaciones del conductor son altas, se activan estos dos alteraciones emocionales automaticamente
+						if(isset($Mostrar_Alteraciones_emocionales) && $Mostrar_Alteraciones_emocionales == 1) {
 							$vector_2_alteraciones_Emocionales = ["Prisa","Ansiedad"];
 							echo "<ul>";
 								foreach ( $vector_2_alteraciones_Emocionales as $subindice => $valor_emocional) {
@@ -46,7 +47,7 @@
 								}
 							echo "</ul>";
 						}else{
-							echo "<script> document.getElementById('descripcion_emocional').style.display='none';</script>";
+							echo "<script> document.getElementById('sugerencia_emocional').style.display='none';</script>";
 						}
 					}
 				?>

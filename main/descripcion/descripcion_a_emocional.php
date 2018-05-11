@@ -5,7 +5,7 @@
 		<div class='modal-content'>
 			<div class='modal-header'>
 				<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-				<h4 class='modal-title'><span class="fa fa-thumbs-up"></span> <br>Descripcion Detallada</h4>
+				<h4 class='modal-title'><span class="fa fa-thumbs-up fa-2x"></span> <br>Descripcion Detallada</h4>
 			</div>
 			<div class='modal-body text-center'>
 				<?php
@@ -43,7 +43,7 @@
 								echo "<div class='container-fluid row'>";
 									echo "<div class='col-md-6'>";
 										$object_emocional = query_emocional($valor_emocional,$conexion);
-										panel_info_for_modal("panel-warning", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
+										panel_info_for_modal("panel-default", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
 									echo "</div>";
 								echo "<div>";
 							}
