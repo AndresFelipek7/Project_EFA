@@ -13,30 +13,11 @@
 					$acumulador_saber_pilares_activos = 0;
 					$acumulador_interrogatorio = $traer_Valores_interrogatorio[1]+$traer_Valores_interrogatorio[2]+$traer_Valores_interrogatorio[3]."<br>";
 
-					/*PRIMERA PARTE DEL ALGORITMO PARA HALLAR EL NIVEL DE FATIGA CUANDO SE SELECCIONA OPCIONES DEL FORMULARIO EN ESPECIFICO Y NO EN CONJUNTO*/
-
-					//Opciones Importantes en el Menu Interrogatorio
-					$tiempo_ruta = $_POST["tiempo_destino"];
-					$vector_hora_tiempo_destino = explode(" ",$tiempo_ruta);
-					if($vector_hora_tiempo_destino[0] >= 8) {
-						echo "<script>alert('El tiempo del destino al que usted va ir supera las 8 horas')</script>";
-					}else if($vector_hora_tiempo_destino[1] >= 8) {
-						echo "<script>alert('El tiempo del destino al que usted va ir supera las 8 horas')</script>";
-					}
-
-					/*-----------------------------------------------------------------------------------------------------------------------------*/
-
-					//PILAR LABOR ESTENUANTE
-					/*Orden para el condicional
-					Interrogatorio
-					----
-					sintoma
-					Emocional
-					Neurologico
-					----
-					Signos
+					/*	PILAR LABOR ESTENUANTE
+							Orden para el condicional del mas importante al menos segun este pilar
+								1)Interrogatorio 2)sintoma 3)Emocional 4)Neurologico 5)Signos
 					*/
-					
+
 					if($acumulador_interrogatorio >= 10 && $acumulador_Sintomas >= 135 || $acumulador_Alteraciones_emocionales >= 39 || $acumulador_Alteraciones_neurologicas >= 18 && $acumulador_Signo == 4) {
 						$valor_Pilar = 1;
 						$pilar_activo_Labor_estenuante = 1;
@@ -44,40 +25,16 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "1".",".$pilares_seleccionados;
-						//echo "EL id de labor estenuante es = ".$pilares_seleccionados."<br>";
 						echo "EL conductor da positivo para <strong>LABOR ESTENUANTE</strong> por : "."<br>";
 						echo "<p>
 							Tiempo activo relacionado con su trabajo mayor a 10 horas: Tiempo conduciendo + tiempo en camarote + tiempo dedicado a mantenimiento, revisión o alistamiento del vehículo
 						</p>";
 						echo "<hr>";
-						/*if($acumulador_interrogatorio >= 10) {
-							echo "Superar las horas trabajadas , Las horas ingresados son  = ".$acumulador_interrogatorio;
-						}
-						if($acumulador_Signo == 4) {
-							echo "El signo que se asocia con Labor estenuante es = Agotamiento"."<br>";
-						}
-						if($acumulador_Sintomas >= 135) {
-							echo "La cantidad de sintomas registrados suman = ".$acumulador_Sintomas."<br>";
-						}
-						if($acumulador_Alteraciones_emocionales >= 39){
-							echo "Las Alteraciones Emocionales suman = ".$acumulador_Alteraciones_emocionales."<br>";
-						}
-						if($acumulador_Alteraciones_neurologicas >= 18) {
-							echo "Las Alteraciones Neurologicas suman = ".$acumulador_Alteraciones_neurologicas."<br>"."<hr>";
-						}*/
 					}
 
-					//PILAR DESCANSO INSUFICIENTE
-					/*Orden para el condicional
-					Interrogatorio (Tiempo de sueño[5])
-					----
-					sintoma
-					Signo
-					--
-					Emocional
-					Neurologico
-					----
-					Interrogatorio (Tiempo de descanso[6])
+					/*PILAR DESCANSO INSUFICIENTE
+						Orden para el condicional
+							1)Interrogatorio (Tiempo de sueño[5]) 2)sintoma 3)Signo 4)Emocional 5)Neurologico 6)Interrogatorio (Tiempo de descanso[6])
 					*/
 					if($traer_Valores_interrogatorio[5] < 8  && $acumulador_Sintomas >= 36 || $acumulador_Signo == 2 && $acumulador_Alteraciones_emocionales >= 28 || $acumulador_Alteraciones_neurologicas >= 18 && $traer_Valores_interrogatorio[6] < 10) {
 						$valor_Pilar = 1;
@@ -91,38 +48,11 @@
 							Tiempo de cese de actividades relacionadas con su trabajo menor a 12 horas y/o tiempo efectivo de sueño ininterrumpido menor a 8 horas
 						</p>";
 						echo "<hr>";
-						/*echo "EL id de Descanso insuficiente es = ".$pilares_seleccionados."<br>";
-
-						
-						if($traer_Valores_interrogatorio[5] < 8 && $traer_Valores_interrogatorio[5] != 0) {
-							echo "Las horas de sueño son muy bajas , Las ingresadas son = ".$traer_Valores_interrogatorio[5]."<br>";
-						}
-						if($acumulador_Sintomas >= 36) {
-							echo "Los sintomas Suman = ".$acumulador_Sintomas."<br>";
-						}
-						if($acumulador_Signo == 2) {
-							echo "Los Signos Suman = ".$acumulador_Signo."<br>";
-						}
-						if($acumulador_Alteraciones_emocionales >= 28) {
-							echo "Las alteraciones emcionales son  = ".$acumulador_Alteraciones_emocionales."<br>";
-						}
-						if($acumulador_Alteraciones_neurologicas >= 18) {
-							echo "Las Alteraciones Neurologicas son = ".$acumulador_Alteraciones_neurologicas."<br>"."<hr>";
-						}
-						if($traer_Valores_interrogatorio[6] < 10 && $traer_Valores_interrogatorio[6] != 0) {
-							echo "Las horas de descanso son = ".$traer_Valores_interrogatorio[6]."<hr>";
-						}*/
 					}
 
-					//PILAR DESTINO DISTANTE
-					/*Orden para el condicional
-					Interrogatorio (Hora de llegada)
-					----
-					sintoma
-					Signo
-					Emocional
-					----
-					Neurologico
+					/*PILAR DESTINO DISTANTE
+						Orden para el condicional
+							1)Interrogatorio (Hora de llegada) 2)Sintomas 3)Signo 4)Emocional 5)Neurologico
 					*/
 					$tiempo_llegada = $_POST["tiempo_destino"];
 					$vector_sacar_hora_tiempo_destino = explode("h",$tiempo_llegada);
@@ -150,37 +80,13 @@
 							Tiempo estimado de llegada al destino programado mayor de 8 horas
 						</p>";
 						echo "<hr>";
-						/*echo "EL id de destino distante es = ".$pilares_seleccionados."<br>";
-
-						
-						if($variable_Hora_Llegada_2 >= 8) {
-							echo "El tiempo de llegada al destino en horas es = ".$variable_Hora_Llegada_2."<br>";
-						}
-						if($acumulador_Sintomas >= 2) {
-							echo "Los puntos para sintomas es = ".$acumulador_Sintomas."<br>";
-						}
-						if($acumulador_Alteraciones_emocionales >= 38) {
-							echo "Las alteraciones emocional suman = ".$acumulador_Alteraciones_emocionales."<br>";
-						}
-						if($acumulador_Signo == 3) {
-							echo "El signo asociado a Destino Distante es = Estres"."<br>";
-						}
-						if($acumulador_Alteraciones_neurologicas >= 13) {
-							echo "Los Alteraciones neurologicas suman = ".$acumulador_Alteraciones_neurologicas."<hr>";
-						}*/
 					}
 
-					//PILAR CONDICION FISICA
-					/*Orden para el condicional
-					Interrogatorio
-					----
-					sintoma
-					emocional
-					Neurologico
-					----
-					Signos
+					/*PILAR CONDICION FISICA
+						Orden para el condicional
+							1)Interrogatorio 2)Sintoma 3)Emocional 4)Neurologico 5)Signos
 					*/
-					
+
 					if($traer_Valores_interrogatorio[5] < 8 && $acumulador_Sintomas >= 91 || $acumulador_Alteraciones_emocionales >= 39 || $acumulador_Alteraciones_neurologicas >= 13 && $acumulador_Signo == 7) {
 						$valor_Pilar = 1;
 						$pilar_condicion_fisica_activo = 1;
@@ -193,31 +99,13 @@
 							Cualquier alteración Fisica relacionada con fatiga por conducción
 						</p>";
 						echo "<hr>";
-						/*echo "EL id de condicion fisica es = ".$pilares_seleccionados."<br>";
-						
-						if($traer_Valores_interrogatorio[5] < 8 && $traer_Valores_interrogatorio[5] != 0) {
-							echo "Las horas de sueño fueron insuficientes , las horas ingresadas fueron = ".$traer_Valores_interrogatorio[5]."<br>";
-						}
-						if($acumulador_Sintomas >= 91) {
-							echo "Los puntos para sintoma son = ".$acumulador_Sintomas."<br>";
-						}
-						if($acumulador_Alteraciones_emocionales >= 15) {
-							echo "Los puntos para lateraciones emocionales son = ".$acumulador_Alteraciones_emocionales."<br>";
-						}
-						if($acumulador_Alteraciones_neurologicas >= 13) {
-							echo "Los puntos para alteraciones Neurologicas son = ".$acumulador_Alteraciones_neurologicas."<br>"."<hr>";
-						}
-						if($acumulador_Signo == 7) {
-							echo "El signo asociado para Condicion Fisica es = Comatoso";
-						}*/
 					}
 
-					//PILAR ESTADO EMOCIONAL
-					/*Orden para el condicional
-					emocional
-					Sintomas
+					/*PILAR ESTADO EMOCIONAL
+						Orden para el condicional
+						1)Emocional 2)Sintomas
 					*/
-					
+
 					if($acumulador_Alteraciones_emocionales >= 9 || $acumulador_Sintomas == 2) {
 						$valor_Pilar = 1;
 						$pilar_estado_emocional_activo = 1;
@@ -230,18 +118,9 @@
 							Alteración emocional ostensible que pueda representar un riesgo de accidente relacionado con conducir un vehículo
 						</p>";
 						echo "<hr>";
-						/*echo "EL id de estado emocional es = ".$pilares_seleccionados."<br>";
-						
-						
-						if($acumulador_Alteraciones_emocionales >= 9  && $acumulador_Alteraciones_emocionales != 0) {
-							echo "Los puntos para alteraciones Emocionales son = ".$acumulador_Alteraciones_emocionales."<br>";
-						}
-						if($acumulador_Sintomas == 2) {
-							echo "El sintoma asociado al ESTADO EMOCIONAL es = Depresion";
-						}*/
 					}
 
-					//Hallar el Nivel de fatiga del conductor
+					//Mostrar el nivel de fatiga del conductor
 					switch ($acumulador_Pilares) {
 						case 1:
 							echo "<script>alert(' El conductor Presenta nivel de fatiga BAJO por tener Activos '+$acumulador_Pilares+' Pilares del test')</script>";
@@ -263,7 +142,7 @@
 							break;
 					}
 
-					//condicional para saber si hay al menos un pilar activo
+					//Condicional para saber si hay al menos un pilar activo
 					if($acumulador_saber_pilares_activos != 0) {
 						echo "<script> document.getElementById('modal_pilar_activo').style.display='inlineblock';</script>";
 					}else{
@@ -272,7 +151,7 @@
 				?>
 			</div>
 			<div class='modal-footer form-inline'>
-				<button type='button' class='btn btn-danger' data-dismiss='modal'>Salir</button>
+				<button type='button' class='btn btn-danger' data-dismiss='modal'></button>
 			</div>
 		</div>
 	</div>
