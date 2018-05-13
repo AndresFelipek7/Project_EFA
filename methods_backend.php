@@ -350,7 +350,7 @@
 	}
 
 	/**
-	 * Funcion para las alertas de las sugerencias de los modulos de las dos alteraciones y sintomas
+	 * Funcion para las alertas de las sugerencias de los modulos de las dos alteraciones, sintomas y pilares
 	 *
 	 * @param $addClass, $subtitleAlert, $contentImprove
 	 * @return un container alert

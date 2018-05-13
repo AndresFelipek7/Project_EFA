@@ -5,7 +5,7 @@
 		<div class='modal-content'>
 			<div class='modal-header'>
 				<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-				<h4 class='modal-title'>Pilares de Fatiga</h4>
+				<h4 class='modal-title'><span class="fa fa-bullhorn fa-2x"></span><br>Pilares de Fatiga</h4>
 			</div>
 			<div class='modal-body text-center'>
 				<?php
@@ -25,11 +25,7 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "1".",".$pilares_seleccionados;
-						echo "EL conductor da positivo para <strong>LABOR ESTENUANTE</strong> por : "."<br>";
-						echo "<p>
-							Tiempo activo relacionado con su trabajo mayor a 10 horas: Tiempo conduciendo + tiempo en camarote + tiempo dedicado a mantenimiento, revisión o alistamiento del vehículo
-						</p>";
-						echo "<hr>";
+						alert_improve_driver("warning","<span class='fa fa-star-half-o fa-2x'></span><br><strong>Labor Estenuante</strong><br>","Tiempo activo relacionado con su trabajo mayor a 10 horas: Tiempo conduciendo + tiempo en camarote + tiempo dedicado a mantenimiento, revisión o alistamiento del vehículo");
 					}
 
 					/*PILAR DESCANSO INSUFICIENTE
@@ -43,11 +39,7 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "2".",".$pilares_seleccionados;
-						echo "EL conductor da positivo para <strong>DESCANSO INSUFICIENTE</strong> por :"."<br>";
-						echo "<p>
-							Tiempo de cese de actividades relacionadas con su trabajo menor a 12 horas y/o tiempo efectivo de sueño ininterrumpido menor a 8 horas
-						</p>";
-						echo "<hr>";
+						alert_improve_driver("warning","<span class='fa fa-thumbs-down fa-2x'></span><br><strong>Descanso Insuficiente</strong><br>","Tiempo de cese de actividades relacionadas con su trabajo menor a 12 horas y/o tiempo efectivo de sueño ininterrumpido menor a 8 horas");
 					}
 
 					/*PILAR DESTINO DISTANTE
@@ -63,11 +55,7 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "3".",".$pilares_seleccionados;
-						echo "EL conductor da positivo para <strong>DESTINO DISTANTE</strong> por : "."<br>";
-						echo "<p>
-							Tiempo estimado de llegada al destino programado mayor de 8 horas
-						</p>";
-						echo "<hr>";
+						alert_improve_driver("warning","<span class='fa fa-car fa-2x'></span><br><strong>Destino Distante</strong><br>","El Tiempo estimado de llegada al destino programado mayor de 8 horas");
 					}else if($acumulador_Sintomas >= 2 && $acumulador_Alteraciones_emocionales >= 38 || $acumulador_Signo == 3 && $acumulador_Alteraciones_neurologicas >= 13) {
 						$valor_Pilar = 1;
 						$pilar_destino_distante_activo = 1;
@@ -75,11 +63,7 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "3".",".$pilares_seleccionados;
-						echo "EL conductor da positivo para <strong>DESTINO DISTANTE</strong> por : "."<br>";
-						echo "<p>
-							Tiempo estimado de llegada al destino programado mayor de 8 horas
-						</p>";
-						echo "<hr>";
+						alert_improve_driver("warning","<span class='fa fa-car fa-2x'></span><br><strong>Destino Distante</strong><br>","El Tiempo estimado de llegada al destino programado mayor de 8 horas");
 					}
 
 					/*PILAR CONDICION FISICA
@@ -94,11 +78,7 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "4".",".$pilares_seleccionados;
-						echo "EL conductor da positivo para <strong>CONDICION FISICA</strong> por : "."<br>";
-						echo "<p>
-							Cualquier alteración Fisica relacionada con fatiga por conducción
-						</p>";
-						echo "<hr>";
+						alert_improve_driver("warning","<span class='fa fa-grav fa-2x'></span><br><strong>Condición Fisica</strong><br>","Cualquier alteración Fisica relacionada con fatiga por conducción.");
 					}
 
 					/*PILAR ESTADO EMOCIONAL
@@ -113,11 +93,7 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "5".",".$pilares_seleccionados;
-						echo "EL conductor da positivo para <strong>ESTADO EMOCIONAL</strong> por : "."<br>";
-						echo "<p>
-							Alteración emocional ostensible que pueda representar un riesgo de accidente relacionado con conducir un vehículo
-						</p>";
-						echo "<hr>";
+						alert_improve_driver("warning","<span class='fa fa-hand-peace-o fa-2x'></span><br><strong>Estado Emocional</strong><br>","Alteración emocional ostensible que pueda representar un riesgo de accidente relacionado con conducir un vehículo.");
 					}
 
 					//Mostrar el nivel de fatiga del conductor
@@ -151,7 +127,7 @@
 				?>
 			</div>
 			<div class='modal-footer form-inline'>
-				<button type='button' class='btn btn-danger' data-dismiss='modal'></button>
+				<button type='button' class='btn btn-danger' data-dismiss='modal'><span class="glyphicon glyphicon-remove"></span></button>
 			</div>
 		</div>
 	</div>
