@@ -362,4 +362,20 @@
 				$contentImprove
 			</div>";
 	}
+
+	/**
+	 * Alerta que nos dice el nivel de fatiga del conductor en pantalla
+	 *
+	 * @param $contenMessage, $levelTired, $typeError
+	 * @return una alerta
+	 */
+	function show_tired_driver_level($levelTired,$contentMessage,$typeError) {
+		echo "<script>
+			swal({
+				title: 'Nivel de Fatiga $levelTired!',
+				text: '$contentMessage',
+				type: '$typeError'
+			});
+		</script>";
+	}
 ?>

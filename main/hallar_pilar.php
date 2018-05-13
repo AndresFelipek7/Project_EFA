@@ -99,22 +99,22 @@
 					//Mostrar el nivel de fatiga del conductor
 					switch ($acumulador_Pilares) {
 						case 1:
-							echo "<script>alert(' El conductor Presenta nivel de fatiga BAJO por tener Activos '+$acumulador_Pilares+' Pilares del test')</script>";
+							show_tired_driver_level("Bajo","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","success");
 							break;
 						case 2:
-							echo "<script>alert(' El conductor Presenta nivel de fatiga BAJO por tener Activos '+$acumulador_Pilares+' Pilares del test')</script>";
+							show_tired_driver_level("Bajo","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","success");
 							break;
 						case 3:
-							echo "<script>alert(' El conductor Presenta nivel de fatiga MEDIO por tener Activos ' +$acumulador_Pilares+' Pilares del test')</script>";
+							show_tired_driver_level("Medio","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","warning");
 							break;
 						case 4:
-							echo "<script>alert(' El conductor Presenta nivel de fatiga ALTO por tener Activos '+$acumulador_Pilares+' Pilares del test')</script>";
+							show_tired_driver_level("Alto","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","error");
 							break;
 						case 5:
-							echo "<script>alert(' El conductor Presenta nivel de fatiga ALTO por tener Activos '+$acumulador_Pilares+' Pilares del test')</script>";
+							show_tired_driver_level("Alto","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","error");
 							break;
 						default:
-							echo "<script> alert('Se encuentra en optimas condiciones para conducir GOOD TRAVEL'); </script>";
+							show_tired_driver_level("Bajo","Se encuentra en optimas condiciones para conducir. Buen viaje!!","success");
 							break;
 					}
 
