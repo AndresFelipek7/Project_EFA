@@ -5,9 +5,9 @@
 	$acumulador_Alteraciones_neurologicas = 0;
 	$acumulador_Pilares = 0;
 
-	$acumulador_Sintomas = 150;
-	$acumulador_Alteraciones_emocionales = 50;
-	$acumulador_Alteraciones_neurologicas = 50;
+	$acumulador_Sintomas = 50;
+	$acumulador_Alteraciones_emocionales = 10;
+	$acumulador_Alteraciones_neurologicas = 10;
 	$acumulador_Signo = 4;
 
 	//Banderas inicializadas en cero para que cuando tengamos el total de cada menu podamos decir que pilar esta activo

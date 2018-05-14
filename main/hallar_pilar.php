@@ -13,6 +13,7 @@
 					$acumulador_saber_pilares_activos = 0;
 					$valor_Pilar = 1;
 					$pilar_activo = false;
+					$object_pilar_active = [];
 					$acumulador_interrogatorio = $traer_Valores_interrogatorio[0]+$traer_Valores_interrogatorio[1]+$traer_Valores_interrogatorio[2];
 
 					/*	PILAR LABOR ESTENUANTE
@@ -25,6 +26,7 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "1".",".$pilares_seleccionados;
+						array_unshift($object_pilar_active,"<span class='fa fa-star-half-o fa-2x'></span><br><strong>Labor Estenuante</strong><br>:Tiempo activo relacionado con su trabajo mayor a 10 horas: Tiempo conduciendo + tiempo en camarote + tiempo dedicado a mantenimiento, revisión o alistamiento del vehículo");
 					}
 
 					/*PILAR DESCANSO INSUFICIENTE
@@ -36,7 +38,7 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "2".",".$pilares_seleccionados;
-						/*aqui*/
+						array_unshift($object_pilar_active,"<span class='fa fa-thumbs-down fa-2x'></span><br><strong>Descanso Insuficiente</strong><br>:Tiempo de cese de actividades relacionadas con su trabajo menor a 12 horas y/o tiempo efectivo de sueño ininterrumpido menor a 8 horas");
 					}
 
 					/*PILAR DESTINO DISTANTE
@@ -50,13 +52,13 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "3".",".$pilares_seleccionados;
-						/*aqui*/
+						array_unshift($object_pilar_active,"<span class='fa fa-car fa-2x'></span><br><strong>Destino Distante</strong><br>:El Tiempo estimado de llegada al destino programado mayor de 8 horas");
 					}else if($acumulador_Sintomas >= 2 && $acumulador_Alteraciones_emocionales >= 38 || $acumulador_Signo == 3 && $acumulador_Alteraciones_neurologicas >= 13) {
 						$acumulador_Pilares = $acumulador_Pilares + $valor_Pilar;
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "3".",".$pilares_seleccionados;
-						/*aqui*/
+						array_unshift($object_pilar_active,"<span class='fa fa-car fa-2x'></span><br><strong>Destino Distante</strong><br>:El Tiempo estimado de llegada al destino programado mayor de 8 horas");
 					}
 
 					/*PILAR CONDICION FISICA
@@ -69,7 +71,7 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "4".",".$pilares_seleccionados;
-						/*aqui*/
+						array_unshift($object_pilar_active,"<span class='fa fa-balance-scale fa-2x'></span><br><strong>Condición Fisica</strong><br>:Cualquier alteración Fisica relacionada con fatiga por conducción.");
 					}
 
 					/*PILAR ESTADO EMOCIONAL
@@ -82,7 +84,7 @@
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
 						$pilares_seleccionados = "5".",".$pilares_seleccionados;
-
+						array_unshift($object_pilar_active,"<span class='fa fa-hand-peace-o fa-2x'></span><br><strong>Estado Emocional</strong><br>:Alteración emocional ostensible que pueda representar un riesgo de accidente relacionado con conducir un vehículo.");
 					}
 
 					//Mostrar el nivel de fatiga del conductor
@@ -107,22 +109,16 @@
 							break;
 					}
 
-					if ($acumulador_Pilares == 1) {
-						$columnGrid = "col-md-12";
-					}else {
-						$columnGrid = "col-md-6";
-					}
-
-					$onject_Pilar_active = [
-						"5" => "valor5",
-						"4" => "valor4",
-						"3" => "valor3",
-						"2" => "valor2",
-						"1" => "valor1",
-					];
+					/*$object_pilar_active = [
+						"5" => "<span class='fa fa-hand-peace-o fa-2x'></span><br><strong>Estado Emocional</strong><br>:Alteración emocional ostensible que pueda representar un riesgo de accidente relacionado con conducir un vehículo.",
+						"4" => "<span class='fa fa-balance-scale fa-2x'></span><br><strong>Condición Fisica</strong><br>:Cualquier alteración Fisica relacionada con fatiga por conducción.",
+						"3" => "<span class='fa fa-car fa-2x'></span><br><strong>Destino Distante</strong><br>:El Tiempo estimado de llegada al destino programado mayor de 8 horas",
+						"2" => "<span class='fa fa-thumbs-down fa-2x'></span><br><strong>Descanso Insuficiente</strong><br>:Tiempo de cese de actividades relacionadas con su trabajo menor a 12 horas y/o tiempo efectivo de sueño ininterrumpido menor a 8 horas",
+						"1" => "<span class='fa fa-star-half-o fa-2x'></span><br><strong>Labor Estenuante</strong><br>:Tiempo activo relacionado con su trabajo mayor a 10 horas: Tiempo conduciendo + tiempo en camarote + tiempo dedicado a mantenimiento, revisión o alistamiento del vehículo",
+					];*/
 
 					//GRID Elements
-					echo "<div class='container-fluid row'>";
+					/*echo "<div class='container-fluid row'>";
 						echo "<div class='col-md-6'>";
 							alert_improve_driver("warning","<span class='fa fa-star-half-o fa-2x'></span><br><strong>Labor Estenuante</strong><br>","Tiempo activo relacionado con su trabajo mayor a 10 horas: Tiempo conduciendo + tiempo en camarote + tiempo dedicado a mantenimiento, revisión o alistamiento del vehículo");
 						echo "</div>";
@@ -144,12 +140,25 @@
 						echo "<div class='col-md-12'>";
 							alert_improve_driver("warning","<span class='fa fa-hand-peace-o fa-2x'></span><br><strong>Estado Emocional</strong><br>","Alteración emocional ostensible que pueda representar un riesgo de accidente relacionado con conducir un vehículo.");
 						echo "</div>";
-					echo "</div>";
+					echo "</div>";*/
 
-					//echo "El id de los pilares seleccionados es $pilares_seleccionados";
-					foreach ($onject_Pilar_active as $key => $value) {
-						echo "El valor de la llave $key es $value <br>";
+
+					if ($acumulador_Pilares == 1) {
+						$columnGrid = "col-md-12";
+					}else {
+						$columnGrid = "col-md-6";
 					}
+
+					echo "<ul>";
+						foreach ($object_pilar_active as $key => $value) {
+							echo "<div class='container-fluid row'>";
+								echo "<div class='$columnGrid'>";
+									$separate_string = explode(":",$value);
+									alert_improve_driver("warning",$separate_string[0],$separate_string[1]);
+								echo "</div>";
+							echo "<div>";
+						}
+					echo "</ul>";
 
 					//Condicional para saber si hay al menos un pilar activo
 					if($acumulador_saber_pilares_activos != 0) {
