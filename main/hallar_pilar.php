@@ -88,25 +88,14 @@
 					}
 
 					//Mostrar el nivel de fatiga del conductor
-					switch ($acumulador_Pilares) {
-						case 1:
-							show_tired_driver_level("Bajo","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","success");
-							break;
-						case 2:
-							show_tired_driver_level("Bajo","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","success");
-							break;
-						case 3:
-							show_tired_driver_level("Medio","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","warning");
-							break;
-						case 4:
-							show_tired_driver_level("Alto","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","error");
-							break;
-						case 5:
-							show_tired_driver_level("Alto","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","error");
-							break;
-						default:
-							show_tired_driver_level("Bajo","Se encuentra en optimas condiciones para conducir. Buen viaje!!","success");
-							break;
+					if ($acumulador_Pilares == 1 || $acumulador_Pilares == 2) {
+						show_tired_driver_level("Bajo","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","success");
+					}else if($acumulador_Pilares == 0){
+						show_tired_driver_level("Bajo","Se encuentra en optimas condiciones para conducir. Buen viaje!!","success");
+					}else if($acumulador_Pilares == 4 || $acumulador_Pilares == 5) {
+						show_tired_driver_level("Alto","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","error");
+					}else {
+						show_tired_driver_level("Medio","Por tener Activos $acumulador_Pilares Pilar de la Prueba Realizada.","warning");
 					}
 
 					($acumulador_Pilares == 1) ? $columnGrid = "col-md-12" : $columnGrid = "col-md-6";
