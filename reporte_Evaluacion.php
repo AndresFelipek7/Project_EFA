@@ -57,48 +57,22 @@
 			/*Contenedor donde mostramos el alerta del nivel de fatiga del conductor*/
 			echo "<div class='container text-center'>";
 				require_once "main/hallar_pilar.php";
-				//Aqui es donde mostramos el semaforo , el mensaje del nivel del conductor y si puede conducir o no
-				switch ($acumulador_Pilares) {
-					case 1:
-						echo "<h3 class='animated rubberBand' style='color:green;'>Nivel de Fatiga que Presenta es = Bajo</h3>";
-						echo "<h3 class='animated rubberBand' style='color:green;'>El conductor puede conducir sin problemas , pero se recomienda hacer las sugerencias asignadas</h3>";
-						echo "<h3 class='animated rubberBand' style='color:green;'>Para que este en optimas condiciones para conducir</h3>";
-						echo "<img src='images/Semaforos/semaforo_verde.jpg' width='200' height='200'>";
-						$saber_nivel_fatiga = "1";
-					break;
-					case 2:
-						echo "<h3 class='animated rubberBand' style='color:green;'>Nivel de Fatiga que Presenta es = Bajo</h3>";
-						echo "<h3 class='animated rubberBand' style='color:green;'>El conductor puede conducir sin problemas , pero se recomienda hacer las sugerencias asignadas</h3>";
-						echo "<h3 class='animated rubberBand' style='color:green;'>Para que este en optimas condiciones para conducir</h3>";
-						echo "<img src='images/Semaforos/semaforo_verde.jpg' width='200' height='200'>";
-						$saber_nivel_fatiga = "1";
-					break;
-					case 3:
-						echo "<h3 class='animated rubberBand' style='color:black;'>Nivel de Fatiga que Presenta es = Medio</h3>";
-						echo "<h3 class='animated rubberBand' style='color:black;'>El conductor debe de realizar todas las recomendaciones que se asignaron</h3>";
-						echo "<h3 class='animated rubberBand' style='color:black;'>El conductor puede conducir realizando todas las recomendaciones</h3>";
-						echo "<img src='images/Semaforos/semaforo naranja.jpg' width='200' height='200'>";
-						$saber_nivel_fatiga = "2";
-					break;
-					case 4:
-						echo "<h3 class='animated rubberBand' style='color:red;'>Nivel de Fatiga que Presenta es = Alto</h3>";
-						echo "<h3 class='animated rubberBand' style='color:red;'>El conductor no puede conducir el dia de hoy</h3>";
-						echo "<h3 class='animated rubberBand' style='color:red;'>Tiene que hacer todas las recomendaciones para poder hacer su siguiente evaluacion de fatiga</h3>";
-						echo "<img src='images/Semaforos/semaforo naranja.jpg' width='200' height='200'>";
-						$saber_nivel_fatiga = "3";
-					break;
-					case 5:
-						echo "<h3 class='animated rubberBand' style='color:red;'>Nivel de Fatiga que Presenta es = Alto</h3>";
-						echo "<h3 class='animated rubberBand' style='color:red;'>El conductor no puede conducir el dia de hoy</h3>";
-						echo "<h3 class='animated rubberBand' style='color:red;'>Tiene que hacer todas las recomendaciones para poder hacer su siguiente evaluacion de fatiga</h3>";
-						echo "<img src='images/Semaforos/semaforo_rojo.png' width='200' height='200'>";
-						$saber_nivel_fatiga = "3";
-					break;
-					default:
-						echo "<h3 class='animated rubberBand' style='color:green;'>Esta en optimas condiciones para conducir</h3>";
-						echo "<img src='images/Semaforos/semaforo_verde.jpg' width='200' height='200'>";
-						$saber_nivel_fatiga = "1";
-					break;
+				$semaforo_verde = "<img class='img-thumbnail img-rounded style-semaforo' src='images/Semaforos/semaforo_verde.jpg'>";
+				$semaforo_rojo = "<img class='img-thumbnail img-rounded style-semaforo' src='images/Semaforos/semaforo_rojo.png'>";
+				$semaforo_naranja = "<img class='img-thumbnail img-rounded style-semaforo' src='images/Semaforos/semaforo naranja.jpg'>";
+
+				if ($acumulador_Pilares == 0) {
+					panel_info_pulsaciones("success", "bell", "<h3>Esta en optimas condiciones para conducir</h3>");
+					$saber_nivel_fatiga = 1;
+				}else if($acumulador_Pilares == 1 || $acumulador_Pilares == 2){
+					panel_level_tired_driver("success", "Bajo", "<h4>El conductor puede conducir sin problemas , pero se recomienda hacer las sugerencias asignadas</h4>", $semaforo_verde);
+					$saber_nivel_fatiga = 1;
+				}else if($acumulador_Pilares == 4 || $acumulador_Pilares == 5) {
+					panel_level_tired_driver("danger", "Alto", "<h4>El conductor no puede conducir el dia de hoy</h4><h4>Tiene que hacer todas las recomendaciones para poder hacer su siguiente evaluacion de fatiga</h4>", $semaforo_rojo);
+					$saber_nivel_fatiga = 3;
+				}else {
+					panel_level_tired_driver("warning", "Medio", "<h4>El conductor debe de realizar todas las recomendaciones que se asignaron</h4><h4>Además debe de realizando todas las recomendaciones asignadas.</h4>", $semaforo_naranja);
+					$saber_nivel_fatiga = 2;
 				}
 			echo "</div><hr>";
 
@@ -106,16 +80,10 @@
 				echo "<a href='tiempo_decir_sugerencias.php?t=$_SESSION[tiempo_iniciar_sugerencia]&nf=$saber_nivel_fatiga' class='btn btn-md btn-default active btn3d btn-lg' style='margin-right:10px;'><span class='glyphicon glyphicon-ok'></span></a>";
 			echo "</div>";
 
-			//Este condicional es para dar una orden de reposo general dependiendo de la informacion ingresada
-			//Con la variable acumulador pilares sabemos que nivel de fatiga tiene le conductor por la cantidad de pilares activos
-			if($acumulador_Pilares >= 2 && $acumulador_Pilares <= 5) {
-				$valor_id_orden = 1;
-			}else{
-				$valor_id_orden = 2;
-			}
+			($acumulador_Pilares >= 2 && $acumulador_Pilares <= 5) ? $valor_id_orden = 1 : $valor_id_orden = 2;
 
 			//colocamos un nuevo archivo que nos va a permitir quitar el ultimo elemento de la cadena que es un cero y que luego en el rol admin nos v a generar error
-			require_once("main/eliminar_ultimo_elemento_arreglo.php");
+			require_once "main/eliminar_ultimo_elemento_arreglo.php";
 			require_once "register_test.php";
 
 			$conexion->close();

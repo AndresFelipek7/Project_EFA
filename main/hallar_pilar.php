@@ -1,4 +1,4 @@
-<a href='#pilar' data-toggle='modal' id="modal_pilar_activo" class='btn btn-default btn-lg'> <span class="fa fa-bookmark-o"> Pilares de Fatiga Activos</span></a>
+<a href='#pilar' data-toggle='modal' id="modal_pilar_activo" class='btn btn-default btn-lg'> <span class="fa fa-bookmark"> Pilares de Fatiga Activos</span></a>
 
 <div class='modal fade' id='pilar'>
 	<div class='modal-dialog modal-lg'>

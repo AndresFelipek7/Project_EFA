@@ -378,4 +378,20 @@
 			});
 		</script>";
 	}
+
+	function panel_level_tired_driver($addTypePanel,$levelTired,$content,$pathPhoto) {
+		echo "<div class='container-fluid' style='margin-top:2%;'>
+			<div class='row'>
+				<div class='col-md-6'>
+					<div class='panel panel-$addTypePanel'>
+						<div class='panel-heading'><h1>Nivel de Fatiga $levelTired</h1></div>
+						<div class='panel-body'>$content</div>
+					</div>
+				</div>
+				<div class='col-md-6'>
+					$pathPhoto
+				</div>
+			</div>
+		</div>";
+	}
 ?>

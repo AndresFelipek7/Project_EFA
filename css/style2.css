@@ -563,3 +563,8 @@ table {
 .style-container-sleep-driver {
 	margin-left: 3%;
 }
+
+.style-semaforo {
+	width: 200px;
+	height: 200px;
+}
