@@ -109,45 +109,7 @@
 							break;
 					}
 
-					/*$object_pilar_active = [
-						"5" => "<span class='fa fa-hand-peace-o fa-2x'></span><br><strong>Estado Emocional</strong><br>:Alteración emocional ostensible que pueda representar un riesgo de accidente relacionado con conducir un vehículo.",
-						"4" => "<span class='fa fa-balance-scale fa-2x'></span><br><strong>Condición Fisica</strong><br>:Cualquier alteración Fisica relacionada con fatiga por conducción.",
-						"3" => "<span class='fa fa-car fa-2x'></span><br><strong>Destino Distante</strong><br>:El Tiempo estimado de llegada al destino programado mayor de 8 horas",
-						"2" => "<span class='fa fa-thumbs-down fa-2x'></span><br><strong>Descanso Insuficiente</strong><br>:Tiempo de cese de actividades relacionadas con su trabajo menor a 12 horas y/o tiempo efectivo de sueño ininterrumpido menor a 8 horas",
-						"1" => "<span class='fa fa-star-half-o fa-2x'></span><br><strong>Labor Estenuante</strong><br>:Tiempo activo relacionado con su trabajo mayor a 10 horas: Tiempo conduciendo + tiempo en camarote + tiempo dedicado a mantenimiento, revisión o alistamiento del vehículo",
-					];*/
-
-					//GRID Elements
-					/*echo "<div class='container-fluid row'>";
-						echo "<div class='col-md-6'>";
-							alert_improve_driver("warning","<span class='fa fa-star-half-o fa-2x'></span><br><strong>Labor Estenuante</strong><br>","Tiempo activo relacionado con su trabajo mayor a 10 horas: Tiempo conduciendo + tiempo en camarote + tiempo dedicado a mantenimiento, revisión o alistamiento del vehículo");
-						echo "</div>";
-
-						echo "<div class='col-md-6'>";
-							alert_improve_driver("warning","<span class='fa fa-thumbs-down fa-2x'></span><br><strong>Descanso Insuficiente</strong><br>","Tiempo de cese de actividades relacionadas con su trabajo menor a 12 horas y/o tiempo efectivo de sueño ininterrumpido menor a 8 horas");
-						echo "</div>";
-
-						echo "<div class='col-md-6'>";
-							alert_improve_driver("warning","<span class='fa fa-car fa-2x'></span><br><strong>Destino Distante</strong><br>","El Tiempo estimado de llegada al destino programado mayor de 8 horas");
-						echo "</div>";
-
-						echo "<div class='col-md-6'>";
-							alert_improve_driver("warning","<span class='fa fa-balance-scale fa-2x'></span><br><strong>Condición Fisica</strong><br>","Cualquier alteración Fisica relacionada con fatiga por conducción.");
-						echo "</div>";
-					echo "</div>";
-
-					echo "<div class='container-fluid row'>";
-						echo "<div class='col-md-12'>";
-							alert_improve_driver("warning","<span class='fa fa-hand-peace-o fa-2x'></span><br><strong>Estado Emocional</strong><br>","Alteración emocional ostensible que pueda representar un riesgo de accidente relacionado con conducir un vehículo.");
-						echo "</div>";
-					echo "</div>";*/
-
-
-					if ($acumulador_Pilares == 1) {
-						$columnGrid = "col-md-12";
-					}else {
-						$columnGrid = "col-md-6";
-					}
+					($acumulador_Pilares == 1) ? $columnGrid = "col-md-12" : $columnGrid = "col-md-6";
 
 					echo "<ul>";
 						foreach ($object_pilar_active as $key => $value) {
@@ -161,11 +123,7 @@
 					echo "</ul>";
 
 					//Condicional para saber si hay al menos un pilar activo
-					if($acumulador_saber_pilares_activos != 0) {
-						echo "<script> document.getElementById('modal_pilar_activo').style.display='inlineblock';</script>";
-					}else{
-						echo "<script> document.getElementById('modal_pilar_activo').style.display='none';</script>";
-					}
+					echo ($acumulador_saber_pilares_activos != 0) ? "<script> document.getElementById('modal_pilar_activo').style.display='inlineblock';</script>" : "<script> document.getElementById('modal_pilar_activo').style.display='none';</script>";
 				?>
 			</div>
 			<div class='modal-footer form-inline'>
