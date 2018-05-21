@@ -16,14 +16,15 @@
 	//Si son iguales significa que cuando llego a al zona de sugerencias solo se demoro segundos es decirle todo al conductor
 	//El vector en la posicion cero es el primer valor del vector , es decir solo los minutos
 	if ($sacar_minutos_tiempo_inicio[0] == $sacar_minutos_tiempo_final[0]) {
-		echo "<script>
-				alert('Se ha demorado solo segundo al decirle al conductor las recomendaciones para bajar el nivel de faitga , se manejara de forma interna por los administradores');
-				window.location = 'test.php';
-			</script>";
+		//time_do_check_reporte("Se ha demorado solo segundo al decirle al conductor las recomendaciones para bajar el nivel de faitga , se manejara de forma interna por los administradores", "warnig", "test.php");
+		//time_do_check_reporte("", "warnig", "reporte_Evaluacion.php");
+		alert_dinamic_time_doing_test("Hola soy un mensaje", "success");
 	}
-	
+
+	//echo ($nivel_fatiga == 1 && $diferencia_tiempos >= 1 && $diferencia_tiempos <= 2) ? time_do_check_reporte("Se ha demorado el tiempo estimado en decir las recomendaciones al conductor por el nivel de fatiga Bajo , la probabilidad de fraude es poca", "success", "test.php") : time_do_check_reporte("Se ha demorado muy poco con respecto al nivel de fatiga bajo , Hay que revisar el tiempo", "warnig", "test.php");
+
 	//si el nivel de fatiga es 1 significa que es nivel bajo de fatiga
-	if ($nivel_fatiga == 1) {
+	/*if ($nivel_fatiga == 1) {
 		//este es el rango en minutos que debe demorarse el evaluador en decir las recomendaciones
 		if ($diferencia_tiempos >= 1 && $diferencia_tiempos <= 2) {
 			echo "<script>
@@ -36,8 +37,8 @@
 				window.location = 'test.php';
 			</script>";
 		}
-	}
-	
+	}*/
+
 	//si es valor 2 significa que tiene nivel medio de fatiga
 	if ($nivel_fatiga == 2) {
 		//este es el rango de tiempo que se debe demorar el evaluador en decir las recomendaciones al conductor

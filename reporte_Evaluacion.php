@@ -39,7 +39,7 @@
 			require_once "main/comparacion_sueno_ligero_manilla.php";
 
 			echo "<div class='container text-center'><hr>";
-			echo "<h3>Descripcion Detallada</h3>";
+				echo "<h3>Descripcion Detallada</h3>";
 				require_once "main/descripcion/descripcion_signo.php";
 				require_once "main/descripcion/descripcion_a_neurologicas.php";
 				require_once "main/descripcion/descripcion_a_emocional.php";
@@ -55,8 +55,9 @@
 			echo "<hr>";
 
 			/*Contenedor donde mostramos el alerta del nivel de fatiga del conductor*/
+			require_once "main/hallar_pilar.php";
+
 			echo "<div class='container text-center'>";
-				require_once "main/hallar_pilar.php";
 				$semaforo_verde = "<img class='img-thumbnail img-rounded style-semaforo' src='images/Semaforos/semaforo_verde.jpg'>";
 				$semaforo_rojo = "<img class='img-thumbnail img-rounded style-semaforo' src='images/Semaforos/semaforo_rojo.png'>";
 				$semaforo_naranja = "<img class='img-thumbnail img-rounded style-semaforo' src='images/Semaforos/semaforo naranja.jpg'>";
@@ -77,7 +78,7 @@
 			echo "</div><hr>";
 
 			echo "<div class='container-fluid text-center'>";
-				echo "<a href='tiempo_decir_sugerencias.php?t=$_SESSION[tiempo_iniciar_sugerencia]&nf=$saber_nivel_fatiga' class='btn btn-md btn-default active btn3d btn-lg' style='margin-right:10px;'><span class='glyphicon glyphicon-ok'></span></a>";
+				echo "<a href='main/tiempo_decir_sugerencias.php?t=$_SESSION[tiempo_iniciar_sugerencia]&nf=$saber_nivel_fatiga' class='btn btn-md btn-default btn-lg'><span class='fa fa-check'></span></a>";
 			echo "</div>";
 
 			($acumulador_Pilares >= 2 && $acumulador_Pilares <= 5) ? $valor_id_orden = 1 : $valor_id_orden = 2;
@@ -92,7 +93,6 @@
 			echo "<script> window.location = 'test.php'</script>";
 		}*/
 	?>
-
 	<?php include "library/Footer.php"; ?>
 </body>
 </html>

@@ -77,9 +77,6 @@ textarea {
 
 /*Estilos generales para el pie de pagina*/
 footer {
-	/*padding: 10px 0;
-	background-color: #413B3B;
-	margin-top: 65px;*/
 	width: 100%;
 	background-color: #413B3B;
 	bottom: 0;
@@ -89,7 +86,7 @@ footer {
 
 /*Estilos a la etiqueta h3 dentro del pie de pagina*/
 footer h3 {
-	margin-top: 30px;
+	margin-top: 25px;
 	color: white;
 	font-size: 16px;
 	font-size: 1.6rem;

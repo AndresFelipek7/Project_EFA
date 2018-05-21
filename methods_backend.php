@@ -379,6 +379,12 @@
 		</script>";
 	}
 
+	/**
+	 * Funcion para mostrar un panel en el reportde de fatiga del evaluador
+	 *
+	 * @param $addTypePanel,$levelTired,$content,$pathPhoto
+	 * @return un panel con dos columnas
+	 */
 	function panel_level_tired_driver($addTypePanel,$levelTired,$content,$pathPhoto) {
 		echo "<div class='container-fluid' style='margin-top:2%;'>
 			<div class='row'>
@@ -393,5 +399,15 @@
 				</div>
 			</div>
 		</div>";
+	}
+
+	/**
+	 * Funcion que genera una alerta despues de revisar el reporte de fatiga al conductor
+	 *
+	 * @param $message,$typeAlert,$path
+	 * @return Una alerta
+	 */
+	function time_do_check_reporte() {
+
 	}
 ?>
