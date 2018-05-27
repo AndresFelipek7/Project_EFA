@@ -402,12 +402,15 @@
 	}
 
 	/**
-	 * Funcion que genera una alerta despues de revisar el reporte de fatiga al conductor
+	 * Funcion para mostrar una redireccion en una alerta(Parcial)
 	 *
-	 * @param $message,$typeAlert,$path
+	 * @param $content
 	 * @return Una alerta
 	 */
-	function time_do_check_reporte() {
-
+	function alert_time_report($content) {
+		echo "<script>
+				alert('$content');
+				window.location = 'test.php';
+			</script>";
 	}
 ?>

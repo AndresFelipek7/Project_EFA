@@ -8,15 +8,16 @@
 	<?php include 'library/Head/Header-main-evaluador.php'; ?>
 
 	<?php
+		include "lib_required_sweetalert_only_profile_evaluador.php";
+		include "methods_backend.php";
 		/*$verificar_envio = $_SESSION["verificar"];*/
 
 		//Cuando es igual a 1 significa que se ha envia una soloa vez , pero si se intenta actualizar va tener otro valor
 		/*if($verificar_envio == 1) {*/
-			//Enlazamos un archivo para saber cuanto tiempo se demoro en realizar la evaluacion
-			include "tiempo_realizar_evaluacion.php";
-
 			//Para destruir la variable
 			/*unset($_SESSION["verificar"]);*/
+			//Enlazamos un archivo para saber cuanto tiempo se demoro en realizar la evaluacion
+			include "tiempo_realizar_evaluacion.php";
 
 			require_once "main/informacion_conductor.php";
 
@@ -78,7 +79,7 @@
 			echo "</div><hr>";
 
 			echo "<div class='container-fluid text-center'>";
-				echo "<a href='main/tiempo_decir_sugerencias.php?t=$_SESSION[tiempo_iniciar_sugerencia]&nf=$saber_nivel_fatiga' class='btn btn-md btn-default btn-lg'><span class='fa fa-check'></span></a>";
+				echo "<a href='tiempo_decir_sugerencias.php?t=$_SESSION[tiempo_iniciar_sugerencia]&nf=$saber_nivel_fatiga' class='btn btn-md btn-default btn-lg'><span class='fa fa-check'></span></a>";
 			echo "</div>";
 
 			($acumulador_Pilares >= 2 && $acumulador_Pilares <= 5) ? $valor_id_orden = 1 : $valor_id_orden = 2;
