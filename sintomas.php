@@ -26,7 +26,6 @@
 		<?php
 			$show = mysqli_query($conexion,"SELECT * FROM reporte_sintomas");
 			echo "<table id='table' class='table table-bordered table-hover table-condensed text-center'>";
-			//Encabezados con etiqueta TR
 			echo "<tr class='active'>
 					<th></th>
 					<th><span class='glyphicon glyphicon-map-marker'></span> ID Sintoma</th>
@@ -34,7 +33,6 @@
 					<th><span class='glyphicon glyphicon-text-background'></span> Descripcion</th>
 				</tr>";
 			while($registro = mysqli_fetch_array($show)){
-				//Contenido con la etiqueta
 				echo"<tr>
 						<th>
 							<div class='btn-group dropup'>
@@ -69,7 +67,8 @@
 									<div class='form-group text-center'>
 										<form action='actualizar_Sintoma.php' method='post'>
 											<center>
-												<input type='text' name='id_sintoma' value='$registro[id_sintoma]' hidden><br><br>
+												<input type='text' name='id_sintoma' value='$registro[id_sintoma]' hidden>
+												<input type='text' name='desde' value='Sintomas' hidden>
 
 												<div class='row'>
 													<div class='col-md-6'>
@@ -87,6 +86,13 @@
 													<div class='col-md-12'>
 														<label>Descripcion </label><br>
 														<textarea name='descripcion_sintoma' class='borde_textarea' onkeypress='return onlyWords(event)' cols='80' rows='5'>$registro[descripcion_sintoma]</textarea><br><br>
+													</div>
+												</div>
+
+												<div class='row'>
+													<div class='col-md-12'>
+														<label>Valor de $registro[nombre_sintoma] </label><br>
+														<input type='number' class='form-control' name='valor_sintoma' value='$registro[valor_sintoma]' onkeypress='return justNumbers(event,this.form.desde.value);'> Puntos.<br><br>
 													</div>
 												</div>
 
