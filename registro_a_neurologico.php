@@ -2,9 +2,9 @@
 	include "library/conec.php";
 	include "lib_required_sweetalert.php";
 
-	$traer_Valor_a_Neurologico = [$_POST['nombre_neurologico'] , $_POST['descripcion_neurologico']];
+	$traer_Valor_a_Neurologico = [$_POST['nombre_neurologico'] , $_POST['descripcion_neurologico'], $_POST['valor_neurologico']];
 
-	$consulta_a_Neurologico = "INSERT INTO alteraciones_neurologicas (nombre_a_neurologico , descripcion_a_neurologico) VALUES ('$traer_Valor_a_Neurologico[0]' , '$traer_Valor_a_Neurologico[1]')";
+	$consulta_a_Neurologico = "INSERT INTO alteraciones_neurologicas (nombre_a_neurologico , descripcion_a_neurologico, valor_item) VALUES ('$traer_Valor_a_Neurologico[0]' , '$traer_Valor_a_Neurologico[1]', '$traer_Valor_a_Neurologico[2]')";
 	$resultado = $conexion -> query($consulta_a_Neurologico);
 
 	if($resultado){

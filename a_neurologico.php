@@ -15,7 +15,7 @@
 			</h2>
 		<input class="form-control colocar-icono" type="text" id="input" placeholder="Buscar..." onkeyup="doSearch()" autofocus><br>
 		</center>
-		<a href="#registrar_neurologica" data-toggle="modal" class="btn btn-primary fa fa-user-plus fa-2x tamaño-botones-general"></a>
+		<a href="#registrar_neurologica" data-toggle="modal" class="btn btn-primary fa fa-plus-square fa-2x tamaño-botones-general"></a>
 		<a href='library/reportes/Alteracion_Neurologica/exportar_all_a_neurologica.php' class="btn btn-info" onclick="alert_dinamic(event , 'Alteraciones Neurologicas' , 'library/reportes/Alteracion_Neurologica/exportar_all_a_neurologica.php')"><span class="glyphicon glyphicon-download-alt tamaño-botones-general"></span></a>
 		<label class="alinear_a_emocional"><span class="glyphicon glyphicon-star"></span> Total Alteraciones Neurologica :  <input type="text" class="btn btn-danger btn-md" value="<?php echo $total_a_neurologico; ?>" disabled></label>
 	</div>
@@ -25,7 +25,6 @@
 		<?php
 			$show = mysqli_query($conexion,"SELECT * FROM reporte_a_neurologico");
 			echo "<table id='table' class='table table-bordered table-hover table-condensed text-center'>";
-			//Encabezados con etiqueta TR
 			echo "<tr class='active'>
 					<th></th>
 					<th><span class='glyphicon glyphicon-map-marker'></span> ID Alteracion</th>
@@ -33,7 +32,6 @@
 					<th><span class='glyphicon glyphicon-text-background'></span> Descripcion</th>
 				</tr>";
 			while($registro = mysqli_fetch_array($show)){
-				//Contenido con la etiqueta
 				echo"<tr>
 						<th>
 							<div class='btn-group dropup'>
@@ -68,8 +66,8 @@
 									<div class='form-group'>
 										<form action='actualizar_a_neurologico.php' method='post'>
 											<center>
-												<input type='text' name='id_neurologico' value='$registro[id_neurologico]' hidden><br><br>
-
+												<input type='text' name='id_neurologico' value='$registro[id_neurologico]' hidden>
+												<input type='text' name='desde' value='Neurologico' hidden>
 												<div class='row'>
 													<div class='col-md-6'>
 															<label>ID # </label>
@@ -89,6 +87,12 @@
 													</div>
 												</div>
 
+												<div class='row'>
+													<div class='col-md-12'>
+														<label>Valor de $registro[nombre_neurologico] </label><br>
+														<input type='number' class='form-control' name='valor_neurologico' value='$registro[valor_neurologico]' onkeypress='return justNumbers(event,this.form.desde.value);'> Puntos.<br><br>
+													</div>
+												</div>
 
 												<div>
 													<hr>
@@ -115,11 +119,12 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title"><span class="fa fa-user-plus"></span> Registro de Nueva Alteracion Neurologica</h4>
+					<h4 class="modal-title"><span class="fa fa-plus-square"></span> Registro de Nueva Alteracion Neurologica</h4>
 				</div>
 
 				<div class="modal-body text-center">
 					<form action="registro_a_neurologico.php" method="post">
+						<input type='text' name='desde' value='Neurologico' hidden>
 						<center>
 							<div class="row">
 								<div class='col-md-12'>
@@ -131,6 +136,12 @@
 							<div class="row">
 								<div class='col-md-12'>
 									<textarea name="descripcion_neurologico" id="descripcion_neurologico" class="borde_textarea" placeholder="Ingresar Descripcion Neurologica" cols="80" rows="5" onkeypress="return onlyWords(event)" onchange="style_border_input('descripcion_neurologico','verde')" required></textarea><br><br>
+								</div>
+							</div>
+
+							<div class='row'>
+								<div class='col-md-12'>
+									<input type='number' class='form-control' name='valor_neurologico' placeholder="Ingrese el valor Neurologico" onkeypress='return justNumbers(event,this.form.desde.value);' required> Puntos.<br><br>
 								</div>
 							</div>
 
