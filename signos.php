@@ -125,6 +125,7 @@
 
 				<div class="modal-body text-center">
 					<form action="registro_Signo.php" method="post">
+						<input type='text' name='desde' value='Signos' hidden>
 						<center>
 							<div class="row">
 								<div class='col-md-12'>
@@ -136,6 +137,12 @@
 							<div class="row">
 								<div class='col-md-12'>
 									<textarea name="descripcion_signo" id="descripcion_signo" class="borde_textarea" placeholder="Ingrese Descripcion Signo" cols="80" rows="5" onkeypress="return onlyWords(event)" onchange="style_border_input('descripcion_signo','verde')" required></textarea><br><br>
+								</div>
+							</div>
+
+							<div class='row'>
+								<div class='col-md-12'>
+									<input type='number' class='form-control' name='valor_signo' placeholder="Ingrese valor de Signo" onkeypress='return justNumbers(event,this.form.desde.value);'> Puntos.<br><br>
 								</div>
 							</div>
 

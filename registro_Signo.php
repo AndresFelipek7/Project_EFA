@@ -2,9 +2,9 @@
 	include "library/conec.php";
 	include "lib_required_sweetalert.php";
 
-	$traer_Valor_signo = [$_POST['nombre_signo'] , $_POST['descripcion_signo']];
+	$traer_Valor_signo = [$_POST['nombre_signo'] , $_POST['descripcion_signo'], $_POST['valor_signo']];
 
-	$consulta_Signo = "INSERT INTO signos_fatiga (nombre_signo , descripcion_signo) VALUES ('$traer_Valor_signo[0]' , '$traer_Valor_signo[1]')";
+	$consulta_Signo = "INSERT INTO signos_fatiga (nombre_signo , descripcion_signo, valor_item) VALUES ('$traer_Valor_signo[0]' , '$traer_Valor_signo[1]', '$traer_Valor_signo[2]')";
 	$resultado = $conexion ->query($consulta_Signo);
 
 	if($resultado){
