@@ -15,7 +15,7 @@
 			</h2>
 			<input class="form-control colocar-icono" type="text" name="buscar" id="input" placeholder="Buscar..." autofocus="autofocus" onkeyup="doSearch()"><br>
 		</center>
-		<a href="#registrar_Signo" data-toggle="modal" class="btn btn-primary fa fa-user-plus fa-2x tamaño-botones-general"></a>
+		<a href="#registrar_Signo" data-toggle="modal" class="btn btn-primary fa fa-plus-square fa-2x tamaño-botones-general"></a>
 		<a href='library/reportes/Signo/exportar_all_signo.php' class="btn btn-info" onclick="alert_dinamic(event , 'Los Signos de Fatiga' , 'library/reportes/Signo/exportar_all_signo.php')"><span class="glyphicon glyphicon-download-alt tamaño-botones-general"></span></a>
 		<label class="alinear_total_derecha"><span class="glyphicon glyphicon-star"></span> Total Signos =  <input type="text" class="btn btn-danger btn-md" value="<?php echo $total_signo; ?>" disabled></label>
 	</div>
@@ -25,7 +25,6 @@
 		<?php
 			$show = mysqli_query($conexion,"SELECT * FROM reporte_signos_admin");
 			echo "<table id='table' class='table table-bordered table-hover table-condensed text-center'>";
-			//Encabezados con etiqueta TR
 			echo "<tr class='active'>
 					<th></th>
 					<th><span class='glyphicon glyphicon-map-marker'></span> ID Signo</th>
@@ -33,7 +32,6 @@
 					<th><span class='glyphicon glyphicon-text-background'></span> Descripcion</th>
 				</tr>";
 			while($registro = mysqli_fetch_array($show)){
-				//Contenido con la etiqueta
 				echo"<tr>
 						<th>
 							<div class='btn-group dropup'>
@@ -68,7 +66,8 @@
 									<div class='form-group text-center'>
 										<form action='actualizar_signo.php' method='post'>
 											<center>
-												<input type='text' name='id_signo' value='$registro[id_signo]' hidden><br><br>
+												<input type='text' name='id_signo' value='$registro[id_signo]' hidden>
+												<input type='text' name='desde' value='Signos' hidden>
 
 												<div class='row'>
 													<div  class='col-md-6'>
@@ -89,6 +88,12 @@
 													</div>
 												</div>
 
+												<div class='row'>
+													<div class='col-md-12'>
+														<label>Valor de $registro[nombre_signo] </label><br>
+														<input type='number' class='form-control' name='valor_signo' value='$registro[valor_signo]' onkeypress='return justNumbers(event,this.form.desde.value);'> Puntos.<br><br>
+													</div>
+												</div>
 
 												<div>
 													<hr>
