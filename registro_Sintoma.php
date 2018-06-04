@@ -2,9 +2,9 @@
 	include "library/conec.php";
 	include "lib_required_sweetalert.php";
 
-	$traer_Valor_sintoma = [$_POST['nombre_sintoma'] , $_POST['descripcion_sintoma']];
+	$traer_Valor_sintoma = [$_POST['nombre_sintoma'] , $_POST['descripcion_sintoma'], $_POST['valor_sintoma']];
 
-	$consulta_Sintoma = "INSERT INTO sintomas (nombre_sintoma , descripcion_sintoma) VALUES ('$traer_Valor_sintoma[0]' , '$traer_Valor_sintoma[1]')";
+	$consulta_Sintoma = "INSERT INTO sintomas (nombre_sintoma , descripcion_sintoma, valor_item) VALUES ('$traer_Valor_sintoma[0]' , '$traer_Valor_sintoma[1]' , '$traer_Valor_sintoma[2]')";
 	$resultado = $conexion -> query($consulta_Sintoma);
 
 	if($resultado){

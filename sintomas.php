@@ -16,7 +16,7 @@
 			</h2>
 			<input class="form-control colocar-icono" type="text" name="buscar" id="input" placeholder="Buscar..." autofocus="autofocus" onkeyup="doSearch()"><br>
 		</center>
-		<a href="#registrar_Sintoma" data-toggle="modal" class="btn btn-primary fa fa-user-plus fa-2x tamaño-botones-general"></a>
+		<a href="#registrar_Sintoma" data-toggle="modal" class="btn btn-primary fa fa-plus-square fa-2x tamaño-botones-general"></a>
 		<a href='library/reportes/Sintoma/exportar_all_sintomas.php' class="btn btn-info" onclick="alert_dinamic(event , 'Los Sintomas de Fatiga' , 'library/reportes/Sintoma/exportar_all_sintomas.php')"><span class="glyphicon glyphicon-download-alt tamaño-botones-general"></span></a>
 		<label class="alinear_tipo_documento"><span class="glyphicon glyphicon-star"></span> Total Sintomas : <input type="text" class="btn btn-danger btn-md" value="<?php echo $total_sintomas; ?>" disabled></label>
 	</div>
@@ -121,11 +121,12 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title"><span class="fa fa-user-plus"></span> Registro de Nuevo Sintoma</h4>
+					<h4 class="modal-title"><span class="fa fa-plus-square"></span> Registro de Nuevo Sintoma</h4>
 				</div>
 
 				<div class="modal-body text-center">
 					<form action="registro_Sintoma.php" method="post">
+						<input type='text' name='desde' value='Sintomas' hidden>
 						<center>
 							<div class="row">
 								<div class='col-md-12'>
@@ -137,6 +138,12 @@
 							<div class="rows">
 								<div class='col-md-12'>
 									<textarea name="descripcion_sintoma" id="descripcion_sintoma" class="borde_textarea" placeholder="Ingrese Descripcion Sintomas" cols='80' rows='5' onkeypress="return onlyWords(event)" onchange="style_border_input('descripcion_sintoma','verde')" required></textarea><br><br>
+								</div>
+							</div>
+
+							<div class="rows">
+								<div class='col-md-12'>
+									<input type='number' class='form-control' name='valor_sintoma' placeholder="Ingrese valor del nuevo sintoma" onkeypress='return justNumbers(event,this.form.desde.value);' required> Puntos.<br><br>
 								</div>
 							</div>
 
