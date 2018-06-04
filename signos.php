@@ -142,7 +142,7 @@
 
 							<div class='row'>
 								<div class='col-md-12'>
-									<input type='number' class='form-control' name='valor_signo' placeholder="Ingrese valor de Signo" onkeypress='return justNumbers(event,this.form.desde.value);'> Puntos.<br><br>
+									<input type='number' class='form-control' name='valor_signo' placeholder="Ingrese valor de Signo" onkeypress='return justNumbers(event,this.form.desde.value);' required> Puntos.<br><br>
 								</div>
 							</div>
 

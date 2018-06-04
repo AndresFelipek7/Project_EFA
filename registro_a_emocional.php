@@ -2,8 +2,8 @@
 	include "library/conec.php";
 	include "lib_required_sweetalert.php";
 
-	$traer_Valor_a_Emocional = [$_POST['nombre_emocional'] , $_POST['descripcion_emocional']];
-	$consulta_a_Emocional = "INSERT INTO alteraciones_emocionales (nombre_a_emocional , descripcion_a_emocional) VALUES ('$traer_Valor_a_Emocional[0]' , '$traer_Valor_a_Emocional[1]')";
+	$traer_Valor_a_Emocional = [$_POST['nombre_emocional'] , $_POST['descripcion_emocional'], $_POST['valor_emocional']];
+	$consulta_a_Emocional = "INSERT INTO alteraciones_emocionales (nombre_a_emocional , descripcion_a_emocional, valor_item) VALUES ('$traer_Valor_a_Emocional[0]' , '$traer_Valor_a_Emocional[1]', '$traer_Valor_a_Emocional[2]')";
 	$resultado = $conexion -> query($consulta_a_Emocional);
 
 	if($resultado){
