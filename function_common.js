@@ -1796,3 +1796,17 @@ const check_born_copilot_required = () => {
 		$("#check_born_copilot").hide();
 	}
 }
+
+/**
+ * Fucnion para activar un input
+ *
+ * @param id
+ * @return activacion
+ */
+const active_input = (nameInput) => {
+	console.log(nameInput);
+/*	let input = document.getElementById(id_final).checked;
+	return (input) ? console.log("Activo el Chekbox") : console.log("Inactivo el Checkbox");*/
+
+	//document.getElementById(id_final).disabled=false;
+}
