@@ -17,6 +17,7 @@
 		</center>
 		<a href="#registrar_Signo" data-toggle="modal" class="btn btn-primary fa fa-plus-square fa-2x tamaño-botones-general"></a>
 		<a href='library/reportes/Signo/exportar_all_signo.php' class="btn btn-info" onclick="alert_dinamic(event , 'Los Signos de Fatiga' , 'library/reportes/Signo/exportar_all_signo.php')"><span class="glyphicon glyphicon-download-alt tamaño-botones-general"></span></a>
+		<a href="#update_value_item" data-toggle="modal" class="btn btn-warning fa fa-cogs fa-2x tamaño-botones-general"></a>
 		<label class="alinear_total_derecha"><span class="glyphicon glyphicon-star"></span> Total Signos =  <input type="text" class="btn btn-danger btn-md" value="<?php echo $total_signo; ?>" disabled></label>
 	</div>
 
@@ -158,6 +159,43 @@
 
 				<div class="modal-footer">
 					<button type="button" data-dismiss="modal" class="btn btn-danger glyphicon glyphicon-remove"> </button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal para editar info de valores de cada item -->
+	<div class="modal fade" id="update_value_item">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title"><span class="fa fa-cog"></span> Editar Valores de Cada Signo</h4>
+				</div>
+
+				<div class="modal-body text-center">
+					<?php
+						$show = mysqli_query($conexion,"SELECT * FROM reporte_signos_admin");
+						echo "<ul>";
+							foreach ($show as $item) {
+								echo "<div class='container-fluid row'>";
+										echo "<div class='col-md-6'>";
+											panel_info_for_modal("panel-info", $item['nombre_signo'], "
+												<form action='actualizar_valores_signos.php' method='POST' name='items_sintoma'>
+													<input type='text' id='test' name='input_test' value='este es el contenido' hidden>
+													<input type='text' id='sintoma$item[valor_signo]' value='$item[valor_signo]' class='form-control' disabled>
+													<input type='checkbox' id='active_item_sintomas' value='sintoma$item[id_signo]' name='active_item' onclick='active_input(this.form.input_test.value)'>");
+										echo "</div>";
+									echo "<div>";
+							}
+							echo "<div class='col-md-12'>
+								<hr><br><button type='submit' class='btn btn-warning'><span class='glyphicon glyphicon-ok'></span></button></form></div>";
+						echo "</ul>";
+					?>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal" class="btn btn-danger glyphicon glyphicon-remove"></button>
 				</div>
 			</div>
 		</div>
