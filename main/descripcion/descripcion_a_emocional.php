@@ -27,6 +27,7 @@
 									echo "<div class='$columnsGrid'>";
 										$object_emocional = query_emocional($valor_emocional,$conexion);
 										panel_info_for_modal("panel-default", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
+										$acumulador_Alteraciones_emocionales = $acumulador_Alteraciones_emocionales + $object_emocional["valor_item"];
 									echo "</div>";
 								echo "<div>";
 							}
@@ -44,6 +45,7 @@
 									echo "<div class='col-md-6'>";
 										$object_emocional = query_emocional($valor_emocional,$conexion);
 										panel_info_for_modal("panel-default", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
+										$acumulador_Alteraciones_emocionales = $acumulador_Alteraciones_emocionales + $object_emocional["valor_item"];
 									echo "</div>";
 								echo "<div>";
 							}

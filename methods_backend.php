@@ -263,7 +263,8 @@
 			$id_a_emocional = $row['id_a_emocional'];
 			$nombre_a_emocional= $row['nombre_a_emocional'];
 			$descripcion_a_emocional = $row['descripcion_a_emocional'];
-			$info_emocional = ["id_emocional" => $id_a_emocional, "nombre_emocional" => $nombre_a_emocional, "descripcion_emocional" => $descripcion_a_emocional];
+			$valor_item = $row['valor_item'];
+			$info_emocional = ["id_emocional" => $id_a_emocional, "nombre_emocional" => $nombre_a_emocional, "descripcion_emocional" => $descripcion_a_emocional, "valor_item" => $valor_item];
 			return $info_emocional;
 		}
 	}
