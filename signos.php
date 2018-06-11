@@ -181,7 +181,7 @@
 								echo "<div class='container-fluid row'>";
 										echo "<div class='col-md-6'>";
 											panel_info_for_modal("panel-info", $item['nombre_signo'], "
-												<form action='actualizar_valores_signos.php' method='POST' name='items_sintoma'>
+												<form action='actualizar_valores_signos.php' method='POST' name='items_signos'>
 													<input type='text' id='test' name='input_test' value='este es el contenido' hidden>
 													<input type='text' id='sintoma$item[valor_signo]' value='$item[valor_signo]' class='form-control' disabled>
 													<input type='checkbox' id='active_item_sintomas' value='sintoma$item[id_signo]' name='active_item' onclick='active_input(this.form.input_test.value)'>");
