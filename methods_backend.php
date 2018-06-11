@@ -216,7 +216,8 @@
 			$id_a_neurologico = $row['id_a_neurologico'];
 			$nombre_a_neurologico = $row['nombre_a_neurologico'];
 			$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
-			$info_neurologico = ["id_a_neurologico" => $id_a_neurologico, "nombre_a_neurologico" => $nombre_a_neurologico, "descripcion_a_neurologico" => $descripcion_a_neurologico];
+			$valor_item = $row['valor_item'];
+			$info_neurologico = ["id_a_neurologico" => $id_a_neurologico, "nombre_a_neurologico" => $nombre_a_neurologico, "descripcion_a_neurologico" => $descripcion_a_neurologico, "valor_item" => $valor_item];
 			return $info_neurologico;
 		}else {
 			return "Ha ocurrido un erro inesperado.";

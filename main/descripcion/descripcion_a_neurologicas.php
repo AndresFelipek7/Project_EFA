@@ -27,6 +27,7 @@
 									echo "<div class='$columnsGrid'>";
 										$object_neurologico = query_neurologico($valor_neurologico,$conexion);
 										panel_info_for_modal("panel-default", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
+										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $object_neurologico["valor_item"];
 									echo "</div>";
 								echo "<div>";
 							}
