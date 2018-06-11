@@ -18,7 +18,7 @@
 		<a href="#registrar_Signo" data-toggle="modal" class="btn btn-primary fa fa-plus-square fa-2x tamaño-botones-general"></a>
 		<a href='library/reportes/Signo/exportar_all_signo.php' class="btn btn-info" onclick="alert_dinamic(event , 'Los Signos de Fatiga' , 'library/reportes/Signo/exportar_all_signo.php')"><span class="glyphicon glyphicon-download-alt tamaño-botones-general"></span></a>
 		<a href="#update_value_item" data-toggle="modal" class="btn btn-warning fa fa-cogs fa-2x tamaño-botones-general"></a>
-		<label class="alinear_total_derecha"><span class="glyphicon glyphicon-star"></span> Total Signos =  <input type="text" class="btn btn-danger btn-md" value="<?php echo $total_signo; ?>" disabled></label>
+		<label class="alinear_total_derecha"><span class="glyphicon glyphicon-star"></span> Total Signos =  <input type="text" class="btn btn-danger btn-xs" value="<?php echo $total_signo; ?>" disabled></label>
 	</div>
 
 	<!--contenedor donde se muestra la tabla con la info de la BD-->
