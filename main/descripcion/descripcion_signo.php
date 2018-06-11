@@ -17,6 +17,7 @@
 						echo "<div class='row'>";
 							echo "<div class='col-md-6'>";
 								panel_info_for_modal("panel-default", $object_signo["nombre_signo"], $object_signo["descripcion_signo"]);
+								$acumulador_Signo = $object_signo["valor_item"];
 							echo "</div>";
 							echo "<div class='col-md-6'>";
 								panel_info_for_modal("panel-info", "Otro Estado del Conductor" , $valor_otro_estado_signo);
@@ -26,43 +27,9 @@
 						echo "<div class='row'>";
 							echo "<div class='col-md-12'>";
 								panel_info_for_modal("panel-default", $object_signo["nombre_signo"], $object_signo["descripcion_signo"]);
+								$acumulador_Signo = $object_signo["valor_item"];
 							echo "</div>";
 						echo "</div>";
-					}
-
-					//Valor por opcion del signo elegido
-					switch ($object_signo["nombre_signo"]) {
-						case "Comatoso":
-							$puntos_Signo_comatoso = 7;
-							$acumulador_Signo = 7;
-						break;
-						case "Estuporoso":
-							$puntos_Signo_estuporoso = 6;
-							$acumulador_Signo = 6;
-						break;
-						case "Somnoliento":
-							$puntos_Signo_somnoliento = 5;
-							$acumulador_Signo = 5;
-						break;
-						case "Agotamiento":
-							$puntos_Signo_agotamiento = 4;
-							$acumulador_Signo = 4;
-						break;
-						case "Estres":
-							$puntos_Signo_estres = 3;
-							$acumulador_Signo = 3;
-						break;
-						case "Confuso":
-							$puntos_Signo_confuso = 2;
-							$acumulador_Signo = 2;
-						break;
-						case "Alerta":
-							$puntos_Signo_alerta = 1;
-							$acumulador_Signo = 1;
-						break;
-						default:
-							echo "Hemos encontrado un erro al cargar los datos del menu Signos";
-						break;
 					}
 				?>
 			</div>

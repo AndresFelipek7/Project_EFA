@@ -66,7 +66,7 @@
 							1)Interrogatorio 2)Sintoma 3)Emocional 4)Neurologico 5)Signos
 					*/
 
-					if($traer_Valores_interrogatorio[5] < 8 && $acumulador_Sintomas >= 91 || $acumulador_Alteraciones_emocionales >= 39 || $acumulador_Alteraciones_neurologicas >= 13 && $acumulador_Signo == 7) {
+					if($traer_Valores_interrogatorio[5] < 8 && $acumulador_Sintomas >= 91 || $acumulador_Alteraciones_emocionales >= 39 || $acumulador_Alteraciones_neurologicas >= 13 && $acumulador_Signo == 6) {
 						$acumulador_Pilares = $acumulador_Pilares + $valor_Pilar;
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 

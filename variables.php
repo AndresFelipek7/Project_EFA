@@ -8,7 +8,6 @@
 	$acumulador_Sintomas = 10;
 	$acumulador_Alteraciones_emocionales = 10;
 	$acumulador_Alteraciones_neurologicas = 20;
-	$acumulador_Signo = 4;
 
 	//Banderas inicializadas en cero para que cuando tengamos el total de cada menu podamos decir que pilar esta activo
 	$pilar_activo_Labor_estenuante = 0;

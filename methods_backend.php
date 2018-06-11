@@ -239,7 +239,8 @@
 			$id_signo = $row['id_signo'];
 			$nombre_Signo = $row['nombre_signo'];
 			$descripcion_Signo = $row['descripcion_signo'];
-			return $info_signo = ["id_signo" => $id_signo, "nombre_signo" => $nombre_Signo, "descripcion_signo" => $descripcion_Signo];
+			$valor_item = $row['valor_item'];
+			return $info_signo = ["id_signo" => $id_signo, "nombre_signo" => $nombre_Signo, "descripcion_signo" => $descripcion_Signo, "valor_item" => $valor_item];
 		}else {
 			return "Ha ocurrido un erro inesperado.";
 		}
