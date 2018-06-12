@@ -22,7 +22,7 @@
 			require_once "main/informacion_conductor.php";
 
 			//Algoritmo para guardar el pantallazo de la app mi fit al proyecto
-			/*include "library/save_screenshot_mi_fit.php";*/
+			include "library/save_screenshot_mi_fit.php";
 
 			require_once "variables.php";
 

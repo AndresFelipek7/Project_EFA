@@ -32,19 +32,11 @@
 	$sugerencia_a_emocional_seleccionados = 0;
 	$sugerencia_a_neurologico_seleccionados = 0;
 
-	//Inicializacion de las variables que nos sirven para saber si hay otro sintoma u otras aletraciones en el formulario
-	//Si no se definen aqui cuando no se ingresa nada va a generar error por variable indefinida
-	$valor_otro_sintoma = "";
-	$valor_otra_a_Emocional = "";
-	$otra_a_neurologica = "";
-	$valor_otro_estado_signo = "";
 	$saber_nivel_fatiga = "";
 
 	//Vector del menu interrogatorio
 	$traer_Valores_interrogatorio = [ $_POST['descanso'] , $_POST['camarote'] , $_POST['conduciendo'] , $_POST['otra_actividad'] , $_POST['cual_actividad'] , $_POST['sueño_efectivo_previo'] , $_POST['tiempo_descanso'] , $_POST['ruta'] , $_POST['copiloto'] , $_POST['origen_copiloto'] , $_POST["pulsaciones"]];
-	//Valor signo seleccionado por el evaluador
 	$valor_Signo = $_POST['signos'];
-	//Capturar valor de sintoma Hormigueo
 	$s_hromigueo = $_POST["hormigueo_opcion"];
 
 	//Este es el tiempo en minutos y segundos cuando se envia la evaluacion a la bd y ya se tiene el resultado y las sugerencias para el evaluador

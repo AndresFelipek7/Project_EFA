@@ -27,6 +27,7 @@
 									echo "<div class='$columnsGrid'>";
 										$object_emocional = query_emocional($valor_emocional,$conexion);
 										panel_info_for_modal("panel-default", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
+										$a_emocionales_seleccionadas = $object_emocional["id_emocional"].",".$a_emocionales_seleccionadas;
 										$acumulador_Alteraciones_emocionales = $acumulador_Alteraciones_emocionales + $object_emocional["valor_item"];
 									echo "</div>";
 								echo "<div>";
