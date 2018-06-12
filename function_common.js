@@ -908,10 +908,6 @@ const select_all_checkbox = ()=> {
 		if(document.f_evaluacion.elements[i].type == "checkbox")
 			document.f_evaluacion.elements[i].checked=1;
 	}
-
-	document.getElementById('contenedor_o_sintoma').style.display='block';
-	document.getElementById('contenedor_alteracines_emocionales').style.display='block';
-	document.getElementById('contenedor_alteraciones_neurologicas').style.display='block';
 }
 
 /**
@@ -925,10 +921,6 @@ const desmarcar_todo_checkbox = () =>{
 		if(document.f_evaluacion.elements[i].type == "checkbox")
 			document.f_evaluacion.elements[i].checked=0;
 	}
-
-	document.getElementById('contenedor_o_sintoma').style.display='none';
-	document.getElementById('contenedor_alteracines_emocionales').style.display='none';
-	document.getElementById('contenedor_alteraciones_neurologicas').style.display='none';
 }
 
 /**

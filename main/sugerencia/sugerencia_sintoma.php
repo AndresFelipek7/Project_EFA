@@ -24,7 +24,7 @@
 										$object_sintoma_sugerencia = query_sugerencia('id_sintoma',$object_sintoma["id_sintoma"],$conexion);
 										($object_sintoma_sugerencia['id_orden'] != 1) ? $orden_reposo = "Despues del Viaje" : $orden_reposo = "Inmediatamente";
 										alert_improve_driver("info", "<strong>$valor_sintoma</strong><br>", "La orden de reposo es  = <strong>$orden_reposo</strong> <br> <hr>$object_sintoma_sugerencia[descripcion_sugerencia]");
-										$sugerencia_a_emocional_seleccionados = $object_sintoma_sugerencia["id_sugerencia"].",".$sugerencia_a_emocional_seleccionados;
+										$sugerencia_sintoma_seleccionados = $object_sintoma_sugerencia["id_sugerencia"].",".$sugerencia_sintoma_seleccionados;
 									echo "</div>";
 								echo "<div>";
 							}

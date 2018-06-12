@@ -1,10 +1,9 @@
 <?php
-	//Variables para hacer la insercion de la evaluacion a la Base de Datos
 	$identificacion_conductor = $_SESSION["registro"];
 	$id_Usuario = $_SESSION['id_usuario'];
 	$traer_Valores_signos = $_POST['signos'];
 
-	/*$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
+	$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
 		id_usuario ,
 		id_conductor ,
 		id_ruta ,
@@ -81,10 +80,4 @@
 	)";
 
 	$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);
-
-	if($resultado_Insercion_evaluacion) {
-		echo '<script> alert(" Bien! Se han Insertado la evaluacion correctamente"); </script>';
-	}else{
-		echo '<script> alert(" Problemas al Insertar la evaluacion"); </script>';
-	}*/
 ?>

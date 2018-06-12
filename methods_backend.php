@@ -285,7 +285,8 @@
 			$id_sintoma = $row['id_sintoma'];
 			$nombre_Sintoma = $row['nombre_sintoma'];
 			$descripcion_Sintoma = $row['descripcion_sintoma'];
-			$info_sintomas = ["id_sintoma" => $id_sintoma, "nombre_sintoma" => $nombre_Sintoma, "descripcion_sintoma" => $descripcion_Sintoma];
+			$valor_item = $row['valor_item'];
+			$info_sintomas = ["id_sintoma" => $id_sintoma, "nombre_sintoma" => $nombre_Sintoma, "descripcion_sintoma" => $descripcion_Sintoma, "valor_item" => $valor_item];
 			return $info_sintomas;
 		}
 	}

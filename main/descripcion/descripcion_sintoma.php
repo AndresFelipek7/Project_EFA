@@ -11,7 +11,7 @@
 				<?php
 					if(!empty($_POST["sintomas"]) && is_array($_POST["sintomas"])) {
 						$valor = count($_POST["sintomas"]);
-						$otro_sintoma = $_POST["valor_otro_sintoma"];
+						$valor_otro_sintoma = $_POST["valor_otro_sintoma"];
 
 						if ($valor > 3) {
 							$columnsGrid = "col-md-4";
@@ -27,12 +27,14 @@
 									echo "<div class='$columnsGrid'>";
 										$object_sintomas = query_sintomas($valor_sintomas,$conexion);
 										panel_info_for_modal("panel-default", $object_sintomas['nombre_sintoma'], $object_sintomas['descripcion_sintoma']);
+										$sintomas_seleccionados = $object_sintomas["id_sintoma"].",".$sintomas_seleccionados;
+										$acumulador_Sintomas = $acumulador_Sintomas + $object_sintomas["valor_item"];
 									echo "</div>";
 								echo "<div>";
 							}
 						echo "</ul>";
-						if ($otro_sintoma != "") {
-								panel_info_for_modal("panel-primary", "Otro Sintoma", $otro_sintoma);
+						if ($valor_otro_sintoma != "") {
+								panel_info_for_modal("panel-primary", "Otro Sintoma", $valor_otro_sintoma);
 						}
 					}else{
 						echo "<script> document.getElementById('descripcion_sintoma').style.display='none';</script>";
