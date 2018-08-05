@@ -1,5 +1,5 @@
 <?php
-	$select_sueño = $_POST["sueño_profundo"];
+	$select_sueño = $_POST["solo_sueño_manilla"];
 	//Sacamos los minutos de la informacion que dijo el conductor que durmio en tiempo sueño
 	$tiempo_sueño_conductor = getMinutes($traer_Valores_interrogatorio[5]);
 
