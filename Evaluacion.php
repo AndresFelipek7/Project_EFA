@@ -22,7 +22,6 @@
 	<div class='container text-center'>
 		<div class="row">
 			<h2>EFA</h2>
-			<h5 class="mensaje_actualiza_info_conductor"><strong>*Se recomienda Mirar el porcentaje de la bateria de la manilla , si esta por debajo del 15% se debe Cargar Inmediatamente*</strong></h5>
 		</div>
 	</div><br><br>
 
@@ -108,7 +107,6 @@
 								<button type="button" class="btn btn-md btn-primary" id="ayuda_interrogatorio" data-toggle="tooltip" data-placement="right" title="En este Menu es necesario saber las horas que el conductor indique en cada caso"><span class="fa fa-info"></span></button>
 								<h4>Informacion en Horas</h4>
 								<h4 class="input_obligatory">Campo Obligatorio *</h4>
-								<button type="reset" class="btn btn-warning" onclick="hide_new_input_destiny();"> <span class="glyphicon glyphicon-remove"></span></button>
 								<hr>
 
 								<div class=' col-md-6'>
@@ -242,8 +240,6 @@
 					<div class='panel-body text-center'>
 						<button type="button" class="btn btn-md btn-primary" id="ayuda_sintoma" data-toggle="tooltip" data-placement="right" title="Los sintomas de fatiga es lo que el conductor dice que siente en el momento de hacer la evaluacion de fatiga"><span class="fa fa-info"></span></button>
 						<h4>Seleccion Multiple</h4>
-						<a class="btn btn-success" onclick="select_all_checkbox()"> <span class="fa fa-check-square"></span> Marcar Todos</a>
-						<a class="btn btn-warning" onclick="desmarcar_todo_checkbox()"><span class="fa fa-minus-square"></span> Desmarcar Todos</a>
 						<hr>
 						<div class="style_check_sintomas">
 							<?php
@@ -297,7 +293,6 @@
 								<textarea name="valor_otro_estado_signo" id="valor_otro_estado" class="borde_textarea" placeholder="Colocar Estado del Conductor" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('valor_otro_estado','verde')"></textarea>
 							</div>
 						<hr>
-						<a href="#sincronizar_manilla" data-toggle='modal' class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
 						<?php
 							$traer_id_conductor = $_POST['valor_id'];
 
@@ -312,8 +307,39 @@
 							}
 						?>
 						<a href="#usuario_contraseña_conductor" data-toggle='modal' class="btn btn-warning"><span class="glyphicon glyphicon-user"></span></a>
+						<button type="button" class="btn btn-md btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="right" title="Sueño profundo consiste en el tiempo en que el conductor a dormido."><span class="fa fa-info"></span></button>
 						<div>
 							<div class="col-md-12">
+								<center>
+									<input type="hidden" name="desde" value="form_evaluacion">
+									<input type="hidden" name="path_from" value="evaluacion.php">
+
+									<label>Sueño Total Manilla </label><br>
+									<select id="solo_sueño_manilla" name="solo_sueño_manilla" onchange="show_container_checked('solo_sueño_manilla','container_deep_sleep_only_hour','container_deep_sleep_only_minutes','container_deep_sleep_both_time')">
+										<option value="hora">Solo hora</option>
+										<option value="minutos">Solo Minutos</option>
+										<option value="ambos">Hora y minutos</option>
+									</select><br><br>
+
+									<div id="container_deep_sleep_only_hour">
+										<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value)">
+									</div>
+									<div id="container_deep_sleep_only_minutes" class="hide_container">
+										<input type='number' class='form-control' id="solo_minutos_sueno" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value)">
+									</div>
+									<div id="container_deep_sleep_both_time" class="row hide_container">
+										<div class="col-md-6">
+											<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value)">
+										</div>
+										<div class="col-md-6">
+											<input type='number' class='form-control' id="solo_minutos_sueno_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value)">
+										</div>
+									</div>
+								</center>
+								<hr>
+							</div>
+							<!-- CODIGO CUANDO ESTA EL SUEÑO PROFUNDO Y SUEÑO LIGERO  -->
+							<!-- <div class="col-md-12">
 								<button type="button" class="btn btn-md btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="left" title="Sueño profundo consiste en el tiempo en que el conductor a dormido."><span class="fa fa-info"></span></button>
 								<center>
 									<input type="hidden" name="desde" value="form_evaluacion">
@@ -334,14 +360,14 @@
 										<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 									</div>
 									<div id="container_deep_sleep_only_minutes" class="hide_container">
-										<input type='number' class='form-control' id="solo_minutos" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+										<input type='number' class='form-control' id="solo_minutos_sueno" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 									</div>
 									<div id="container_deep_sleep_both_time" class="row hide_container">
 										<div class="col-md-6">
 											<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 										</div>
 										<div class="col-md-6">
-											<input type='number' class='form-control' id="solo_minutos_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+											<input type='number' class='form-control' id="solo_minutos_sueno_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 										</div>
 									</div>
 								</center>
@@ -369,20 +395,20 @@
 										<input type="number" class="form-control" name="solo_hora_sueno_ligero" id="solo_hora_sueno_ligero" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_ligero.value,this.form.path_from.value,this.form.id_input_hour_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 									</div>
 									<div id="container_deep_sleep_only_minutes_light" class="hide_container">
-										<input type='number' class='form-control' id="solo_minutos_ligero" name='solo_minutos_sueno_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_ligero.value,this.form.path_from.value,this.form.id_input_minutes_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+										<input type='number' class='form-control' id="solo_minutos_sueno_ligero" name='solo_minutos_sueno_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_ligero.value,this.form.path_from.value,this.form.id_input_minutes_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 									</div>
 									<div id="container_deep_sleep_both_time_light" class="row hide_container">
 										<div class="col-md-6">
 											<input type="number" class="form-control" id="solo_hora_sueno_both_ligero" name="solo_hora_sueno_both_ligero" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_hour_both_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 										</div>
 										<div class="col-md-6">
-											<input type='number' class='form-control' id="solo_minutos_both_ligero" name='solo_minutos_sueno_both_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_minutes_both_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+											<input type='number' class='form-control' id="solo_minutos_sueno_both_ligero" name='solo_minutos_sueno_both_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_minutes_both_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
 										</div>
 									</div>
 								</center>
 								<div id="content_all_time_both_sleep" class="hide_container"></div>
 								<hr>
-							</div>
+							</div> -->
 
 							<div class="col-md-12">
 								<button type="button" class="btn btn-md btn-primary" id="ayuda_pulsaciones" data-toggle="tooltip" data-placement="left" title="Las pulsaciones es el pulso que presente el conductor durante la evaluacion de fatiga , si por alguna razon las pulsaciones superan las 100 por minuto es necesario repetir la medicion de las pulsaciones para estar seguros. solo se coloca el numero entero en este campo."><span class="fa fa-info"></span></button>
@@ -506,36 +532,6 @@
 				</div>
 			</div>
 		</aside>
-	</div>
-
-	<!--MODAL PARA COMO SINCRONIZAR LA MANILLA CON LA APP MI FIT-->
-	<div class="modal fade" id="sincronizar_manilla">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title"><span class="fa fa-info"> Sincronizar la Manilla</span></h4>
-				</div>
-
-				<div class="modal-body text-center">
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							<h3 class="panel-title">Pasos para Sincronizar</h3>
-						</div>
-						<div class="panel-body">
-							<label><strong>Paso 1:</strong></label> Abrir la aplicacion mi fit en su Celular<br>
-						<label><strong>Paso 2:</strong></label> Ingresar usuario y contraseña del conductor al que se le esta haciendo la evaluacion de fatiga<br>
-						<label><strong>Paso 3:</strong></label> Ir al menu principal de la aplicacion mi fit , en el apartado de sincronizar manilla en el menu principal <br>
-						<label><strong>Paso 4:</strong></label> Esperar unos segundos hasta que sincronice toda la informacion <br>
-						</div>
-					</div>
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" data-dismiss="modal" class="btn btn-danger glyphicon glyphicon-remove"> </button>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<!--MODAL PARA MOSTRAR USUARIO Y CONTRASEÑA DEL CONDUCTOR-->

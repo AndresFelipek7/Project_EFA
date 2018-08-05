@@ -30,6 +30,7 @@
 				echo "<div class='row'>";
 					echo "<div class='col-md-6'>";
 						require_once "main/comparacion_sueno_manilla.php";
+						require_once "main/comparacion_sueno_manilla.php";
 					echo "</div>";
 					echo "<div class='col-md-6'>";
 						require_once "main/asignacion_estado_pulsaciones.php";
@@ -37,7 +38,7 @@
 				echo "</div>";
 			echo "</div>";
 
-			require_once "main/comparacion_sueno_ligero_manilla.php";
+			//require_once "main/comparacion_sueno_ligero_manilla.php";
 
 			echo "<div class='container text-center'><hr>";
 				echo "<h3>Descripcion Detallada</h3>";

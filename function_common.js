@@ -898,32 +898,6 @@ const check_hour_all_destiny = () => {
 }
 
 /**
- * Funcion para seleccionar todo los checkbox del form evaluacion fatiga
- *
- * @param none
- * @return activa todo los checkbox
- */
-const select_all_checkbox = ()=> {
-	for (i=0;i<document.f_evaluacion.elements.length;i++){
-		if(document.f_evaluacion.elements[i].type == "checkbox")
-			document.f_evaluacion.elements[i].checked=1;
-	}
-}
-
-/**
- * Funcion para desmarcar todo los checkbox del form evaluacion
- *
- * @param none
- * @return una accion
- */
-const desmarcar_todo_checkbox = () =>{
-	for (i=0;i<document.f_evaluacion.elements.length;i++){
-		if(document.f_evaluacion.elements[i].type == "checkbox")
-			document.f_evaluacion.elements[i].checked=0;
-	}
-}
-
-/**
  * Funcion para permitir solo numeros en un input
  *
  * @param e,desde
@@ -1170,18 +1144,6 @@ const check_hour_all_break = () => {
 	let suma_horas_permitidas = trae_hora_sueno + traer_hora_descanso;
 
 	(suma_horas_permitidas >= 24) ? alert_dinamic_check_validator("La hora ingresada en el campo Tiempo Sueño y tiempo descanso supera las 24 horas que tiene el dia.", "Evaluacion.php") : "";
-}
-
-/**
- * Funcion para ocultar los campos creados por la lista dinamica destino
- *
- * @param none
- * @return oculta los campos que se crearon
- */
-const hide_new_input_destiny = () => {
-	document.getElementById('contenedor_o_actividad').style.display='none';
-	document.getElementById('contenedor_destino_Ajax').style.display='none';
-	document.getElementById('camarote').style.display='none';
 }
 
 /**
@@ -1569,20 +1531,33 @@ const show_container_checked = (idInput,idHour,idMinutes,idBothTime) => {
 	switch(option_checked){
 		case "hora":
 			document.getElementById(idHour).style.display = "block";
-			$("#solo_hora_sueno").attr('required','required');
+			if(idInput == "sueño_profundo") {
+				$("#solo_minutos_sueno").attr('required','required');
+			}else {
+				$("#solo_hora_sueno_ligero").attr('required','required');
+			}
 			document.getElementById(idMinutes).style.display = "none";
 			document.getElementById(idBothTime).style.display = "none";
 		break;
 		case "minutos":
 			document.getElementById(idMinutes).style.display = "block";
-			$("#solo_minutos").attr('required','required');
+			if(idInput == "sueño_profundo") {
+				$("#solo_minutos").attr('required','required');
+			}else {
+				$("#solo_minutos_ligero").attr('required','required');
+			}
 			document.getElementById(idHour).style.display = "none";
 			document.getElementById(idBothTime).style.display = "none";
 		break;
 		case "ambos":
 			document.getElementById(idBothTime).style.display = "block";
-			$("#solo_hora_sueno_both").attr('required','required');
-			$("#solo_minutos_both").attr('required','required');
+			if(idInput == "sueño_profundo") {
+				$("#solo_hora_sueno_both").attr('required','required');
+				$("#solo_minutos_both").attr('required','required');
+			}else {
+				$("#solo_hora_sueno_both_ligero").attr('required','required');
+				$("#solo_minutos_both_ligero").attr('required','required');
+			}
 			document.getElementById(idHour).style.display = "none";
 			document.getElementById(idMinutes).style.display = "none";
 		break;
