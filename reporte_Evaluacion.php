@@ -10,12 +10,12 @@
 	<?php
 		include "lib_required_sweetalert_only_profile_evaluador.php";
 		include "methods_backend.php";
-		/*$verificar_envio = $_SESSION["verificar"];*/
+		$verificar_envio = $_SESSION["verificar"];
 
 		//Cuando es igual a 1 significa que se ha envia una soloa vez , pero si se intenta actualizar va tener otro valor
-		/*if($verificar_envio == 1) {*/
+		if($verificar_envio == 1) {
 			//Para destruir la variable
-			/*unset($_SESSION["verificar"]);*/
+			unset($_SESSION["verificar"]);
 			//Enlazamos un archivo para saber cuanto tiempo se demoro en realizar la evaluacion
 			include "tiempo_realizar_evaluacion.php";
 
@@ -90,10 +90,10 @@
 			require_once "register_test.php";
 
 			$conexion->close();
-		/*}else {
+		}else {
 			echo "<script>alert('Acceso Denegado , No esta permitido refrescar este modulo por seguridad , Gracias :)')</script>";
 			echo "<script> window.location = 'test.php'</script>";
-		}*/
+		}
 	?>
 	<?php include "library/Footer.php"; ?>
 </body>
