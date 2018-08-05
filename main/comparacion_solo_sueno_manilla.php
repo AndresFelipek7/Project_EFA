@@ -5,9 +5,9 @@
 
 	switch($select_sueño) {
 		case 'hora':
-			$solo_hora_suenño = $_POST["solo_hora_sueno"];
-			$total_minutos_sueño = getMinutes($solo_hora_suenño);
-			$diferencia_Entre_tiempo_Sueño = $tiempo_sueño_conductor - $total_minutos_sueño;
+			$solo_hora_sueño = $_POST["solo_hora_sueno"];
+			$total_minutos_sueño_manilla = getMinutes($solo_hora_sueño);
+			$diferencia_Entre_tiempo_Sueño = $tiempo_sueño_conductor - $total_minutos_sueño_manilla;
 
 			($diferencia_Entre_tiempo_Sueño < 0) ? $cambiar_signo_si_es_negativo = change_negative_numeric($diferencia_Entre_tiempo_Sueño) : $diferencia_Entre_tiempo_Sueño;
 		break;
@@ -16,12 +16,12 @@
 
 			if ($solo_minutos_sueño >= 50 && $solo_minutos_sueño < 60) {
 				$añadir_minutos_faltantes = 60 - $solo_minutos_sueño;
-				$total_minutos_sueño = $solo_minutos_sueño + $añadir_minutos_faltantes;
+				$total_minutos_sueño_manilla = $solo_minutos_sueño + $añadir_minutos_faltantes;
 			}else {
-				$total_minutos_sueño = $solo_minutos_sueño;
+				$total_minutos_sueño_manilla = $solo_minutos_sueño;
 			}
 
-			$diferencia_Entre_tiempo_Sueño = $tiempo_sueño_conductor - $total_minutos_sueño;
+			$diferencia_Entre_tiempo_Sueño = $tiempo_sueño_conductor - $total_minutos_sueño_manilla;
 			($diferencia_Entre_tiempo_Sueño < 0) ? $cambiar_signo_si_es_negativo = change_negative_numeric($diferencia_Entre_tiempo_Sueño) : $diferencia_Entre_tiempo_Sueño;
 		break;
 		case 'ambos':
@@ -30,13 +30,13 @@
 
 			if ($solo_minutos_sueño_both >= 50) {
 				$hora_Total_con_Aproximado_minutos = $solo_hora_sueño_both + 1;
-				$total_minutos_sueño = getMinutes($hora_Total_con_Aproximado_minutos);
+				$total_minutos_sueño_manilla = getMinutes($hora_Total_con_Aproximado_minutos);
 			}else {
 				$valor_minutos_Manilla = getMinutes($solo_hora_sueño_both);
-				$total_minutos_sueño = $valor_minutos_Manilla + $solo_minutos_sueño_both;
+				$total_minutos_sueño_manilla = $valor_minutos_Manilla + $solo_minutos_sueño_both;
 			}
 
-			$diferencia_Entre_tiempo_Sueño = $tiempo_sueño_conductor - $total_minutos_sueño;
+			$diferencia_Entre_tiempo_Sueño = $tiempo_sueño_conductor - $total_minutos_sueño_manilla;
 			($diferencia_Entre_tiempo_Sueño < 0) ? $cambiar_signo_si_es_negativo = change_negative_numeric($diferencia_Entre_tiempo_Sueño) : $diferencia_Entre_tiempo_Sueño;
 		break;
 		default:

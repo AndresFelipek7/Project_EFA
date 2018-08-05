@@ -64,11 +64,11 @@
 		'$traer_Valores_interrogatorio[2]' ,
 		'$traer_Valores_interrogatorio[3]' ,
 		'$traer_Valores_interrogatorio[4]' ,
-		'$sacar_Minutos_hora' ,
+		'$tiempo_sueño_conductor' ,
 		'$traer_Valores_interrogatorio[6]' ,
 		'$traer_Valores_interrogatorio[8]' ,
 		'$traer_Valores_interrogatorio[9]' ,
-		'$valor_Total_minutos_Manilla' ,
+		'$total_minutos_sueño_manilla' ,
 		'$valor_verdad_tiempo_descanso_conductor' ,
 		'$traer_Valores_interrogatorio[10]' ,
 		'$path_rename_fit_image' ,
@@ -80,7 +80,7 @@
 		'$otra_a_neurologica' ,
 		'$valor_otro_estado_signo' ,
 		'$s_hromigueo' ,
-		'$sueno_ligero'
+		'0'
 	)";
 
 	/*$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);
