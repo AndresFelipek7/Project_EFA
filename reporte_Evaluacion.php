@@ -29,8 +29,8 @@
 			echo "<div class='container text-center space-up-container'>";
 				echo "<div class='row'>";
 					echo "<div class='col-md-6'>";
-						require_once "main/comparacion_sueno_manilla.php";
-						require_once "main/comparacion_sueno_manilla.php";
+						//require_once "main/comparacion_sueno_manilla.php";
+						require_once "main/comparacion_solo_sueno_manilla.php";
 					echo "</div>";
 					echo "<div class='col-md-6'>";
 						require_once "main/asignacion_estado_pulsaciones.php";
