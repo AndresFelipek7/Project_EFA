@@ -21,22 +21,45 @@
 							$columnsGrid = "col-md-12";
 						}
 
-						echo "<ul>";
-							foreach ( $_POST["alteraciones_neurologicas"] as $subindice => $valor_neurologico) {
+						if ($otra_a_neurologica != "") {
+							echo "<ul>";
+								foreach ( $_POST["alteraciones_neurologicas"] as $subindice => $valor_neurologico) {
+									echo "<div class='container-fluid row'>";
+										echo "<div class='$columnsGrid'>";
+											$object_neurologico = query_neurologico($valor_neurologico,$conexion);
+											panel_info_for_modal("panel-default", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
+											$a_neurologicos_seleccionados = $object_neurologico["id_a_neurologico"].",".$a_neurologicos_seleccionados;
+											$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $object_neurologico["valor_item"];
+										echo "</div>";
+									echo "<div>";
+								}
+
 								echo "<div class='container-fluid row'>";
-									echo "<div class='$columnsGrid'>";
-										$object_neurologico = query_neurologico($valor_neurologico,$conexion);
-										panel_info_for_modal("panel-default", $object_neurologico['nombre_a_neurologico'], $object_neurologico['descripcion_a_neurologico']);
-										$a_neurologicos_seleccionados = $object_neurologico["id_a_neurologico"].",".$a_neurologicos_seleccionados;
-										$acumulador_Alteraciones_neurologicas = $acumulador_Alteraciones_neurologicas + $object_neurologico["valor_item"];
+									echo "<div class='col-md-12'>";
+										panel_info_for_modal("panel-primary", "Otro Sintoma", $otra_a_neurologica);
 									echo "</div>";
 								echo "<div>";
-							}
-						echo "</ul>";
-						if ($otra_a_neurologica != "") {
-								panel_info_for_modal("panel-primary", "Otra Alteracion Neurologica", $otra_a_neurologica);
+							echo "</ul>";
+						}else {
+							echo "<ul>";
+								echo "<div class='container-fluid row'>";
+									echo "<div class='col-md-12'>";
+										panel_info_for_modal("panel-primary", "Otro Sintoma", $otra_a_neurologica);
+									echo "</div>";
+								echo "<div>";
+							echo "</ul>";
 						}
+					}else if(!empty($_POST["otra_alteracion_neurologica"])){
+						$otra_a_neurologica = $_POST["otra_alteracion_neurologica"];
+						echo "<ul>";
+							echo "<div class='container-fluid row'>";
+								echo "<div class='col-md-12'>";
+									panel_info_for_modal("panel-primary", "Otra Alteración Neurologica", $otra_a_neurologica);
+								echo "</div>";
+							echo "<div>";
+						echo "</ul>";
 					}else {
+						$otra_a_neurologica = "No se ha ingresado ninguna Alteración Neurologica.";
 						echo "<script> document.getElementById('descripcion_neurologico').style.display='none';</script>";
 					}
 				?>

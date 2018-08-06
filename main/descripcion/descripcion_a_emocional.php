@@ -21,37 +21,66 @@
 							$columnsGrid = "col-md-12";
 						}
 
-						echo "<ul>";
-							foreach ( $_POST["alteraciones_emocionales"] as $subindice => $valor_emocional) {
+						if ($otra_a_emocional != "") {
+							echo "<ul>";
+								foreach ( $_POST["alteraciones_emocionales"] as $subindice => $valor_emocional) {
+									echo "<div class='container-fluid row'>";
+										echo "<div class='$columnsGrid'>";
+											$object_emocional = query_emocional($valor_emocional,$conexion);
+											panel_info_for_modal("panel-default", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
+											$a_emocionales_seleccionadas = $object_emocional["id_emocional"].",".$a_emocionales_seleccionadas;
+											$acumulador_Alteraciones_emocionales = $acumulador_Alteraciones_emocionales + $object_emocional["valor_item"];
+										echo "</div>";
+									echo "<div>";
+								}
+
 								echo "<div class='container-fluid row'>";
-									echo "<div class='$columnsGrid'>";
-										$object_emocional = query_emocional($valor_emocional,$conexion);
-										panel_info_for_modal("panel-default", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
-										$a_emocionales_seleccionadas = $object_emocional["id_emocional"].",".$a_emocionales_seleccionadas;
-										$acumulador_Alteraciones_emocionales = $acumulador_Alteraciones_emocionales + $object_emocional["valor_item"];
+									echo "<div class='col-md-12'>";
+										panel_info_for_modal("panel-primary", "Otra Alteracion Emocional", $otra_a_emocional);
 									echo "</div>";
 								echo "<div>";
-							}
-						echo "</ul>";
-						if ($otra_a_emocional != "") {
-							panel_info_for_modal("panel-primary", "Otra Alteracion Emocional", $otra_a_emocional);
+							echo "</ul>";
+						} else {
+							echo "<ul>";
+								foreach ( $_POST["alteraciones_emocionales"] as $subindice => $valor_emocional) {
+									echo "<div class='container-fluid row'>";
+										echo "<div class='$columnsGrid'>";
+											$object_emocional = query_emocional($valor_emocional,$conexion);
+											panel_info_for_modal("panel-default", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
+											$a_emocionales_seleccionadas = $object_emocional["id_emocional"].",".$a_emocionales_seleccionadas;
+											$acumulador_Alteraciones_emocionales = $acumulador_Alteraciones_emocionales + $object_emocional["valor_item"];
+										echo "</div>";
+									echo "<div>";
+								}
+							echo "</ul>";
 						}
-					} else{
+					} else if(!empty($_POST["otra_alteracion_emocional"])){
+						$otra_a_emocional = $_POST["otra_alteracion_emocional"];
+
+						echo "<ul>";
+							echo "<div class='container-fluid row'>";
+								echo "<div class='col-md-12'>";
+									panel_info_for_modal("panel-primary", "Otra Alteracion Emocional", $otra_a_emocional);
+								echo "</div>";
+							echo "<div>";
+						echo "</ul>";
+					}else {
 						//Condicional para mostrar la descripcion detallada cuando las pulsaciones son altas
 						if($Mostrar_Alteraciones_emocionales == 1) {
 							$vector_2_alteraciones_Emocionales = ["Prisa","Ansiedad"];
 							echo "<ul>";
-							foreach ( $vector_2_alteraciones_Emocionales as $subindice => $valor_emocional) {
-								echo "<div class='container-fluid row'>";
-									echo "<div class='col-md-6'>";
-										$object_emocional = query_emocional($valor_emocional,$conexion);
-										panel_info_for_modal("panel-default", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
-										$acumulador_Alteraciones_emocionales = $acumulador_Alteraciones_emocionales + $object_emocional["valor_item"];
-									echo "</div>";
-								echo "<div>";
-							}
-						echo "</ul>";
+								foreach ( $vector_2_alteraciones_Emocionales as $subindice => $valor_emocional) {
+									echo "<div class='container-fluid row'>";
+										echo "<div class='col-md-6'>";
+											$object_emocional = query_emocional($valor_emocional,$conexion);
+											panel_info_for_modal("panel-default", $object_emocional['nombre_emocional'], $object_emocional['descripcion_emocional']);
+											$acumulador_Alteraciones_emocionales = $acumulador_Alteraciones_emocionales + $object_emocional["valor_item"];
+										echo "</div>";
+									echo "<div>";
+								}
+							echo "</ul>";
 						}else{
+							$otra_a_emocional = "No se ha ingresado ninguna Alteración Emocional.";
 							echo "<script> document.getElementById('descripcion_emocional').style.display='none';</script>";
 						}
 					}
