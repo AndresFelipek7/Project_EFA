@@ -346,7 +346,7 @@
 							</select><br><br>
 
 							<div id="container_check_age"></div>
-							<input type="text" name="edad" id="edad" class="form-control" placeholder="Colocar edad" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="check_age(this.form.edad.value , 'Conductores.php');" required><br><br>
+							<input type="text" name="edad" id="edad" class="form-control" placeholder="Colocar edad" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="check_age(this.form.edad.value , 'test.php');" required><br><br>
 
 							<div id="container_check_number_phone"></div>
 							<input type="text" name="telefono" id="telefono" class="form-control" placeholder="Colocar telefono" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="check_number_phone(this.form.telefono.value,this.form.desde.value);" required><br><br>
