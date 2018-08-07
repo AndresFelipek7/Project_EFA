@@ -417,4 +417,16 @@
 				window.location = 'test.php';
 			</script>";
 	}
+
+	/**
+	 * Funcion para mostrar errores en el lado del Frontend
+	 *
+	 * @param $content
+	 * @return Un contenedor tipo alert de Boosptrap 3
+	 */
+	function message_mistake_validator($content) {
+		echo "<div class='alert alert-danger'>
+				<strong>Aviso!</strong><br>$content
+			</div>";
+	}
 ?>

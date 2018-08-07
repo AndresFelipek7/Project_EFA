@@ -107,7 +107,7 @@
 									</div>
 								</div>
 								<div class='modal-footer form-inline'>
-									<button type='button' class='btn btn-danger btn-lg' data-dismiss='modal'><span class='glyphicon glyphicon-remove'></span> Salir</button>
+									<button type='button' class='btn btn-danger btn-lg' data-dismiss='modal'><span class='glyphicon glyphicon-remove'></span></button>
 								</div>
 							</div>
 						</div>
