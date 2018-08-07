@@ -254,7 +254,7 @@
 							<option value="Manos">Manos</option>
 							<option value="Piernas">Piernas</option>
 							<option value="all_options">Todas las anteriores</option>
-							<option value="none_options">Ninguna</option>
+							<option value="none_options" selected>Ninguna</option>
 						</select>
 						<hr>
 						<div class="style_check_sintomas">
