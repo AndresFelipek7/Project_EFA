@@ -10,25 +10,22 @@
 		$vector_ids_sintoma = explode(",",$ids_sintoma);
 
 		echo "<center><strong style='font-size:20px;'>Sintomas de Fatiga</strong></center>"."<br>";
-		echo "<table>";
-			echo "<tr>
-					<th>Nombre Sintoma</th>
-				</tr>";
+		echo "<ul>";
+			foreach ($vector_ids_sintoma as $fila) {
+				$consulta_Traer_nombre_Sintoma = "SELECT nombre_sintoma FROM sintomas WHERE id_sintoma = $fila";
+				$resultado_sintoma = $conexion -> query($consulta_Traer_nombre_Sintoma);
+				$count = $resultado_sintoma ->num_rows;
 
-		foreach ($vector_ids_sintoma as $fila) {
-			$consulta_Traer_nombre_Sintoma = "SELECT nombre_sintoma FROM sintomas WHERE id_sintoma = $fila";
-			$resultado_sintoma = $conexion -> query($consulta_Traer_nombre_Sintoma);
-			$count = $resultado_sintoma ->num_rows;
+				if($count >=1) {
+					$row_sintoma = mysqli_fetch_array($resultado_sintoma);
+					$nombre_sintoma = $row_sintoma["nombre_sintoma"];
+				}
 
-			if($count >=1) {
-				$row_sintoma = mysqli_fetch_array($resultado_sintoma);
-				$nombre_sintoma = $row_sintoma["nombre_sintoma"];
+				echo "<li>";
+					echo $nombre_sintoma;
+				echo "</li>";
 			}
 
-			echo "<tr>
-				<td>$nombre_sintoma</td>
-			</tr>";
-		}
-		echo "</table><br>";
+		echo "</ul>";
 	}
 ?>

@@ -9,27 +9,24 @@
 		$vector_id_pilares= explode(",",$id_pilares);
 
 		echo "<center><strong style='font-size:20px;'>Pilares de Fatiga Activos</strong></center>"."<br>";
-		echo "<table>";
-			echo "<tr>
-					<th>Nombre Pilar</th>
-				</tr>";
-		foreach ($vector_id_pilares as $fila) {
-			$consulta_Traer_nombre_pilar = "SELECT * FROM nivel_riesgo WHERE id_riesgo = $fila";
-			$resultado_nombre_pilar = $conexion -> query($consulta_Traer_nombre_pilar);
-			$count = $resultado_nombre_pilar ->num_rows;
+		echo "<ul>";
+			foreach ($vector_id_pilares as $fila) {
+				$consulta_Traer_nombre_pilar = "SELECT * FROM nivel_riesgo WHERE id_riesgo = $fila";
+				$resultado_nombre_pilar = $conexion -> query($consulta_Traer_nombre_pilar);
+				$count = $resultado_nombre_pilar ->num_rows;
 
-				if($count >=1) {
-					$row_sintoma = mysqli_fetch_array($resultado_nombre_pilar);
-					$nombre_pilar = $row_sintoma["nombre_riesgo"];
-					echo "<tr>
-							<td>$nombre_pilar</td>
-					</tr>";
-				}
-		}
+					if($count >=1) {
+						$row_sintoma = mysqli_fetch_array($resultado_nombre_pilar);
+						$nombre_pilar = $row_sintoma["nombre_riesgo"];
+						echo "<li>";
+							echo $nombre_pilar;
+						echo "</li>";
+					}
+			}
+		echo "</ul>";
 
 		if ($vector_id_pilares[0] == 0) {
 			echo "<label><strong>No hay ningun pilar activo porque el conductor esta en optimas condiciones para conducir</strong></label>"."<hr><br><br>";
 		}
-		echo "</table><br><hr>";
 	}
 ?>

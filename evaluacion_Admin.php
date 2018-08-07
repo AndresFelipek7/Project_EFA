@@ -369,7 +369,7 @@
 								<th><center> <strong> Tabla Evaluacion de Fatiga </strong></center></th>
 							</tr>";
 						echo "<tr>
-								<td><h2>No hay Evaluaciones Regiastradas este Dia<h2></td>
+								<td><h3>No se ha realizado ninguna Evaluacion el Dia de Hoy</h3></td>
 							</tr>";
 					echo "</table>";
 					//Poder desactivar el boton de busqueda cuando no hay evaluaciones

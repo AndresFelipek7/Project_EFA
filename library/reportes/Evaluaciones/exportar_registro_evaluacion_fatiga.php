@@ -16,20 +16,21 @@
 <body>
 	<!--Encabezado del PDF que queda fijo en la parte superior de todas las hojas del pdf-->
 	<div id="logo_empresa">
-		<img src="../../../images/Logos Empresa/icono_empresa1.PNG">
-		<img src="../../../images/Logos Empresa/icono_empresa2.PNG">
-		<h1 class="titulo">Reporte de la Evaluacion con ID <?php echo $id_evaluacion; ?></h1>
+		<img src="../../../images/Logo/11.png" width="50" height="50" class="pull pull-right">
+		<center>
+			<h2>Reporte de la Evaluacion con ID <?php echo $id_evaluacion; ?></h2>
+		</center>
 	</div>
 
-	<?php 
+	<?php
 		foreach ($result as $row){
 			$ruta_correcta_foto = '../../../'.$row['foto_conductor'];
 			echo "<center>
-					<img class='foto_conductor' src='$ruta_correcta_foto' width='200' height='200'><br><hr>
+					<img class='foto_conductor' src='$ruta_correcta_foto' width='200' height='200'><br><hr><br>
 			</center>";
-				
+
 			//Informacion del conductor
-			echo "<br><br><table>
+			echo "<br><br><label><strong>Información del Conductor </strong></label><br><table>
 					<tr>
 						<th>Campo</th>
 						<th>Valor</th>
@@ -78,28 +79,21 @@
 
 			//Tabla de los sintomas Seleccionados
 			if ($row['ids_sintomas'] == 0) {
-				echo "<label><h3>No sea Ingresado Ningin sintoma en esta Evaluacion</h3></label>"."<hr>";
+				echo "<label><h3>No sea Ingresado Ningin Sintoma.</h3></label>"."<hr>";
 			}else {
 				include "../Sacar_reporte_ids/convertir_ids_sintomas_exportar.php";
 			}
 
 			//Saber si han ingresado otro sintoma en la Evaluacion
-			if ($row['cual_otro_sintoma'] == NULL || $row['cual_otro_sintoma'] == "" || $row['cual_otro_sintoma'] == "<br>") {
-				echo "<label><strong>No se ha ingresado Nigun otro Sintoma</strong></label>"."<hr><br><br>";
-			}else {
+			if ($row['cual_otro_sintoma'] != NULL || $row['cual_otro_sintoma'] != "" || $row['cual_otro_sintoma'] != "<br>") {
 				echo "<label><strong>Cual otro Sintoma =  </strong></label> $row[cual_otro_sintoma] "."<hr><br><br>";
 			}
 
 			//Tabla de signos fatiga
 			echo "<center><strong style='font-size:20px;'>Signo de Fatiga</strong></center>"."<br>";
-			echo "<table>
-					<tr>
-						<th>Nombre Signo</th>
-					</tr>
-					<tr>
-						<td>$row[nombre_signo] </td>
-					</tr>
-				</table><br><hr><br>";
+			echo "<ul>
+				<li>$row[nombre_signo]</li>
+			</ul>";
 
 			//tabla de alteraciones neurologicas
 			if ($row['ids_a_emocional'] == 0) {
@@ -109,9 +103,7 @@
 			}
 
 			//Saber si han ingresado otra Alteracion Emocional en la Evaluacion
-			if ($row['cual_otro_emocional'] == NULL || $row['cual_otro_emocional'] == "" || $row['cual_otro_emocional'] == "<br>") {
-				echo "<label><strong>No se ha ingresado Niguna otra Alteracion Emocional</strong></label>"."<hr><br><br>";
-			}else {
+			if ($row['cual_otro_emocional'] != NULL || $row['cual_otro_emocional'] != "" || $row['cual_otro_emocional'] != "<br>") {
 				echo "<label><strong>Cual otra Alteracion Emocional</strong> : </label> $row[cual_otro_emocional] "."<hr><br><br>";
 			}
 
@@ -123,9 +115,7 @@
 			}
 
 			//Saber si han ingresado otra Alteracion Emocional en la Evaluacion
-			if ($row['cual_otro_neurologico'] == NULL || $row['cual_otro_neurologico'] == "" || $row['cual_otro_neurologico'] == "<br>") {
-				echo "<label><strong>No se ha ingresado Niguna otra Alteracion Neurologico</strong></label>"."<hr><br><br>";
-			}else {
+			if ($row['cual_otro_neurologico'] != NULL || $row['cual_otro_neurologico'] != "" || $row['cual_otro_neurologico'] != "<br>") {
 				echo "<label><strong>Cual Otra Alteracion Neurologica</strong> : </label> $row[cual_otro_neurologico] "."<hr><br><br>";
 			}
 
@@ -235,8 +225,6 @@
 						</tr>
 					</table>";
 
-			//Informacion del pie de pagina del pdf
-			
 			//Sacamos fecha actual
 			$fecha = date("d-m-Y");
 			//Sacamos la hora con la diferencia de 5 horas de mas por la funcion date
@@ -252,7 +240,6 @@
 			}else {
 				$Hora = $hora_actual . ":" . $sacar_hora[1]." AM";
 			}
-
 
 			$realizado_por = $_SESSION['name_user'];
 
