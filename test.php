@@ -337,7 +337,7 @@
 							?>
 
 							<div id="check_document_bd"></div>
-							<input type="text" name="documento" class="form-control" id="documento_conductor" placeholder="Colocar documento" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="check_document_duplicate_driver(); check_digit_document(this.form.documento.value,'Conductores.php');" required><br><br>
+							<input type="text" name="documento" class="form-control" id="documento_conductor" placeholder="Colocar documento" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="check_document_duplicate_driver(); check_digit_document(this.form.documento.value,'test.php');" required><br><br>
 
 							<label>Elegir Sexo</label><br>
 							<select name="elegir_sexo" class="l_sexo">
