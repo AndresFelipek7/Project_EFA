@@ -90,6 +90,167 @@
 				</div>
 			</div>
 
+			<!--CONTENEDOR MENU ESTADO DE INGRESO DEL CONDUCTOR-->
+			<div class='panel panel-warning text-center'>
+				<div class='panel-heading' role='tab' id='headingThree'>
+					<h4 class='panel-title'>
+						<a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse4' aria-expanded='false' aria-controls='collapseThree'>
+							<span class="glyphicon glyphicon-eye-open"> Estado del Conductor</span>
+						</a>
+					</h4>
+				</div>
+
+				<div id='collapse4' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'>
+					<div class='panel-body text-center'>
+						<form action='reporte_Evaluacion.php' method='post' enctype="multipart/form-data" class='formulario' name="f_evaluacion">
+							<button type="button" class="btn btn-md btn-primary" id="ayuda_signo" data-toggle="tooltip" data-placement="right" title="Los signos de fatiga es lo que se puede medir mediante algun instrumento con ese objetivo"><span class="fa fa-info"></span></button>
+							<br>
+							<div>
+								<div class="col-md-12">
+									<div id="container_extensiones_agree" class="center_element"></div>
+									<center>
+										<label>Cargar Descargable Mi Fit</label>
+										<input type="file" name="photo" id="descargable_fit" onchange="check_photo(this.form.photo.value,'evaluacion');">
+									</center>
+									<hr>
+								</div>
+								<div class="col-md-12">
+									<button type="button" class="btn btn-md btn-primary" id="ayuda_pulsaciones" data-toggle="tooltip" data-placement="left" title="Las pulsaciones es el pulso que presente el conductor durante la evaluacion de fatiga , si por alguna razon las pulsaciones superan las 100 por minuto es necesario repetir la medicion de las pulsaciones para estar seguros. solo se coloca el numero entero en este campo."><span class="fa fa-info"></span></button>
+									<center>
+										<label>Valor Pulsaciones </label>
+										<input type="number" name="pulsaciones" class="form-control" id="pulsaciones" placeholder="Ingrese valor numerico" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="limit_pulsation_hearth(); style_border_input('pulsaciones','verde')" required>
+									</center>
+									<hr>
+								</div>
+								<div class="col-md-12">
+									<a href="#usuario_contraseña_conductor" data-toggle='modal' class="btn btn-warning"><span class="glyphicon glyphicon-user"></span></a>
+									<button type="button" class="btn btn-md btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="right" title="Sueño profundo consiste en el tiempo en que el conductor a dormido."><span class="fa fa-info"></span></button>
+									<center>
+										<input type="hidden" name="desde" value="form_evaluacion">
+										<input type="hidden" name="path_from" value="evaluacion.php">
+
+										<label>Sueño Total Manilla </label><br>
+										<select id="solo_sueño_manilla" name="solo_sueño_manilla" onchange="show_container_checked('solo_sueño_manilla','container_deep_sleep_only_hour','container_deep_sleep_only_minutes','container_deep_sleep_both_time')">
+											<option value="hora">Solo hora</option>
+											<option value="minutos">Solo Minutos</option>
+											<option value="ambos">Hora y minutos</option>
+										</select><br><br>
+
+										<div id="container_deep_sleep_only_hour">
+											<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value)">
+										</div>
+										<div id="container_deep_sleep_only_minutes" class="hide_container">
+											<input type='number' class='form-control' id="solo_minutos_sueno" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value)">
+										</div>
+										<div id="container_deep_sleep_both_time" class="row hide_container">
+											<div class="col-md-6">
+												<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value)">
+											</div>
+											<div class="col-md-6">
+												<input type='number' class='form-control' id="solo_minutos_sueno_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value)">
+											</div>
+										</div>
+									</center>
+									<hr>
+								</div>
+								<!-- CODIGO CUANDO ESTA EL SUEÑO PROFUNDO Y SUEÑO LIGERO  -->
+								<!-- <div class="col-md-12">
+									<button type="button" class="btn btn-md btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="left" title="Sueño profundo consiste en el tiempo en que el conductor a dormido."><span class="fa fa-info"></span></button>
+									<center>
+										<input type="hidden" name="desde" value="form_evaluacion">
+										<input type="hidden" name="path_from" value="evaluacion.php">
+										<input type="hidden" name="id_input_hour" value="solo_hora_sueno">
+										<input type="hidden" name="id_input_minutes" value="solo_minutos">
+										<input type="hidden" name="id_input_hour_both" value="solo_hora_sueno_both">
+										<input type="hidden" name="id_input_minutes_both" value="solo_minutos_both">
+
+										<label>Sueño Profundo </label><br>
+										<select id="sueño_profundo" name="sueño_profundo" onchange="show_container_checked('sueño_profundo','container_deep_sleep_only_hour','container_deep_sleep_only_minutes','container_deep_sleep_both_time')">
+											<option value="hora">Solo hora</option>
+											<option value="minutos">Solo Minutos</option>
+											<option value="ambos">Hora y minutos</option>
+										</select><br><br>
+
+										<div id="container_deep_sleep_only_hour">
+											<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+										</div>
+										<div id="container_deep_sleep_only_minutes" class="hide_container">
+											<input type='number' class='form-control' id="solo_minutos_sueno" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+										</div>
+										<div id="container_deep_sleep_both_time" class="row hide_container">
+											<div class="col-md-6">
+												<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+											</div>
+											<div class="col-md-6">
+												<input type='number' class='form-control' id="solo_minutos_sueno_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+											</div>
+										</div>
+									</center>
+									<hr>
+								</div>
+
+								<div class="col-md-12">
+									<button type="button" class="btn btn-md btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="left" title="Sueño Ligero consiste en el tiempo de sueño donde el conductor no esta descansando de forma adecuada para el cuerpo."><span class="fa fa-info"></span></button>
+									<center>
+										<input type="hidden" name="desde" value="form_evaluacion">
+										<input type="hidden" name="path_from" value="evaluacion.php">
+										<input type="hidden" name="id_input_hour_ligero" value="solo_hora_sueno_ligero">
+										<input type="hidden" name="id_input_minutes_ligero" value="solo_minutos_ligero">
+										<input type="hidden" name="id_input_hour_both_ligero" value="solo_hora_sueno_both_ligero">
+										<input type="hidden" name="id_input_minutes_both_ligero" value="solo_minutos_both_ligero">
+
+										<label>Sueño Ligero </label><br>
+										<select id="sueño_ligero" name="sueño_ligero" onchange="show_container_checked('sueño_ligero','container_deep_sleep_only_hour_light','container_deep_sleep_only_minutes_light','container_deep_sleep_both_time_light')">
+											<option value="hora">Solo hora</option>
+											<option value="minutos">Solo Minutos</option>
+											<option value="ambos">Hora y minutos</option>
+										</select><br><br>
+
+										<div id="container_deep_sleep_only_hour_light">
+											<input type="number" class="form-control" name="solo_hora_sueno_ligero" id="solo_hora_sueno_ligero" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_ligero.value,this.form.path_from.value,this.form.id_input_hour_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+										</div>
+										<div id="container_deep_sleep_only_minutes_light" class="hide_container">
+											<input type='number' class='form-control' id="solo_minutos_sueno_ligero" name='solo_minutos_sueno_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_ligero.value,this.form.path_from.value,this.form.id_input_minutes_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+										</div>
+										<div id="container_deep_sleep_both_time_light" class="row hide_container">
+											<div class="col-md-6">
+												<input type="number" class="form-control" id="solo_hora_sueno_both_ligero" name="solo_hora_sueno_both_ligero" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_hour_both_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+											</div>
+											<div class="col-md-6">
+												<input type='number' class='form-control' id="solo_minutos_sueno_both_ligero" name='solo_minutos_sueno_both_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_minutes_both_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
+											</div>
+										</div>
+									</center>
+									<div id="content_all_time_both_sleep" class="hide_container"></div>
+									<hr>
+								</div> -->
+							</div>
+							<?php include 'library/listas dinamicas/lista_Dinamica_signos.php';?><br><br>
+								<div class="style_check_estado_signo">
+									<input type="checkbox" name="otro_estado" id="otro_estado" value="otro_sintoma" onclick="show_others_options('otro_estado','container_other_state');">
+									<label for="otro_estado">Otro Estado</label><br>
+								</div>
+
+								<div id="container_other_state" class="hide_container">
+									<textarea name="valor_otro_estado_signo" id="valor_otro_estado" class="borde_textarea" placeholder="Colocar Estado del Conductor" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('valor_otro_estado','verde')"></textarea>
+								</div>
+								<?php
+									$traer_id_conductor = $_POST['valor_id'];
+
+									$consulta_Traer_pass_user_fit = "SELECT usuario_fit , pass_fit FROM conductor WHERE id_conductor = '$traer_id_conductor'";
+									$resultado_fit = $conexion ->query($consulta_Traer_pass_user_fit);
+									$count_fit = $resultado_fit->num_rows;
+
+									if($count_fit >= 1) {
+										$fila = mysqli_fetch_array($resultado_fit);
+										$traer_usuario = $fila["usuario_fit"];
+										$traer_contraseña = $fila["pass_fit"];
+									}
+								?>
+					</div>
+				</div>
+			</div>
+
 			<!--CONTENEDOR MENU INTERROGATORIO-->
 			<div class='panel panel-warning text-center'>
 				<div class='panel-heading' role='tab' id='headingTwo'>
@@ -102,7 +263,6 @@
 
 				<div id='collapseTwo' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingTwo'>
 					<div class='panel-body'>
-						<form action='reporte_Evaluacion.php' method='post' enctype="multipart/form-data" class='formulario' name="f_evaluacion">
 							<center>
 								<button type="button" class="btn btn-md btn-primary" id="ayuda_interrogatorio" data-toggle="tooltip" data-placement="right" title="En este Menu es necesario saber las horas que el conductor indique en cada caso"><span class="fa fa-info"></span></button>
 								<h4>Informacion en Horas</h4>
@@ -264,168 +424,6 @@
 
 						<div id="container_other_sintoma" class="hide_container">
 							<textarea name="valor_otro_sintoma" id="valor_otro_sintoma" class="borde_textarea" placeholder="Colocar cuales sintomas" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('valor_otro_sintoma','verde')"></textarea>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!--CONTENEDOR MENU ESTADO DE INGRESO DEL CONDUCTOR-->
-			<div class='panel panel-warning text-center'>
-				<div class='panel-heading' role='tab' id='headingThree'>
-					<h4 class='panel-title'>
-						<a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse4' aria-expanded='false' aria-controls='collapseThree'>
-							<span class="glyphicon glyphicon-eye-open"> Estado del Conductor</span>
-						</a>
-					</h4>
-				</div>
-
-				<div id='collapse4' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'>
-					<div class='panel-body text-center'>
-						<button type="button" class="btn btn-md btn-primary" id="ayuda_signo" data-toggle="tooltip" data-placement="right" title="Los signos de fatiga es lo que se puede medir mediante algun instrumento con ese objetivo"><span class="fa fa-info"></span></button>
-						<br>
-						<?php include 'library/listas dinamicas/lista_Dinamica_signos.php';?><br><br>
-							<div class="style_check_estado_signo">
-								<input type="checkbox" name="otro_estado" id="otro_estado" value="otro_sintoma" onclick="show_others_options('otro_estado','container_other_state');">
-								<label for="otro_estado">Otro Estado</label><br>
-							</div>
-
-							<div id="container_other_state" class="hide_container">
-								<textarea name="valor_otro_estado_signo" id="valor_otro_estado" class="borde_textarea" placeholder="Colocar Estado del Conductor" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('valor_otro_estado','verde')"></textarea>
-							</div>
-						<hr>
-						<?php
-							$traer_id_conductor = $_POST['valor_id'];
-
-							$consulta_Traer_pass_user_fit = "SELECT usuario_fit , pass_fit FROM conductor WHERE id_conductor = '$traer_id_conductor'";
-							$resultado_fit = $conexion ->query($consulta_Traer_pass_user_fit);
-							$count_fit = $resultado_fit->num_rows;
-
-							if($count_fit >= 1) {
-								$fila = mysqli_fetch_array($resultado_fit);
-								$traer_usuario = $fila["usuario_fit"];
-								$traer_contraseña = $fila["pass_fit"];
-							}
-						?>
-						<a href="#usuario_contraseña_conductor" data-toggle='modal' class="btn btn-warning"><span class="glyphicon glyphicon-user"></span></a>
-						<button type="button" class="btn btn-md btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="right" title="Sueño profundo consiste en el tiempo en que el conductor a dormido."><span class="fa fa-info"></span></button>
-						<div>
-							<div class="col-md-12">
-								<center>
-									<input type="hidden" name="desde" value="form_evaluacion">
-									<input type="hidden" name="path_from" value="evaluacion.php">
-
-									<label>Sueño Total Manilla </label><br>
-									<select id="solo_sueño_manilla" name="solo_sueño_manilla" onchange="show_container_checked('solo_sueño_manilla','container_deep_sleep_only_hour','container_deep_sleep_only_minutes','container_deep_sleep_both_time')">
-										<option value="hora">Solo hora</option>
-										<option value="minutos">Solo Minutos</option>
-										<option value="ambos">Hora y minutos</option>
-									</select><br><br>
-
-									<div id="container_deep_sleep_only_hour">
-										<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value)">
-									</div>
-									<div id="container_deep_sleep_only_minutes" class="hide_container">
-										<input type='number' class='form-control' id="solo_minutos_sueno" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value)">
-									</div>
-									<div id="container_deep_sleep_both_time" class="row hide_container">
-										<div class="col-md-6">
-											<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value)">
-										</div>
-										<div class="col-md-6">
-											<input type='number' class='form-control' id="solo_minutos_sueno_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value)">
-										</div>
-									</div>
-								</center>
-								<hr>
-							</div>
-							<!-- CODIGO CUANDO ESTA EL SUEÑO PROFUNDO Y SUEÑO LIGERO  -->
-							<!-- <div class="col-md-12">
-								<button type="button" class="btn btn-md btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="left" title="Sueño profundo consiste en el tiempo en que el conductor a dormido."><span class="fa fa-info"></span></button>
-								<center>
-									<input type="hidden" name="desde" value="form_evaluacion">
-									<input type="hidden" name="path_from" value="evaluacion.php">
-									<input type="hidden" name="id_input_hour" value="solo_hora_sueno">
-									<input type="hidden" name="id_input_minutes" value="solo_minutos">
-									<input type="hidden" name="id_input_hour_both" value="solo_hora_sueno_both">
-									<input type="hidden" name="id_input_minutes_both" value="solo_minutos_both">
-
-									<label>Sueño Profundo </label><br>
-									<select id="sueño_profundo" name="sueño_profundo" onchange="show_container_checked('sueño_profundo','container_deep_sleep_only_hour','container_deep_sleep_only_minutes','container_deep_sleep_both_time')">
-										<option value="hora">Solo hora</option>
-										<option value="minutos">Solo Minutos</option>
-										<option value="ambos">Hora y minutos</option>
-									</select><br><br>
-
-									<div id="container_deep_sleep_only_hour">
-										<input type="number" class="form-control" name="solo_hora_sueno" id="solo_hora_sueno" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno.value,this.form.path_from.value,this.form.id_input_hour.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
-									</div>
-									<div id="container_deep_sleep_only_minutes" class="hide_container">
-										<input type='number' class='form-control' id="solo_minutos_sueno" name='solo_minutos_sueno' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno.value,this.form.path_from.value,this.form.id_input_minutes.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
-									</div>
-									<div id="container_deep_sleep_both_time" class="row hide_container">
-										<div class="col-md-6">
-											<input type="number" class="form-control" id="solo_hora_sueno_both" name="solo_hora_sueno_both" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both.value,this.form.path_from.value,this.form.id_input_hour_both.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
-										</div>
-										<div class="col-md-6">
-											<input type='number' class='form-control' id="solo_minutos_sueno_both" name='solo_minutos_sueno_both' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both.value,this.form.path_from.value,this.form.id_input_minutes_both.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
-										</div>
-									</div>
-								</center>
-								<hr>
-							</div>
-
-							<div class="col-md-12">
-								<button type="button" class="btn btn-md btn-primary" id="ayuda_sueño_profundo" data-toggle="tooltip" data-placement="left" title="Sueño Ligero consiste en el tiempo de sueño donde el conductor no esta descansando de forma adecuada para el cuerpo."><span class="fa fa-info"></span></button>
-								<center>
-									<input type="hidden" name="desde" value="form_evaluacion">
-									<input type="hidden" name="path_from" value="evaluacion.php">
-									<input type="hidden" name="id_input_hour_ligero" value="solo_hora_sueno_ligero">
-									<input type="hidden" name="id_input_minutes_ligero" value="solo_minutos_ligero">
-									<input type="hidden" name="id_input_hour_both_ligero" value="solo_hora_sueno_both_ligero">
-									<input type="hidden" name="id_input_minutes_both_ligero" value="solo_minutos_both_ligero">
-
-									<label>Sueño Ligero </label><br>
-									<select id="sueño_ligero" name="sueño_ligero" onchange="show_container_checked('sueño_ligero','container_deep_sleep_only_hour_light','container_deep_sleep_only_minutes_light','container_deep_sleep_both_time_light')">
-										<option value="hora">Solo hora</option>
-										<option value="minutos">Solo Minutos</option>
-										<option value="ambos">Hora y minutos</option>
-									</select><br><br>
-
-									<div id="container_deep_sleep_only_hour_light">
-										<input type="number" class="form-control" name="solo_hora_sueno_ligero" id="solo_hora_sueno_ligero" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_ligero.value,this.form.path_from.value,this.form.id_input_hour_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
-									</div>
-									<div id="container_deep_sleep_only_minutes_light" class="hide_container">
-										<input type='number' class='form-control' id="solo_minutos_sueno_ligero" name='solo_minutos_sueno_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_ligero.value,this.form.path_from.value,this.form.id_input_minutes_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
-									</div>
-									<div id="container_deep_sleep_both_time_light" class="row hide_container">
-										<div class="col-md-6">
-											<input type="number" class="form-control" id="solo_hora_sueno_both_ligero" name="solo_hora_sueno_both_ligero" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_hour_both_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
-										</div>
-										<div class="col-md-6">
-											<input type='number' class='form-control' id="solo_minutos_sueno_both_ligero" name='solo_minutos_sueno_both_ligero' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_both_ligero.value,this.form.path_from.value,this.form.id_input_minutes_both_ligero.value),show_all_time_sleep(this.form.sueño_profundo.value,this.form.sueño_ligero.value)">
-										</div>
-									</div>
-								</center>
-								<div id="content_all_time_both_sleep" class="hide_container"></div>
-								<hr>
-							</div> -->
-
-							<div class="col-md-12">
-								<button type="button" class="btn btn-md btn-primary" id="ayuda_pulsaciones" data-toggle="tooltip" data-placement="left" title="Las pulsaciones es el pulso que presente el conductor durante la evaluacion de fatiga , si por alguna razon las pulsaciones superan las 100 por minuto es necesario repetir la medicion de las pulsaciones para estar seguros. solo se coloca el numero entero en este campo."><span class="fa fa-info"></span></button>
-								<center>
-									<label>Valor Pulsaciones </label>
-									<input type="number" name="pulsaciones" class="form-control" id="pulsaciones" placeholder="Ingrese valor numerico" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="limit_pulsation_hearth(); style_border_input('pulsaciones','verde')" required>
-								</center>
-								<hr>
-							</div>
-
-							<div class="col-md-12">
-								<div id="container_extensiones_agree" class="center_element"></div>
-								<center>
-									<label>Cargar Descargable Mi Fit</label>
-									<input type="file" name="photo" id="descargable_fit" onchange="check_photo(this.form.photo.value,'evaluacion');">
-								</center>
-							</div>
 						</div>
 					</div>
 				</div>
