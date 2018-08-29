@@ -783,7 +783,7 @@ const check_age_car = (modelo) => {
 const check_date_test_car = (age_modelo,age_test) => {
 	let only_year_date_test_car = age_test.split("-");
 
-	if (only_year_date_test_car < age_modelo) {
+	if (only_year_date_test_car[0] < age_modelo) {
 		alert_dinamic_check_validator("La fecha de la revision tecnicomecanica no es coherente con el año del modelo del vehiculo.", "vehiculos.php")
 		style_border_input("fecha_revision","rojo");
 	} else {

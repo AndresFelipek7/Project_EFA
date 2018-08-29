@@ -263,33 +263,46 @@
 
 				<div id='collapseTwo' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingTwo'>
 					<div class='panel-body'>
-							<center>
-								<button type="button" class="btn btn-md btn-primary" id="ayuda_interrogatorio" data-toggle="tooltip" data-placement="right" title="En este Menu es necesario saber las horas que el conductor indique en cada caso"><span class="fa fa-info"></span></button>
-								<h4>Informacion en Horas</h4>
-								<h4 class="input_obligatory">Campo Obligatorio *</h4>
+						<center>
+							<button type="button" class="btn btn-md btn-primary" id="ayuda_interrogatorio" data-toggle="tooltip" data-placement="right" title="En este Menu es necesario saber las horas que el conductor indique en cada caso"><span class="fa fa-info"></span></button>
+							<h4>Informacion en Horas</h4>
+							<h4 class="input_obligatory">Campo Obligatorio *</h4>
+							<hr>
+
+							<div class=' col-md-6'>
+								<label>Origen </label>
+								<input type="text" class="form-control" value="Bogotá" readonly><br>
+							</div>
+
+							<div class=' col-md-6'>
+								<label class="input_obligatory">*</label>
+								<?php
+									include 'library/listas dinamicas/lista_Dinamica_destino.php';
+								?>
+							</div>
+
+							<div id="container_distance_time"></div>
+							<div class='col-md-12'>
 								<hr>
+							</div><br>
 
-								<div class=' col-md-6'>
-									<label>Origen </label>
-									<input type="text" class="form-control" value="Bogotá" readonly><br>
-								</div>
-
-								<div class=' col-md-6'>
-									<label class="input_obligatory">*</label>
+							<div class=' col-md-4'>
+								<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_descanso" data-toggle="tooltip" data-placement="top" title="Descanso inactivo consiste en las horas despues de conducir o de su jornada laboral"><span class="fa fa-info"></span></button>
+								<label class="input_obligatory">*</label> <label>Descanso | Inactivo </label>
+								<select name='descanso' id="hora_descanso" class="l_tiempo" required>
 									<?php
-										include 'library/listas dinamicas/lista_Dinamica_destino.php';
+										for ($i=1; $i < 13; $i++) {
+											echo "<option value='$i'> $i </option>";
+										}
 									?>
-								</div>
+								</select>
+							</div>
 
-								<div id="container_distance_time"></div>
-								<div class='col-md-12'>
-									<hr>
-								</div><br>
-
-								<div class=' col-md-4'>
-									<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_descanso" data-toggle="tooltip" data-placement="top" title="Descanso inactivo consiste en las horas despues de conducir o de su jornada laboral"><span class="fa fa-info"></span></button>
-									<label class="input_obligatory">*</label> <label>Descanso | Inactivo </label>
-									<select name='descanso' id="hora_descanso" class="l_tiempo" required>
+							<div class=' col-md-4'>
+								<div id="camarote" class="hide_container">
+									<button type="button" id="ayuda_camarote" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_camarote" data-toggle="tooltip" data-placement="top" title="Camarote son las horas que descansa cuando el destino supera las 8 horas de recorrido"><span class="fa fa-info"></span></button>
+									<label class="input_obligatory">*</label> <label>Camarote </label>
+									<select name='camarote' class="l_tiempo" id="hora_camarote">
 										<?php
 											for ($i=1; $i < 13; $i++) {
 												echo "<option value='$i'> $i </option>";
@@ -297,91 +310,79 @@
 										?>
 									</select>
 								</div>
+							</div>
 
-								<div class=' col-md-4'>
-									<div id="camarote" class="hide_container">
-										<button type="button" id="ayuda_camarote" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_camarote" data-toggle="tooltip" data-placement="top" title="Camarote son las horas que descansa cuando el destino supera las 8 horas de recorrido"><span class="fa fa-info"></span></button>
-										<label class="input_obligatory">*</label> <label>Camarote </label>
-										<select name='camarote' class="l_tiempo" id="hora_camarote">
+							<div class=' col-md-4'>
+								<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_conduciendo" data-toggle="tooltip" data-placement="top" title="Horas conduciendo significa las horas que lleva detras del volante"><span class="fa fa-info"></span></button>
+								<label class="input_obligatory">*</label> <label>Conduciendo </label>
+								<select name='conduciendo' class="l_tiempo" id="hora_conduciendo" onchange="check_hour_all_destiny();" required>
+									<?php
+										for ($i=1; $i < 22; $i++) {
+											echo "<option value='$i'> $i </option>";
+										}
+									?>
+								</select>
+							</div><br><br>
+
+							<div class=' col-md-12'>
+								<div class="contenedor_otra_actividad">
+									<input type="checkbox" name="actividad" id="otra_actividad_checkbox"  onclick="show_other_activity();">
+									<label for="otra_actividad_checkbox"> Otra Actividad</label>
+								</div><br>
+
+								<div id="contenedor_o_actividad" class="hide_container">
+									<div class=' col-md-12'>
+										<label>Cuantas Horas </label><br>
+										<select name="otra_actividad" class="l_tiempo" id="otra_actividad" onclick="check_hour_all_destiny()">
 											<?php
-												for ($i=1; $i < 13; $i++) {
-													echo "<option value='$i'> $i </option>";
-												}
-											?>
-										</select>
-									</div>
-								</div>
-
-								<div class=' col-md-4'>
-									<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_conduciendo" data-toggle="tooltip" data-placement="top" title="Horas conduciendo significa las horas que lleva detras del volante"><span class="fa fa-info"></span></button>
-									<label class="input_obligatory">*</label> <label>Conduciendo </label>
-									<select name='conduciendo' class="l_tiempo" id="hora_conduciendo" onchange="check_hour_all_destiny();" required>
-										<?php
-											for ($i=1; $i < 22; $i++) {
+											for ($i=0; $i < 13; $i++) {
 												echo "<option value='$i'> $i </option>";
 											}
 										?>
-									</select>
-								</div><br><br>
+										</select><br><br>
+									</div>
 
-								<div class=' col-md-12'>
-									<div class="contenedor_otra_actividad">
-										<input type="checkbox" name="actividad" id="otra_actividad_checkbox"  onclick="show_other_activity();">
-										<label for="otra_actividad_checkbox"> Otra Actividad</label>
-									</div><br>
-
-									<div id="contenedor_o_actividad" class="hide_container">
-										<div class=' col-md-12'>
-											<label>Cuantas Horas </label><br>
-											<select name="otra_actividad" class="l_tiempo" id="otra_actividad" onclick="check_hour_all_destiny()">
-												<?php
-												for ($i=0; $i < 13; $i++) {
-													echo "<option value='$i'> $i </option>";
-												}
-											?>
-											</select><br><br>
-										</div>
-
-										<div class=' col-md-12'>
-											<label>Cuales Actividades?</label><br>
-											<textarea name="cual_actividad" cols="90" rows="5" class="borde_textarea" id="other_activity" placeholder="Ingresar cuales fueron las otras Actividades" onkeypress='return onlyWords(event)' onchange="style_border_input('other_activity','verde')"></textarea>
-										</div>
+									<div class=' col-md-12'>
+										<label>Cuales Actividades?</label><br>
+										<textarea name="cual_actividad" cols="90" rows="5" class="borde_textarea" id="other_activity" placeholder="Ingresar cuales fueron las otras Actividades" onkeypress='return onlyWords(event)' onchange="style_border_input('other_activity','verde')"></textarea>
 									</div>
 								</div>
+							</div>
 
-								<div class='col-md-12'>
-									<hr>
-								</div><br>
+							<div class='col-md-12'>
+								<hr>
+							</div><br>
 
-								<div class='col-md-6'>
-									<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_sueño" data-toggle="tooltip" data-placement="left" title="Tiempo de sueño consiste en las horas que a dormido en la casa"><span class="fa fa-info"></span></button>
-									<label class="input_obligatory">*</label> <label>Tiempo de Sueño Efectivo </label>
-									<input type='text' name='sueño_efectivo_previo' class="form-control" id="sueño_efectivo_previo" placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('sueño_efectivo_previo','verde')" required><br>
-								</div><br>
+							<div class='col-md-6'>
+								<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_sueño" data-toggle="tooltip" data-placement="left" title="Tiempo de sueño consiste en las horas que a dormido en la casa"><span class="fa fa-info"></span></button>
+								<label class="input_obligatory">*</label> <label>Tiempo de Sueño Efectivo </label>
+								<input type='text' name='sueño_efectivo_previo' class="form-control" id="sueño_efectivo_previo" placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('sueño_efectivo_previo','verde')" required><br>
+							</div><br>
 
-								<div class='col-md-6'>
-									<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_descanso" data-toggle="tooltip" data-placement="left" title="Tiempo descanso es durante su jornada laboral Ejemplo = Alistamiento del vehiculo , almorzando ,comprando la tasa de uso "><span class="fa fa-info"></span></button>
-									<label class="input_obligatory">*</label> <label>Tiempo de Descanso </label>
-									<input type='text' name='tiempo_descanso'  class="form-control" id='tiempo_descanso' placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('tiempo_descanso','verde')" required><br>
-								</div><br>
+							<div class='col-md-6'>
+								<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_descanso" data-toggle="tooltip" data-placement="left" title="Tiempo descanso es durante su jornada laboral Ejemplo = Alistamiento del vehiculo , almorzando ,comprando la tasa de uso "><span class="fa fa-info"></span></button>
+								<label class="input_obligatory">*</label> <label>Tiempo de Descanso </label>
+								<input type='text' name='tiempo_descanso'  class="form-control" id='tiempo_descanso' placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('tiempo_descanso','verde')" required><br>
+							</div><br>
 
-								<div class='col-md-12'>
-									<hr>
-								</div><br>
+							<div class='col-md-12'>
+								<hr>
+							</div><br>
 
-								<div class="col-md-12">
-									<div id="check_born_copilot"></div>
-								</div>
+							<div class="col-md-12">
+								<div id="check_born_copilot"></div>
+							</div>
 
-								<div class='col-md-6'>
-									<label>Acompañante </label>
-									<input type='text' name='copiloto' id="copiloto" class="form-control" placeholder="Nombre Copiloto" onkeypress="return onlyWords(event)" onchange="style_border_input('copiloto','verde'),check_born_copilot_required();">
-								</div><br>
+							<div class='col-md-6'>
+								<label>Acompañante </label>
+								<input type='text' name='copiloto' id="copiloto" class="form-control" placeholder="Nombre Copiloto" onkeypress="return onlyWords(event)" onchange="style_border_input('copiloto','verde'),check_born_copilot_required();">
+							</div><br>
 
-								<div class='col-md-6'>
-									<label>Origen del Acompañante </label>
-									<input type='text' name='origen_copiloto' id="origen_copiloto" class="form-control" onkeypress="return onlyWords(event)" onchange="style_border_input('origen_copiloto','verde'),check_born_copilot_required()" placeholder="Ciudad de Origen">
-								</div><br>
+							<div class='col-md-6'>
+								<label>Origen del Acompañante </label>
+								<input type='text' name='origen_copiloto' id="origen_copiloto" class="form-control" onkeypress="return onlyWords(event)" onchange="style_border_input('origen_copiloto','verde'),check_born_copilot_required()" placeholder="Ciudad de Origen">
+							</div><br>
+						</center>
 					</div>
 				</div>
 			</div>
