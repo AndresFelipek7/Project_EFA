@@ -324,6 +324,7 @@
 								<hr>
 							</div>
 
+							<!-- Campo Camarote -->
 							<div class="col-md-12 hide_container" id="camarote">
 								<center>
 									<button type="button" id="ayuda_camarote" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_camarote" data-toggle="tooltip" data-placement="top" title="Camarote son las horas que descansa cuando el destino supera las 8 horas de recorrido"><span class="fa fa-info"></span></button>
@@ -361,21 +362,45 @@
 								<hr>
 							</div>
 
-							<!-- <div class=' col-md-4'>
-								<div id="camarote" class="hide_container">
-									<button type="button" id="ayuda_camarote" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_camarote" data-toggle="tooltip" data-placement="top" title="Camarote son las horas que descansa cuando el destino supera las 8 horas de recorrido"><span class="fa fa-info"></span></button>
-									<label class="input_obligatory">*</label> <label>Camarote </label>
-									<select name='camarote' class="l_tiempo" id="hora_camarote">
-										<?php
-											for ($i=1; $i < 13; $i++) {
-												echo "<option value='$i'> $i </option>";
-											}
-										?>
-									</select>
-								</div>
+							<!-- Campo Conduciendo -->
+							<div class="col-md-12">
+								<center>
+									<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_conduciendo" data-toggle="tooltip" data-placement="top" title="Horas conduciendo significa las horas que lleva detras del volante"><span class="fa fa-info"></span></button>
+									<input type="hidden" name="desde" value="form_evaluacion">
+									<input type="hidden" name="path_from" value="evaluacion.php">
+									<input type="hidden" name="id_input_hour_conduciendo" value="solo_hora_conduciendo">
+									<input type="hidden" name="id_input_minutos_conduciendo" value="solo_minutos_conduciendo">
+									<input type="hidden" name="id_input_hour_both_conduciendo" value="hora_conduciendo">
+									<input type="hidden" name="id_input_minutos_both_conduciendo" value="minutos_conduciendo">
+
+									<label class="input_obligatory">*</label>
+									<label>Conduciendo </label><br>
+									<select name='conduciendo' id="conduciendo" onchange="show_container_checked('conduciendo','container_only_hour_conduciendo','container_only_minutes_conduciendo','container_both_times_conduciendo')">
+										<option value="hora">Solo hora</option>
+										<option value="minutos">Solo Minutos</option>
+										<option value="ambos">Hora y minutos</option>
+									</select><br><br>
+
+									<div id="container_only_hour_conduciendo">
+										<input type="number" class="form-control" name="solo_hora_conduciendo" id="solo_hora_conduciendo" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_conduciendo.value,this.form.path_from.value,this.form.id_input_hour_conduciendo.value)">
+									</div>
+									<div id="container_only_minutes_conduciendo" class="hide_container">
+										<input type='number' class='form-control' id="solo_minutos_conduciendo" name='solo_minutos_conduciendo' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_conduciendo.value,this.form.path_from.value,this.form.id_input_minutos_conduciendo.value)">
+									</div>
+									<div id="container_both_times_conduciendo" class="row hide_container">
+										<div class="col-md-6">
+											<input type="number" class="form-control" id="hora_conduciendo" name="hora_conduciendo" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.hora_conduciendo.value,this.form.path_from.value,this.form.id_input_hour_both_conduciendo.value)">
+										</div>
+										<div class="col-md-6">
+											<input type='number' class='form-control' id="minutos_conduciendo" name='minutos_conduciendo' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.minutos_conduciendo.value,this.form.path_from.value,this.form.id_input_minutos_both_conduciendo.value)">
+										</div>
+									</div>
+								</center>
+								<div id="content_all_time_both_sleep" class="hide_container"></div>
+								<hr>
 							</div>
- -->
-							<div class=' col-md-4'>
+
+							<!-- <div class=' col-md-4'>
 								<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_conduciendo" data-toggle="tooltip" data-placement="top" title="Horas conduciendo significa las horas que lleva detras del volante"><span class="fa fa-info"></span></button>
 								<label class="input_obligatory">*</label> <label>Conduciendo </label>
 								<select name='conduciendo' class="l_tiempo" id="hora_conduciendo" onchange="check_hour_all_destiny();" required>
@@ -385,7 +410,7 @@
 										}
 									?>
 								</select>
-							</div><br><br>
+							</div><br><br> -->
 
 							<div class=' col-md-12'>
 								<div class="contenedor_otra_actividad">
