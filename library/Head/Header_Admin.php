@@ -32,7 +32,6 @@
 							<li><a href="sintomas.php"> <span class="fa fa-heart"></span> Sintomas</a></li>
 							<li><a href="signos.php"> <span class="glyphicon glyphicon-eye-open"> Signos</a></li>
 							<li><a href="a_emocional.php"><span class="fa fa-thumbs-up"> Alteraciones Emocionales</span></a></li>
-							<li><a href="a_neurologico.php"><span class="glyphicon glyphicon-pushpin"> Alteraciones Neurologico</span></a></li>
 							<li><a href="sugerencia.php"><span class="fa fa-bell"> Sugerencias</span></a></li>
 							<li class="divider"></li>
 							<li><a href="evaluacion_Admin.php"><span class="fa fa-history"> Evaluacion de Fatiga</span></a></li>

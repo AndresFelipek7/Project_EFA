@@ -2,7 +2,6 @@
 	//Inicializacion de acumuladores para poder decir que niel de fatiga tiene con los pilares positivos
 	$acumulador_Sintomas = 0;
 	$acumulador_Alteraciones_emocionales = 0;
-	$acumulador_Alteraciones_neurologicas = 0;
 	$acumulador_Pilares = 0;
 
 	//Banderas inicializadas en cero para que cuando tengamos el total de cada menu podamos decir que pilar esta activo
@@ -15,7 +14,6 @@
 	//Inicializacion de variables para poder enviar a la BD los id de los seleccionados de las descripciones de cada menu
 	$sintomas_seleccionados = 0;
 	$a_emocionales_seleccionadas = 0;
-	$a_neurologicos_seleccionados = 0;
 
 	//Inicialiazacion de variable para saber el nivel de fatiga final del conductor
 	$pilares_seleccionados = 0;
@@ -30,7 +28,6 @@
 	$sugerencia_sintoma_seleccionados = 0;
 	$sugerencia_signo_seleccionado = 0;
 	$sugerencia_a_emocional_seleccionados = 0;
-	$sugerencia_a_neurologico_seleccionados = 0;
 
 	$saber_nivel_fatiga = "";
 

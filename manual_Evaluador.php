@@ -114,17 +114,6 @@
 			</div>
 		</div>
 
-		<!---Opcion para llenar el menu de las alteraciones neurologicas-->
-		<div>
-			<a href='#seccion9' data-toggle='collapse' class='btn btn-warning btn-lg'><span class="fa fa-diamond"></span>  Llenar menu Alteraciones Neurologicas</a>
-			<div class='collapse' id='seccion9'>
-				<br>
-				<div class='well text-center'>
-					<img src="images/Gifs/Evaluador/menu_neurologico.gif" width="1000" height="500" style="border:2px solid black;">
-				</div>
-			</div>
-		</div>
-
 		<!--Opcion de como hace una evaluacion-->
 		<div>
 			<a href='#seccion10' data-toggle='collapse' class='btn btn-success btn-lg'> <span class="glyphicon glyphicon-triangle-right"></span> Realizar Evaluacion de Fatiga</a>
@@ -190,7 +179,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!--Opcion de funciones Evaluador-->
 		<div>
 			<a href='#seccion16' data-toggle='collapse' class='btn btn-danger btn-lg'><span class="glyphicon glyphicon-user"></span>  Funciones Evaluador</a>

@@ -18,10 +18,10 @@
 
 					/*	PILAR LABOR ESTENUANTE
 							Orden para el condicional del mas importante al menos segun este pilar
-								1)Interrogatorio 2)sintoma 3)Emocional 4)Neurologico 5)Signos
+								1)Interrogatorio 2)sintoma 3)Emocional 4)Signos
 					*/
 
-					if($acumulador_interrogatorio >= 10 && $acumulador_Sintomas >= 135 || $acumulador_Alteraciones_emocionales >= 39 || $acumulador_Alteraciones_neurologicas >= 18 && $acumulador_Signo == 4) {
+					if($acumulador_interrogatorio >= 10 && $acumulador_Sintomas >= 135 || $acumulador_Alteraciones_emocionales >= 39 || $acumulador_Signo == 4) {
 						$acumulador_Pilares = $acumulador_Pilares + $valor_Pilar;
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
@@ -31,9 +31,9 @@
 
 					/*PILAR DESCANSO INSUFICIENTE
 						Orden para el condicional
-							1)Interrogatorio (Tiempo de sueño[5]) 2)sintoma 3)Signo 4)Emocional 5)Neurologico 6)Interrogatorio (Tiempo de descanso[6])
+							1)Interrogatorio (Tiempo de sueño[5]) 2)sintoma 3)Signo 4)Emocional 5)Interrogatorio (Tiempo de descanso[6])
 					*/
-					if($traer_Valores_interrogatorio[5] < 8  && $acumulador_Sintomas >= 36 || $acumulador_Signo == 2 && $acumulador_Alteraciones_emocionales >= 28 || $acumulador_Alteraciones_neurologicas >= 18 && $traer_Valores_interrogatorio[6] < 10) {
+					if($traer_Valores_interrogatorio[5] < 8  && $acumulador_Sintomas >= 36 || $acumulador_Signo == 2 && $acumulador_Alteraciones_emocionales >= 28 || $traer_Valores_interrogatorio[6] < 10) {
 						$acumulador_Pilares = $acumulador_Pilares + $valor_Pilar;
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
@@ -43,7 +43,7 @@
 
 					/*PILAR DESTINO DISTANTE
 						Orden para el condicional
-							1)Interrogatorio (Hora de llegada) 2)Sintomas 3)Signo 4)Emocional 5)Neurologico
+							1)Interrogatorio (Hora de llegada) 2)Sintomas 3)Signo 4)Emocional
 					*/
 					$tiempo_llegada = $_POST["tiempo_destino"];
 					$vector_sacar_hora_tiempo_destino = explode("h",$tiempo_llegada);
@@ -53,7 +53,7 @@
 
 						$pilares_seleccionados = "3".",".$pilares_seleccionados;
 						array_unshift($object_pilar_active,"<span class='fa fa-car fa-2x'></span><br><strong>Destino Distante</strong><br>:El Tiempo estimado de llegada al destino programado mayor de 8 horas");
-					}else if($acumulador_Sintomas >= 2 && $acumulador_Alteraciones_emocionales >= 38 || $acumulador_Signo == 3 && $acumulador_Alteraciones_neurologicas >= 13) {
+					}else if($acumulador_Sintomas >= 2 && $acumulador_Alteraciones_emocionales >= 38 || $acumulador_Signo == 3) {
 						$acumulador_Pilares = $acumulador_Pilares + $valor_Pilar;
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 
@@ -63,10 +63,10 @@
 
 					/*PILAR CONDICION FISICA
 						Orden para el condicional
-							1)Interrogatorio 2)Sintoma 3)Emocional 4)Neurologico 5)Signos
+							1)Interrogatorio 2)Sintoma 3)Emocional 4)Signos
 					*/
 
-					if($traer_Valores_interrogatorio[5] < 8 && $acumulador_Sintomas >= 91 || $acumulador_Alteraciones_emocionales >= 39 || $acumulador_Alteraciones_neurologicas >= 13 && $acumulador_Signo == 6) {
+					if($traer_Valores_interrogatorio[5] < 8 && $acumulador_Sintomas >= 91 || $acumulador_Alteraciones_emocionales >= 39 || $acumulador_Signo == 6) {
 						$acumulador_Pilares = $acumulador_Pilares + $valor_Pilar;
 						$acumulador_saber_pilares_activos = $acumulador_saber_pilares_activos + $valor_Pilar;
 

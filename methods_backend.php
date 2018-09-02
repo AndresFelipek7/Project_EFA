@@ -201,30 +201,6 @@
 	}
 
 	/**
-	 * Funcion para la consulta de el menu de Alteracion neurologico
-	 *
-	 * @param
-	 * @return
-	 */
-	function query_neurologico($nameSearch,$conexion) {
-		$consulta_Buscar_a_neurologico = "SELECT * FROM alteraciones_neurologicas WHERE nombre_a_neurologico = '$nameSearch'";
-		$resultado = $conexion -> query($consulta_Buscar_a_neurologico);
-		$count = $resultado ->num_rows;
-
-		if($count >=1) {
-			$row = mysqli_fetch_array($resultado);
-			$id_a_neurologico = $row['id_a_neurologico'];
-			$nombre_a_neurologico = $row['nombre_a_neurologico'];
-			$descripcion_a_neurologico = $row['descripcion_a_neurologico'];
-			$valor_item = $row['valor_item'];
-			$info_neurologico = ["id_a_neurologico" => $id_a_neurologico, "nombre_a_neurologico" => $nombre_a_neurologico, "descripcion_a_neurologico" => $descripcion_a_neurologico, "valor_item" => $valor_item];
-			return $info_neurologico;
-		}else {
-			return "Ha ocurrido un erro inesperado.";
-		}
-	}
-
-	/**
 	 * Funcion para hacer la consulta en el modulo de Signos
 	 *
 	 * @param $nameSearch, $conexion

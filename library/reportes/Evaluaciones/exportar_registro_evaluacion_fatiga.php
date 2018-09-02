@@ -95,28 +95,9 @@
 				<li>$row[nombre_signo]</li>
 			</ul>";
 
-			//tabla de alteraciones neurologicas
-			if ($row['ids_a_emocional'] == 0) {
-				echo "<label><h3>No hay Ninguna Alteracion Emocional Ingresada</h3></label>"."<hr>";
-			}else {
-				include "../Sacar_reporte_ids/convertir_ids_emocional_exportar.php";
-			}
-
 			//Saber si han ingresado otra Alteracion Emocional en la Evaluacion
 			if ($row['cual_otro_emocional'] != NULL || $row['cual_otro_emocional'] != "" || $row['cual_otro_emocional'] != "<br>") {
 				echo "<label><strong>Cual otra Alteracion Emocional</strong> : </label> $row[cual_otro_emocional] "."<hr><br><br>";
-			}
-
-			//Tabla alteraciones Neurologicas
-			if ($row['ids_neurologico'] == 0) {
-				echo "<label><h3>No hay ninguna Alteracion Neurologica Seleccionada</h3></label>"."<hr>";
-			}else {
-				include "../Sacar_reporte_ids/convertir_ids_neurologico_exportar.php";
-			}
-
-			//Saber si han ingresado otra Alteracion Emocional en la Evaluacion
-			if ($row['cual_otro_neurologico'] != NULL || $row['cual_otro_neurologico'] != "" || $row['cual_otro_neurologico'] != "<br>") {
-				echo "<label><strong>Cual Otra Alteracion Neurologica</strong> : </label> $row[cual_otro_neurologico] "."<hr><br><br>";
 			}
 
 			//Tabla del nivel de fatiga que tiene

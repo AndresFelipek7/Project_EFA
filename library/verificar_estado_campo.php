@@ -1,6 +1,6 @@
 <?php
 	/*
-		Este archivo se creeo para notificarle al usuario cuando no se ha ingresado algo en los campos que 
+		Este archivo se creeo para notificarle al usuario cuando no se ha ingresado algo en los campos que
 		mencionamos en la parte de abajo ,anteriormente aparecia en blanco y eso generaba confusion al usuario
 	*/
 	//Este condicional es para cuando no ingresan ningun Sintoma cuando se hizo la evaluacion
@@ -29,20 +29,6 @@
 		$otra_emocional = "No se ingreso Otra alteracion Emocional";
 	}else {
 		$otra_emocional = "lleno";
-	}
-
-	//Condicional para saber si han ingresado Alteraciones Neurologico
-	if ($registro["ids_neurologico"] == 0) {
-		$valor_total_neurologico = "No se ha ingresado Ninguna Alteracion Neurologico";
-	}else {
-		$valor_total_neurologico = "lleno";
-	}
-
-	//condicional para saber si han ingresado otra alteracion Neurologico
-	if ($registro["cual_otro_neurologico"] == "" || $registro["cual_otro_neurologico"] == "<br>") {
-		$otro_neurologico = "No se ingreso Otra alteracion Neurologico";
-	}else {
-		$otro_neurologico = "lleno";
 	}
 
 	//Condicional para saber si hay tiempo en la opcion de cmaarote

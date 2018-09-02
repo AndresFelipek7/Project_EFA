@@ -43,20 +43,4 @@
 		}
 		$sugerencia_a_emocional_seleccionados= implode(",",$arreglo_sugerencia_a_emocional);
 	}
-
-	$arreglo_a_neurologico = explode(",",$a_neurologicos_seleccionados);
-	for ($i=0; $i < count($arreglo_a_neurologico); $i++) {
-		if ($arreglo_a_neurologico[$i] == 0 ) {
-			array_pop($arreglo_a_neurologico);
-		}
-		$a_neurologicos_seleccionados= implode(",",$arreglo_a_neurologico);
-	}
-
-	$arreglo_sugerencia_a_neurologico = explode(",",$sugerencia_a_neurologico_seleccionados);
-	for ($i=0; $i < count($arreglo_sugerencia_a_neurologico); $i++) {
-		if ($arreglo_sugerencia_a_neurologico[$i] == 0 ) {
-			array_pop($arreglo_sugerencia_a_neurologico);
-		}
-		$sugerencia_a_neurologico_seleccionados= implode(",",$arreglo_sugerencia_a_neurologico);
-	}
 ?>

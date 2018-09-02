@@ -28,7 +28,6 @@ $(document).ready(function (){
 	$('#ayuda_general_busqueda_sintomas').tooltip();
 	$('#ayuda_general_busqueda_signo').tooltip();
 	$('#ayuda_general_busqueda_emocional').tooltip();
-	$('#ayuda_general_busqueda_neurologico').tooltip();
 	$('#ayuda_general_busqueda_sugerencia').tooltip();
 	$('#ayuda_general_busqueda_evaluacion').tooltip();
 	$('#ayuda_formulario_activacion').tooltip();
@@ -43,7 +42,6 @@ $(document).ready(function (){
 	$('#ayuda_sintoma').tooltip();
 	$('#ayuda_signo').tooltip();
 	$('#ayuda_a_emocional').tooltip();
-	$('#ayuda_a_neurologico').tooltip();
 	$('#ayuda_tiempo_descanso').tooltip();
 	$('#ayuda_nivel_fatiga_dia').tooltip();
 	$('#ayuda_nivel_fatiga_general').tooltip();
@@ -858,17 +856,6 @@ const check_name_emocional = () => {
 }
 
 /**
- * Funcion para verificar el nombre de la alteracon neurologica
- *
- * @param none
- * @return un mensaje de conincidencia de la bd
- */
-const check_name_neurologico = () => {
-	traer_Nombre_neurologico = document.getElementById("nombre_neurologico").value;
-	$("#container_name_neurologico").load("library/verificar_duplicidad/verificar_neurologico.php",{valor_neurologico:traer_Nombre_neurologico});
-}
-
-/**
  * Funcion para mostrar contenedor de otras opciones de sintomas , signos y las dos alteraciones
  *
  * @param nameInput , nameContainer
@@ -906,7 +893,7 @@ const check_hour_all_destiny = () => {
 const justNumbers = (e,desde) => {
 	let keynum = window.event ? window.event.keyCode : e.which;
 
-	if (desde == "Rutas" || desde == "Administrador" || desde == "Conductores" || desde == "Evaluadores" || desde == "Vehiculo" || desde == "form_evaluacion" || desde == "Sintomas" || desde == "Signos" || desde == "Emocional" || desde == "Neurologico") {
+	if (desde == "Rutas" || desde == "Administrador" || desde == "Conductores" || desde == "Evaluadores" || desde == "Vehiculo" || desde == "form_evaluacion" || desde == "Sintomas" || desde == "Signos" || desde == "Emocional") {
 		//Solo se permite el caracter de borrar , el 8 es el valor en la tabla Asscii
 		if ((keynum == 8))
 			return true;

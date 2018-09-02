@@ -447,9 +447,10 @@
 								<hr>
 							</div><br>
 
+							<!-- Campo Tiempo de Sueño Efectivo -->
 							<div class='col-md-12'>
-								<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_sueño" data-toggle="tooltip" data-placement="left" title="Tiempo de sueño consiste en las horas que a dormido en la casa"><span class="fa fa-info"></span></button>
 								<center>
+									<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_sueño" data-toggle="tooltip" data-placement="left" title="Tiempo de sueño consiste en las horas que a dormido en la casa"><span class="fa fa-info"></span></button>
 									<input type="hidden" name="desde" value="form_evaluacion">
 									<input type="hidden" name="path_from" value="evaluacion.php">
 									<input type="hidden" name="id_input_hour_sueno" value="solo_hora_sueno_c">
@@ -482,9 +483,10 @@
 								<hr>
 							</div><br><br>
 
+							<!-- Tiempo de Descanso Extralaboral -->
 							<div class='col-md-12'>
-								<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_descanso" data-toggle="tooltip" data-placement="left" title="Tiempo descanso es durante su jornada laboral Ejemplo = Alistamiento del vehiculo , almorzando ,comprando la tasa de uso "><span class="fa fa-info"></span></button>
 								<center>
+									<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_descanso" data-toggle="tooltip" data-placement="left" title="Tiempo descanso es durante su jornada laboral Ejemplo = Alistamiento del vehiculo , almorzando ,comprando la tasa de uso "><span class="fa fa-info"></span></button>
 									<input type="hidden" name="desde" value="form_evaluacion">
 									<input type="hidden" name="path_from" value="evaluacion.php">
 									<input type="hidden" name="id_input_hour_td" value="solo_hora_td">
@@ -608,38 +610,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<!--CONTENEDOR MENU ALTERACIONES NEUROLOGICAS-->
-			<div class='panel panel-warning text-center'>
-				<div class='panel-heading' role='tab' id='headingThree'>
-					<h4 class='panel-title'>
-						<a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse6' aria-expanded='false' aria-controls='collapseThree'>
-							<span class="fa fa-diamond"> Alteraciones Neurologicas</span>
-						</a>
-					</h4>
-				</div>
-
-				<div id='collapse6' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'>
-					<div class='panel-body text-center style_check_neurologico'>
-						<button type="button" class="btn btn-md btn-primary" id="ayuda_a_neurologico" data-toggle="tooltip" data-placement="right" title="Es el estado neurologico en el que se encuentra el conductor"><span class="fa fa-info"></span></button>
-						<h4>Seleccion Multiple</h4>
-						<h4>En este menu se completa con las alteraciones que no presenta</h4>
-						<h4><span class="label label-warning">Ejemplo : No esta atento , No esta cordinado , No tiene reflejos</span></h4>
-						<hr>
-						<?php
-							include "library/checkbox dinamicos/checkbox_neurologico.php";
-						?>
-						<hr>
-						<input type='checkbox' id="otra_a_neurologica" value="otra_a_neurologica" onclick="show_others_options('otra_a_neurologica','contenedor_alteraciones_neurologicas');">
-						<label for="otra_a_neurologica">Otra Alteracion Neurologica</label>
-
-						<div id="contenedor_alteraciones_neurologicas" class="hide_container">
-							<textarea  name="otra_alteracion_neurologica" class="borde_textarea" id="otra_alteracion_neurologica" placeholder="Colocar cuales Alteraciones Neurologicas" cols="90" rows="5" onkeypress='return onlyWords(event)' onchange="style_border_input('otra_alteracion_neurologica','verde')"></textarea>
-						</div>
-					</div>
-				</div>
-			</div><br>
+			</div><br><br>
 
 			<div class='text-center'>
 				<button class='btn btn-success' type='submit' id="enviar_evaluacion" name="enviar_evaluacion"><span class="glyphicon glyphicon-ok"></span> </button>

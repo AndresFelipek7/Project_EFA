@@ -329,17 +329,6 @@
 
 													<div class='row'>
 														<div class='col-md-12'>
-															<h3>Menú Alteraciones Neurologicas</h3><br>
-															"?>
-																<?php
-																	include "library/convertir/convertir_ids_neurologico.php";
-																?>
-															<?php echo "
-														</div>
-													</div>
-
-													<div class='row'>
-														<div class='col-md-12'>
 															<hr>
 														</div>
 													</div>
@@ -660,17 +649,6 @@
 													<div class='row'>
 														<div class='col-md-12'>
 															<hr>
-														</div>
-													</div>
-
-													<div class='row'>
-														<div class='col-md-12'>
-															<h3>Menú Alteraciones Neurologicas</h3><br>
-															"?>
-																<?php
-																	include "library/convertir/convertir_ids_neurologico.php";
-																?>
-															<?php echo "
 														</div>
 													</div>
 

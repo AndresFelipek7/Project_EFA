@@ -48,7 +48,7 @@
 			<p><span class="glyphicon glyphicon-flash"></span> Exportar Todas los Vehiculos Ingresadas en PDF</p>
 			<p><span class="glyphicon glyphicon-flash"></span> Exportar la informacion de una sola Vehiculo</p>
 			<p><span class="glyphicon glyphicon-flash"></span> Buscar Vehiculos por diferentes parametros</p><br><hr>
-			
+
 			<p><span class="glyphicon glyphicon-ok"></span> Crear nuevas Tipo Documento al sistema</p>
 			<p><span class="glyphicon glyphicon-ok"></span> Editar la Informacion de los tipo Documento Existentes</p>
 			<p><span class="glyphicon glyphicon-ok"></span> Exportar Todas los Tipo documento Ingresadas en PDF</p>
@@ -78,12 +78,6 @@
 			<p><span class="glyphicon glyphicon-cloud"></span> Exportar Todas las Alteraciones emocionales Ingresadas en PDF</p>
 			<p><span class="glyphicon glyphicon-cloud"></span> Exportar la informacion de una sola Alteracion Emocional</p>
 			<p><span class="glyphicon glyphicon-knight"></span> Buscar Alteraciones Emocionales por diferentes parametros</p><br><hr>
-
-			<p><span class="glyphicon glyphicon-road"></span> Crear nuevas ALteraciones Neurologicas al sistema</p>
-			<p><span class="glyphicon glyphicon-road"></span> Editar la Informacion de las Alteraciones Neurologicas Existentes</p>
-			<p><span class="glyphicon glyphicon-road"></span> Exportar Todas Las lateraciones Neurologicas Ingresadas en PDF</p>
-			<p><span class="glyphicon glyphicon-road"></span> Exportar la informacion de una sola alteracion neurologica</p>
-			<p><span class="glyphicon glyphicon-knight"></span> Buscar Alteraciones Neurologias por diferentes parametros</p><br><hr>
 
 			<p><span class="glyphicon glyphicon-flag"></span> Asociar nuevas Sugerenias al sistema</p>
 			<p><span class="glyphicon glyphicon-flag"></span> Editar las Sugerencias ingresadas al sistema</p>

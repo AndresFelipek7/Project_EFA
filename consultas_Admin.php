@@ -104,12 +104,6 @@
 		$total_a_emocional_sugerencia = $registro['total_a_emocional'];
 	}
 
-	//Cantidad de Alteraciones Neurologica para el menu sugerencias
-	$total_registro = mysqli_query($conexion,"SELECT COUNT(id_sugerencia) AS total_a_neurologico FROM reporte_a_neurologico_sugerencia");
-	while ($registro = mysqli_fetch_array($total_registro)) {
-		$total_a_neurologico_sugerencia = $registro['total_a_neurologico'];
-	}
-
 	//Cantidad de sintomas para su respectivo menu en el rol admin
 	$total_registro = mysqli_query($conexion,"SELECT COUNT(id_sintoma) AS total_sintomas FROM sintomas");
 	while ($registro = mysqli_fetch_array($total_registro)) {
@@ -126,12 +120,6 @@
 	$total_registro = mysqli_query($conexion,"SELECT COUNT(id_a_emocional) AS total_a_emocional FROM alteraciones_emocionales");
 	while ($registro = mysqli_fetch_array($total_registro)) {
 		$total_a_emocional = $registro['total_a_emocional'];
-	}
-
-	//Cantidad de Alteraciones Neurologica para su respectivo menu en el rol admin
-	$total_registro = mysqli_query($conexion,"SELECT COUNT(id_a_neurologico) AS total_a_neurologico FROM alteraciones_neurologicas");
-	while ($registro = mysqli_fetch_array($total_registro)) {
-		$total_a_neurologico = $registro['total_a_neurologico'];
 	}
 
 	//Cantidad de evaluaciones por dia
