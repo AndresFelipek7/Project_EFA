@@ -320,7 +320,6 @@
 										</div>
 									</div>
 								</center>
-								<div id="content_all_time_both_sleep" class="hide_container"></div>
 								<hr>
 							</div>
 
@@ -358,7 +357,6 @@
 										</div>
 									</div>
 								</center>
-								<div id="content_all_time_both_sleep" class="hide_container"></div>
 								<hr>
 							</div>
 
@@ -396,21 +394,8 @@
 										</div>
 									</div>
 								</center>
-								<div id="content_all_time_both_sleep" class="hide_container"></div>
 								<hr>
 							</div>
-
-							<!-- <div class=' col-md-4'>
-								<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_conduciendo" data-toggle="tooltip" data-placement="top" title="Horas conduciendo significa las horas que lleva detras del volante"><span class="fa fa-info"></span></button>
-								<label class="input_obligatory">*</label> <label>Conduciendo </label>
-								<select name='conduciendo' class="l_tiempo" id="hora_conduciendo" onchange="check_hour_all_destiny();" required>
-									<?php
-										for ($i=1; $i < 22; $i++) {
-											echo "<option value='$i'> $i </option>";
-										}
-									?>
-								</select>
-							</div><br><br> -->
 
 							<div class=' col-md-12'>
 								<div class="contenedor_otra_actividad">
@@ -419,17 +404,38 @@
 								</div><br>
 
 								<div id="contenedor_o_actividad" class="hide_container">
-									<div class=' col-md-12'>
-										<label>Cuantas Horas </label><br>
-										<select name="otra_actividad" class="l_tiempo" id="otra_actividad" onclick="check_hour_all_destiny()">
-											<?php
-											for ($i=0; $i < 13; $i++) {
-												echo "<option value='$i'> $i </option>";
-											}
-										?>
-										</select><br><br>
-									</div>
+									<center>
+										<input type="hidden" name="desde" value="form_evaluacion">
+										<input type="hidden" name="path_from" value="evaluacion.php">
+										<input type="hidden" name="id_input_hour_o" value="solo_hora_o">
+										<input type="hidden" name="id_input_minutos_o" value="solo_minutos_o">
+										<input type="hidden" name="id_input_hour_both_o" value="hora_o">
+										<input type="hidden" name="id_input_minutos_both_o" value="minutos_0">
 
+										<label>Tiempo en otra Actividad </label><br>
+										<select name='otra_actividad' id="otra_actividad" onchange="show_container_checked('otra_actividad','container_only_hour_o','container_only_minutes_o','container_both_times_o')">
+											<option value="hora">Solo hora</option>
+											<option value="minutos">Solo Minutos</option>
+											<option value="ambos">Hora y minutos</option>
+										</select><br><br>
+
+										<div id="container_only_hour_o">
+											<input type="number" class="form-control" name="solo_hora_o" id="solo_hora_o" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_o.value,this.form.path_from.value,this.form.id_input_hour_o.value)">
+										</div>
+										<div id="container_only_minutes_o" class="hide_container">
+											<input type='number' class='form-control' id="solo_minutos_o" name='solo_minutos_o' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_o.value,this.form.path_from.value,this.form.id_input_minutos_o.value)">
+										</div>
+										<div id="container_both_times_o" class="row hide_container">
+											<div class="col-md-6">
+												<input type="number" class="form-control" id="hora_o" name="hora_o" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.hora_o.value,this.form.path_from.value,this.form.id_input_hour_both_o.value)">
+											</div>
+											<div class="col-md-6">
+												<input type='number' class='form-control' id="minutos_0" name='minutos_0' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.minutos_0.value,this.form.path_from.value,this.form.id_input_minutos_both_o.value)">
+											</div>
+										</div>
+									</center>
+
+									<br><br>
 									<div class=' col-md-12'>
 										<label>Cuales Actividades?</label><br>
 										<textarea name="cual_actividad" cols="90" rows="5" class="borde_textarea" id="other_activity" placeholder="Ingresar cuales fueron las otras Actividades" onkeypress='return onlyWords(event)' onchange="style_border_input('other_activity','verde')"></textarea>
