@@ -479,13 +479,42 @@
 										</div>
 									</div>
 								</center>
-							</div><br>
+								<hr>
+							</div><br><br>
 
-							<!-- <div class='col-md-6'>
+							<div class='col-md-12'>
 								<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_descanso" data-toggle="tooltip" data-placement="left" title="Tiempo descanso es durante su jornada laboral Ejemplo = Alistamiento del vehiculo , almorzando ,comprando la tasa de uso "><span class="fa fa-info"></span></button>
-								<label class="input_obligatory">*</label> <label>Tiempo de Descanso Extralaboral </label>
-								<input type='text' name='tiempo_descanso'  class="form-control" id='tiempo_descanso' placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('tiempo_descanso','verde')" required><br>
-							</div><br> -->
+								<center>
+									<input type="hidden" name="desde" value="form_evaluacion">
+									<input type="hidden" name="path_from" value="evaluacion.php">
+									<input type="hidden" name="id_input_hour_td" value="solo_hora_td">
+									<input type="hidden" name="id_input_minutos_td" value="solo_minutos_td">
+									<input type="hidden" name="id_input_hour_both_td" value="hora_td">
+									<input type="hidden" name="id_input_minutos_both_td" value="minutos_td">
+
+									<label class="input_obligatory">*</label> <label>Tiempo de Descanso Extralaboral </label><br>
+									<select name='tiempo_descanso' id="tiempo_descanso" onchange="show_container_checked('tiempo_descanso','container_only_hour_td','container_only_minutes_td','container_both_times_td')">
+										<option value="hora">Solo hora</option>
+										<option value="minutos">Solo Minutos</option>
+										<option value="ambos">Hora y minutos</option>
+									</select><br><br>
+
+									<div id="container_only_hour_td">
+										<input type="number" class="form-control" name="solo_hora_td" id="solo_hora_td" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_td.value,this.form.path_from.value,this.form.id_input_hour_td.value)">
+									</div>
+									<div id="container_only_minutes_td" class="hide_container">
+										<input type='number' class='form-control' id="solo_minutos_td" name='solo_minutos_td' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_td.value,this.form.path_from.value,this.form.id_input_minutos_td.value)">
+									</div>
+									<div id="container_both_times_td" class="row hide_container">
+										<div class="col-md-6">
+											<input type="number" class="form-control" id="hora_td" name="hora_td" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.hora_td.value,this.form.path_from.value,this.form.id_input_hour_both_td.value)">
+										</div>
+										<div class="col-md-6">
+											<input type='number' class='form-control' id="minutos_td" name='minutos_td' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.minutos_td.value,this.form.path_from.value,this.form.id_input_minutos_both_td.value)">
+										</div>
+									</div>
+								</center>
+							</div><br>
 
 							<div class='col-md-12'>
 								<hr>
