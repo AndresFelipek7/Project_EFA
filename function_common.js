@@ -1541,11 +1541,6 @@ const show_container_checked = (idInput,idHour,idMinutes,idBothTime) => {
 		break;
 		case "minutos":
 			document.getElementById(idMinutes).style.display = "block";
-			if(idInput == "sueño_profundo") {
-				$("#solo_minutos").attr('required','required');
-			}else {
-				$("#solo_minutos_ligero").attr('required','required');
-			}
 			document.getElementById(idHour).style.display = "none";
 			document.getElementById(idBothTime).style.display = "none";
 		break;

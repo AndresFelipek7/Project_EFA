@@ -286,19 +286,43 @@
 								<hr>
 							</div><br>
 
-							<div class=' col-md-4'>
-								<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_descanso" data-toggle="tooltip" data-placement="top" title="Descanso inactivo consiste en las horas despues de conducir o de su jornada laboral"><span class="fa fa-info"></span></button>
-								<label class="input_obligatory">*</label> <label>Descanso | Inactivo </label>
-								<select name='descanso' id="hora_descanso" class="l_tiempo" required>
-									<?php
-										for ($i=1; $i < 13; $i++) {
-											echo "<option value='$i'> $i </option>";
-										}
-									?>
-								</select>
+							<div class="col-md-12">
+								<center>
+									<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_descanso" data-toggle="tooltip" data-placement="top" title="Descanso inactivo consiste en las horas despues de conducir o de su jornada laboral"><span class="fa fa-info"></span></button>
+									<input type="hidden" name="desde" value="form_evaluacion">
+									<input type="hidden" name="path_from" value="evaluacion.php">
+									<input type="hidden" name="id_input_hour" value="solo_hora_alistamiento">
+									<input type="hidden" name="id_input_minutes" value="solo_minutos_alistamiento">
+									<input type="hidden" name="id_input_hour_both" value="hora_alistamiento">
+									<input type="hidden" name="id_input_minutes_both" value="minutos_alistamiento">
+
+									<label>Tiempo de Alistamiento </label><br>
+									<select id="descanso_inactivo" name="descanso_inactivo" onchange="show_container_checked('descanso_inactivo','container_only_hour','container_only_minutes','container_both_times')">
+										<option value="hora">Solo hora</option>
+										<option value="minutos">Solo Minutos</option>
+										<option value="ambos">Hora y minutos</option>
+									</select><br><br>
+
+									<div id="container_only_hour">
+										<input type="number" class="form-control" name="solo_hora_alistamiento" id="solo_hora_alistamiento" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_alistamiento.value,this.form.path_from.value,this.form.id_input_hour.value)">
+									</div>
+									<div id="container_only_minutes" class="hide_container">
+										<input type='number' class='form-control' id="solo_minutos_alistamiento" name='solo_minutos_alistamiento' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_alistamiento.value,this.form.path_from.value,this.form.id_input_minutes.value)">
+									</div>
+									<div id="container_both_times" class="row hide_container">
+										<div class="col-md-6">
+											<input type="number" class="form-control" id="hora_alistamiento" name="hora_alistamiento" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.hora_alistamiento.value,this.form.path_from.value,this.form.id_input_hour_both.value)">
+										</div>
+										<div class="col-md-6">
+											<input type='number' class='form-control' id="minutos_alistamiento" name='minutos_alistamiento' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.minutos_alistamiento.value,this.form.path_from.value,this.form.id_input_minutes_both.value)">
+										</div>
+									</div>
+								</center>
+								<div id="content_all_time_both_sleep" class="hide_container"></div>
+								<hr>
 							</div>
 
-							<div class=' col-md-4'>
+							<!-- <div class=' col-md-4'>
 								<div id="camarote" class="hide_container">
 									<button type="button" id="ayuda_camarote" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_camarote" data-toggle="tooltip" data-placement="top" title="Camarote son las horas que descansa cuando el destino supera las 8 horas de recorrido"><span class="fa fa-info"></span></button>
 									<label class="input_obligatory">*</label> <label>Camarote </label>
@@ -311,7 +335,7 @@
 									</select>
 								</div>
 							</div>
-
+ -->
 							<div class=' col-md-4'>
 								<button type="button" class="btn btn-xs btn-primary" id="ayuda_interrogatorio_conduciendo" data-toggle="tooltip" data-placement="top" title="Horas conduciendo significa las horas que lleva detras del volante"><span class="fa fa-info"></span></button>
 								<label class="input_obligatory">*</label> <label>Conduciendo </label>
