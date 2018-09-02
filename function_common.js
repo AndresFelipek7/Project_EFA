@@ -1531,11 +1531,6 @@ const show_container_checked = (idInput,idHour,idMinutes,idBothTime) => {
 	switch(option_checked){
 		case "hora":
 			document.getElementById(idHour).style.display = "block";
-			if(idInput == "sueño_profundo") {
-				$("#solo_minutos_sueno").attr('required','required');
-			}else {
-				$("#solo_hora_sueno_ligero").attr('required','required');
-			}
 			document.getElementById(idMinutes).style.display = "none";
 			document.getElementById(idBothTime).style.display = "none";
 		break;
@@ -1546,13 +1541,6 @@ const show_container_checked = (idInput,idHour,idMinutes,idBothTime) => {
 		break;
 		case "ambos":
 			document.getElementById(idBothTime).style.display = "block";
-			if(idInput == "sueño_profundo") {
-				$("#solo_hora_sueno_both").attr('required','required');
-				$("#solo_minutos_both").attr('required','required');
-			}else {
-				$("#solo_hora_sueno_both_ligero").attr('required','required');
-				$("#solo_minutos_both_ligero").attr('required','required');
-			}
 			document.getElementById(idHour).style.display = "none";
 			document.getElementById(idMinutes).style.display = "none";
 		break;
