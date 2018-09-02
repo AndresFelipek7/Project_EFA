@@ -410,7 +410,7 @@
 										<input type="hidden" name="id_input_hour_o" value="solo_hora_o">
 										<input type="hidden" name="id_input_minutos_o" value="solo_minutos_o">
 										<input type="hidden" name="id_input_hour_both_o" value="hora_o">
-										<input type="hidden" name="id_input_minutos_both_o" value="minutos_0">
+										<input type="hidden" name="id_input_minutos_both_o" value="minutos_o">
 
 										<label>Tiempo en otra Actividad </label><br>
 										<select name='otra_actividad' id="otra_actividad" onchange="show_container_checked('otra_actividad','container_only_hour_o','container_only_minutes_o','container_both_times_o')">
@@ -430,7 +430,7 @@
 												<input type="number" class="form-control" id="hora_o" name="hora_o" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.hora_o.value,this.form.path_from.value,this.form.id_input_hour_both_o.value)">
 											</div>
 											<div class="col-md-6">
-												<input type='number' class='form-control' id="minutos_0" name='minutos_0' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.minutos_0.value,this.form.path_from.value,this.form.id_input_minutos_both_o.value)">
+												<input type='number' class='form-control' id="minutos_o" name='minutos_o' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.minutos_o.value,this.form.path_from.value,this.form.id_input_minutos_both_o.value)">
 											</div>
 										</div>
 									</center>
@@ -447,17 +447,45 @@
 								<hr>
 							</div><br>
 
-							<div class='col-md-6'>
+							<div class='col-md-12'>
 								<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_sueño" data-toggle="tooltip" data-placement="left" title="Tiempo de sueño consiste en las horas que a dormido en la casa"><span class="fa fa-info"></span></button>
-								<label class="input_obligatory">*</label> <label>Tiempo de Sueño Efectivo </label>
-								<input type='text' name='sueño_efectivo_previo' class="form-control" id="sueño_efectivo_previo" placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('sueño_efectivo_previo','verde')" required><br>
+								<center>
+									<input type="hidden" name="desde" value="form_evaluacion">
+									<input type="hidden" name="path_from" value="evaluacion.php">
+									<input type="hidden" name="id_input_hour_sueno" value="solo_hora_sueno_c">
+									<input type="hidden" name="is_input_minutos_sueno" value="solo_minutos_sueno_c">
+									<input type="hidden" name="id_input_hour_both_sueno" value="hora_sueno_c">
+									<input type="hidden" name="id_input_minutos_sueno" value="minutos_sueno_c">
+
+									<label class="input_obligatory">*</label> <label>Tiempo de Sueño Efectivo </label><br>
+									<select name='sueno_efectivo' id="sueno_efectivo" onchange="show_container_checked('sueno_efectivo','container_only_hour_sueno','container_only_minutes_sueno','container_both_times_sueno')">
+										<option value="hora">Solo hora</option>
+										<option value="minutos">Solo Minutos</option>
+										<option value="ambos">Hora y minutos</option>
+									</select><br><br>
+
+									<div id="container_only_hour_sueno">
+										<input type="number" class="form-control" name="solo_hora_sueno_c" id="solo_hora_sueno_c" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.solo_hora_sueno_c.value,this.form.path_from.value,this.form.id_input_hour_sueno.value)">
+									</div>
+									<div id="container_only_minutes_sueno" class="hide_container">
+										<input type='number' class='form-control' id="solo_minutos_sueno_c" name='solo_minutos_sueno_c' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.solo_minutos_sueno_c.value,this.form.path_from.value,this.form.is_input_minutos_sueno.value)">
+									</div>
+									<div id="container_both_times_sueno" class="row hide_container">
+										<div class="col-md-6">
+											<input type="number" class="form-control" id="hora_sueno_c" name="hora_sueno_c" placeholder="Ingreso Hora" onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_hour_more_12(this.form.hora_sueno_c.value,this.form.path_from.value,this.form.id_input_hour_both_sueno.value)">
+										</div>
+										<div class="col-md-6">
+											<input type='number' class='form-control' id="minutos_sueno_c" name='minutos_sueno_c' placeholder='Colocar Minutos' onkeypress="return justNumbers(event,this.form.desde.value);" onchange="stop_value_minutes_more_60(this.form.minutos_sueno_c.value,this.form.path_from.value,this.form.id_input_minutos_sueno.value)">
+										</div>
+									</div>
+								</center>
 							</div><br>
 
-							<div class='col-md-6'>
+							<!-- <div class='col-md-6'>
 								<button type="button" class="btn btn-xs btn-primary" id="ayuda_tiempo_descanso" data-toggle="tooltip" data-placement="left" title="Tiempo descanso es durante su jornada laboral Ejemplo = Alistamiento del vehiculo , almorzando ,comprando la tasa de uso "><span class="fa fa-info"></span></button>
-								<label class="input_obligatory">*</label> <label>Tiempo de Descanso </label>
+								<label class="input_obligatory">*</label> <label>Tiempo de Descanso Extralaboral </label>
 								<input type='text' name='tiempo_descanso'  class="form-control" id='tiempo_descanso' placeholder="Ingresar Hora" onkeypress="return justNumbers(event);" onchange="check_hour_break(); style_border_input('tiempo_descanso','verde')" required><br>
-							</div><br>
+							</div><br> -->
 
 							<div class='col-md-12'>
 								<hr>
