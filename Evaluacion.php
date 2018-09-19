@@ -299,7 +299,7 @@
 
 									<label class="input_obligatory">*</label>
 									<label>Tiempo de Alistamiento </label><br>
-									<select id="descanso_inactivo" name="descanso_inactivo" onchange="show_container_checked('descanso_inactivo','container_only_hour','container_only_minutes','container_both_times')">
+									<select id="t_alistamiento" name="t_alistamiento" onchange="show_container_checked('t_alistamiento','container_only_hour','container_only_minutes','container_both_times')">
 										<option value="hora">Solo hora</option>
 										<option value="minutos">Solo Minutos</option>
 										<option value="ambos">Hora y minutos</option>

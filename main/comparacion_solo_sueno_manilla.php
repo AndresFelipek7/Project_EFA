@@ -1,7 +1,8 @@
 <?php
 	$select_sueño = $_POST["solo_sueño_manilla"];
+	include "union_tiempo_alistamiento.php";
 	//Sacamos los minutos de la informacion que dijo el conductor que durmio en tiempo sueño
-	$tiempo_sueño_conductor = getMinutes($traer_Valores_interrogatorio[5]);
+	/*$tiempo_sueño_conductor = getMinutes($traer_Valores_interrogatorio[5]);
 
 	switch($select_sueño) {
 		case 'hora':
@@ -55,5 +56,5 @@
 	}else {
 		message_compare_sleep_fit("success","El conductor dijo las horas de sueño correctamente.");
 		$valor_verdad_tiempo_descanso_conductor = "Verdad";
-	}
+	}*/
 ?>

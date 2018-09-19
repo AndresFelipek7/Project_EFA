@@ -7,7 +7,7 @@
 	$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);
 */
 
-	$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
+	/*$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
 		id_usuario ,
 		id_conductor ,
 		id_ruta ,
@@ -77,5 +77,5 @@
 		'0'
 	)";
 
-	$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);
+	$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);*/
 ?>
