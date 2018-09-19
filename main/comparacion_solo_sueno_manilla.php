@@ -1,6 +1,7 @@
 <?php
 	$select_sueño = $_POST["solo_sueño_manilla"];
-	include "union_tiempo_alistamiento.php";
+	$valor_tiempo_alistamiento = get_info_selects($_POST["t_alistamiento"], $_POST["solo_hora_alistamiento"], $_POST["solo_minutos_alistamiento"], $_POST["hora_alistamiento"], $_POST["minutos_alistamiento"]);
+	echo "El valor del tiempo alistamiento es = $valor_tiempo_alistamiento";
 	//Sacamos los minutos de la informacion que dijo el conductor que durmio en tiempo sueño
 	/*$tiempo_sueño_conductor = getMinutes($traer_Valores_interrogatorio[5]);
 

@@ -405,4 +405,34 @@
 				<strong>Aviso!</strong><br>$content
 			</div>";
 	}
+
+	function get_info_selects($name_select,$get_only_hour,$get_only_minutes,$get_hour,$get_minutes){
+
+		switch($name_select) {
+			case 'hora':
+				return $total_time = getMinutes($get_only_hour);
+			break;
+			case 'minutos':
+				if ($get_only_minutes >= 50 && $get_only_minutes < 60) {
+					$add_minutes_missing = 60 - $get_only_minutes;
+					return $total_time = $get_only_minutes + $add_minutes_missing;
+				}else {
+					return $total_time = $get_only_minutes;
+				}
+			break;
+			case 'ambos':
+				if ($get_minutes >= 50) {
+					$all_hour_approximate_minutes = $get_hour + 1;
+					return $total_time = getMinutes($all_hour_approximate_minutes);
+				}else {
+					$valor_minutos_Manilla = getMinutes($get_hour);
+					return $total_time = $valor_minutos_Manilla + $get_minutes;
+				}
+			break;
+			default:
+				echo "<script>
+					alert_dinamic_outside_place('evaluacion.php');
+				</script>";
+		}
+	}
 ?>
