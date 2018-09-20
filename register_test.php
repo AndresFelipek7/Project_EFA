@@ -75,7 +75,7 @@
 		'$valor_otro_estado_signo' ,
 		'$s_hromigueo' ,
 		'0'
-	)";
+	)";*/
 
-	$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);*/
+	//$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);
 ?>

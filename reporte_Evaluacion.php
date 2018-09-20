@@ -48,8 +48,8 @@
 			$valor_tiempo_o_actividad = get_info_selects($_POST["otra_actividad"], $_POST["solo_hora_o"], $_POST["solo_minutos_o"], $_POST["hora_o"], $_POST["minutos_o"]);
 			echo "El valor del tiempo en otra actividad es = $valor_tiempo_o_actividad <br>";
 
-			$valor_tiempo_sueño_efectivo = get_info_selects($_POST["sueno_efectivo"], $_POST["solo_hora_sueno_c"], $_POST["solo_minutos_sueno_c"], $_POST["hora_sueno_c"], $_POST["minutos_sueno_c"]);
-			echo "El valor del tiempo sueño efectivo es = $valor_tiempo_sueño_efectivo <br>";
+			$tiempo_alistamiento = get_info_selects($_POST["t_alistamiento"], $_POST["solo_hora_alistamiento"], $_POST["solo_minutos_alistamiento"], $_POST["hora_alistamiento"], $_POST["minutos_alistamiento"]);
+			echo "El valor del tiempo alistamiento es = $tiempo_alistamiento";
 
 			$valor_tiempo_extralaboral = get_info_selects($_POST["tiempo_descanso"], $_POST["solo_hora_td"], $_POST["solo_minutos_td"], $_POST["hora_td"], $_POST["minutos_td"]);
 			echo "El valor del tiempo extralaboral es = $valor_tiempo_extralaboral <br>";
