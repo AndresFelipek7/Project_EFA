@@ -38,23 +38,6 @@
 				echo "</div>";
 			echo "</div>";
 
-			/*Zona de Selects modulo interrogatorio*/
-			$valor_tiempo_camarote = get_info_selects($_POST["tiempo_camarote"], $_POST["solo_hora_camarote"], $_POST["solo_minutos_camarote"], $_POST["hora_camarote"], $_POST["minutos_camarote"]);
-			echo "El valor del tiempo en camarote es = $valor_tiempo_camarote <br>";
-
-			$valor_tiempo_conduciendo = get_info_selects($_POST["conduciendo"], $_POST["solo_hora_conduciendo"], $_POST["solo_minutos_conduciendo"], $_POST["hora_conduciendo"], $_POST["minutos_conduciendo"]);
-			echo "El valor del tiempo conduciendo es = $valor_tiempo_conduciendo <br>";
-
-			$valor_tiempo_o_actividad = get_info_selects($_POST["otra_actividad"], $_POST["solo_hora_o"], $_POST["solo_minutos_o"], $_POST["hora_o"], $_POST["minutos_o"]);
-			echo "El valor del tiempo en otra actividad es = $valor_tiempo_o_actividad <br>";
-
-			$tiempo_alistamiento = get_info_selects($_POST["t_alistamiento"], $_POST["solo_hora_alistamiento"], $_POST["solo_minutos_alistamiento"], $_POST["hora_alistamiento"], $_POST["minutos_alistamiento"]);
-			echo "El valor del tiempo alistamiento es = $tiempo_alistamiento";
-
-			$valor_tiempo_extralaboral = get_info_selects($_POST["tiempo_descanso"], $_POST["solo_hora_td"], $_POST["solo_minutos_td"], $_POST["hora_td"], $_POST["minutos_td"]);
-			echo "El valor del tiempo extralaboral es = $valor_tiempo_extralaboral <br>";
-			/**/
-
 			//require_once "main/comparacion_sueno_ligero_manilla.php";
 
 			echo "<div class='container text-center'><hr>";

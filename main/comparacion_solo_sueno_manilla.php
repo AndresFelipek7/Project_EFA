@@ -1,14 +1,13 @@
 <?php
 	$select_sueño = $_POST["solo_sueño_manilla"];
 	//Sacamos los minutos de la informacion que dijo el conductor que durmio en tiempo sueño
-	$valor_tiempo_sueño_efectivo = get_info_selects($_POST["sueno_efectivo"], $_POST["solo_hora_sueno_c"], $_POST["solo_minutos_sueno_c"], $_POST["hora_sueno_c"], $_POST["minutos_sueno_c"]);
-	echo "El valor del tiempo sueño efectivo es = $valor_tiempo_sueño_efectivo <br>";
+	$tiempo_sueño_efectivo = get_info_selects($_POST["sueno_efectivo"], $_POST["solo_hora_sueno_c"], $_POST["solo_minutos_sueno_c"], $_POST["hora_sueno_c"], $_POST["minutos_sueno_c"]);
 
 	switch($select_sueño) {
 		case 'hora':
 			$solo_hora_sueño = $_POST["solo_hora_sueno"];
 			$total_minutos_sueño_manilla = getMinutes($solo_hora_sueño);
-			$diferencia_Entre_tiempo_Sueño = $valor_tiempo_sueño_efectivo - $total_minutos_sueño_manilla;
+			$diferencia_Entre_tiempo_Sueño = $tiempo_sueño_efectivo - $total_minutos_sueño_manilla;
 
 			($diferencia_Entre_tiempo_Sueño < 0) ? $cambiar_signo_si_es_negativo = change_negative_numeric($diferencia_Entre_tiempo_Sueño) : $diferencia_Entre_tiempo_Sueño;
 		break;
@@ -22,7 +21,7 @@
 				$total_minutos_sueño_manilla = $solo_minutos_sueño;
 			}
 
-			$diferencia_Entre_tiempo_Sueño = $valor_tiempo_sueño_efectivo - $total_minutos_sueño_manilla;
+			$diferencia_Entre_tiempo_Sueño = $tiempo_sueño_efectivo - $total_minutos_sueño_manilla;
 			($diferencia_Entre_tiempo_Sueño < 0) ? $cambiar_signo_si_es_negativo = change_negative_numeric($diferencia_Entre_tiempo_Sueño) : $diferencia_Entre_tiempo_Sueño;
 		break;
 		case 'ambos':
@@ -37,7 +36,7 @@
 				$total_minutos_sueño_manilla = $valor_minutos_Manilla + $solo_minutos_sueño_both;
 			}
 
-			$diferencia_Entre_tiempo_Sueño = $valor_tiempo_sueño_efectivo - $total_minutos_sueño_manilla;
+			$diferencia_Entre_tiempo_Sueño = $tiempo_sueño_efectivo - $total_minutos_sueño_manilla;
 			($diferencia_Entre_tiempo_Sueño < 0) ? $cambiar_signo_si_es_negativo = change_negative_numeric($diferencia_Entre_tiempo_Sueño) : $diferencia_Entre_tiempo_Sueño;
 		break;
 		default:

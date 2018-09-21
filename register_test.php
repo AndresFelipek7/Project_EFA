@@ -7,7 +7,27 @@
 	$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);
 */
 
-	/*$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
+	/*Notice: Undefined index: sueño_efectivo_previo in C:\wamp64\www\Project - EFA\variables.php on line 42
+
+	Notice: Undefined variable: tiempo_sueño_conductor in C:\wamp64\www\Project - EFA\register_test.php on line 63
+
+	Notice: Undefined index: tiempo_destino in C:\wamp64\www\Project - EFA\main\hallar_pilar.php on line 48
+
+	*/
+
+	/*$traer_Valores_interrogatorio = [
+		$tiempo_alistamiento ,
+		$tiempo_camarote ,
+		$tiempo_conduciendo ,
+		$tiempo_o_actividad ,
+		$_POST['cual_actividad'] ,
+		$tiempo_extralaboral ,
+		$_POST['ruta'] ,
+		$_POST['copiloto'] ,
+		$_POST['origen_copiloto'] ,
+		$_POST["pulsaciones"]];*/
+
+	$insercion_Evaluacion = "INSERT INTO evaluacion_fatiga (
 		id_usuario ,
 		id_conductor ,
 		id_ruta ,
@@ -45,7 +65,7 @@
 		VALUES (
 		'$id_Usuario' ,
 		'$identificacion_conductor' ,
-		'$traer_Valores_interrogatorio[7]' ,
+		'$traer_Valores_interrogatorio[6]' ,
 		'$sintomas_seleccionados' ,
 		'$traer_Valores_signos' ,
 		'$pilares_seleccionados' ,
@@ -60,13 +80,13 @@
 		'$traer_Valores_interrogatorio[2]' ,
 		'$traer_Valores_interrogatorio[3]' ,
 		'$traer_Valores_interrogatorio[4]' ,
-		'$tiempo_sueño_conductor' ,
-		'$traer_Valores_interrogatorio[6]' ,
+		'$tiempo_sueño_efectivo' ,
+		'$traer_Valores_interrogatorio[5]' ,
+		'$traer_Valores_interrogatorio[7]' ,
 		'$traer_Valores_interrogatorio[8]' ,
-		'$traer_Valores_interrogatorio[9]' ,
 		'$total_minutos_sueño_manilla' ,
 		'$valor_verdad_tiempo_descanso_conductor' ,
-		'$traer_Valores_interrogatorio[10]' ,
+		'$traer_Valores_interrogatorio[9]' ,
 		'$path_rename_fit_image' ,
 		'$a_emocionales_seleccionadas' ,
 		'$recomendacion_Descansar_conducir' ,
@@ -75,7 +95,7 @@
 		'$valor_otro_estado_signo' ,
 		'$s_hromigueo' ,
 		'0'
-	)";*/
+	)";
 
-	//$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);
+	$resultado_Insercion_evaluacion = $conexion -> query($insercion_Evaluacion);
 ?>

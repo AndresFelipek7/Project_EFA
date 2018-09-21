@@ -31,8 +31,15 @@
 
 	$saber_nivel_fatiga = "";
 
+	//Menu Interrogatorio selects tiempo (hora,minutos,ambos)
+	$tiempo_alistamiento = get_info_selects($_POST["t_alistamiento"], $_POST["solo_hora_alistamiento"], $_POST["solo_minutos_alistamiento"], $_POST["hora_alistamiento"], $_POST["minutos_alistamiento"]);
+	$tiempo_camarote = get_info_selects($_POST["tiempo_camarote"], $_POST["solo_hora_camarote"], $_POST["solo_minutos_camarote"], $_POST["hora_camarote"], $_POST["minutos_camarote"]);
+	$tiempo_conduciendo = get_info_selects($_POST["conduciendo"], $_POST["solo_hora_conduciendo"], $_POST["solo_minutos_conduciendo"], $_POST["hora_conduciendo"], $_POST["minutos_conduciendo"]);
+	$tiempo_o_actividad = get_info_selects($_POST["otra_actividad"], $_POST["solo_hora_o"], $_POST["solo_minutos_o"], $_POST["hora_o"], $_POST["minutos_o"]);
+	$tiempo_extralaboral = get_info_selects($_POST["tiempo_descanso"], $_POST["solo_hora_td"], $_POST["solo_minutos_td"], $_POST["hora_td"], $_POST["minutos_td"]);
+
 	//Vector del menu interrogatorio
-	$traer_Valores_interrogatorio = [ $_POST['descanso'] , $_POST['camarote'] , $_POST['conduciendo'] , $_POST['otra_actividad'] , $_POST['cual_actividad'] , $_POST['sueño_efectivo_previo'] , $_POST['tiempo_descanso'] , $_POST['ruta'] , $_POST['copiloto'] , $_POST['origen_copiloto'] , $_POST["pulsaciones"]];
+	$traer_Valores_interrogatorio = [ $tiempo_alistamiento , $tiempo_camarote , $tiempo_conduciendo , $tiempo_o_actividad , $_POST['cual_actividad'] , $tiempo_extralaboral , $_POST['ruta'] , $_POST['copiloto'] , $_POST['origen_copiloto'] , $_POST["pulsaciones"]];
 	$valor_Signo = $_POST['signos'];
 	$s_hromigueo = $_POST["hormigueo_opcion"];
 
